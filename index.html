@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-<meta http-equiv="Pragma" content="no-cache" />
-<meta http-equiv="Expires" content="0" />
 <title>农险业务机会地图</title>
+<link rel="dns-prefetch" href="https://geo.datav.aliyun.com" />
+<link rel="preconnect" href="https://geo.datav.aliyun.com" crossorigin />
 <script src="lib/echarts.min.js"></script>
 <script src="data/drill_meta.js"></script>
 <style>
@@ -235,6 +234,65 @@ const LVL_COLOR = {'高':'#2e86de','中':'#74b9ff','低':'#95a5a6','储备':'#3d
 const MUNI = {'北京市':'110000','天津市':'120000','上海市':'310000','重庆市':'500000'};
 let PROV = null, COUNTY = null, QUAL = {qualified:{},policy:{}}, curDir = 'weather', curUnit = null, curCounty = null, chart = null, filterMode = 'all';
 
+// ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
+const CACHE_VERSION = '2026-09-09-v1';   // 每次数据更新后请同步加 1，例如 v2/v3
+const CACHE_DB = 'nxmap-cache-v1';
+const CACHE_STORE = 'json';
+const CACHE_TTL = 1000 * 60 * 60 * 24 * 30; // 缓存 30 天
+
+function openCacheDB(){
+  return new Promise((resolve, reject)=>{
+    if(!('indexedDB' in window)) return reject(new Error('indexedDB not supported'));
+    const req = indexedDB.open(CACHE_DB, 1);
+    req.onupgradeneeded = e=>{ const db=e.target.result; if(!db.objectStoreNames.contains(CACHE_STORE)) db.createObjectStore(CACHE_STORE); };
+    req.onsuccess = e=> resolve(e.target.result);
+    req.onerror = e=> reject(e.target.error);
+  });
+}
+async function getCache(key){
+  try{
+    const db = await openCacheDB();
+    return await new Promise((resolve, reject)=>{
+      const tx = db.transaction(CACHE_STORE, 'readonly');
+      const store = tx.objectStore(CACHE_STORE);
+      const req = store.get(key);
+      req.onsuccess = ()=> resolve(req.result || null);
+      req.onerror = ()=> reject(req.error);
+    });
+  }catch(e){ return null; }
+}
+async function setCache(key, value){
+  try{
+    const db = await openCacheDB();
+    await new Promise((resolve, reject)=>{
+      const tx = db.transaction(CACHE_STORE, 'readwrite');
+      const store = tx.objectStore(CACHE_STORE);
+      const req = store.put(value, key);
+      req.onsuccess = ()=> resolve();
+      req.onerror = ()=> reject(req.error);
+    });
+  }catch(e){ console.warn('写入缓存失败', key, e); }
+}
+async function cachedFetch(url, key, opts={}){
+  const cacheKey = key || url;
+  const cached = await getCache(cacheKey);
+  if(cached && cached.v === CACHE_VERSION && (Date.now() - cached.t) < CACHE_TTL){
+    opts.onProgress && opts.onProgress('cache');
+    return cached.data;
+  }
+  // 没有命中缓存：走网络，并实时更新缓存
+  const r = await fetch(url, {cache: 'default'});
+  if(!r.ok) throw new Error('HTTP '+r.status);
+  const data = await r.json();
+  await setCache(cacheKey, {v: CACHE_VERSION, t: Date.now(), data});
+  return data;
+}
+function setMapLoading(text){
+  const el = document.getElementById('mapLoading');
+  if(el) el.textContent = text;
+}
+
+// ===== 登录 / 初始化 =====
 document.getElementById('loginBtn').onclick = ()=>{
   const v = document.getElementById('pw').value;
   if(v === PASSWORD){
@@ -248,16 +306,26 @@ document.getElementById('loginBtn').onclick = ()=>{
 document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('loginBtn').click();});
 
 async function init(){
-  const [p,c,q] = await Promise.all([
-    fetch('data/provinces.json').then(r=>r.json()),
-    fetch('data/counties.json').then(r=>r.json()),
-    fetch('data/qualification.json').then(r=>r.json())
-  ]);
-  PROV = p; COUNTY = c; QUAL = q || {qualified:{},policy:{}};
-  document.getElementById('covN').textContent = p.units.length;
-  buildCityChips();
-  // 先接线 UI 事件，确保即使地图失败，右侧面板 / 排行榜仍可用
-  wireEvents();
+  try{
+    setMapLoading('🗺 加载省份数据…');
+    const p = await cachedFetch('data/provinces.json', 'provinces');
+    PROV = p;
+    document.getElementById('covN').textContent = p.units.length;
+    buildCityChips();
+    wireEvents();
+  }catch(e){ console.error('省份数据加载失败:',e); setMapLoading('❌ 省份数据加载失败，请刷新重试'); return; }
+
+  // 县区数据 12MB：优先读缓存，后台同步；首次访问较慢
+  try{
+    setMapLoading('🗺 加载县区数据（约 12MB，首次访问较慢）…');
+    COUNTY = await cachedFetch('data/counties.json', 'counties');
+  }catch(e){ console.error('县区数据加载失败:',e); setMapLoading('❌ 县区数据加载失败，请刷新重试'); return; }
+
+  try{
+    QUAL = await cachedFetch('data/qualification.json', 'qualification') || {qualified:{},policy:{}};
+  }catch(e){ QUAL = {qualified:{},policy:{}}; }
+
+  setMapLoading('🗺 加载地图底图…');
   try{
     chart = echarts.init(document.getElementById('map'),'dark');
     const ok = await loadChinaMap();
