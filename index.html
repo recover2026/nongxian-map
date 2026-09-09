@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<title>农险业务机会地图</title>
+<script src="lib/echarts.min.js"></script>
+<script src="data/drill_meta.js"></script>
+<style>
+  :root{
+    --bg:#08111f; --bg2:#0d1b30; --panel:#10233f; --panel2:#0c1a30;
+    --border:#1e3a5f; --txt:#dbe7f5; --txt2:#8aa3c0; --accent:#2e7fff; --gold:#ffb84d;
+    --hi:#2e86de; --mid:#74b9ff; --lo:#95a5a6; --gray:#3a4d66;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:"Microsoft YaHei","PingFang SC",sans-serif;}
+  html,body{height:100%;background:var(--bg);color:var(--txt);overflow:hidden;}
+  /* 登录 */
+  #login{position:fixed;inset:0;background:radial-gradient(circle at 50% 30%,#0e2440,#050b15);
+    display:flex;align-items:center;justify-content:center;z-index:9999;}
+  #login .box{background:var(--panel);border:1px solid var(--border);border-radius:14px;
+    padding:38px 44px;width:360px;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.5);}
+  #login h1{font-size:20px;color:var(--gold);margin-bottom:6px;letter-spacing:1px;}
+  #login p{color:var(--txt2);font-size:12px;margin-bottom:22px;}
+  #login input{width:100%;padding:11px 14px;border-radius:8px;border:1px solid var(--border);
+    background:#0a1830;color:var(--txt);font-size:14px;margin-bottom:14px;outline:none;}
+  #login button{width:100%;padding:11px;border:none;border-radius:8px;background:var(--accent);
+    color:#fff;font-size:15px;cursor:pointer;transition:.2s;}
+  #login button:hover{background:#1c6bf0;}
+  #login .err{color:var(--lo);font-size:12px;height:16px;margin-bottom:8px;}
+  /* 布局 */
+  #app{display:none;flex-direction:column;height:100%;}
+  header{display:flex;align-items:center;gap:18px;padding:10px 20px;background:linear-gradient(90deg,#0c1d36,#0a1626);
+    border-bottom:1px solid var(--border);}
+  header .brand{display:flex;align-items:center;gap:12px;}
+  header .logo-img{height:42px;width:auto;display:block;}
+  header .logo{font-size:18px;font-weight:bold;color:var(--gold);white-space:nowrap;}
+  header .logo small{color:var(--txt2);font-weight:normal;font-size:11px;display:block;}
+  .tabs{display:flex;gap:8px;margin-left:10px;}
+  .tab{padding:7px 16px;border:1px solid var(--border);border-radius:20px;cursor:pointer;font-size:13px;
+    color:var(--txt2);background:#0c1a30;transition:.15s;white-space:nowrap;}
+  .tab:hover{color:var(--txt);border-color:var(--accent);}
+  .tab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .spacer{flex:1;}
+  .meta{font-size:12px;color:var(--txt2);white-space:nowrap;}
+  .meta b{color:var(--gold);}
+  .btn-refresh{padding:6px 14px;border:1px solid var(--border);border-radius:8px;background:#0c1a30;
+    color:var(--txt2);cursor:pointer;font-size:12px;}
+  .btn-refresh:hover{color:var(--txt);border-color:var(--accent);}
+  main{display:flex;flex:1;overflow:hidden;}
+  #mapWrap{flex:1.5;position:relative;background:var(--bg2);}
+  #map{width:100%;height:100%;}
+  #mapLoading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--txt2);font-size:14px;z-index:5;pointer-events:none;}
+  #mapError{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--lo);font-size:13px;text-align:center;padding:24px;z-index:6;background:rgba(8,17,31,.88);}
+  #mapError .sub{color:var(--txt2);font-size:12px;display:block;margin:4px 0 10px;}
+  .err-back{margin-top:8px;padding:7px 16px;border:1px solid var(--accent);border-radius:8px;background:rgba(10,22,40,.85);color:var(--accent);cursor:pointer;font-size:13px;}
+  .err-back:hover{background:var(--accent);color:#fff;}
+  #backBtn{position:absolute;left:16px;top:14px;display:none;padding:6px 14px;border:1px solid var(--accent);border-radius:8px;background:rgba(10,22,40,.85);color:var(--accent);cursor:pointer;font-size:12px;z-index:7;}
+  #backBtn:hover{background:var(--accent);color:#fff;}
+  #legend{position:absolute;left:16px;bottom:16px;background:rgba(10,22,40,.82);border:1px solid var(--border);
+    border-radius:10px;padding:10px 14px;font-size:12px;}
+  #legend .row{display:flex;align-items:center;gap:7px;margin:4px 0;}
+  #legend .dot{width:13px;height:13px;border-radius:3px;}
+  #cityBar{position:absolute;right:16px;top:14px;background:rgba(10,22,40,.82);border:1px solid var(--border);
+    border-radius:10px;padding:9px 12px;font-size:12px;max-width:230px;}
+  #cityBar .ttl{color:var(--gold);margin-bottom:6px;font-size:12px;}
+  #cityBar .chip{display:inline-block;padding:3px 9px;margin:3px;border:1px solid var(--border);border-radius:14px;
+    cursor:pointer;color:var(--txt2);background:#0c1a30;}
+  #cityBar .chip:hover{color:#fff;border-color:var(--accent);}
+  /* 详情面板 */
+  #panel{flex:1;min-width:430px;max-width:560px;background:var(--panel2);border-left:1px solid var(--border);
+    overflow-y:auto;padding:16px 18px;}
+  #panel::-webkit-scrollbar{width:8px;} #panel::-webkit-scrollbar-thumb{background:#1e3a5f;border-radius:4px;}
+  .sel-head{display:flex;align-items:baseline;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--border);margin-bottom:12px;}
+  .sel-head h2{font-size:20px;color:#fff;}
+  .sel-head .tier{font-size:12px;padding:3px 10px;border-radius:12px;background:var(--accent);color:#fff;}
+  .sel-head .grp{font-size:12px;color:var(--txt2);margin-left:auto;}
+  .sel-sug{background:#0e2138;border-left:3px solid var(--gold);padding:9px 12px;border-radius:6px;
+    font-size:13px;color:#ffe9c2;margin-bottom:14px;line-height:1.6;}
+  .dir-card{background:#0e2138;border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:13px;}
+  .dir-card .dh{display:flex;align-items:center;gap:9px;margin-bottom:11px;}
+  .dir-card .dh .nm{font-size:15px;font-weight:bold;color:#fff;}
+  .lvl{font-size:11px;padding:2px 9px;border-radius:10px;color:#08111f;font-weight:bold;}
+  .lvl.高{background:var(--hi);} .lvl.中{background:var(--mid);} .lvl.低{background:var(--lo);color:#fff;} .lvl.储备{background:#3d6fa5;color:#fff;}
+  .fld{display:grid;grid-template-columns:130px 1fr;gap:8px 14px;font-size:12.5px;line-height:1.6;margin:9px 0;}
+  .fld .k{color:var(--gold);font-weight:bold;line-height:1.55;}
+  .fld .v{color:var(--txt);line-height:1.65;}
+  .more{font-size:12px;color:var(--accent);cursor:pointer;margin-top:4px;display:inline-block;}
+  .more:hover{text-decoration:underline;}
+  .hidden{display:none;}
+  .src{font-size:11px;color:var(--txt2);border-top:1px dashed var(--border);margin-top:8px;padding-top:7px;line-height:1.5;}
+  .sec-title{font-size:13px;font-weight:bold;color:var(--gold);margin:14px 0 8px;padding-bottom:5px;border-bottom:1px solid var(--border);}
+  .sec{padding:4px 0;}
+  .var-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px;}
+  .var-table .var-head{display:grid;grid-template-columns:1fr 60px 1.6fr;background:#12294a;border-radius:6px 6px 0 0;padding:7px 10px;color:var(--gold);font-weight:bold;}
+  .var-table .var-row{display:grid;grid-template-columns:1fr 60px 1.6fr;border-bottom:1px solid var(--border);padding:7px 10px;align-items:start;gap:8px;}
+  .var-table .var-row:last-child{border-bottom:none;border-radius:0 0 6px 6px;}
+  .var-table .var-row:nth-child(odd){background:#0b1d33;}
+  .var-table .var-row:nth-child(even){background:#0e2138;}
+  .var-table .vn{color:#fff;font-weight:bold;}
+  .var-table .vlvl{font-size:10px;padding:1px 7px;border-radius:8px;justify-self:start;}
+  .var-table .vc{color:var(--txt);line-height:1.5;}
+  .counties{margin-top:6px;}
+  .counties .ttl{font-size:13px;color:var(--gold);margin:4px 0 8px;display:flex;align-items:center;gap:6px;}
+  .co-row{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#0e2138;border:1px solid var(--border);
+    border-radius:8px;margin-bottom:7px;cursor:pointer;transition:.15s;}
+  .co-row:hover{border-color:var(--accent);background:#12294a;}
+  .co-row .cn{font-size:13px;color:#fff;font-weight:bold;}
+  .co-row .cl{font-size:11px;padding:2px 8px;border-radius:9px;color:#08111f;font-weight:bold;}
+  .co-row .cp{font-size:11px;color:var(--txt2);margin-left:auto;}
+  .badge{font-size:10px;padding:2px 7px;border-radius:8px;background:var(--gold);color:#08111f;font-weight:bold;margin-left:6px;}
+  .empty{color:var(--txt2);font-size:13px;padding:30px 10px;text-align:center;line-height:1.7;}
+  .breadcrumb{font-size:12px;color:var(--txt2);margin-bottom:8px;}
+  .breadcrumb span{cursor:pointer;color:var(--accent);}
+  .breadcrumb span:hover{text-decoration:underline;}
+  .disclaimer{position:fixed;bottom:6px;left:50%;transform:translateX(-50%);font-size:10px;color:#5a7a9c;}
+  #foot{font-size:10px;color:#5a7a9c;text-align:center;padding:3px;background:#050b15;}
+  /* 按产业筛选 */
+  .filterChips{display:flex;gap:6px;align-items:center;}
+  .fchip{padding:5px 11px;border:1px solid var(--border);border-radius:14px;cursor:pointer;font-size:12px;
+    color:var(--txt2);background:#0c1a30;transition:.15s;white-space:nowrap;}
+  .fchip:hover{color:var(--txt);border-color:var(--accent);}
+  .fchip.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .btn-rank{padding:6px 14px;border:1px solid var(--gold);border-radius:8px;background:#0c1a30;
+    color:var(--gold);cursor:pointer;font-size:12px;white-space:nowrap;}
+  .btn-rank:hover{background:var(--gold);color:#08111f;}
+  /* 排行榜弹窗 */
+  #rankModal{position:fixed;inset:0;background:rgba(3,8,16,.82);z-index:9998;display:none;
+    align-items:center;justify-content:center;padding:30px;}
+  #rankModal .box{background:var(--panel);border:1px solid var(--border);border-radius:14px;
+    width:680px;max-width:94vw;max-height:86vh;display:flex;flex-direction:column;box-shadow:0 10px 40px rgba(0,0,0,.6);}
+  #rankModal .hd{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--border);}
+  #rankModal .hd h3{font-size:17px;color:var(--gold);}
+  #rankModal .hd .sub{font-size:12px;color:var(--txt2);}
+  #rankModal .hd .x{margin-left:auto;cursor:pointer;color:var(--txt2);font-size:20px;line-height:1;}
+  #rankModal .hd .x:hover{color:var(--lo);}
+  #rankModal .body{overflow-y:auto;padding:8px 16px 18px;}
+  #rankModal .body::-webkit-scrollbar{width:8px;} #rankModal .body::-webkit-scrollbar-thumb{background:#1e3a5f;border-radius:4px;}
+  .rsec{font-size:12px;color:var(--gold);margin:14px 4px 8px;font-weight:bold;letter-spacing:.5px;}
+  .rr{display:flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid var(--border);border-radius:8px;
+    margin-bottom:6px;cursor:pointer;background:#0e2138;transition:.15s;}
+  .rr:hover{border-color:var(--accent);background:#12294a;}
+  .rr .rk{width:30px;text-align:center;font-size:15px;font-weight:bold;color:var(--txt2);}
+  .rr .nm{font-size:14px;color:#fff;font-weight:bold;}
+  .rr .gp{font-size:11px;color:var(--txt2);margin-left:auto;}
+  .rr .tl{font-size:11px;padding:2px 8px;border-radius:9px;color:#08111f;font-weight:bold;}
+  .rr .tl.A{background:var(--hi);} .rr .tl.B{background:var(--mid);} .rr .tl.C{background:var(--lo);color:#fff;}
+  .rr .tl.co{background:var(--gold);}
+  .rr .dl{font-size:11px;padding:2px 8px;border-radius:9px;color:#08111f;font-weight:bold;}
+  .empty-r{color:var(--txt2);font-size:13px;text-align:center;padding:18px;}
+</style>
+</head>
+<body>
+<div id="login">
+  <div class="box">
+    <h1>农险业务机会地图</h1>
+    <p>农业保险三大重点业务方向</p>
+    <div class="err" id="loginErr"></div>
+    <input id="pw" type="password" placeholder="请输入访问口令" />
+    <button id="loginBtn">进入地图</button>
+  </div>
+</div>
+
+<div id="app">
+  <header>
+    <div class="brand">
+      <img class="logo-img" src="assets/logo.png" alt="阳光农险向日葵Logo" onerror="this.style.display='none'">
+      <div class="logo">农险业务机会地图<small>天气指数 / 水产养殖 / 信贷增信</small></div>
+    </div>
+    <div class="tabs" id="tabs">
+      <div class="tab active" data-dir="weather">天气指数保险</div>
+      <div class="tab" data-dir="aqua">水产养殖保险</div>
+      <div class="tab" data-dir="credit">信贷相关农险</div>
+    </div>
+    <div class="filterChips" id="filterChips">
+      <div class="fchip active" data-f="all">全部</div>
+      <div class="fchip" data-f="high">仅高机会</div>
+      <div class="fchip" data-f="A">仅A级</div>
+      <div class="fchip" data-f="county">有县区</div>
+    </div>
+    <div class="spacer"></div>
+    <div class="meta">数据基准：<b id="dataDate">2026-09-06</b> · 覆盖 <b id="covN">33</b> 业务单元</div>
+    <button class="btn-rank" id="rankBtn">🏆 机会排行榜</button>
+    <button class="btn-refresh" id="refreshBtn">↻ 刷新</button>
+  </header>
+  <main>
+    <div id="mapWrap">
+      <div id="map"></div>
+      <div id="mapLoading">🗺 地图底图加载中…</div>
+      <div id="mapError">⚠️ 地图底图加载失败<br/><span class="sub">请刷新页面重试；右侧详情面板与机会排行榜仍可使用。</span></div>
+      <div id="backBtn" onclick="goUp()">← 返回全国</div>
+      <div id="legend">
+        <div style="color:var(--gold);margin-bottom:5px;font-weight:bold;">机会等级（有资质县区）</div>
+        <div class="row"><span class="dot" style="background:var(--hi)"></span>高（重点推进）</div>
+        <div class="row"><span class="dot" style="background:var(--mid)"></span>中（培育跟进）</div>
+        <div class="row"><span class="dot" style="background:var(--lo)"></span>低（储备观察）</div>
+        <div class="row"><span class="dot" style="background:var(--gray)"></span>无资质 / 未覆盖</div>
+      </div>
+      <div id="cityBar">
+        <div class="ttl">单列市 / 地市（平行单元）</div>
+        <div id="cityChips"></div>
+      </div>
+    </div>
+    <div id="panel">
+      <div class="empty">← 点击左侧地图中的省份，或在右上方选择单列市 / 地市，<br/>查看该单元三大业务方向的详细机会研判。<br/><br/>下方"县区试点"可下钻到县（具备农险经营资质的县区均展示天气指数 / 水产养殖 / 信贷增信三类业务基线）。</div>
+    </div>
+  </main>
+  <div id="foot">非商用原型演示 · 业务机会研判基于公开联网检索（政府官网 / 监管派出机构 / 权威媒体 / 行业公告），标注「待核」处为公开信息不足；不得直接作为对外承保 / 理赔结论。</div>
+</div>
+
+<div id="rankModal">
+  <div class="box">
+    <div class="hd">
+      <h3>🏆 农险业务机会排行榜</h3>
+      <span class="sub" id="rankSub"></span>
+      <span class="x" id="rankClose">✕</span>
+    </div>
+    <div class="body" id="rankBody"></div>
+  </div>
+</div>
+
+<script>
+const PASSWORD = 'nongxian2026';
+const DIR_LABEL = {weather:'天气指数保险', aqua:'水产养殖保险', credit:'信贷相关农险（保单增信）'};
+const LVL_COLOR = {'高':'#2e86de','中':'#74b9ff','低':'#95a5a6','储备':'#3d6fa5'};
+const MUNI = {'北京市':'110000','天津市':'120000','上海市':'310000','重庆市':'500000'};
+let PROV = null, COUNTY = null, QUAL = {qualified:{},policy:{}}, curDir = 'weather', curUnit = null, curCounty = null, chart = null, filterMode = 'all';
+
+document.getElementById('loginBtn').onclick = ()=>{
+  const v = document.getElementById('pw').value;
+  if(v === PASSWORD){
+    document.getElementById('login').style.display='none';
+    document.getElementById('app').style.display='flex';
+    init();
+  } else {
+    document.getElementById('loginErr').textContent='口令错误，请重试';
+  }
+};
+document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('loginBtn').click();});
+
+async function init(){
+  const [p,c,q] = await Promise.all([
+    fetch('data/provinces.json').then(r=>r.json()),
+    fetch('data/counties.json').then(r=>r.json()),
+    fetch('data/qualification.json').then(r=>r.json())
+  ]);
+  PROV = p; COUNTY = c; QUAL = q || {qualified:{},policy:{}};
+  document.getElementById('covN').textContent = p.units.length;
+  buildCityChips();
+  // 先接线 UI 事件，确保即使地图失败，右侧面板 / 排行榜仍可用
+  wireEvents();
+  try{
+    chart = echarts.init(document.getElementById('map'),'dark');
+    const ok = await loadChinaMap();
+    if(ok){ hideMapLoading(); renderCurrent(); }
+    else { showMapError(); }
+  }catch(e){ console.error('地图初始化失败:',e); showMapError(); }
+  window.addEventListener('resize',()=>{ if(chart) chart.resize(); });
+}
+
+function wireEvents(){
+  // 业务方向切换
+  document.querySelectorAll('.tab').forEach(t=>{
+    t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+      t.classList.add('active'); curDir=t.dataset.dir; renderCurrent();
+      if(curCounty) selectCounty(curCounty.name); else if(curUnit) renderUnit(curUnit);
+      if(document.getElementById('rankModal').style.display==='flex') buildLeaderboard();};
+  });
+  document.getElementById('refreshBtn').onclick=()=>{ renderCurrent(); if(curCounty) selectCounty(curCounty.name); else if(curUnit) renderUnit(curUnit); };
+  // 按产业筛选
+  document.querySelectorAll('.fchip').forEach(f=>{
+    f.onclick=()=>{document.querySelectorAll('.fchip').forEach(x=>x.classList.remove('active'));
+      f.classList.add('active'); filterMode=f.dataset.f; renderCurrent();
+      if(curCounty) selectCounty(curCounty.name); else if(curUnit) renderUnit(curUnit);
+      if(document.getElementById('rankModal').style.display==='flex') buildLeaderboard();};
+  });
+  // 机会排行榜
+  document.getElementById('rankBtn').onclick=openRank;
+  document.getElementById('rankClose').onclick=closeRank;
+  document.getElementById('rankModal').addEventListener('click',e=>{if(e.target.id==='rankModal')closeRank();});
+}
+
+function buildCityChips(){
+  const cities = PROV.units.filter(u=>u.isCity);
+  const box = document.getElementById('cityChips');
+  box.innerHTML='';
+  cities.forEach(u=>{
+    const c=document.createElement('span'); c.className='chip'; c.textContent=u.name;
+    c.onclick=()=>selectUnit(u.name);
+    box.appendChild(c);
+  });
+}
+
+async function loadChinaMap(){
+  // 本地优先，CDN 兜底；任一处成功即返回 true
+  const sources = [
+    'data/china.json',
+    'https://geo.datav.aliyun.com/areas_v3/bound/100000_full.json'
+  ];
+  for(const url of sources){
+    try{
+      const r = await fetch(url);
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      const geo = await r.json();
+      echarts.registerMap('china', geo);
+      return true;
+    }catch(e){ console.warn('地图底图加载失败源:', url, e); }
+  }
+  return false;
+}
+function hideMapLoading(){ const l=document.getElementById('mapLoading'); if(l) l.style.display='none'; }
+function showMapError(){ const l=document.getElementById('mapLoading'); if(l) l.style.display='none'; const e=document.getElementById('mapError'); if(e) e.style.display='flex'; }
+function hideMapError(){ const e=document.getElementById('mapError'); if(e) e.style.display='none'; }
+
+let drill = {level:'china', prov:null, city:null};
+let geoCache = {};
+let curCityAdcodes = {};
+
+async function loadGeo(adcode){
+  if(geoCache[adcode]) return adcode;
+  const sources = ['data/geo/'+adcode+'.json','https://geo.datav.aliyun.com/areas_v3/bound/'+adcode+'_full.json'];
+  for(const url of sources){
+    try{
+      const r=await fetch(url); if(!r.ok) throw new Error('HTTP '+r.status);
+      const geo=await r.json(); if(!geo.features||!geo.features.length) throw new Error('empty');
+      echarts.registerMap(String(adcode), geo); geoCache[adcode]=geo; return adcode;
+    }catch(e){ console.warn('边界加载失败',url,e); }
+  }
+  return null;
+}
+
+function renderCurrent(){
+  if(!chart) return;
+  if(drill.level==='china') renderChina();
+  else if(drill.level==='province') renderProvince(drill.prov);
+  else if(drill.level==='city') renderCity(drill.prov, drill.city);
+}
+
+function renderChina(){
+  const data = PROV.units.filter(u=>!u.isCity).map(u=>{
+    const lvl=u.directions[curDir].lvl;
+    const pass=matchFilter(u);
+    const color=pass?(LVL_COLOR[lvl]||'#3a4d66'):'#33425a';
+    return {name:u.name, value:{'高':3,'中':2,'低':1}[lvl]||0, lvl, itemStyle:{areaColor:color, opacity:pass?1:0.4}};
+  });
+  chart.setOption({
+    backgroundColor:'transparent',
+    tooltip:{trigger:'item', formatter:p=>{
+      const u=PROV.units.find(x=>x.name===p.name);
+      if(!u) return p.name+'<br/>未覆盖 / 剔除';
+      const d=u.directions[curDir];
+      return `<b>${p.name}</b><br/>${DIR_LABEL[curDir]}：机会等级 <b style="color:${LVL_COLOR[d.lvl]}">${d.lvl}</b><br/>综合优先级：${u.tier}<br/><span style="color:#8aa3c0">点击进入该省 · 查看各地市</span>`;
+    }},
+    series:[{type:'map', map:'china', roam:true, zoom:1.18,
+      label:{show:false},
+      emphasis:{label:{show:true,color:'#fff'},itemStyle:{areaColor:'#2e7fff'}},
+      itemStyle:{borderColor:'#1e3a5f',areaColor:'#3a4d66'},
+      data}]
+  }, true);
+  bindClick('china');
+  updateBackBtn();
+  hideMapError();
+}
+
+async function renderProvince(provName){
+  const ad=(window.DRILL_META.PROV_ADCODE||{})[provName];
+  if(!ad){ renderChina(); return; }
+  const ok=await loadGeo(ad);
+  if(!ok){ flashMapError('该省（'+provName+'）地市边界加载失败'); updateBackBtn(); return; }
+  const geo=geoCache[ad];
+  curCityAdcodes={};
+  geo.features.forEach(f=>{ const n=f.properties.name, c=f.properties.adcode; if(n&&c&&n!==provName) curCityAdcodes[n]=c; });
+  const host=window.DRILL_META.CITY_HOST||{};
+  const provU=PROV.units.find(x=>x.name===provName);
+  const provDir=provU?provU.directions[curDir]:null;
+  const provLvl=provDir?provDir.lvl:null;
+  // 直辖市：省级视图直接渲染市辖区（县区级）
+  if(MUNI[provName]){
+    await renderCountyView(ad, provName, provName);
+    bindClick('municipality');
+    updateBackBtn();
+    hideMapError();
+    return;
+  }
+  const data=geo.features.filter(f=>f.properties.name!==provName).map(f=>{
+    const cn=f.properties.name, h=host[cn];
+    const hasHost=!!h;
+    const lvl=h?h.lvl:(provLvl||null);
+    const pass=cityMatchFilter(cn, provName);
+    const color=!lvl?'#33425a':(pass?(LVL_COLOR[lvl]||'#33425a'):'#33425a');
+    const opacity=!lvl?0.55:(hasHost?(pass?1:0.55):(pass?0.45:0.25));
+    return {name:cn, value:lvl?{'高':3,'中':2,'低':1}[lvl]:0, lvl:lvl||'低', itemStyle:{areaColor:color, opacity:opacity}};
+  });
+  chart.setOption({
+    backgroundColor:'transparent',
+    tooltip:{trigger:'item', formatter:p=>{
+      const h=host[p.name];
+      if(h) return `<b>${p.name}</b> · ${provName}<br/>承载标杆县 · 机会等级 <b style="color:${LVL_COLOR[h.lvl]}">${h.lvl}</b><br/><span style="color:#8aa3c0">点击查看该市下辖区县</span>`;
+      if(provLvl) return `<b>${p.name}</b> · ${provName}<br/>继承省级机会等级 <b style="color:${LVL_COLOR[provLvl]}">${provLvl}</b><br/><span style="color:#8aa3c0">暂无接入县区数据 · 点击查看下辖区县</span>`;
+      return `<b>${p.name}</b> · ${provName}<br/>暂无接入的县区业务数据<br/><span style="color:#8aa3c0">点击查看该市下辖区县</span>`;
+    }},
+    series:[{type:'map', map:String(ad), roam:true, zoom:1.05,
+      label:{show:false},
+      emphasis:{label:{show:true,color:'#fff'},itemStyle:{areaColor:'#2e7fff'}},
+      itemStyle:{borderColor:'#1e3a5f',areaColor:'#26384f'},
+      data}]
+  }, true);
+  bindClick('province');
+  updateBackBtn();
+  hideMapError();
+}
+
+async function renderCity(provName, cityName){
+  const ad=curCityAdcodes[cityName];
+  await renderCountyView(ad, provName, cityName);
+  bindClick('city');
+  updateBackBtn();
+  hideMapError();
+}
+
+async function renderCountyView(ad, provName, parentName){
+  if(!ad){ flashMapError('该地区（'+parentName+'）县区边界暂未接入'); updateBackBtn(); return; }
+  const ok=await loadGeo(ad);
+  if(!ok){
+    // 省直辖县级市等无独立地市边界：若本身是县区级标杆，直接打开详情而不报错
+    const asCounty = COUNTY.counties.find(x=>x.name===parentName);
+    if(asCounty){ drill={level:'province', prov:provName, city:null}; selectCounty(parentName); updateBackBtn(); hideMapError(); return; }
+    flashMapError('该地区（'+parentName+'）县区边界加载失败'); updateBackBtn(); return;
+  }
+  const geo=geoCache[ad];
+  const data=geo.features.map(f=>{
+    const r=colorCounty(f.properties.name, provName, parentName);
+    return {name:f.properties.name, value:r.lvl?LVL_RANK[r.lvl]:0, lvl:r.lvl||'低', itemStyle:{areaColor:r.color, opacity:r.opacity}};
+  });
+  chart.setOption({
+    backgroundColor:'transparent',
+    tooltip:{trigger:'item', formatter:p=>{
+      const r=colorCounty(p.name, provName, parentName);
+      if(r.hasData){ const c=COUNTY.counties.find(x=>x.name===p.name); const d=c.directions[curDir]||c.directions[Object.keys(c.directions)[0]];
+        const lvlTxt = d.lvl==='储备' ? `具备农险经营资质 · 三类业务可对接（待详析）` : `机会等级 <b style="color:${LVL_COLOR[d.lvl]}">${d.lvl}</b>`;
+        return `<b>${p.name}</b><br/>${DIR_LABEL[curDir]}：${lvlTxt}`+(r.policyType?`<br/><span style="color:#8aa3c0">政策性资格：${polText(r.policyType)}</span>`:'')+`<br/><span style="color:#8aa3c0">点击查看该县详情</span>`; }
+      if(r.qualified) return `<b>${p.name}</b><br/>具备农险经营资质`+(r.policyType?`（${polText(r.policyType)}）`:'')+`<br/><span style="color:#8aa3c0">暂未接入业务机会详析数据</span>`;
+      return `<b>${p.name}</b><br/>暂未纳入我司农险经营资质范围`;
+    }},
+    series:[{type:'map', map:String(ad), roam:true, zoom:1.05,
+      label:{show:false},
+      emphasis:{label:{show:true,color:'#fff'},itemStyle:{areaColor:'#2e7fff'}},
+      itemStyle:{borderColor:'#1e3a5f',areaColor:'#26384f'},
+      data}]
+  }, true);
+  hideMapError();
+}
+
+function bindClick(level){
+  chart.off('click');
+  chart.on('click', p=>{ if(!p.name) return;
+    if(level==='china'){ const u=PROV.units.find(x=>x.name===p.name); if(u&&!u.isCity) drillToProvince(p.name); }
+    else if(level==='province'){ drillToCity(p.name); }
+    else if(level==='city' || level==='municipality'){ onCountyClick(p.name); }
+  });
+}
+
+async function drillToProvince(name){
+  drill={level:'province', prov:name, city:null};
+  const u=PROV.units.find(x=>x.name===name);
+  if(u){ curUnit=u; curCounty=null; renderUnit(u); }
+  await renderProvince(name);
+}
+async function drillToCity(name){
+  drill={level:'city', prov:drill.prov, city:name};
+  renderCityPanel(drill.prov, name);
+  if(!curCityAdcodes[name]){
+    flashMapError('该市（'+name+'）区县边界暂未接入');
+    updateBackBtn(); return;
+  }
+  await renderCity(drill.prov, name);
+}
+async function drillToCityFromCounty(province, cityName, countyName){
+  if(drill.level!=='province' || drill.prov!==province){
+    drill={level:'province', prov:province, city:null};
+    const u=PROV.units.find(x=>x.name===province); if(u) renderUnit(u);
+    await renderProvince(province);
+  }
+  drill={level:'city', prov:province, city:cityName};
+  renderCityPanel(province, cityName);
+  if(!curCityAdcodes[cityName]){
+    flashMapError('该市（'+cityName+'）区县边界暂未接入');
+    updateBackBtn(); return;
+  }
+  await renderCity(province, cityName);
+  selectCounty(countyName);
+}
+function goUp(){
+  if(drill.level==='city'){ drill={level:'province', prov:drill.prov, city:null}; const u=PROV.units.find(x=>x.name===drill.prov); if(u) renderUnit(u); renderProvince(drill.prov); }
+  else if(drill.level==='province'){ drill={level:'china', prov:null, city:null}; curUnit=null; renderHomePanel(); renderChina(); }
+  updateBackBtn();
+}
+function updateBackBtn(){
+  const b=document.getElementById('backBtn'); if(!b) return;
+  b.style.display = drill.level==='china' ? 'none' : 'block';
+  b.textContent = drill.level==='province' ? '← 返回全国' : '← 返回'+drill.prov;
+}
+function flashMapError(msg){
+  const e=document.getElementById('mapError'); if(!e) return;
+  e.innerHTML='⚠️ '+msg+'<br/><span class="sub">地图边界加载异常，请点击下方按钮返回上级。<br/>也可通过右侧面板查看已接入的县区 / 地市业务数据。</span>'+
+    '<button class="err-back" onclick="goUp()" style="margin-top:12px;font-size:14px;padding:8px 22px;">← 返回上级</button>';
+  e.style.display='flex';
+}
+function flashNoData(name){
+  const panel=document.getElementById('panel');
+  panel.innerHTML=`<div class="breadcrumb"><span onclick="goUp()">${drill.prov}</span> &gt; <b style="color:#fff">${name}</b></div>`+
+    `<div class="empty">「${name}」暂未接入业务机会数据（县区级试点正在分批扩展）。<br/><br/>已接入的县区见左侧地图高亮区域，或在省级面板查看。</div>`;
+}
+
+// ===== 县区级渲染与资质上色（按我司农险经营资质判定）=====
+function stripSuffix(n){
+  const s=['市','县','区','旗']; let x=(n||'').trim();
+  if(x==='市辖区') return '';
+  let ch=true;
+  while(ch && x.length>1){ ch=false; for(const sf of s){ if(x.endsWith(sf)){ x=x.slice(0,-1); ch=true; break; } } }
+  return x;
+}
+function polText(t){ let s=''; if(t && t.includes('I')) s+='政策性农险遴选入围'; if(t && t.includes('J')) s+=(s?' / ':'')+'地方特色·中央森林险'; return s; }
+function colorCounty(cn, provName, parentName){
+  const core=stripSuffix(cn);
+  const k1=provName+'|'+parentName+'|'+core;
+  const k2=provName+'|'+core;
+  const qualified=!!(QUAL.qualified[k1]||QUAL.qualified[k2]);
+  const policyType=QUAL.policy[k1]||QUAL.policy[k2]||null;
+  const c=COUNTY.counties.find(x=>x.name===cn);
+  let lvl=null, hasData=false;
+  if(c){ const d=c.directions[curDir]||c.directions[Object.keys(c.directions)[0]]; lvl=d.lvl; hasData=true; }
+  let color, opacity;
+  if(!qualified){ color='#33425a'; opacity=0.5; }
+  else if(hasData){ color=LVL_COLOR[lvl]; opacity=1; }
+  else { color='#3d6fa5'; opacity=0.72; }
+  return {qualified, policyType, hasData, lvl, color, opacity};
+}
+function onCountyClick(cn){
+  const provName=drill.prov;
+  const parentName=(drill.level==='city')?drill.city:drill.prov;
+  const r=colorCounty(cn, provName, parentName);
+  if(r.hasData){ const c=COUNTY.counties.find(x=>x.name===cn); if(c) selectCounty(c.name); }
+  else if(r.qualified){ openQualifiedCounty(cn, r); }
+  else { flashNoQual(cn); }
+}
+function flashNoQual(name){
+  const panel=document.getElementById('panel');
+  panel.innerHTML=`<div class="breadcrumb"><span onclick="goUp()">${drill.prov}</span> &gt; <b style="color:#fff">${name}</b></div>`+
+    `<div class="empty">「${name}」暂未纳入我司农险经营资质范围，不具备开展政策性农险业务的资格。<br/><br/>可结合当地区划与产业基础，评估是否以商业险 / 非政策性方式切入。</div>`;
+}
+function openQualifiedCounty(name, r){
+  const panel=document.getElementById('panel');
+  const pol = r.policyType ? ('政策性资格：'+polText(r.policyType)) : '暂无政策性业务资格（仅具备农险经营资质）';
+  panel.innerHTML=`<div class="breadcrumb"><span onclick="goUp()">${drill.prov}</span> &gt; <b style="color:#fff">${name}</b></div>`+
+    `<div class="empty" style="text-align:left"><b style="color:#2e86de">✓ 具备农险经营资质</b><br/>${pol}<br/><br/>该县（区）暂未接入业务机会详析数据（县区级试点正在分批扩展）。<br/>已接入县区见省级 / 地市面板高亮区域。</div>`;
+}
+function cityMatchFilter(cityName, provName){
+  const h=(window.DRILL_META.CITY_HOST||{})[cityName];
+  if(filterMode==='all') return true;
+  if(filterMode==='county') return !!h;
+  if(filterMode==='high'){
+    if(h && h.lvl==='高') return true;
+    const provU=PROV.units.find(x=>x.name===provName);
+    const provDir=provU?provU.directions[curDir]:null;
+    return provDir && provDir.lvl==='高';
+  }
+  if(filterMode==='A'){ const u=PROV.units.find(x=>x.name===provName); return u && (u.tier||'').startsWith('A'); }
+  return true;
+}
+function countyMatchFilter(c, provName){
+  if(filterMode==='all') return true;
+  if(filterMode==='county') return true;
+  if(filterMode==='high'){ const d=c.directions[curDir]||c.directions[Object.keys(c.directions)[0]]; return d.lvl==='高'; }
+  if(filterMode==='A'){ const u=PROV.units.find(x=>x.name===provName); return u && (u.tier||'').startsWith('A'); }
+  return true;
+}
+
+const LVL_RANK = {'高':3,'中':2,'低':1};
+function tierRank(u){ const t=u.tier||''; if(t.startsWith('A'))return 3; if(t.startsWith('B'))return 2; if(t.startsWith('C'))return 1; return 0; }
+function hasCounty(u){ return COUNTY.counties.some(c=> c.region===u.name || (u.name==='内蒙古自治区'&&c.region==='内蒙古自治区') || (u.name==='苏州市'&&c.region==='苏州市')); }
+function matchFilter(u){
+  if(filterMode==='all') return true;
+  if(filterMode==='high') return u.directions[curDir].lvl==='高';
+  if(filterMode==='A') return (u.tier||'').startsWith('A');
+  if(filterMode==='county') return hasCounty(u);
+  return true;
+}
+function filterLabel(){ return {all:'全部',high:'仅高机会',A:'仅A级',county:'有县区'}[filterMode]||'全部'; }
+function countyCurLvl(c){ const d=c.directions[curDir]; if(d) return d.lvl; const k=Object.keys(c.directions)[0]; return c.directions[k].lvl; }
+function countyParentProv(c){ return PROV.units.find(u=>u.name===c.region); }
+
+function buildLeaderboard(){
+  const body=document.getElementById('rankBody');
+  document.getElementById('rankSub').textContent=`当前方向：${DIR_LABEL[curDir]} · 筛选：${filterLabel()}`;
+  let h='';
+  const units=PROV.units.filter(matchFilter);
+  const provRows=units.map(u=>{
+    const d=u.directions[curDir];
+    return {name:u.name, lvl:d.lvl, tier:u.tier, grp:u.group||(u.isCity?'单列市':''), lr:LVL_RANK[d.lvl]||0, tr:tierRank(u),
+      click:`selectUnit('${u.name.replace(/'/g,"\\'")}')`};
+  }).sort((a,b)=> b.lr-a.lr || b.tr-a.tr || a.name.localeCompare(b.name,'zh'));
+  h+=`<div class="rsec">省级 / 单列市业务单元（${provRows.length}）</div>`;
+  if(provRows.length){
+    provRows.forEach((r,i)=>{
+      const tc=(r.tier||'C').startsWith('A')?'A':(r.tier||'C').startsWith('B')?'B':'C';
+      h+=`<div class="rr" onclick="closeRank();${r.click}"><span class="rk">${i+1}</span>`+
+         `<span class="nm">${r.name}</span>`+
+         `<span class="tl ${tc}">${r.tier||'—'}</span>`+
+         `<span class="dl" style="background:${LVL_COLOR[r.lvl]};color:${r.lvl==='低'?'#fff':'#08111f'}">${r.lvl}</span>`+
+         `<span class="gp">${r.grp}</span></div>`;
+    });
+  } else h+=`<div class="empty-r">当前筛选条件下无匹配单元</div>`;
+  let cos=COUNTY.counties.filter(c=>{
+    const hasCur=!!c.directions[curDir];
+    if(filterMode==='all'||filterMode==='county') return true;
+    if(filterMode==='high') return hasCur && c.directions[curDir].lvl==='高';
+    if(filterMode==='A'){ const p=countyParentProv(c); return p && (p.tier||'').startsWith('A') && hasCur; }
+    return true;
+  });
+  cos=cos.map(c=>{ const hasCur=!!c.directions[curDir]; const usedDir=hasCur?curDir:Object.keys(c.directions)[0];
+    return {c, lv:c.directions[usedDir].lvl, usedDir}; }).sort((a,b)=> LVL_RANK[b.lv]-LVL_RANK[a.lv] || a.c.name.localeCompare(b.c.name,'zh'));
+  h+=`<div class="rsec">县区试点（${cos.length}）</div>`;
+  if(cos.length){
+    cos.forEach((o,i)=>{
+      const c=o.c;
+      h+=`<div class="rr" onclick="closeRank();selectUnit('${c.region.replace(/'/g,"\\'")}');selectCounty('${c.name.replace(/'/g,"\\'")}')">`+
+         `<span class="rk">${i+1}</span><span class="nm">${c.name}</span>`+
+         `<span class="tl co">县区</span>`+
+         `<span class="dl" style="background:${LVL_COLOR[o.lv]};color:${o.lv==='低'?'#fff':'#08111f'}">${o.lv}</span>`+
+         `<span class="gp">${c.province} · ${DIR_LABEL[o.usedDir]}</span></div>`;
+    });
+  } else h+=`<div class="empty-r">当前筛选条件下无匹配县区</div>`;
+  body.innerHTML=h;
+}
+function openRank(){ buildLeaderboard(); document.getElementById('rankModal').style.display='flex'; }
+function closeRank(){ document.getElementById('rankModal').style.display='none'; }
+
+function selectUnit(name){
+  const u=PROV.units.find(x=>x.name===name);
+  if(!u) return;
+  if(u.isCity){ drill={level:'china',prov:null,city:null}; curUnit=u; curCounty=null; renderUnit(u); renderChina(); return; }
+  drillToProvince(name);
+}
+
+function renderUnit(u){
+  const panel=document.getElementById('panel');
+  let h='';
+  if(drill.level==='province' && drill.prov===u.name){
+    h+=`<div class="breadcrumb"><span onclick="goUp()">全国</span> &gt; <b style="color:#fff">${u.name}</b></div>`;
+  } else if(u.isCity){
+    h+=`<div class="breadcrumb">单列市 / 地市</div>`;
+  } else {
+    h+=`<div class="breadcrumb">全部业务单元</div>`;
+  }
+  h+=`<div class="sel-head"><h2>${u.name}</h2><span class="tier">${u.tier}</span><span class="grp">${u.group}</span></div>`;
+  if(u.sug) h+=`<div class="sel-sug">💡 切入建议：${u.sug}</div>`;
+  ['weather','aqua','credit'].forEach(dk=>{
+    const d=u.directions[dk];
+    h+=dirCard(dk,d);
+  });
+  const cos = COUNTY.counties.filter(c=> c.region===u.name || (u.name==='内蒙古自治区'&&c.region==='内蒙古自治区') || (u.name==='苏州市'&&c.region==='苏州市'));
+  if(cos.length){
+    h+=`<div class="counties"><div class="ttl">📍 县区试点（点击下钻到县 · 同步地图）</div>`;
+    cos.forEach(c=>{
+      const dd=c.directions[curDir]||c.directions[Object.keys(c.directions)[0]];
+      h+=`<div class="co-row" data-co="${c.name}"><span class="cn">${c.name}</span>`+
+         `<span class="cl lvl ${dd.lvl}" style="background:${LVL_COLOR[dd.lvl]};color:${dd.lvl==='低'?'#fff':'#08111f'}">${dd.lvl}</span>`+
+         `<span class="cp">${c.province} · ${DIR_LABEL[curDir]}</span></div>`;
+    });
+    h+=`</div>`;
+  } else {
+    h+=`<div class="counties"><div class="ttl">📍 县区试点</div><div style="font-size:12px;color:var(--txt2);padding:6px 2px;">该县区级数据待扩展（当前为省级研判，县区试点正在分批接入真实数据）。地图中点击本省各地市可下钻查看已接入的县区。</div></div>`;
+  }
+  panel.innerHTML=h;
+  panel.scrollTop=0;
+  panel.querySelectorAll('.co-row').forEach(r=>{
+    r.onclick=()=>{ const c=COUNTY.counties.find(x=>x.name===r.dataset.co);
+      if(c){ const parent=(window.DRILL_META.COUNTY_HOST||{})[c.name];
+        if(parent){ drillToCityFromCounty(parent.province, parent.cityName, c.name); } else { selectCounty(c.name); } } };
+  });
+}
+
+function renderHomePanel(){
+  const panel=document.getElementById('panel');
+  panel.innerHTML=`<div class="empty">← 点击左侧地图中的省份，逐级下钻：<br/><b>全国 → 省（各地市）→ 市（各县区）</b><br/><br/>或在右上方选择单列市 / 地市，查看三大业务方向的详细机会研判。<br/><br/>县区级：具备阳光农险经营资质的县区均展示天气指数 / 水产养殖 / 信贷增信三类业务基线（真实详析数据持续补充中）。</div>`;
+}
+function renderCityPanel(provName, cityName){
+  const panel=document.getElementById('panel');
+  const host=(window.DRILL_META.COUNTY_HOST||{});
+  const cos=COUNTY.counties.filter(c=>{ const m=host[c.name]; return m && m.cityName===cityName && m.province===provName; });
+  let h=`<div class="breadcrumb"><span onclick="goUp()">全国</span> &gt; <span onclick="selectUnit('${provName}')">${provName}</span> &gt; <b style="color:#fff">${cityName}</b></div>`;
+  h+=`<div class="sel-head"><h2>${cityName}</h2><span class="tier" style="background:var(--gold)">地市</span><span class="grp">${provName}</span></div>`;
+  h+=`<div class="sel-sug">📍 已进入「${cityName}」下钻视图。下方为该市已接入业务机会数据的县区；其余区县暂未接入（待扩展）。</div>`;
+  if(cos.length){
+    h+=`<div class="counties"><div class="ttl">📍 已接入县区（点击查看详情）</div>`;
+    cos.forEach(c=>{
+      const dd=c.directions[curDir]||c.directions[Object.keys(c.directions)[0]];
+      h+=`<div class="co-row" data-co="${c.name}"><span class="cn">${c.name}</span>`+
+         `<span class="cl lvl ${dd.lvl}" style="background:${LVL_COLOR[dd.lvl]};color:${dd.lvl==='低'?'#fff':'#08111f'}">${dd.lvl}</span>`+
+         `<span class="cp">${c.province} · ${DIR_LABEL[curDir]}</span></div>`;
+    });
+    h+=`</div>`;
+  } else {
+    h+=`<div class="empty">${cityName} 暂无已接入的县区业务数据。</div>`;
+  }
+  h+=`<div style="margin-top:14px;"><button class="err-back" onclick="goUp()">← 返回${provName}</button></div>`;
+  panel.innerHTML=h; panel.scrollTop=0;
+  panel.querySelectorAll('.co-row').forEach(r=>{ r.onclick=()=>selectCounty(r.dataset.co); });
+}
+
+function dirCard(dk,d){
+  const lvl=d.lvl;
+  // 1) 业务分析（含市场规模）
+  let biz=`<div class="sec-title">一、业务分析（含市场规模）</div>`+
+    fld('市场规模', d.market_size || d.market || '—')+
+    fld('政策是否支持', d.support)+fld('主管部门', d.authority)+
+    fld('产业规模与质量', d.industry_level)+
+    fld('重点客户（企业+新型主体）', d.customers_cleaned || d.customers || '—')+
+    fld('政策性奖补现状', d.award)+fld('补贴申请机会', d.subsidy_chance);
+  // 2) 业务分类：weather/aqua 展示品种-客户对应表；credit 展示机会点
+  let typeSec='';
+  if((dk==='weather'||dk==='aqua') && Array.isArray(d.varieties) && d.varieties.length){
+    typeSec=`<div class="sec-title">二、业务分类 · ${dk==='weather'?'天气指数高机会品种':'水产高机会品种'}</div>`+
+      `<div class="var-table"><div class="var-head"><span>品种</span><span>机会</span><span>重点客户</span></div>`+
+      d.varieties.map(v=>`<div class="var-row"><span class="vn">${v.name}</span>`+
+        `<span class="vlvl ${v.lvl}">${v.lvl}</span>`+
+        `<span class="vc">${v.customers||'—'}</span></div>`).join('')+`</div>`;
+  } else {
+    typeSec=`<div class="sec-title">二、业务分类</div>`+fld('机会点', d.opportunity)+fld('产品/模式', DIR_LABEL[dk]);
+  }
+  // 3) 重点突破
+  let breakthrough=`<div class="sec-title">三、重点突破</div>`+
+    fld('合作切入点', d.entry_cleaned || d.entry || '—')+
+    fld('龙头企业/新型主体', d.enterprises_cleaned || d.enterprises || '—');
+  // 4) 预期规模
+  let expected=`<div class="sec-title">四、预期规模</div>`+fld('预期保费/承保规模', d.expected_scale);
+  // 5) 经营情况（含风险分析）
+  let operation=`<div class="sec-title">五、经营情况（含风险分析）</div>`+fld('风险分析', d.risk_analysis);
+  // 补充：政策详情、文号、来源
+  let extra=`<div class="sec-title">政策与来源补充</div>`+
+    fld('政策支持详情', d.policy || '—')+
+    (d.policy_no?fld('政策文号', d.policy_no):'')+
+    fld('产业现状', d.industry || '—')+
+    `<div class="src">来源：${d.src||'—'}${d.extra_src?('；'+d.extra_src):''}</div>`;
+  return `<div class="dir-card"><div class="dh"><span class="nm">${DIR_LABEL[dk]}</span>`+
+    `<span class="lvl ${lvl}">${lvl}</span></div>`+
+    `<div class="sec">${biz}</div>`+
+    `<div class="sec">${typeSec}</div>`+
+    `<div class="sec">${breakthrough}</div>`+
+    `<div class="sec">${expected}</div>`+
+    `<div class="sec">${operation}</div>`+
+    `<div class="sec">${extra}</div></div>`;
+}
+
+function fld(k,v){ return `<div class="fld"><div class="k">${k}</div><div class="v">${v||'—'}</div></div>`; }
+
+function selectCounty(name){
+  const c=COUNTY.counties.find(x=>x.name===name);
+  if(!c) return;
+  curCounty=c;
+  const panel=document.getElementById('panel');
+  const m=(window.DRILL_META.COUNTY_HOST||{})[c.name]||{};
+  let crumb;
+  if(drill.level==='city' && m.cityName===drill.city){
+    crumb=`<div class="breadcrumb"><span onclick="goUp()">全国</span> &gt; <span onclick="selectUnit('${drill.prov}')">${drill.prov}</span> &gt; <span onclick="drillToCity('${drill.city}')">${drill.city}</span> &gt; <b style="color:#fff">${c.name}</b></div>`;
+  } else if(drill.level==='province'){
+    crumb=`<div class="breadcrumb"><span onclick="goUp()">全国</span> &gt; <span onclick="selectUnit('${drill.prov||c.region}')">${drill.prov||c.region}</span> &gt; <b style="color:#fff">${c.name}</b></div>`;
+  } else {
+    crumb=`<div class="breadcrumb">全部业务单元 &gt; <b style="color:#fff">${c.name}</b></div>`;
+  }
+  const dk = c.directions[curDir]?curDir:Object.keys(c.directions)[0];
+  const d=c.directions[dk];
+  let h=crumb+`<div class="sel-head"><h2>${c.name}</h2><span class="tier" style="background:${LVL_COLOR[d.lvl]}">${d.lvl}</span><span class="grp">${c.province} · 县区级试点</span></div>`;
+  h+=`<div class="sel-sug">📍 当前方向：<b>${DIR_LABEL[dk]}</b>（如切换上方业务方向，本县将自动联动显示对应方向数据）</div>`;
+  h+=dirCard(dk,d);
+  const others=Object.keys(c.directions).filter(x=>x!==dk);
+  if(others.length){
+    h+=`<div class="counties"><div class="ttl">该县其他业务方向</div>`;
+    others.forEach(o=>{
+      const od=c.directions[o];
+      h+=`<div class="co-row" data-od="${o}"><span class="cn">${DIR_LABEL[o]}</span>`+
+         `<span class="cl" style="background:${LVL_COLOR[od.lvl]};color:${od.lvl==='低'?'#fff':'#08111f'}">${od.lvl}</span></div>`;
+    });
+    h+=`</div>`;
+  }
+  panel.innerHTML=h; panel.scrollTop=0;
+  panel.querySelectorAll('[data-od]').forEach(r=>{r.onclick=()=>{curDir=r.dataset.od; document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.dir===curDir)); renderCurrent(); selectCounty(c.name);};});
+}
+</script>
+</body>
+</html>
