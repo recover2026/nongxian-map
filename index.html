@@ -848,8 +848,9 @@ function dirCard(dk,d){
     fld('政策性奖补现状', d.award)+fld('补贴申请机会', d.subsidy_chance);
   // 2) 业务分类：weather/aqua 展示品种-客户对应表；credit 展示机会点
   let typeSec='';
-  if((dk==='weather'||dk==='aqua') && Array.isArray(d.varieties) && d.varieties.length){
-    typeSec=`<div class="sec-title">二、业务分类 · ${dk==='weather'?'天气指数高机会品种':'水产高机会品种'}</div>`+
+  if((['weather','aqua','credit'].includes(dk)) && Array.isArray(d.varieties) && d.varieties.length){
+    const tlabel = dk==='weather'?'天气指数高机会品种':(dk==='aqua'?'水产高机会品种':'信贷增信高机会模式');
+    typeSec=`<div class="sec-title">二、业务分类 · ${tlabel}</div>`+
       `<div class="var-table"><div class="var-head"><span>品种</span><span>机会</span><span>重点客户</span></div>`+
       d.varieties.map(v=>`<div class="var-row"><span class="vn">${v.name}</span>`+
         `<span class="vlvl ${v.lvl}">${v.lvl}</span>`+
