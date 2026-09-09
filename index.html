@@ -927,6 +927,7 @@ function customerTop5Table(varieties){
   });
   if(!has) return null;
   return `<div class="fld"><div class="k">重点客户 Top5 明细</div><div class="v">
+    <div style="font-size:11px;color:#884400;margin:2px 0 6px;line-height:1.5">按可查证年产值降序排列；标注「·待核」者无公开产值数据，不参与价值排名（严格排名口径）。</div>
     <table class="ind-table cust-table"><thead><tr><th>品种</th><th>排名</th><th>重点客户/主体</th><th>核心标签/规模</th></tr></thead><tbody>`+
     all.map(r=>`<tr>${r.variety?`<td class="iv" rowspan="${r.rowspan}">${r.variety}</td>`:''}<td>${r.rank}</td><td>${r.name}</td><td>${r.note||'—'}</td></tr>`).join('')+
     `</tbody></table></div></div>`;
