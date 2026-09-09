@@ -235,7 +235,7 @@ const MUNI = {'北京市':'110000','天津市':'120000','上海市':'310000','�
 let PROV = null, COUNTY = null, QUAL = {qualified:{},policy:{}}, curDir = 'weather', curUnit = null, curCounty = null, chart = null, filterMode = 'all';
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-09-09-v1';   // 每次数据更新后请同步加 1，例如 v2/v3
+const CACHE_VERSION = '2026-09-09-v2';   // 数据按省拆分，结构变化，版本递增
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
 const CACHE_TTL = 1000 * 60 * 60 * 24 * 30; // 缓存 30 天
@@ -292,6 +292,48 @@ function setMapLoading(text){
   if(el) el.textContent = text;
 }
 
+// ===== 县区数据按省懒加载（解决首屏下载 12MB 全量数据的问题） =====
+// COUNTY 初始仅含 manifest（provinceFiles 映射）；点进某省时再加载该省文件并缓存
+let loadedProvinces = new Set();
+let provinceLoadPromises = {};
+
+async function ensureProvince(prov){
+  if(!prov || loadedProvinces.has(prov)) return;
+  if(provinceLoadPromises[prov]){ await provinceLoadPromises[prov]; return; }
+  const fileKey = (COUNTY && COUNTY.provinceFiles && COUNTY.provinceFiles[prov]) || null;
+  if(!fileKey) return; // 该省无县区数据
+  const cacheKey = 'counties-'+prov;
+  const url = 'data/counties/'+fileKey+'.json';
+  const p = (async()=>{
+    const data = await cachedFetch(url, cacheKey);
+    const arr = (data && data.counties) || [];
+    if(!COUNTY.counties) COUNTY.counties = [];
+    // 用 Map 去重后合并，避免重复 append
+    const exist = new Set(COUNTY.counties.map(c=>c.name));
+    for(const c of arr){ if(!exist.has(c.name)){ COUNTY.counties.push(c); exist.add(c.name); } }
+    loadedProvinces.add(prov);
+  })();
+  provinceLoadPromises[prov] = p;
+  try{ await p; } finally { delete provinceLoadPromises[prov]; }
+}
+
+// 首次进入后后台并行预载全部省份（带本地缓存，下次访问只取用到的省）
+function preloadAllProvinces(){
+  if(!COUNTY || !COUNTY.provinceFiles) return;
+  const provs = Object.keys(COUNTY.provinceFiles);
+  let done = 0;
+  provs.forEach(prov=>{
+    ensureProvince(prov).catch(e=>console.warn('省份预载失败',prov,e)).finally(()=>{
+      done++;
+      // 全部加载完成后若排行榜处于打开状态则刷新
+      if(done===provs.length){
+        const lm = document.getElementById('rankModal');
+        if(lm && lm.style.display==='flex') buildLeaderboard();
+      }
+    });
+  });
+}
+
 // ===== 登录 / 初始化 =====
 document.getElementById('loginBtn').onclick = ()=>{
   const v = document.getElementById('pw').value;
@@ -315,11 +357,13 @@ async function init(){
     wireEvents();
   }catch(e){ console.error('省份数据加载失败:',e); setMapLoading('❌ 省份数据加载失败，请刷新重试'); return; }
 
-  // 县区数据 12MB：优先读缓存，后台同步；首次访问较慢
+  // 县区数据已按省拆分：仅加载 ~1KB manifest，拿到省→文件映射后立即渲染地图
   try{
-    setMapLoading('🗺 加载县区数据（约 12MB，首次访问较慢）…');
-    COUNTY = await cachedFetch('data/counties.json', 'counties');
-  }catch(e){ console.error('县区数据加载失败:',e); setMapLoading('❌ 县区数据加载失败，请刷新重试'); return; }
+    setMapLoading('🗺 加载县区索引…');
+    const cm = await cachedFetch('data/counties.json', 'counties-manifest');
+    COUNTY = cm && cm.provinceFiles ? cm : {counties:[], provinceFiles:{}};
+    if(!COUNTY.counties) COUNTY.counties = [];
+  }catch(e){ console.error('县区索引加载失败:',e); COUNTY = {counties:[], provinceFiles:{}}; }
 
   try{
     QUAL = await cachedFetch('data/qualification.json', 'qualification') || {qualified:{},policy:{}};
@@ -332,6 +376,8 @@ async function init(){
     if(ok){ hideMapLoading(); renderCurrent(); }
     else { showMapError(); }
   }catch(e){ console.error('地图初始化失败:',e); showMapError(); }
+  // 地图就绪后，后台并行预载各县区数据（带本地缓存）
+  preloadAllProvinces();
   window.addEventListener('resize',()=>{ if(chart) chart.resize(); });
 }
 
@@ -540,7 +586,10 @@ function bindClick(level){
 async function drillToProvince(name){
   drill={level:'province', prov:name, city:null};
   const u=PROV.units.find(x=>x.name===name);
-  if(u){ curUnit=u; curCounty=null; renderUnit(u); }
+  if(u){ curUnit=u; curCounty=null; }
+  // 确保该省县区数据已加载（首次可能仍在后台预载中）
+  await ensureProvince(name);
+  if(u){ renderUnit(u); }
   await renderProvince(name);
 }
 async function drillToCity(name){
@@ -713,11 +762,11 @@ function buildLeaderboard(){
 function openRank(){ buildLeaderboard(); document.getElementById('rankModal').style.display='flex'; }
 function closeRank(){ document.getElementById('rankModal').style.display='none'; }
 
-function selectUnit(name){
+async function selectUnit(name){
   const u=PROV.units.find(x=>x.name===name);
   if(!u) return;
-  if(u.isCity){ drill={level:'china',prov:null,city:null}; curUnit=u; curCounty=null; renderUnit(u); renderChina(); return; }
-  drillToProvince(name);
+  if(u.isCity){ drill={level:'china',prov:null,city:null}; curUnit=u; curCounty=null; await ensureProvince(u.name); renderUnit(u); renderChina(); return; }
+  await drillToProvince(name);
 }
 
 function renderUnit(u){
