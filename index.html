@@ -192,6 +192,7 @@
     <div class="meta">数据基准：<b id="dataDate">2026-09-06</b> · 覆盖 <b id="covN">33</b> 业务单元</div>
     <button class="btn-rank" id="rankBtn">🏆 机会排行榜</button>
     <button class="btn-refresh" id="refreshBtn">↻ 刷新</button>
+    <button class="btn-refresh" id="clearCacheBtn" title="数据未更新时点此清除本地缓存">🗑 清缓存</button>
   </header>
   <main>
     <div id="mapWrap">
@@ -237,7 +238,7 @@ const MUNI = {'北京市':'110000','天津市':'120000','上海市':'310000','�
 let PROV = null, COUNTY = null, QUAL = {qualified:{},policy:{}}, curDir = 'weather', curUnit = null, curCounty = null, chart = null, filterMode = 'all';
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-09-09-v2';   // 数据按省拆分，结构变化，版本递增
+const CACHE_VERSION = '2026-09-09-v3';   // 大连aqua/credit增加industry_level_table+varieties表格，版本递增
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
 const CACHE_TTL = 1000 * 60 * 60 * 24 * 30; // 缓存 30 天
@@ -392,6 +393,13 @@ function wireEvents(){
       if(document.getElementById('rankModal').style.display==='flex') buildLeaderboard();};
   });
   document.getElementById('refreshBtn').onclick=()=>{ renderCurrent(); if(curCounty) selectCounty(curCounty.name); else if(curUnit) renderUnit(curUnit); };
+  document.getElementById('clearCacheBtn').onclick=async()=>{
+    try{
+      const req = indexedDB.deleteDatabase(CACHE_DB);
+      await new Promise((res,rej)=>{ req.onsuccess=res; req.onerror=()=>rej(req.error); req.onblocked=res; });
+    }catch(e){ console.warn('清除缓存失败',e); }
+    location.reload(true);
+  };
   // 按产业筛选
   document.querySelectorAll('.fchip').forEach(f=>{
     f.onclick=()=>{document.querySelectorAll('.fchip').forEach(x=>x.classList.remove('active'));
