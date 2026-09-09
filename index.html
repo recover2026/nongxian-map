@@ -108,6 +108,8 @@
   .ind-table tr:nth-child(odd){background:#0b1d33;}
   .ind-table tr:nth-child(even){background:#0e2138;}
   .ind-table .iv{white-space:nowrap;font-weight:bold;color:#fff;}
+  .cust-table th:first-child,.cust-table .iv{width:110px;text-align:center;}
+  .cust-table td:nth-child(2){width:42px;text-align:center;}
   .counties{margin-top:6px;}
   .counties .ttl{font-size:13px;color:var(--gold);margin:4px 0 8px;display:flex;align-items:center;gap:6px;}
   .co-row{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#0e2138;border:1px solid var(--border);
@@ -842,7 +844,7 @@ function dirCard(dk,d){
     fld('市场规模', d.market_size || d.market || '—')+
     fld('政策是否支持', d.support)+fld('主管部门', d.authority)+
     (d.industry_level_table ? industryLevelTable(d.industry_level_table) : fld('产业规模与质量', d.industry_level))+
-    fld('重点客户（企业+新型主体）', d.customers_cleaned || d.customers || '—')+
+    (customerTop5Table(d.varieties) || fld('重点客户（企业+新型主体）', d.customers_cleaned || d.customers || '—'))+
     fld('政策性奖补现状', d.award)+fld('补贴申请机会', d.subsidy_chance);
   // 2) 业务分类：weather/aqua 展示品种-客户对应表；credit 展示机会点
   let typeSec='';
@@ -884,6 +886,40 @@ function industryLevelTable(rows){
   return `<div class="fld"><div class="k">产业规模与质量</div><div class="v">
     <table class="ind-table"><thead><tr><th>品种</th><th>产业规模</th><th>质量/认证水平</th></tr></thead><tbody>`+
     rows.map(r=>`<tr><td class="iv">${r.variety}</td><td>${r.scale}</td><td>${r.quality}</td></tr>`).join('')+
+    `</tbody></table></div></div>`;
+}
+function parseTopCustomers(text){
+  if(!text) return null;
+  text = text.trim();
+  if(!/^Top\s*\d*[：:]\s*/i.test(text)) return null;
+  text = text.replace(/^Top\s*\d*[：:]\s*/i,'');
+  const parts = text.split(/[→]/);
+  const rows = [];
+  parts.forEach((p,idx)=>{
+    p = p.trim();
+    if(!p) return;
+    const m = p.match(/^(.+?)[（(](.+?)[）)]$/);
+    if(m){ rows.push({rank:idx+1,name:m[1].trim(),note:m[2].trim()}); }
+    else { rows.push({rank:idx+1,name:p,note:''}); }
+  });
+  return rows.length ? rows : null;
+}
+function customerTop5Table(varieties){
+  if(!Array.isArray(varieties) || !varieties.length) return null;
+  const all = [];
+  let has = false;
+  varieties.forEach(v=>{
+    const rows = parseTopCustomers(v.customers);
+    if(!rows) return;
+    has = true;
+    rows.forEach((r,i)=>{
+      all.push({variety:i===0?v.name:'',rowspan:i===0?rows.length:0,...r});
+    });
+  });
+  if(!has) return null;
+  return `<div class="fld"><div class="k">重点客户 Top5 明细</div><div class="v">
+    <table class="ind-table cust-table"><thead><tr><th>品种</th><th>排名</th><th>重点客户/主体</th><th>核心标签/规模</th></tr></thead><tbody>`+
+    all.map(r=>`<tr>${r.variety?`<td class="iv" rowspan="${r.rowspan}">${r.variety}</td>`:''}<td>${r.rank}</td><td>${r.name}</td><td>${r.note||'—'}</td></tr>`).join('')+
     `</tbody></table></div></div>`;
 }
 
