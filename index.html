@@ -242,7 +242,7 @@ const MUNI = {'北京市':'110000','天津市':'120000','上海市':'310000','�
 let PROV = null, COUNTY = null, QUAL = {qualified:{},policy:{}}, curDir = 'weather', curUnit = null, curCounty = null, chart = null, filterMode = 'all';
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-09-10-v5';   // 重点客户表格样式紧凑化+俄八表述修正
+const CACHE_VERSION = '2026-09-10-v6';   // 天气指数/水产风险分析统一加最高90%再保分出支持
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
 const CACHE_TTL = 1000 * 60 * 60 * 24 * 30; // 缓存 30 天
@@ -876,7 +876,16 @@ function dirCard(dk,d){
   // 4) 预期规模
   let expected=`<div class="sec-title">四、预期规模</div>`+fld('预期保费/承保规模', d.expected_scale);
   // 5) 经营情况（含风险分析）
-  let operation=`<div class="sec-title">五、经营情况（含风险分析）</div>`+fld('风险分析', d.risk_analysis);
+  let raTxt = d.risk_analysis || '';
+  if(dk==='weather' || dk==='aqua'){
+    const RE_NOTE='；根据风险可获得最高90%的再保分出支持。';
+    if(raTxt && !raTxt.includes('再保分出支持')){
+      raTxt = raTxt.replace(/[。.\s]+$/,'') + RE_NOTE;
+    } else if(!raTxt){
+      raTxt = '根据风险可获得最高90%的再保分出支持。';
+    }
+  }
+  let operation=`<div class="sec-title">五、经营情况（含风险分析）</div>`+fld('风险分析', raTxt);
   // 补充：政策详情、文号、来源
   let extra=`<div class="sec-title">政策与来源补充</div>`+
     fld('政策支持详情', d.policy || '—')+
