@@ -93,8 +93,8 @@
   .sec-title{font-size:13px;font-weight:bold;color:var(--gold);margin:14px 0 8px;padding-bottom:5px;border-bottom:1px solid var(--border);}
   .sec{padding:4px 0;}
   .var-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px;}
-  .var-table .var-head{display:grid;grid-template-columns:1fr 60px 1.6fr;background:#12294a;border-radius:6px 6px 0 0;padding:7px 10px;color:var(--gold);font-weight:bold;}
-  .var-table .var-row{display:grid;grid-template-columns:1fr 60px 1.6fr;border-bottom:1px solid var(--border);padding:7px 10px;align-items:start;gap:8px;}
+  .var-table .var-head{display:grid;grid-template-columns:1fr 60px 2.2fr;background:#12294a;border-radius:6px 6px 0 0;padding:7px 10px;color:var(--gold);font-weight:bold;}
+  .var-table .var-row{display:grid;grid-template-columns:1fr 60px 2.2fr;border-bottom:1px solid var(--border);padding:7px 10px;align-items:start;gap:8px;}
   .var-table .var-row:last-child{border-bottom:none;border-radius:0 0 6px 6px;}
   .var-table .var-row:nth-child(odd){background:#0b1d33;}
   .var-table .var-row:nth-child(even){background:#0e2138;}
@@ -109,10 +109,11 @@
   .ind-table tr:nth-child(even){background:#0e2138;}
   .ind-table .iv{white-space:nowrap;font-weight:bold;color:#fff;}
   .mini-cust-table{font-size:11px;margin-top:0;border-radius:4px;}
-  .mini-cust-table th,.mini-cust-table td{padding:4px 6px;font-size:11px;}
-  .mini-cust-table th{background:#12294a;color:var(--gold);white-space:nowrap;}
-  .mini-cust-table td:nth-child(1){width:32px;text-align:center;}
-  .mini-cust-table td:nth-child(2){white-space:nowrap;max-width:160px;overflow:hidden;text-overflow:ellipsis;}
+  .mini-cust-table th,.mini-cust-table td{padding:2px 6px;font-size:11px;line-height:1.45;vertical-align:top;}
+  .mini-cust-table th{background:#12294a;color:var(--gold);white-space:nowrap;font-weight:bold;}
+  .mini-cust-table td:nth-child(1){width:28px;text-align:center;}
+  .mini-cust-table td:nth-child(2){width:38%;max-width:140px;white-space:normal;}
+  .mini-cust-table td:nth-child(3){width:62%;}
   .counties{margin-top:6px;}
   .counties .ttl{font-size:13px;color:var(--gold);margin:4px 0 8px;display:flex;align-items:center;gap:6px;}
   .co-row{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#0e2138;border:1px solid var(--border);
@@ -241,7 +242,7 @@ const MUNI = {'北京市':'110000','天津市':'120000','上海市':'310000','�
 let PROV = null, COUNTY = null, QUAL = {qualified:{},policy:{}}, curDir = 'weather', curUnit = null, curCounty = null, chart = null, filterMode = 'all';
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-09-10-v4';   // 重点客户表格下移到业务分类，业务分析不再重复展示
+const CACHE_VERSION = '2026-09-10-v5';   // 重点客户表格样式紧凑化+俄八表述修正
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
 const CACHE_TTL = 1000 * 60 * 60 * 24 * 30; // 缓存 30 天
