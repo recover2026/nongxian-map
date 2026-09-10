@@ -110,6 +110,11 @@
   .ind-table .iv{white-space:nowrap;font-weight:bold;color:#fff;}
   .cust-table th:first-child,.cust-table .iv{width:110px;text-align:center;}
   .cust-table td:nth-child(2){width:42px;text-align:center;}
+  .mini-cust-table{font-size:11px;margin-top:0;border-radius:4px;}
+  .mini-cust-table th,.mini-cust-table td{padding:4px 6px;font-size:11px;}
+  .mini-cust-table th{background:#12294a;color:var(--gold);white-space:nowrap;}
+  .mini-cust-table td:nth-child(1){width:32px;text-align:center;}
+  .mini-cust-table td:nth-child(2){white-space:nowrap;max-width:160px;overflow:hidden;text-overflow:ellipsis;}
   .counties{margin-top:6px;}
   .counties .ttl{font-size:13px;color:var(--gold);margin:4px 0 8px;display:flex;align-items:center;gap:6px;}
   .co-row{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#0e2138;border:1px solid var(--border);
@@ -238,7 +243,7 @@ const MUNI = {'北京市':'110000','天津市':'120000','上海市':'310000','�
 let PROV = null, COUNTY = null, QUAL = {qualified:{},policy:{}}, curDir = 'weather', curUnit = null, curCounty = null, chart = null, filterMode = 'all';
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-09-09-v3';   // 大连aqua/credit增加industry_level_table+varieties表格，版本递增
+const CACHE_VERSION = '2026-09-10-v4';   // 重点客户表格下移到业务分类，业务分析不再重复展示
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
 const CACHE_TTL = 1000 * 60 * 60 * 24 * 30; // 缓存 30 天
@@ -852,7 +857,6 @@ function dirCard(dk,d){
     fld('市场规模', d.market_size || d.market || '—')+
     fld('政策是否支持', d.support)+fld('主管部门', d.authority)+
     (d.industry_level_table ? industryLevelTable(d.industry_level_table) : fld('产业规模与质量', d.industry_level))+
-    (customerTop5Table(d.varieties) || fld('重点客户（企业+新型主体）', d.customers_cleaned || d.customers || '—'))+
     fld('政策性奖补现状', d.award)+fld('补贴申请机会', d.subsidy_chance);
   // 2) 业务分类：weather/aqua 展示品种-客户对应表；credit 展示机会点
   let typeSec='';
@@ -862,7 +866,7 @@ function dirCard(dk,d){
       `<div class="var-table"><div class="var-head"><span>品种</span><span>机会</span><span>重点客户</span></div>`+
       d.varieties.map(v=>`<div class="var-row"><span class="vn">${v.name}</span>`+
         `<span class="vlvl ${v.lvl}">${v.lvl}</span>`+
-        `<span class="vc">${v.customers||'—'}</span></div>`).join('')+`</div>`;
+        `<span class="vc">${miniCustomerTable(v.customers)}</span></div>`).join('')+`</div>`;
   } else {
     typeSec=`<div class="sec-title">二、业务分类</div>`+fld('机会点', d.opportunity)+fld('产品/模式', DIR_LABEL[dk]);
   }
@@ -931,6 +935,13 @@ function customerTop5Table(varieties){
     <table class="ind-table cust-table"><thead><tr><th>品种</th><th>排名</th><th>重点客户/主体</th><th>核心标签/规模</th></tr></thead><tbody>`+
     all.map(r=>`<tr>${r.variety?`<td class="iv" rowspan="${r.rowspan}">${r.variety}</td>`:''}<td>${r.rank}</td><td>${r.name}</td><td>${r.note||'—'}</td></tr>`).join('')+
     `</tbody></table></div></div>`;
+}
+function miniCustomerTable(text){
+  const rows = parseTopCustomers(text);
+  if(!rows) return text||'—';
+  return `<table class="ind-table mini-cust-table"><thead><tr><th>排名</th><th>重点客户/主体</th><th>核心标签/规模</th></tr></thead><tbody>`+
+    rows.map(r=>`<tr><td>${r.rank}</td><td>${r.name}</td><td>${r.note||'—'}</td></tr>`).join('')+
+    `</tbody></table>`;
 }
 
 function selectCounty(name){
