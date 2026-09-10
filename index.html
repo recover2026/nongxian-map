@@ -242,7 +242,7 @@ const MUNI = {'北京市':'110000','天津市':'120000','上海市':'310000','�
 let PROV = null, COUNTY = null, QUAL = {qualified:{},policy:{}}, curDir = 'weather', curUnit = null, curCounty = null, chart = null, filterMode = 'all';
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-09-10-v7';   // 天气指数/水产风险分析统一加最高90%再保分出支持
+const CACHE_VERSION = '2026-09-10-v8';   // 全量县区+省级数据待核清零（客户营收层/县区级企业层/政策口径层/隐藏字段），强制刷新缓存
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
 const CACHE_TTL = 1000 * 60 * 60 * 24 * 30; // 缓存 30 天
