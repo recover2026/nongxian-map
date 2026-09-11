@@ -78,6 +78,16 @@
   .sel-head .grp{font-size:12px;color:var(--txt2);margin-left:auto;}
   .sel-sug{background:#0e2138;border-left:3px solid var(--gold);padding:9px 12px;border-radius:6px;
     font-size:13px;color:#ffe9c2;margin-bottom:14px;line-height:1.6;}
+  .push-bar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 14px;padding:9px 12px;
+    background:#0e2138;border-left:3px solid #3a7bd5;border-radius:6px;font-size:13px;color:var(--txt2);}
+  .push-sel{padding:3px 10px;border-radius:6px;border:1px solid #2a3a55;background:#0e1a2e;color:#e8eef7;
+    font-size:13px;cursor:pointer;outline:none;}
+  .push-sel.ps-未接触{background:#3a4356;color:#cfd8e6;}
+  .push-sel.ps-已拜访{background:#1f5fa6;color:#fff;}
+  .push-sel.ps-谈判中{background:#b9821f;color:#fff;}
+  .push-sel.ps-已入围{background:#2e8b57;color:#fff;}
+  .push-sel.ps-已出单{background:#1f9d6b;color:#fff;}
+  .push-hint{font-size:11px;color:#6b7787;}
   .dir-card{background:#0e2138;border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:13px;}
   .dir-card .dh{display:flex;align-items:center;gap:9px;margin-bottom:11px;}
   .dir-card .dh .nm{font-size:15px;font-weight:bold;color:#fff;}
@@ -242,7 +252,7 @@ const MUNI = {'北京市':'110000','天津市':'120000','上海市':'310000','�
 let PROV = null, COUNTY = null, QUAL = {qualified:{},policy:{}}, curDir = 'weather', curUnit = null, curCounty = null, chart = null, filterMode = 'all';
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-09-10-v9';   // 全量待核清零 + 5类数据质量修正（甘/滇真实农企回填、闽/冀/蒙/连口径校正、地名串味清除），强制刷新缓存
+const CACHE_VERSION = '2026-09-11-v10';   // 覆盖补全：7个资质县区进图+深圳p31挂接+全量推动状态(push_status)字段+前端追踪控件
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
 const CACHE_TTL = 1000 * 60 * 60 * 24 * 30; // 缓存 30 天
@@ -949,8 +959,14 @@ function selectCounty(name){
   }
   const dk = c.directions[curDir]?curDir:Object.keys(c.directions)[0];
   const d=c.directions[dk];
+  const psKey='nx_push_'+(c.province||'')+'_'+c.name;
+  const psCur=localStorage.getItem(psKey)||c.push_status||'未接触';
+  const PS_OPT=['未接触','已拜访','谈判中','已入围','已出单'];
   let h=crumb+`<div class="sel-head"><h2>${c.name}</h2><span class="tier" style="background:${LVL_COLOR[d.lvl]}">${d.lvl}</span><span class="grp">${c.province} · 县区级试点</span></div>`;
   h+=`<div class="sel-sug">📍 当前方向：<b>${DIR_LABEL[dk]}</b>（如切换上方业务方向，本县将自动联动显示对应方向数据）</div>`;
+  h+=`<div class="push-bar">🔁 推动状态：<select id="pushSel" class="push-sel ps-${psCur}">`+
+     PS_OPT.map(o=>`<option value="${o}" ${o===psCur?'selected':''}>${o}</option>`).join('')+
+     `</select><span class="push-hint">本地保存（清缓存可重置，不影响发布数据）；用于跟踪该县区展业推动进度</span></div>`;
   h+=dirCard(dk,d);
   const others=Object.keys(c.directions).filter(x=>x!==dk);
   if(others.length){
@@ -963,6 +979,8 @@ function selectCounty(name){
     h+=`</div>`;
   }
   panel.innerHTML=h; panel.scrollTop=0;
+  const psSel=document.getElementById('pushSel');
+  if(psSel){ psSel.onchange=()=>{ const v=psSel.value; try{localStorage.setItem(psKey,v);}catch(e){} psSel.className='push-sel ps-'+v; }; }
   panel.querySelectorAll('[data-od]').forEach(r=>{r.onclick=()=>{curDir=r.dataset.od; document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.dir===curDir)); renderCurrent(); selectCounty(c.name);};});
 }
 </script>
