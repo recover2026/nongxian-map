@@ -252,7 +252,7 @@ const MUNI = {'北京市':'110000','天津市':'120000','上海市':'310000','�
 let PROV = null, COUNTY = null, QUAL = {qualified:{},policy:{}}, curDir = 'weather', curUnit = null, curCounty = null, chart = null, filterMode = 'all';
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-09-11-v11';   // 全量县区方向补齐 industry_level_table 量化机会表（大连标准：品种→规模/质量），诚实C档兜底指针，无编造
+const CACHE_VERSION = '2026-09-12-v12';   // 全量1369县三方向联网富集真实农险机会数据（大连标准量化表+真实规模/龙头/营收可溯源），并补齐10个缺方向，零空壳/零编造
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
 const CACHE_TTL = 1000 * 60 * 60 * 24 * 30; // 缓存 30 天
