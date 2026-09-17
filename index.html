@@ -172,6 +172,68 @@
   .rr .tl.co{background:var(--gold);}
   .rr .dl{font-size:11px;padding:2px 8px;border-radius:9px;color:#08111f;font-weight:bold;}
   .empty-r{color:var(--txt2);font-size:13px;text-align:center;padding:18px;}
+  /* ===== 新增：搜索 / 关注 / 互动 / 百科 ===== */
+  .searchWrap{position:relative;display:flex;align-items:center;}
+  .searchWrap input{width:200px;padding:7px 12px;border-radius:8px;border:1px solid var(--border);background:#0a1830;color:var(--txt);font-size:13px;outline:none;}
+  .searchWrap input:focus{border-color:var(--accent);}
+  #searchResults{position:absolute;top:42px;left:0;width:300px;max-height:360px;overflow-y:auto;background:var(--panel);border:1px solid var(--border);border-radius:10px;z-index:60;box-shadow:0 8px 30px rgba(0,0,0,.5);display:none;}
+  #searchResults .sr{display:flex;align-items:center;gap:8px;padding:8px 11px;border-bottom:1px solid var(--border);cursor:pointer;}
+  #searchResults .sr:hover{background:#12294a;}
+  #searchResults .sr .nm{font-size:13px;color:#fff;font-weight:bold;}
+  #searchResults .sr .meta2{font-size:11px;color:var(--txt2);margin-left:auto;}
+  #searchResults .sr .tag{font-size:10px;padding:1px 7px;border-radius:8px;background:var(--gold);color:#08111f;font-weight:bold;}
+  .btn-tool{padding:6px 12px;border:1px solid var(--border);border-radius:8px;background:#0c1a30;color:var(--txt2);cursor:pointer;font-size:12px;white-space:nowrap;}
+  .btn-tool:hover{color:#fff;border-color:var(--accent);}
+  .btn-tool.gold{border-color:var(--gold);color:var(--gold);}
+  .btn-tool.gold:hover{background:var(--gold);color:#08111f;}
+  .co-toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px;}
+  .co-toolbar button{flex:1;min-width:84px;padding:8px 6px;border:1px solid var(--border);border-radius:8px;background:#0e2138;color:var(--txt);cursor:pointer;font-size:12px;transition:.15s;}
+  .co-toolbar button:hover{border-color:var(--accent);background:#12294a;color:#fff;}
+  .co-toolbar button.on{background:var(--gold);color:#08111f;border-color:var(--gold);}
+  .note-box{background:#0e2138;border-left:3px solid var(--accent);border-radius:6px;padding:10px 12px;margin:10px 0;font-size:12.5px;color:var(--txt);}
+  .note-box .nt{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+  .note-box .nt b{color:var(--accent);font-size:12px;}
+  .note-box .nt .del{color:var(--lo);cursor:pointer;font-size:11px;}
+  .note-box .nt .del:hover{color:#fff;}
+  .note-input{width:100%;margin-top:8px;padding:8px 10px;border-radius:7px;border:1px solid var(--border);background:#0a1830;color:var(--txt);font-size:12.5px;resize:vertical;min-height:52px;outline:none;font-family:inherit;}
+  .note-save{margin-top:7px;padding:6px 14px;border:none;border-radius:7px;background:var(--accent);color:#fff;cursor:pointer;font-size:12px;}
+  .note-save:hover{background:#1c6bf0;}
+  .modal{position:fixed;inset:0;background:rgba(3,8,16,.82);z-index:9998;display:none;align-items:center;justify-content:center;padding:30px;}
+  .modal .box{background:var(--panel);border:1px solid var(--border);border-radius:14px;width:720px;max-width:94vw;max-height:86vh;display:flex;flex-direction:column;box-shadow:0 10px 40px rgba(0,0,0,.6);}
+  .modal .hd{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--border);}
+  .modal .hd h3{font-size:17px;color:var(--gold);}
+  .modal .hd .x{margin-left:auto;cursor:pointer;color:var(--txt2);font-size:20px;line-height:1;}
+  .modal .hd .x:hover{color:var(--lo);}
+  .modal .body{overflow-y:auto;padding:14px 20px 20px;}
+  .modal .body::-webkit-scrollbar{width:8px;} .modal .body::-webkit-scrollbar-thumb{background:#1e3a5f;border-radius:4px;}
+  .enc-sec{margin-bottom:16px;}
+  .enc-sec h4{font-size:14px;color:var(--gold);margin-bottom:7px;border-left:3px solid var(--gold);padding-left:8px;}
+  .enc-sec p{font-size:12.5px;color:var(--txt);line-height:1.75;margin-bottom:6px;}
+  .enc-sec ul{margin:4px 0 6px 18px;font-size:12.5px;color:var(--txt);line-height:1.7;}
+  .enc-sec li{margin-bottom:4px;}
+  .enc-sec .eg{font-size:12px;color:var(--txt2);background:#0e2138;border-radius:6px;padding:8px 11px;margin-top:6px;line-height:1.6;}
+  .enc-sec .eg b{color:var(--accent);}
+  .stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:8px 0 14px;}
+  .stat-cell{background:#0e2138;border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center;}
+  .stat-cell .n{font-size:22px;font-weight:bold;color:var(--gold);}
+  .stat-cell .t{font-size:11px;color:var(--txt2);margin-top:3px;}
+  .fav-row{display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid var(--border);border-radius:8px;margin-bottom:7px;background:#0e2138;cursor:pointer;}
+  .fav-row:hover{border-color:var(--accent);background:#12294a;}
+  .fav-row .nm{font-size:13px;color:#fff;font-weight:bold;}
+  .fav-row .pr{font-size:11px;color:var(--txt2);margin-left:auto;}
+  .fav-row .ps{font-size:11px;padding:2px 8px;border-radius:9px;color:#fff;font-weight:bold;}
+  .fav-empty{color:var(--txt2);font-size:13px;text-align:center;padding:24px;line-height:1.7;}
+  .fb-item{background:#0e2138;border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin-bottom:8px;}
+  .fb-item .fb-top{display:flex;justify-content:space-between;font-size:11px;color:var(--txt2);margin-bottom:5px;}
+  .fb-item .fb-top b{color:var(--accent);}
+  .fb-item .fb-msg{font-size:12.5px;color:var(--txt);line-height:1.6;white-space:pre-wrap;word-break:break-word;}
+  .fb-input{width:100%;min-height:74px;padding:10px;border-radius:8px;border:1px solid var(--border);background:#0a1830;color:var(--txt);font-size:12.5px;resize:vertical;outline:none;font-family:inherit;margin-top:6px;}
+  .fb-actions{display:flex;gap:8px;margin-top:9px;flex-wrap:wrap;}
+  .fb-actions button{padding:7px 14px;border:none;border-radius:7px;cursor:pointer;font-size:12px;}
+  .fb-save{background:var(--accent);color:#fff;} .fb-save:hover{background:#1c6bf0;}
+  .fb-issue{background:var(--gold);color:#08111f;} .fb-issue:hover{opacity:.85;}
+  .fb-export{background:#0c1a30;color:var(--txt2);border:1px solid var(--border)!important;} .fb-export:hover{color:#fff;}
+  .tip{font-size:11px;color:var(--txt2);line-height:1.6;margin-top:8px;}
 </style>
 </head>
 <body>
@@ -202,11 +264,18 @@
       <div class="fchip" data-f="A">仅A级</div>
       <div class="fchip" data-f="county">有县区</div>
     </div>
+    <div class="searchWrap">
+      <input id="searchInput" type="text" placeholder="🔍 搜县/省/品种/龙头" oninput="onSearchInput(this.value)" />
+      <div id="searchResults"></div>
+    </div>
     <div class="spacer"></div>
     <div class="meta">数据基准：<b id="dataDate">2026-09-06</b> · 覆盖 <b id="covN">33</b> 业务单元</div>
     <button class="btn-rank" id="rankBtn">🏆 机会排行榜</button>
     <button class="btn-refresh" id="refreshBtn">↻ 刷新</button>
     <button class="btn-refresh" id="clearCacheBtn" title="数据未更新时点此清除本地缓存">🗑 清缓存</button>
+    <button class="btn-tool gold" onclick="openFav()">⭐ 我的关注<span id="favCount"></span></button>
+    <button class="btn-tool" onclick="openEnc()">📚 农险百科</button>
+    <button class="btn-tool" onclick="openGlobalFeedback()">💬 反馈</button>
   </header>
   <main>
     <div id="mapWrap">
@@ -244,6 +313,30 @@
   </div>
 </div>
 
+<!-- 我的关注（展业清单） -->
+<div id="favModal" class="modal">
+  <div class="box">
+    <div class="hd"><h3>⭐ 我的关注（展业清单）</h3><span class="x" onclick="closeFav()">✕</span></div>
+    <div class="body" id="favBody"></div>
+  </div>
+</div>
+
+<!-- 农险百科 -->
+<div id="encModal" class="modal">
+  <div class="box">
+    <div class="hd"><h3>📚 农险百科 · 展业百科全书</h3><span class="x" onclick="closeEnc()">✕</span></div>
+    <div class="body" id="encBody"></div>
+  </div>
+</div>
+
+<!-- 反馈 -->
+<div id="fbModal" class="modal">
+  <div class="box">
+    <div class="hd"><h3 id="fbModalTitle">💬 意见反馈</h3><input type="hidden" id="fbTarget"><span class="x" onclick="closeFb()">✕</span></div>
+    <div class="body" id="fbBody"></div>
+  </div>
+</div>
+
 <script>
 const PASSWORD = 'nongxian2026';
 const DIR_LABEL = {weather:'天气指数保险', aqua:'水产养殖保险', credit:'信贷相关农险（保单增信）'};
@@ -252,7 +345,7 @@ const MUNI = {'北京市':'110000','天津市':'120000','上海市':'310000','�
 let PROV = null, COUNTY = null, QUAL = {qualified:{},policy:{}}, curDir = 'weather', curUnit = null, curCounty = null, chart = null, filterMode = 'all';
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-09-12-v12';   // 全量1369县三方向联网富集真实农险机会数据（大连标准量化表+真实规模/龙头/营收可溯源），并补齐10个缺方向，零空壳/零编造
+const CACHE_VERSION = '2026-09-17-v13';   // 新增：全局搜索/我的关注清单+导出/复制展业摘要/农险百科(产品定义+展业SOP+数据看板)/互动反馈(补充纠错GitHub Issue+本机备注+留言板)
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
 const CACHE_TTL = 1000 * 60 * 60 * 24 * 30; // 缓存 30 天
@@ -425,6 +518,8 @@ function wireEvents(){
   document.getElementById('rankBtn').onclick=openRank;
   document.getElementById('rankClose').onclick=closeRank;
   document.getElementById('rankModal').addEventListener('click',e=>{if(e.target.id==='rankModal')closeRank();});
+  document.querySelectorAll('.modal').forEach(m=>{ m.addEventListener('click',e=>{ if(e.target===m) m.style.display='none'; }); });
+  renderFavCount();
 }
 
 function buildCityChips(){
@@ -943,6 +1038,156 @@ function miniCustomerTable(text){
     `</tbody></table>`;
 }
 
+// ===================== 新增：搜索 / 关注 / 互动 / 百科 =====================
+const FB_REPO = 'recover2026/nongxian-map';
+function $(id){ return document.getElementById(id); }
+let toastT=null;
+function toast(msg){ let el=$('toast'); if(!el){ el=document.createElement('div'); el.id='toast'; el.style.cssText='position:fixed;left:50%;bottom:60px;transform:translateX(-50%);background:#1f5fa6;color:#fff;padding:9px 18px;border-radius:20px;font-size:13px;z-index:99999;box-shadow:0 6px 20px rgba(0,0,0,.4);transition:.3s;opacity:0;'; document.body.appendChild(el); } el.textContent=msg; el.style.opacity='1'; clearTimeout(toastT); toastT=setTimeout(()=>{ el.style.opacity='0'; },2200); }
+
+// ---- 全局搜索 ----
+function onSearchInput(q){
+  q=(q||'').trim(); const box=$('searchResults');
+  if(!q){ box.style.display='none'; return; }
+  const hits=[];
+  (PROV&&PROV.units||[]).forEach(u=>{ if(u.name.indexOf(q)>=0||(u.group||'').indexOf(q)>=0) hits.push({type:'单元',name:u.name,sub:u.tier+' · '+u.group,act:()=>selectUnit(u.name)}); });
+  (COUNTY&&COUNTY.counties||[]).forEach(c=>{
+    let hit=c.name.indexOf(q)>=0||(c.province||'').indexOf(q)>=0;
+    if(!hit){ for(const dk of ['weather','aqua','credit']){ const d=c.directions[dk]; if(!d)continue;
+      const blob=[d.industry,d.market_size,d.opportunity,(d.customers||'')+(d.enterprises||'')];
+      if(blob.some(x=>typeof x==='string'&&x.indexOf(q)>=0)) hit=true;
+      if(d.industry_level_table&&d.industry_level_table.some(r=>(r.variety||'').indexOf(q)>=0)) hit=true;
+    }}
+    if(hit) hits.push({type:'县区',name:c.name,sub:c.province+' · '+(c.directions[curDir]?DIR_LABEL[curDir]:'农险'),act:()=>selectCounty(c.name)});
+  });
+  if(!hits.length){ box.innerHTML='<div class="sr" style="cursor:default;color:var(--txt2)">未找到匹配</div>'; box.style.display='block'; return; }
+  box.innerHTML=hits.slice(0,40).map((h2,i)=>`<div class="sr" data-i="${i}"><span class="tag">${h2.type}</span><span class="nm">${h2.name}</span><span class="meta2">${h2.sub}</span></div>`).join('');
+  box.querySelectorAll('.sr').forEach(el=>{ if(el.style.cursor==='default')return; el.onclick=()=>{ const h2=hits[+el.dataset.i]; box.style.display='none'; const s=$('searchInput'); if(s)s.value=''; h2.act(); }; });
+  box.style.display='block';
+}
+document.addEventListener('click',e=>{ const box=$('searchResults'); if(box&&!box.contains(e.target)&&e.target.id!=='searchInput') box.style.display='none'; });
+
+// ---- 关注（我的清单） ----
+function favKey(){ return 'nx_fav_v1'; }
+function getFavs(){ try{ return JSON.parse(localStorage.getItem(favKey())||'[]'); }catch(e){ return []; } }
+function isFav(name){ return getFavs().indexOf(name)>=0; }
+function toggleFav(name){ const f=getFavs(); const i=f.indexOf(name); if(i>=0) f.splice(i,1); else f.push(name); localStorage.setItem(favKey(),JSON.stringify(f)); const b=$('favBtn'); if(b){ const on=isFav(name); b.className=on?'on':''; b.textContent=on?'★ 已关注':'☆ 关注'; } renderFavCount(); }
+function renderFavCount(){ const n=getFavs().length; const el=$('favCount'); if(el) el.textContent=n?('('+n+')'):''; }
+function openFav(){ const box=$('favModal'); const body=$('favBody'); const favs=getFavs();
+  const psColor={'未接触':'#3a4356','已拜访':'#1f5fa6','谈判中':'#b9821f','已入围':'#2e8b57','已出单':'#1f9d6b'};
+  if(!favs.length){ body.innerHTML='<div class="fav-empty">还没有关注任何县区。<br/>在县区详情页点击「☆ 关注」即可加入清单，用于展业跟踪与批量导出 CSV / JSON。</div>'; }
+  else {
+    body.innerHTML=favs.map(name=>{ const c=COUNTY.counties.find(x=>x.name===name); const psKey='nx_push_'+(c?c.province:'')+'_'+name; const ps=localStorage.getItem(psKey)||(c?c.push_status:'未接触'); const pc=psColor[ps]||'#3a4356';
+      return `<div class="fav-row" onclick="selectCounty('${name.replace(/'/g,"\\'")}');closeFav();"><span class="nm">${name}</span><span class="pr">${c?c.province:''}</span><span class="ps" style="background:${pc}">${ps}</span></div>`; }).join('')+
+      `<div style="margin-top:12px;display:flex;gap:8px;"><button class="fb-save" onclick="exportFavs('csv')">⬇ 导出CSV</button><button class="fb-save" onclick="exportFavs('json')">⬇ 导出JSON</button><button class="fb-export" onclick="clearFavs()">清空清单</button></div>`;
+  }
+  box.style.display='flex';
+}
+function closeFav(){ $('favModal').style.display='none'; }
+function clearFavs(){ if(!confirm('确认清空关注清单？')) return; localStorage.removeItem(favKey()); renderFavCount(); openFav(); }
+function exportFavs(fmt){
+  const favs=getFavs(); if(!favs.length){ alert('清单为空'); return; }
+  let rows=[];
+  favs.forEach(name=>{ const c=COUNTY.counties.find(x=>x.name===name); if(!c)return; const psKey='nx_push_'+(c.province||'')+'_'+name; const ps=localStorage.getItem(psKey)||c.push_status||'未接触';
+    ['weather','aqua','credit'].forEach(dk=>{ const d=c.directions[dk]; if(!d)return; rows.push({县:c.name,省:c.province,方向:DIR_LABEL[dk],机会等级:d.lvl,市场规模:d.market_size||'',预期规模:d.expected_scale||'',机会点:d.opportunity||'',突破口:d.key_breakthrough||'',推动状态:ps,来源:d.src||''}); }); });
+  if(fmt==='json'){ downloadFile('农险关注清单.json', JSON.stringify(rows,null,2),'application/json'); }
+  else { const cols=Object.keys(rows[0]||{}); const csv=[cols.join(',')].concat(rows.map(r=>cols.map(k=>'"'+(r[k]||'').replace(/"/g,'""')+'"').join(','))).join('\n'); downloadFile('农险关注清单.csv', csv, 'text/csv'); }
+}
+function downloadFile(fn,content,type){ const blob=new Blob([content],{type}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=fn; a.click(); URL.revokeObjectURL(a.href); }
+
+// ---- 复制展业摘要 ----
+function copySummary(name){
+  const c=COUNTY.counties.find(x=>x.name===name); if(!c) return;
+  let md=`# 农险业务机会 · ${c.name}（${c.province}）\n\n`;
+  ['weather','aqua','credit'].forEach(dk=>{ const d=c.directions[dk]; if(!d)return;
+    md+=`## ${DIR_LABEL[dk]}（机会等级：${d.lvl}）\n`;
+    md+=`- 市场规模：${d.market_size||'—'}\n`;
+    if(d.industry_level_table&&d.industry_level_table.length){ md+='- 产业规模与质量：\n'; d.industry_level_table.forEach(r=>{ md+=`  - ${r.variety}：${r.scale||''}（${r.quality||''}）\n`; }); }
+    md+=`- 机会点：${d.opportunity||'—'}\n`;
+    md+=`- 重点客户/主体：${d.enterprises_cleaned||d.enterprises||'—'}\n`;
+    md+=`- 预期规模：${d.expected_scale||'—'}\n`;
+    md+=`- 来源：${d.src||'—'}\n\n`;
+  });
+  md+=`> 生成时间：${new Date().toLocaleString('zh-CN')} · 阳光农险业务机会地图\n`;
+  if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(md).then(()=>toast('已复制展业摘要，可粘贴至汇报 / CRM')).catch(()=>fallbackCopy(md)); }
+  else fallbackCopy(md);
+}
+function fallbackCopy(md){ const ta=document.createElement('textarea'); ta.value=md; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy'); toast('已复制展业摘要');}catch(e){ toast('复制失败，请手动选择'); } ta.remove(); }
+
+// ---- 我的本地备注 ----
+function noteKey(name){ return 'nx_note_'+(name||''); }
+function getNotes(name){ try{ return JSON.parse(localStorage.getItem(noteKey(name))||'[]'); }catch(e){ return []; } }
+function toggleNoteEditor(name){ const a=$('noteArea'); if(!a) return; if(a.querySelector('.note-input')){ renderNoteArea(name); return; } const div=document.createElement('div'); div.className='note-box'; div.innerHTML=`<div class="nt"><b>📝 我的本地备注</b></div><textarea class="note-input" placeholder="记录该县展业要点、客户线索、待办…（仅保存在本机浏览器）"></textarea><button class="note-save" onclick="saveNote('${name.replace(/'/g,"\\'")}')">保存备注</button>`; a.appendChild(div); const ta=a.querySelector('.note-input'); if(ta) ta.focus(); }
+function saveNote(name){ const a=$('noteArea'); const ta=a?a.querySelector('.note-input'):null; if(!ta) return; const txt=ta.value.trim(); if(!txt){ alert('请输入备注内容'); return; } const notes=getNotes(name); notes.push({t:new Date().toLocaleString('zh-CN'), msg:txt}); localStorage.setItem(noteKey(name),JSON.stringify(notes)); toast('备注已保存'); renderNoteArea(name); }
+function delNote(name,i){ const notes=getNotes(name); notes.splice(i,1); localStorage.setItem(noteKey(name),JSON.stringify(notes)); renderNoteArea(name); }
+function renderNoteArea(name){ const a=$('noteArea'); if(!a) return; const notes=getNotes(name); if(!notes.length){ a.innerHTML=''; return; } a.innerHTML=notes.map((n,i)=>`<div class="note-box"><div class="nt"><b>📝 我的备注</b><span class="del" onclick="delNote('${name.replace(/'/g,"\\'")}',${i})">删除</span></div><div class="fb-msg">${n.msg.replace(/</g,'&lt;')}</div><div style="font-size:10px;color:var(--txt2);margin-top:5px;">${n.t}</div></div>`).join(''); }
+
+// ---- 补充 / 纠错（GitHub Issue 预填，免 token） ----
+function getFbLocal(){ try{ return JSON.parse(localStorage.getItem('nx_fb_v1')||'[]'); }catch(e){ return []; } }
+function fbLocalHtml(list){ if(!list||!list.length) return '<div class="tip">本机暂无历史留言。提交的意见将以 GitHub Issue 形式进入项目反馈库（需登录你的 GitHub 账号）。</div>'; return list.map(n=>`<div class="fb-item"><div class="fb-top"><b>${n.name||'全局'}</b><span>${n.t}</span></div><div class="fb-msg">${(n.msg||'').replace(/</g,'&lt;')}</div></div>`).join(''); }
+function openCountyFeedback(name,prov){
+  $('fbModalTitle').textContent='✏️ 补充 / 纠错 · '+name; $('fbTarget').value=name+'|'+prov;
+  const local=getFbLocal().filter(n=>n.name===name);
+  $('fbBody').innerHTML=`<div class="tip">填写对「${name}」的数据补充、纠错或展业建议。点击「提交到项目反馈库」将打开预填好的 GitHub Issue（用你的 GitHub 账号提交，无需额外授权）。</div>`+
+    `<textarea class="fb-input" id="fbInput" placeholder="例如：该县还有 XX 龙头企业未收录 / 产业规模数据有误 / 建议优先对接 XX 政策…"></textarea>`+
+    `<div class="fb-actions"><button class="fb-save" onclick="submitFbLocal('${name.replace(/'/g,"\\'")}')">💾 存本机</button><button class="fb-issue" onclick="submitFbIssue('${name.replace(/'/g,"\\'")}')">🚀 提交到项目反馈库</button></div>`+
+    `<div style="margin-top:14px;" id="fbLocalList">${fbLocalHtml(local)}</div>`;
+  $('fbModal').style.display='flex';
+}
+function openGlobalFeedback(){
+  $('fbModalTitle').textContent='💬 意见反馈'; $('fbTarget').value='';
+  $('fbBody').innerHTML=`<div class="tip">欢迎对地图功能、数据、体验提意见。可「存本机」留痕，或「提交到项目反馈库」以 GitHub Issue 形式进入反馈库（需登录你的 GitHub 账号）。</div>`+
+    `<textarea class="fb-input" id="fbInput" placeholder="功能建议 / 数据纠错 / 使用体验…"></textarea>`+
+    `<div class="fb-actions"><button class="fb-save" onclick="submitFbLocal('')">💾 存本机</button><button class="fb-issue" onclick="submitFbIssue('')">🚀 提交到项目反馈库</button></div>`+
+    `<div style="margin-top:14px;" id="fbLocalList">${fbLocalHtml(getFbLocal())}</div>`;
+  $('fbModal').style.display='flex';
+}
+function submitFbLocal(name){ const ta=$('fbInput'); const txt=ta?ta.value.trim():''; if(!txt){ alert('请输入内容'); return; } const all=getFbLocal(); all.push({t:new Date().toLocaleString('zh-CN'), name, msg:txt}); localStorage.setItem('nx_fb_v1',JSON.stringify(all)); toast('已存本机'); if(name) openCountyFeedback(name,(COUNTY.counties.find(x=>x.name===name)||{}).province||''); else openGlobalFeedback(); }
+function submitFbIssue(name){
+  const ta=$('fbInput'); const txt=ta?ta.value.trim():''; if(!txt){ alert('请输入内容'); return; }
+  const c=COUNTY.counties.find(x=>x.name===name); const prov=c?c.province:'';
+  const title='【地图反馈】'+(name?name+'（'+prov+'）':'功能/体验建议');
+  const body='## 反馈对象\n'+(name?('- 县区：'+name+'\n- 省份：'+prov):'- 类型：全局功能/体验')+'\n\n## 反馈内容\n'+txt+'\n\n## 提交人\n（浏览者通过地图「补充/纠错」互动入口提交）\n\n> 本反馈由阳光农险业务机会地图生成。';
+  const url='https://github.com/'+FB_REPO+'/issues/new?title='+encodeURIComponent(title)+'&body='+encodeURIComponent(body)+'&labels='+encodeURIComponent('地图反馈');
+  window.open(url,'_blank'); submitFbLocal(name);
+}
+function closeFb(){ $('fbModal').style.display='none'; }
+
+// ---- 农险百科（百科全书 + 展业 SOP + 数据看板） ----
+function buildStats(){
+  let total=0,hi=0,mid=0,lo=0,real=0,ph=0;
+  const PH=['待结合','待核','待核实','待阳光内部客户台账'];
+  const isPh=s=>(typeof s==='string'&&PH.some(p=>s.indexOf(p)>=0));
+  (COUNTY&&COUNTY.counties||[]).forEach(c=>{ ['weather','aqua','credit'].forEach(dk=>{ const d=c.directions[dk]; if(!d)return; total++; if(d.lvl==='高')hi++; else if(d.lvl==='中')mid++; else if(d.lvl==='低')lo++; const ilt=d.industry_level_table; if(ilt&&ilt.some(r=>!isPh(r.scale))) real++; else ph++; }); });
+  return {total,hi,mid,lo,real,ph,provN:PROV?PROV.units.length:0,countyN:COUNTY?COUNTY.counties.length:0};
+}
+function openEnc(){
+  const s=buildStats();
+  $('encBody').innerHTML=`
+  <div class="stat-grid">
+    <div class="stat-cell"><div class="n">${s.countyN}</div><div class="t">已接入县区</div></div>
+    <div class="stat-cell"><div class="n">${s.provN}</div><div class="t">业务单元(省/市)</div></div>
+    <div class="stat-cell"><div class="n" style="color:#2e86de">${s.hi}</div><div class="t">高机会方向</div></div>
+    <div class="stat-cell"><div class="n" style="color:#74b9ff">${s.mid}</div><div class="t">中机会方向</div></div>
+  </div>
+  <div class="enc-sec"><h4>一、这张地图是给谁用的？</h4>
+    <p>面向阳光产险各机构、农担、合作银行及政府涉农部门，是<b>发现农险业务机会</b>、辅助<b>展业推进</b>、以及查阅农险产品的<b>百科全书</b>。三大业务方向贯穿全国 1300+ 资质县区。</p>
+    <ul><li><b>发现机会</b>：按省→市→县下钻，或顶部搜索 / 机会排行榜，快速定位高机会县区与品种。</li><li><b>展业工具</b>：关注清单、推动状态跟踪、一键复制展业摘要、批量导出 CSV / JSON。</li><li><b>百科全书</b>：本弹窗讲解产品定义、资格口径、推动链路与真实落地案例。</li></ul></div>
+  <div class="enc-sec"><h4>二、三大业务方向</h4>
+    <p><b>① 天气指数保险</b>：以气温、降水、光照等气象指数触发赔付，无需逐户查勘，适合大宗种植。地图内已落地案例：<b>慈溪杨梅降雨指数险、余姚榨菜气象指数险、象山柑橘气象指数险</b>。</p>
+    <p><b>② 水产养殖保险</b>：覆盖养殖水面因灾害 / 病害导致的损失，含冷水鱼、对虾、贝类等。地图内 <b>共和县龙羊峡三文鱼、宁海长街蛏子、青岛杨家泊对虾</b> 为高价值标的。</p>
+    <p><b>③ 信贷相关农险（保单增信）</b>：以农业保单为信用凭证，联动省农担、银行放大授信，服务新型农业经营主体。</p></div>
+  <div class="enc-sec"><h4>三、资格与等级口径</h4>
+    <ul><li><b>政策性资格</b>：I 类=政策性农险遴选入围；J 类=地方特色 / 中央森林险。</li><li><b>机会等级</b>：高=重点推进；中=培育跟进；低=储备观察；储备=具备资质待详析。</li><li><b>推动状态</b>：未接触→已拜访→谈判中→已入围→已出单（本地保存，用于跟踪进度）。</li></ul></div>
+  <div class="enc-sec"><h4>四、再保支持</h4>
+    <p>天气指数 / 水产养殖业务，根据风险情况分析最高可获得 <b>90% 的再保分出支持</b>，显著缓释巨灾敞口。</p></div>
+  <div class="enc-sec"><h4>五、展业 SOP（怎么用这张图打仗）</h4>
+    <ul><li><b>1. 发现</b>：机会排行榜 / 搜索锁定高机会县区与品种。</li><li><b>2. 核实</b>：查看该县资质与产业规模，结合内部台账核实真实龙头。</li><li><b>3. 锁定</b>：从「重点客户 / 主体」对接政府推荐名录、省农担白名单企业。</li><li><b>4. 设计</b>：参照同品类已落地指数险方案设计产品与阈值。</li><li><b>5. 推动</b>：在县详情切换推动状态跟踪；复制展业摘要进汇报 / CRM。</li><li><b>6. 反馈</b>：数据有出入用「补充 / 纠错」提交，持续迭代地图。</li></ul></div>
+  <div class="enc-sec"><h4>六、数据说明</h4>
+    <p>研判基于公开联网检索（政府官网 / 监管派出机构 / 权威媒体 / 行业公告）。标注「待核 / 待结合XX统计公报核实」为公开信息不足，<b>非最终承保结论</b>；真实规模与龙头以内部台账复核为准。本原型仅作内部研判辅助。</p></div>`;
+  $('encModal').style.display='flex';
+}
+function closeEnc(){ $('encModal').style.display='none'; }
+
 function selectCounty(name){
   const c=COUNTY.counties.find(x=>x.name===name);
   if(!c) return;
@@ -978,10 +1223,20 @@ function selectCounty(name){
     });
     h+=`</div>`;
   }
+  // 展业工具条 + 互动（★新增）
+  const favOn=isFav(c.name)?'on':'';
+  h+=`<div class="co-toolbar">
+    <button id="favBtn" class="${favOn}" onclick="toggleFav('${c.name.replace(/'/g,"\\'")}')">${favOn?'★ 已关注':'☆ 关注'}</button>
+    <button onclick="copySummary('${c.name.replace(/'/g,"\\'")}')">📋 复制展业摘要</button>
+    <button onclick="openCountyFeedback('${c.name.replace(/'/g,"\\'")}','${c.province.replace(/'/g,"\\'")}')">✏️ 补充/纠错</button>
+    <button onclick="toggleNoteEditor('${c.name.replace(/'/g,"\\'")}')">📝 我的备注</button>
+  </div>`;
+  h+=`<div id="noteArea"></div>`;
   panel.innerHTML=h; panel.scrollTop=0;
   const psSel=document.getElementById('pushSel');
   if(psSel){ psSel.onchange=()=>{ const v=psSel.value; try{localStorage.setItem(psKey,v);}catch(e){} psSel.className='push-sel ps-'+v; }; }
   panel.querySelectorAll('[data-od]').forEach(r=>{r.onclick=()=>{curDir=r.dataset.od; document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.dir===curDir)); renderCurrent(); selectCounty(c.name);};});
+  renderNoteArea(c.name);
 }
 </script>
 </body>
