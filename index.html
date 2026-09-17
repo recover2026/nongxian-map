@@ -118,6 +118,7 @@
   .ind-table tr:nth-child(odd){background:#0b1d33;}
   .ind-table tr:nth-child(even){background:#0e2138;}
   .ind-table .iv{white-space:nowrap;font-weight:bold;color:#fff;}
+  .ind-table .note-line{font-size:11px;color:var(--gold);margin-top:4px;line-height:1.5;opacity:.92;}
   .mini-cust-table{font-size:11px;margin-top:0;border-radius:4px;}
   .mini-cust-table th,.mini-cust-table td{padding:2px 6px;font-size:11px;line-height:1.45;vertical-align:top;}
   .mini-cust-table th{background:#12294a;color:var(--gold);white-space:nowrap;font-weight:bold;}
@@ -345,7 +346,7 @@ const MUNI = {'北京市':'110000','天津市':'120000','上海市':'310000','�
 let PROV = null, COUNTY = null, QUAL = {qualified:{},policy:{}}, curDir = 'weather', curUnit = null, curCounty = null, chart = null, filterMode = 'all';
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-09-17-v13';   // 新增：全局搜索/我的关注清单+导出/复制展业摘要/农险百科(产品定义+展业SOP+数据看板)/互动反馈(补充纠错GitHub Issue+本机备注+留言板)
+const CACHE_VERSION = '2026-09-17-v15';   // v14: file:// 本地打开友好提示；v15: 修复浙江 p18.json industry_level_table 竖线字符串→标准数组(iltRows 防御性解析) + 全量 106 方向机会等级 lvl 归一(高/中/低) + 补齐粤鄂黔 5 个空字段
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
 const CACHE_TTL = 1000 * 60 * 60 * 24 * 30; // 缓存 30 天
@@ -458,6 +459,12 @@ document.getElementById('loginBtn').onclick = ()=>{
 document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')document.getElementById('loginBtn').click();});
 
 async function init(){
+  // file:// 直接双击本地文件打开时，浏览器禁止 fetch 读取本地 JSON —— 给出明确指引而非报错
+  if(location.protocol==='file:'){
+    console.warn('检测到 file:// 协议：请通过 http 服务或线上地址访问');
+    setMapLoading('⚠️ 当前为本地文件方式打开（file://），浏览器禁止读取本地数据。请改用 http 服务访问，或直接打开线上地址：https://recover2026.github.io/nongxian-map/');
+    return;
+  }
   try{
     setMapLoading('🗺 加载省份数据…');
     const p = await cachedFetch('data/provinces.json', 'provinces');
@@ -465,7 +472,7 @@ async function init(){
     document.getElementById('covN').textContent = p.units.length;
     buildCityChips();
     wireEvents();
-  }catch(e){ console.error('省份数据加载失败:',e); setMapLoading('❌ 省份数据加载失败，请刷新重试'); return; }
+  }catch(e){ console.error('省份数据加载失败:',e); setMapLoading('❌ 省份数据加载失败，请刷新重试（若持续失败请清除浏览器缓存后重试）'); return; }
 
   // 县区数据已按省拆分：仅加载 ~1KB manifest，拿到省→文件映射后立即渲染地图
   try{
@@ -960,7 +967,7 @@ function dirCard(dk,d){
   let biz=`<div class="sec-title">一、业务分析（含市场规模）</div>`+
     fld('市场规模', d.market_size || d.market || '—')+
     fld('政策是否支持', d.support)+fld('主管部门', d.authority)+
-    (d.industry_level_table ? industryLevelTable(d.industry_level_table) : fld('产业规模与质量', d.industry_level))+
+    (iltRows(d.industry_level_table).length ? industryLevelTable(d.industry_level_table) : fld('产业规模与质量', d.industry_level))+
     fld('政策性奖补现状', d.award)+fld('补贴申请机会', d.subsidy_chance);
   // 2) 业务分类：weather/aqua 展示品种-客户对应表；credit 展示机会点
   let typeSec='';
@@ -1008,10 +1015,24 @@ function dirCard(dk,d){
 }
 
 function fld(k,v){ return `<div class="fld"><div class="k">${k}</div><div class="v">${v||'—'}</div></div>`; }
+// 产业量化表防御性解析：兼容标准数组 与 "品种|等级|描述|规模|保险机会" 字符串两种格式，任何异常一律降级为空数组，绝不抛错
+function iltRows(t){
+  if(Array.isArray(t)) return t.filter(r=>r && typeof r==='object');
+  if(typeof t==='string' && t.trim()){
+    return t.split(/[；;\n]+/).map(p=>p.trim()).filter(Boolean).map(p=>{
+      const f=p.split('|').map(x=>x.trim());
+      if(f.length<3) return {variety:f[0]||p, scale:'', quality:p, note:''};
+      return {variety:f[0], scale:f[3]||'', quality:[f[1],f[2]].filter(Boolean).join('·'), note:f[4]||''};
+    });
+  }
+  return [];
+}
 function industryLevelTable(rows){
+  const rr=iltRows(rows);
+  if(!rr.length) return '';
   return `<div class="fld"><div class="k">产业规模与质量</div><div class="v">
     <table class="ind-table"><thead><tr><th>品种</th><th>产业规模</th><th>质量/认证水平</th></tr></thead><tbody>`+
-    rows.map(r=>`<tr><td class="iv">${r.variety}</td><td>${r.scale}</td><td>${r.quality}</td></tr>`).join('')+
+    rr.map(r=>`<tr><td class="iv">${r.variety||''}</td><td>${r.scale||''}</td><td>${r.quality||''}${r.note?`<div class="note-line">💡 ${r.note}</div>`:''}</td></tr>`).join('')+
     `</tbody></table></div></div>`;
 }
 function parseTopCustomers(text){
@@ -1055,7 +1076,7 @@ function onSearchInput(q){
     if(!hit){ for(const dk of ['weather','aqua','credit']){ const d=c.directions[dk]; if(!d)continue;
       const blob=[d.industry,d.market_size,d.opportunity,(d.customers||'')+(d.enterprises||'')];
       if(blob.some(x=>typeof x==='string'&&x.indexOf(q)>=0)) hit=true;
-      if(d.industry_level_table&&d.industry_level_table.some(r=>(r.variety||'').indexOf(q)>=0)) hit=true;
+      if(iltRows(d.industry_level_table).some(r=>((r.variety||'')+(r.scale||'')+(r.quality||'')+(r.note||'')).indexOf(q)>=0)) hit=true;
     }}
     if(hit) hits.push({type:'县区',name:c.name,sub:c.province+' · '+(c.directions[curDir]?DIR_LABEL[curDir]:'农险'),act:()=>selectCounty(c.name)});
   });
@@ -1101,7 +1122,8 @@ function copySummary(name){
   ['weather','aqua','credit'].forEach(dk=>{ const d=c.directions[dk]; if(!d)return;
     md+=`## ${DIR_LABEL[dk]}（机会等级：${d.lvl}）\n`;
     md+=`- 市场规模：${d.market_size||'—'}\n`;
-    if(d.industry_level_table&&d.industry_level_table.length){ md+='- 产业规模与质量：\n'; d.industry_level_table.forEach(r=>{ md+=`  - ${r.variety}：${r.scale||''}（${r.quality||''}）\n`; }); }
+    const _ir=iltRows(d.industry_level_table);
+    if(_ir.length){ md+='- 产业规模与质量：\n'; _ir.forEach(r=>{ md+=`  - ${r.variety}：${r.scale||''}（${r.quality||''}）${r.note?(' ｜'+r.note):''}\n`; }); }
     md+=`- 机会点：${d.opportunity||'—'}\n`;
     md+=`- 重点客户/主体：${d.enterprises_cleaned||d.enterprises||'—'}\n`;
     md+=`- 预期规模：${d.expected_scale||'—'}\n`;
@@ -1157,7 +1179,7 @@ function buildStats(){
   let total=0,hi=0,mid=0,lo=0,real=0,ph=0;
   const PH=['待结合','待核','待核实','待阳光内部客户台账'];
   const isPh=s=>(typeof s==='string'&&PH.some(p=>s.indexOf(p)>=0));
-  (COUNTY&&COUNTY.counties||[]).forEach(c=>{ ['weather','aqua','credit'].forEach(dk=>{ const d=c.directions[dk]; if(!d)return; total++; if(d.lvl==='高')hi++; else if(d.lvl==='中')mid++; else if(d.lvl==='低')lo++; const ilt=d.industry_level_table; if(ilt&&ilt.some(r=>!isPh(r.scale))) real++; else ph++; }); });
+  (COUNTY&&COUNTY.counties||[]).forEach(c=>{ ['weather','aqua','credit'].forEach(dk=>{ const d=c.directions[dk]; if(!d)return; total++; if(d.lvl==='高')hi++; else if(d.lvl==='中')mid++; else if(d.lvl==='低')lo++; const ilt=iltRows(d.industry_level_table); if(ilt.some(r=>!isPh(r.scale))) real++; else ph++; }); });
   return {total,hi,mid,lo,real,ph,provN:PROV?PROV.units.length:0,countyN:COUNTY?COUNTY.counties.length:0};
 }
 function openEnc(){
