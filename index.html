@@ -424,7 +424,7 @@ const MUNI = {'北京市':'110000','天津市':'120000','上海市':'310000','�
 let PROV = null, COUNTY = null, QUAL = {qualified:{},policy:{}}, curDir = 'weather', curUnit = null, curCounty = null, chart = null, filterMode = 'all';
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-09-18-v22';   // v22: 线上恢复轻量加载(去 22MB 内联单文件，改按省懒加载 data/counties/p*.json，首屏约 1.4MB 秒开；全量预载改空闲限流、排行榜按需触发)；v21 表格列宽全站优化；v20同批；v19县详情地图收窄
+const CACHE_VERSION = '2026-09-18-v23';   // v23: 全量1369资质县接入农业概况(agri_profile_5y)+灾害与价格(disaster_10y)；待阳光内部客户台账硬占位清零(959→0)，品种级真实龙头名录佐证
 //__NX_EMBED_HOOK__
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
