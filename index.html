@@ -425,7 +425,7 @@ const MUNI = {'北京市':'110000','天津市':'120000','上海市':'310000','�
 let PROV = null, COUNTY = null, QUAL = {qualified:{},policy:{}}, curDir = 'weather', curUnit = null, curCounty = null, chart = null, filterMode = 'all';
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-09-18-v24';   // v24: 灾害弹窗三图改版——弹窗加宽至1080、图A/B/C统一深色tooltip(confine限宽)、环形图标签移入图例(带计数)彻底消除标题/标签重叠与截断、窄屏自动单列
+const CACHE_VERSION = '2026-09-18-v25';   // v25 提速：后台预载改为 requestIdleCallback+并发1+用户交互即暂停(不再抢带宽)；china.json 坐标降精度 582KB→430KB；资质清单延后加载不阻塞首屏；修复新富化县 agri 弹窗“null”显示
 //__NX_EMBED_HOOK__
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
@@ -516,14 +516,17 @@ async function ensureProvince(prov){
 // v22 起首屏不再立即触发（改由 scheduleIdlePreload 空闲静默预载 / openRank 按需触发）
 let allPreloaded = false;
 let preloadPromise = null;
-function preloadAllProvinces(concurrency=4){
-  if(allPreloaded) return Promise.resolve();
+let preloadPaused = false;   // 用户开始导航时置 true，立即中止后台预载，避免与点击争带宽
+function pausePreload(){ preloadPaused = true; }
+function preloadAllProvinces(concurrency=1){
+  if(allPreloaded || preloadPaused) return Promise.resolve();
   if(preloadPromise) return preloadPromise;
   if(!COUNTY || !COUNTY.provinceFiles) return Promise.resolve();
   const provs = Object.keys(COUNTY.provinceFiles);
   let idx = 0, done = 0;
   preloadPromise = new Promise(resolve=>{
     const next = ()=>{
+      if(preloadPaused){ allPreloaded=false; preloadPromise=null; resolve(); return; }  // 用户交互，中止剩余预载
       if(idx >= provs.length) return;
       const prov = provs[idx++];
       ensureProvince(prov).catch(e=>console.warn('省份预载失败',prov,e)).finally(()=>{
@@ -542,10 +545,15 @@ function preloadAllProvinces(concurrency=4){
   });
   return preloadPromise;
 }
-// 首屏完成 10s 后、且页面可见时，再以限流 2 静默预载剩余省份
-// （避免一进页面就并行拉 23MB 抢占带宽；用户若只看某省，按省懒加载已足够）
+// 首屏完成 12s 后、页面空闲且可见时，才以【并发 1】静默预载
+// requestIdleCallback 保证仅在浏览器真正空闲时跑，绝不抢占用户点击/输入的带宽与主线
 function scheduleIdlePreload(){
-  setTimeout(()=>{ if(!document.hidden) preloadAllProvinces(2); }, 10000);
+  const fire = ()=>{ if(!document.hidden && !preloadPaused) preloadAllProvinces(1); };
+  setTimeout(()=>{
+    if(document.hidden || preloadPaused) return;
+    if(window.requestIdleCallback) window.requestIdleCallback(fire, {timeout: 4000});
+    else fire();
+  }, 12000);
 }
 
 // ===== 登录 / 初始化 =====
@@ -580,10 +588,8 @@ async function init(){
     if(!COUNTY.counties) COUNTY.counties = [];
   }catch(e){ console.error('县区索引加载失败:',e); COUNTY = {counties:[], provinceFiles:{}}; }
 
-  try{
-    QUAL = await cachedFetch('data/qualification.json', 'qualification') || {qualified:{},policy:{}};
-  }catch(e){ QUAL = {qualified:{},policy:{}}; }
-
+  // 注：qualification.json 仅用于「点县」时的资质/政策性标色，首屏中国地图不上色依赖它，
+  // 故延迟到地图渲染完成后再加载，进一步缩短首屏关键路径。
   setMapLoading('🗺 加载地图底图…');
   try{
     chart = echarts.init(document.getElementById('map'),'dark');
@@ -591,7 +597,9 @@ async function init(){
     if(ok){ hideMapLoading(); renderCurrent(); }
     else { showMapError(); }
   }catch(e){ console.error('地图初始化失败:',e); showMapError(); }
-  // 地图就绪后，空闲时静默预载县区数据（限流，不阻塞首屏）
+  // 地图就绪后，异步补加载资质清单（不阻塞首屏）；再空闲时静默预载县区数据
+  cachedFetch('data/qualification.json', 'qualification').then(q=>{ QUAL = q || {qualified:{},policy:{}}; })
+    .catch(()=>{ QUAL = {qualified:{},policy:{}}; });
   scheduleIdlePreload();
   window.addEventListener('resize',()=>{ if(chart) chart.resize(); });
 }
@@ -896,6 +904,7 @@ function colorCounty(cn, provName, parentName){
   return {qualified, policyType, hasData, lvl, color, opacity};
 }
 function onCountyClick(cn){
+  pausePreload();   // 用户主动点击地图区县，中止后台预载，优先响应用户
   const provName=drill.prov;
   const parentName=(drill.level==='city')?drill.city:drill.prov;
   const r=colorCounty(cn, provName, parentName);
@@ -1001,6 +1010,7 @@ function openRank(){
 function closeRank(){ document.getElementById('rankModal').style.display='none'; }
 
 async function selectUnit(name){
+  pausePreload();   // 用户点击省/市 chip，中止后台预载
   const u=PROV.units.find(x=>x.name===name);
   if(!u) return;
   if(u.isCity){ drill={level:'china',prov:null,city:null}; curUnit=u; curCounty=null; await ensureProvince(u.name); renderUnit(u); renderChina(); return; }
@@ -1327,14 +1337,18 @@ function closeEnc(){ $('encModal').style.display='none'; }
 
 // ===== 农业概况·近5年 =====
 function estTag(v){ return (v && v.is_estimate) ? '<span class="est">估算</span>' : ''; }
-function valCell(o){ if(!o) return '—'; const u=o.unit?(' '+o.unit):''; return `<b>${o.value}</b>${u} ${estTag(o)}`; }
+function valCell(o){ if(!o || o.value==null) return '—'; const u=o.unit?(' '+o.unit):''; return `<b>${o.value}</b>${u} ${estTag(o)}`; }
 function openAgri(name){
   const c=COUNTY.counties.find(x=>x.name===name); if(!c){ toast('未找到该县数据'); return; }
   const a=c.agri_profile_5y;
   if(!a){ $('agriBody').innerHTML=`<div class="empty">「${name}」暂未接入农业概况数据（本批次优先覆盖政策性资格县）。</div>`; $('agriModal').style.display='flex'; return; }
   const vrows=(a.varieties||[]).map(v=>`<tr><td>${v.name||'—'}</td><td>${v.scale||'—'}</td><td>${v.quality||'—'}</td><td style="color:#ffd479">${v.insurance_type||'—'}</td></tr>`).join('')||'<tr><td colspan="4">暂无品种数据</td></tr>';
+  const hasEst=[a.ag_ins_premium,a.primary_ind_added_value,a.ag_ins_depth,a.primary_ind_employment,a.ag_ins_density].some(x=>x&&x.value!=null);
+  const noteTxt=hasEst
+    ? `数据基准年：${a.data_year||'2023'}。县级农险保费、一产增加值、就业人数政府网站一般不公开到县，下表为<b>基于省级公开数据按县主导产业均摊的推算值</b>${estTag({is_estimate:true})}，仅供展业参考，不作统计依据；待接入各县统计公报 / 公司分县保费台账后替换权威值。`
+    : `数据基准年：${a.data_year||'2023'}。县级农险保费、一产增加值、就业人数政府网站一般不公开到县，本县该三项暂以「—」占位；待接入各县统计公报 / 阳光产险分县保费台账后补录权威值。`;
   $('agriBody').innerHTML=`
-  <div class="agri-note">数据基准年：${a.data_year||'2023'}。县级农险保费、一产增加值、就业人数政府网站一般不公开到县，下表为<b>基于省级公开数据按县主导产业均摊的推算值</b>${estTag({is_estimate:true})}，仅供展业参考，不作统计依据；待接入各县统计公报 / 公司分县保费台账后替换权威值。</div>
+  <div class="agri-note">${noteTxt}</div>
   <div class="agri-sec"><h4>一、主导品种与体量（来自已富集产业数据）</h4>
     <table class="agri-tbl t-var"><thead><tr><th>品种</th><th>规模/体量</th><th>质量/特色</th><th>保险属性</th></tr></thead><tbody>${vrows}</tbody></table></div>
   <div class="agri-sec"><h4>二、农业保险规模与深度（农险深度 = 保费 / 第一产业增加值）</h4>
@@ -1507,6 +1521,7 @@ function setCountyView(on){
   setTimeout(fit,60); setTimeout(fit,340);
 }
 function selectCounty(name){
+  pausePreload();   // 用户点击县列表，中止后台预载
   const c=COUNTY.counties.find(x=>x.name===name);
   if(!c) return;
   curCounty=c;
