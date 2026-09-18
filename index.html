@@ -988,7 +988,7 @@ function buildLeaderboard(){
          `<span class="dl" style="background:${LVL_COLOR[o.lv]};color:${o.lv==='低'?'#fff':'#08111f'}">${o.lv}</span>`+
          `<span class="gp">${c.province} · ${DIR_LABEL[o.usedDir]}</span></div>`;
     });
-  } else h+=`<div class="empty-r">当前筛选条件下无匹配县区</div>`;
+  } else h+=`<div class="empty-r">${allPreloaded?'当前筛选条件下无匹配县区':'⏳ 全国县区数据加载中，稍候自动刷新…'}</div>`;
   body.innerHTML=h;
 }
 function openRank(){
