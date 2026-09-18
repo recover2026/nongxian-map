@@ -269,10 +269,11 @@
   .agri-tbl.t-price th:nth-child(3),.agri-tbl.t-price td:nth-child(3){width:11%;}
   .agri-tbl.t-price th:nth-child(4),.agri-tbl.t-price td:nth-child(4){width:29%;}
   .agri-tbl.t-price th:nth-child(5),.agri-tbl.t-price td:nth-child(5){width:27%;}
-  .dis-charts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0 16px;}
-  .dis-chart{background:#0a1726;border:1px solid var(--border);border-radius:10px;padding:4px;min-width:0;}
+  .dis-charts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:6px 0 16px;}
+  .dis-chart{background:#0a1726;border:1px solid var(--border);border-radius:10px;padding:6px;min-width:0;}
   .dis-chart.full{grid-column:1 / 3;}
-  .dis-chart .ech{width:100%;height:232px;}
+  .dis-chart .ech{width:100%;height:248px;}
+  @media (max-width:820px){ .dis-charts{grid-template-columns:1fr;} .dis-chart.full{grid-column:auto;} }
   .est{display:inline-block;font-size:10px;color:#08111f;background:#ffd479;border-radius:4px;padding:1px 5px;margin-left:4px;font-weight:700;vertical-align:middle;}
   .tag{display:inline-block;font-size:10px;color:#9fb3c8;background:#13243a;border:1px solid var(--border);border-radius:4px;padding:1px 6px;margin-top:3px;}
   .tag2{display:inline-block;font-size:10px;color:#ffb454;background:#2a1c0a;border:1px solid #5a3d12;border-radius:4px;padding:2px 6px;}
@@ -410,7 +411,7 @@
 
 <!-- 灾害与价格波动·近10年 -->
 <div id="disModal" class="modal">
-  <div class="box" style="max-width:860px;width:94%">
+  <div class="box" style="max-width:1080px;width:94%">
     <div class="hd"><h3>🌪 灾害与价格波动 · 近十年（风险地图）</h3><span class="x" onclick="closeDis()">✕</span></div>
     <div class="body" id="disBody"></div>
   </div>
@@ -424,7 +425,7 @@ const MUNI = {'北京市':'110000','天津市':'120000','上海市':'310000','�
 let PROV = null, COUNTY = null, QUAL = {qualified:{},policy:{}}, curDir = 'weather', curUnit = null, curCounty = null, chart = null, filterMode = 'all';
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-09-18-v23';   // v23: 全量1369资质县接入农业概况(agri_profile_5y)+灾害与价格(disaster_10y)；待阳光内部客户台账硬占位清零(959→0)，品种级真实龙头名录佐证
+const CACHE_VERSION = '2026-09-18-v24';   // v24: 灾害弹窗三图改版——弹窗加宽至1080、图A/B/C统一深色tooltip(confine限宽)、环形图标签移入图例(带计数)彻底消除标题/标签重叠与截断、窄屏自动单列
 //__NX_EMBED_HOOK__
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
@@ -1425,6 +1426,11 @@ function renderDisCharts(d){
   window.__disCharts=[];
   if(typeof echarts==='undefined'){ console.warn('echarts 未加载，跳过灾害图表'); return; }
   const AX='#cfe3ff', SUB='#9fc0e8', GRID='#16304d';
+  // 统一深色 tooltip：避免默认白底遮挡图表、限宽换行不与其他文字重叠
+  const TIP={confine:true, backgroundColor:'rgba(9,22,38,.97)', borderColor:'#1e3a5f', borderWidth:1,
+    textStyle:{color:'#e9f2ff',fontSize:11}, padding:[6,9],
+    extraCssText:'border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,.55);max-width:250px;white-space:normal;line-height:16px;'};
+  const TT=(o)=>Object.assign({},TIP,o);
   const all=[...(d.common_disasters||[]).map(x=>({...x,kind:'常见'})), ...(d.rare_disasters||[]).map(x=>({...x,kind:'罕见'}))];
   // 图A：典型损失率（横向条形，常见红/罕见紫）
   const aArr=all.map(x=>({name:x.type, rate:parseLossRate(x.typical_loss), kind:x.kind})).filter(x=>x.rate!=null);
@@ -1433,34 +1439,44 @@ function renderDisCharts(d){
     const ch=echarts.init(elA); window.__disCharts.push(ch);
     ch.setOption({
       backgroundColor:'transparent',
-      title:{text:'各灾害典型损失率（解析自灾情描述）', left:'center', top:4, textStyle:{color:AX,fontSize:12}},
-      tooltip:{trigger:'axis', axisPointer:{type:'shadow'}, formatter:p=>p[0].name+'<br/>典型损失率：'+p[0].value+'%'},
-      grid:{left:6,right:36,top:34,bottom:6,containLabel:true},
-      xAxis:{type:'value', max:100, name:'损失率%', nameTextStyle:{color:SUB,fontSize:10}, axisLabel:{color:SUB,fontSize:10}, splitLine:{lineStyle:{color:GRID}}},
-      yAxis:{type:'category', data:aArr.map(x=>x.name), inverse:true, axisLabel:{color:AX,fontSize:10}, axisTick:{show:false}},
-      series:[{type:'bar', barWidth:'52%', data:aArr.map(x=>({value:x.rate, itemStyle:{color:x.kind==='常见'?'#ff7a7a':'#b794f6', borderRadius:[0,4,4,0]}})),
-        label:{show:true,position:'right',formatter:'{c}%',color:AX,fontSize:10}}]
+      title:{text:'各灾害典型损失率（解析自灾情描述）', left:'center', top:6, textStyle:{color:AX,fontSize:12,fontWeight:600}},
+      tooltip:TT({trigger:'axis', axisPointer:{type:'shadow'}, formatter:p=>p[0].name+'<br/>典型损失率：'+p[0].value+'%'}),
+      grid:{left:8,right:62,top:44,bottom:8,containLabel:true},
+      xAxis:{type:'value', max:100, name:'损失率%', nameGap:9, nameTextStyle:{color:SUB,fontSize:10}, axisLabel:{color:SUB,fontSize:10}, splitLine:{lineStyle:{color:GRID}}},
+      yAxis:{type:'category', data:aArr.map(x=>x.name), inverse:true, axisLabel:{color:AX,fontSize:10,lineHeight:13}, axisTick:{show:false}},
+      series:[{type:'bar', barWidth:'50%', barMaxWidth:26, data:aArr.map(x=>({value:x.rate, itemStyle:{color:x.kind==='常见'?'#ff7a7a':'#b794f6', borderRadius:[0,4,4,0]}})),
+        label:{show:true,position:'right',distance:6,formatter:'{c}%',color:AX,fontSize:10}}]
     });
   } else if(elA){ elA.innerHTML='<div class="empty">暂无可量化的损失率数据</div>'; }
   // 图B：保险保障覆盖（环形）
   const lvArr=all.concat((d.price_shocks||[]).map(x=>({insurance_role:x.insurance_role}))).map(x=>insLevel(x.insurance_role));
   const elB=document.getElementById('disChartB');
+  const pieData=[
+    {name:'政策性险已覆盖', full:'政策性农险已覆盖、受灾可赔付', value:lvArr.filter(v=>v===1).length, itemStyle:{color:'#4ade80'}},
+    {name:'部分覆盖/特色险', full:'部分覆盖，或仅依赖地方特色险、商业险补充', value:lvArr.filter(v=>v===2).length, itemStyle:{color:'#fbbf24'}},
+    {name:'依赖政府赈灾', full:'主要依赖政府赈灾，保险保障有限', value:lvArr.filter(v=>v===3).length, itemStyle:{color:'#f87171'}}
+  ].filter(x=>x.value>0);
   if(elB){
+    if(!pieData.length){ elB.innerHTML='<div class="empty">暂无保险保障覆盖数据</div>'; }
+    else{
+    const total=pieData.reduce((s,x)=>s+x.value,0);
     const ch=echarts.init(elB); window.__disCharts.push(ch);
     ch.setOption({
       backgroundColor:'transparent',
-      title:{text:'保险保障覆盖情况', left:'center', top:4, textStyle:{color:AX,fontSize:12}},
-      tooltip:{trigger:'item', formatter:'{b}：{c} 项 ({d}%)'},
-      legend:{bottom:2, left:'center', textStyle:{color:SUB,fontSize:10}, itemWidth:11,itemHeight:7, itemGap:8},
-      series:[{type:'pie', radius:['36%','60%'], center:['50%','44%'], avoidLabelOverlap:true,
-        data:[
-          {name:'政策性险已覆盖可赔付', value:lvArr.filter(v=>v===1).length, itemStyle:{color:'#4ade80'}},
-          {name:'部分覆盖/特色险补充', value:lvArr.filter(v=>v===2).length, itemStyle:{color:'#fbbf24'}},
-          {name:'主要依赖政府赈灾/保险有限', value:lvArr.filter(v=>v===3).length, itemStyle:{color:'#f87171'}}
-        ],
-        label:{color:AX,fontSize:10, formatter:'{b}\n{c}'}, labelLine:{lineStyle:{color:'#3a5a82',width:1}}
+      title:[
+        {text:'保险保障覆盖情况', left:'center', top:6, textStyle:{color:AX,fontSize:12,fontWeight:600}},
+        {text:'共 '+total+' 项', left:'center', top:'43%', textStyle:{color:SUB,fontSize:11}}
+      ],
+      tooltip:TT({trigger:'item', formatter:p=>{const it=pieData.find(x=>x.name===p.name)||{};return (it.full||p.name)+'<br/>'+p.value+' 项，占比 '+p.percent+'%';}}),
+      legend:{bottom:4, left:'center', textStyle:{color:SUB,fontSize:10}, itemWidth:11,itemHeight:7, itemGap:14,
+        formatter:nm=>{const it=pieData.find(x=>x.name===nm);return nm+'（'+(it?it.value:0)+'项）';}},
+      series:[{type:'pie', radius:['40%','62%'], center:['50%','48%'], avoidLabelOverlap:true,
+        data:pieData, label:{show:false}, labelLine:{show:false},
+        itemStyle:{borderColor:'#0a1726', borderWidth:2},
+        emphasis:{scale:true, scaleSize:5, itemStyle:{shadowBlur:12, shadowColor:'rgba(0,0,0,.55)'}}
       }]
     });
+    }
   }
   // 图C：价格波动幅度（横向条形）
   const pArr=(d.price_shocks||[]).map(x=>({name:x.commodity, amp:parsePriceAmp(x.change)})).filter(x=>x.amp!=null);
@@ -1469,13 +1485,13 @@ function renderDisCharts(d){
     const ch=echarts.init(elC); window.__disCharts.push(ch);
     ch.setOption({
       backgroundColor:'transparent',
-      title:{text:'主要农产品价格波动幅度（解析自价格区间描述）', left:'center', top:4, textStyle:{color:AX,fontSize:12}},
-      tooltip:{trigger:'axis', axisPointer:{type:'shadow'}, formatter:p=>p[0].name+'<br/>波动幅度：±'+p[0].value+'%'},
-      grid:{left:6,right:44,top:34,bottom:6,containLabel:true},
-      xAxis:{type:'value', name:'波动±%', nameTextStyle:{color:SUB,fontSize:10}, axisLabel:{color:SUB,fontSize:10}, splitLine:{lineStyle:{color:GRID}}},
-      yAxis:{type:'category', data:pArr.map(x=>x.name), inverse:true, axisLabel:{color:AX,fontSize:10}, axisTick:{show:false}},
-      series:[{type:'bar', barWidth:'46%', data:pArr.map(x=>({value:x.amp, itemStyle:{color:'#f0b429', borderRadius:[0,4,4,0]}})),
-        label:{show:true,position:'right',formatter:'±{c}%',color:AX,fontSize:10}}]
+      title:{text:'主要农产品价格波动幅度（解析自价格区间描述）', left:'center', top:6, textStyle:{color:AX,fontSize:12,fontWeight:600}},
+      tooltip:TT({trigger:'axis', axisPointer:{type:'shadow'}, formatter:p=>p[0].name+'<br/>波动幅度：±'+p[0].value+'%'}),
+      grid:{left:8,right:62,top:44,bottom:8,containLabel:true},
+      xAxis:{type:'value', name:'波动±%', nameGap:9, nameTextStyle:{color:SUB,fontSize:10}, axisLabel:{color:SUB,fontSize:10}, splitLine:{lineStyle:{color:GRID}}},
+      yAxis:{type:'category', data:pArr.map(x=>x.name), inverse:true, axisLabel:{color:AX,fontSize:10,lineHeight:13}, axisTick:{show:false}},
+      series:[{type:'bar', barWidth:'46%', barMaxWidth:24, data:pArr.map(x=>({value:x.amp, itemStyle:{color:'#f0b429', borderRadius:[0,4,4,0]}})),
+        label:{show:true,position:'right',distance:6,formatter:'±{c}%',color:AX,fontSize:10}}]
     });
   } else if(elC){ elC.innerHTML='<div class="empty">暂无可量化的价格波动数据</div>'; }
 }
