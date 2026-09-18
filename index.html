@@ -993,13 +993,9 @@ function buildLeaderboard(){
 }
 function openRank(){
   document.getElementById('rankModal').style.display='flex';
-  if(allPreloaded){ buildLeaderboard(); return; }
-  const body = document.querySelector('#rankModal .body');
-  if(body) body.innerHTML = '<div style="padding:30px;text-align:center;color:var(--txt2);font-size:13px">⏳ 正在加载全国县区数据，请稍候…</div>';
-  preloadAllProvinces(6).then(()=>buildLeaderboard()).catch(e=>{
-    console.warn('排行榜数据加载失败', e);
-    if(body) body.innerHTML='<div style="padding:30px;text-align:center;color:var(--lo);font-size:13px">加载失败，请稍后重试</div>';
-  });
+  // 先立即渲染：省级/单列市单元数据已在内存，秒出榜；县区部分随后台按需加载补齐后自动刷新
+  buildLeaderboard();
+  if(!allPreloaded) preloadAllProvinces(6);
 }
 function closeRank(){ document.getElementById('rankModal').style.display='none'; }
 
