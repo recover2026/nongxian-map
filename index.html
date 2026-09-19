@@ -101,6 +101,18 @@
   .push-hint{font-size:11px;color:#6b7787;}
   .dir-card{background:#0e2138;border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:13px;}
   .dir-card .dh{display:flex;align-items:center;gap:9px;margin-bottom:11px;}
+  /* 展业话术卡 */
+  .pitch-card{background:linear-gradient(135deg,#10243f,#0c1c30);border:1px solid #2b456b;border-radius:10px;padding:13px 15px;margin-bottom:13px;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .pitch-card .pc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px;flex-wrap:wrap;}
+  .pitch-card .pc-t{font-size:13.5px;font-weight:bold;color:var(--gold);}
+  .pitch-card .pc-toggle{display:inline-flex;border:1px solid var(--border);border-radius:18px;overflow:hidden;}
+  .pitch-card .pc-tab{font-size:12px;padding:4px 14px;background:transparent;color:var(--txt2);border:none;cursor:pointer;transition:.15s;line-height:1.4;}
+  .pitch-card .pc-tab.active{background:var(--accent);color:#fff;font-weight:bold;}
+  .pitch-card .pc-body{font-size:13px;line-height:1.85;color:var(--txt);background:#0a1a2e;border:1px solid var(--border);border-radius:8px;padding:11px 13px;white-space:normal;word-break:break-word;}
+  .pitch-card .pc-body .ph-tag{display:inline-block;font-size:11px;font-weight:bold;padding:1px 8px;border-radius:9px;margin-right:6px;vertical-align:middle;}
+  .pitch-card .pc-body .ph-tag.pol{background:#1f5fa6;color:#fff;}
+  .pitch-card .pc-body .ph-tag.com{background:#b9821f;color:#fff;}
+  .pitch-card .pc-foot{font-size:11px;color:var(--txt2);margin-top:8px;}
   .dir-card .dh .nm{font-size:15px;font-weight:bold;color:#fff;}
   .lvl{font-size:11px;padding:2px 9px;border-radius:10px;color:#08111f;font-weight:bold;}
   .lvl.高{background:var(--hi);} .lvl.中{background:var(--mid);} .lvl.低{background:var(--lo);color:#fff;} .lvl.储备{background:#3d6fa5;color:#fff;}
@@ -1138,6 +1150,36 @@ function dirCard(dk,d){
     `<div class="sec">${operation}</div>`+
     `<div class="sec">${extra}</div></div>`;
 }
+// 展业话术卡：依据县级 pitch.{direction}.{policy|commercial} 渲染，支持政策性/商业性切换
+function pitchCard(c, dk){
+  const p=(c.pitch&&c.pitch[dk])||{};
+  const pol=p.policy||'';
+  const com=p.commercial||'';
+  if(!pol && !com) return '';
+  const nm=(c.name||'').replace(/'/g,"\\'");
+  const tagPol=`<span class="ph-tag pol">政策性</span>`;
+  const tagCom=`<span class="ph-tag com">商业性</span>`;
+  const body = pol ? (tagPol+pol) : (tagCom+com);
+  const showCom = !pol && com; // 仅商业性时有话术，默认亮商业性
+  return `<div class="pitch-card">
+    <div class="pc-head"><span class="pc-t">🎤 展业话术（${DIR_LABEL[dk]}）</span>
+      <span class="pc-toggle">
+        <button class="pc-tab ${pol&&!showCom?'active':''}" data-pt="policy" onclick="switchPitch(this,'${nm}','${dk}','policy')">政策性</button>
+        <button class="pc-tab ${showCom?'active':''}" data-pt="commercial" onclick="switchPitch(this,'${nm}','${dk}','commercial')">商业性</button>
+      </span></div>
+    <div class="pc-body" id="pitchBody">${body}</div>
+    <div class="pc-foot">🔁 切换「政策性 / 商业性」查看对应话术 · 复制见上方「📋 复制展业摘要」</div>
+  </div>`;
+}
+function switchPitch(btn, name, dk, kind){
+  const c=COUNTY.counties.find(x=>x.name===name); if(!c) return;
+  const p=(c.pitch&&c.pitch[dk])||{};
+  const txt=p[kind]||'（暂无该性质话术）';
+  const tag = kind==='policy' ? `<span class="ph-tag pol">政策性</span>` : `<span class="ph-tag com">商业性</span>`;
+  const el=document.getElementById('pitchBody'); if(!el) return;
+  el.innerHTML = tag + txt;
+  const wrap=btn.parentElement; if(wrap){ wrap.querySelectorAll('.pc-tab').forEach(b=>b.classList.toggle('active', b===btn)); }
+}
 
 function fld(k,v){ return `<div class="fld"><div class="k">${k}</div><div class="v">${v||'—'}</div></div>`; }
 // 产业量化表防御性解析：兼容标准数组 与 "品种|等级|描述|规模|保险机会" 字符串两种格式，任何异常一律降级为空数组，绝不抛错
@@ -1252,7 +1294,13 @@ function copySummary(name){
     md+=`- 机会点：${d.opportunity||'—'}\n`;
     md+=`- 重点客户/主体：${d.enterprises_cleaned||d.enterprises||'—'}\n`;
     md+=`- 预期规模：${d.expected_scale||'—'}\n`;
-    md+=`- 来源：${d.src||'—'}\n\n`;
+    md+=`- 来源：${d.src||'—'}\n`;
+    const _p=(c.pitch&&c.pitch[dk])||{};
+    if(_p.policy||_p.commercial){
+      md+=`- 展业话术（政策性）：${_p.policy||'—'}\n`;
+      md+=`- 展业话术（商业性）：${_p.commercial||'—'}\n`;
+    }
+    md+=`\n`;
   });
   md+=`> 生成时间：${new Date().toLocaleString('zh-CN')} · 阳光农险业务机会地图\n`;
   if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(md).then(()=>toast('已复制展业摘要，可粘贴至汇报 / CRM')).catch(()=>fallbackCopy(md)); }
@@ -1547,6 +1595,7 @@ function selectCounty(name){
      PS_OPT.map(o=>`<option value="${o}" ${o===psCur?'selected':''}>${o}</option>`).join('')+
      `</select><span class="push-hint">本地保存（清缓存可重置，不影响发布数据）；用于跟踪该县区展业推动进度</span></div>`;
   h+=dirCard(dk,d);
+  h+=pitchCard(c, dk);
   const others=Object.keys(c.directions).filter(x=>x!==dk);
   if(others.length){
     h+=`<div class="counties"><div class="ttl">该县其他业务方向</div>`;
