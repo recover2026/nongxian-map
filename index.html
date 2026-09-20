@@ -766,7 +766,7 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-09-20-v33';   // v33：联网核实真实数据回填（第一批4县：盱眙/栖霞/安岳/金乡；修正省级兜底池跨县错配，如盱眙曾挂宜兴/高邮/徐州企业）；v32 Q10 一键拜访包——县区详情工具栏新增「📦 一键拜访包」按钮，弹窗组装县情速览+三类业务机会(含政策/商业展业话术)+重点客户清单+风险要点+展业前准备自查，支持一键复制 Markdown 与打印/存PDF；全部复用已接入数据，零新数据依赖。v31 Q9口径/v30 配比/v29 顶栏/v28 性能均保留
+const CACHE_VERSION = '2026-09-20-v34';   // v34：联网核实真实数据回填（第二批7县：苍溪红心猕猴桃/雪梨、洛川苹果、盘锦大洼/盘山/兴隆台河蟹大米、科尔沁区肉牛玉米、阿鲁科尔沁旗苜蓿肉牛；同步校正五常市龙头企业口径 国家级3/省级21→2025奋斗网口径 国家级5/省级22/市级14，并剔除鹤岗崧阳粮油错配）+ 第二批跨区错配修正（洛川猕猴桃/小麦原挂石羊/邦淇、盘锦海参扇贝原挂大连企业、科尔沁/阿鲁科尔沁玉米小麦原挂蒙牛/兆丰河套面业、盐碱鱼虾原挂呼伦贝尔农垦，均标注移除/待核）。v33/v32 均保留。
 //__NX_EMBED_HOOK__
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
