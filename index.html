@@ -766,7 +766,7 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-09-20-v32';   // v32：Q10 一键拜访包——县区详情工具栏新增「📦 一键拜访包」按钮，弹窗组装县情速览+三类业务机会(含政策/商业展业话术)+重点客户清单+风险要点+展业前准备自查，支持一键复制 Markdown 与打印/存PDF；全部复用已接入数据，零新数据依赖。v31 Q9口径/v30 配比/v29 顶栏/v28 性能均保留
+const CACHE_VERSION = '2026-09-20-v33';   // v33：联网核实真实数据回填（第一批4县：盱眙/栖霞/安岳/金乡；修正省级兜底池跨县错配，如盱眙曾挂宜兴/高邮/徐州企业）；v32 Q10 一键拜访包——县区详情工具栏新增「📦 一键拜访包」按钮，弹窗组装县情速览+三类业务机会(含政策/商业展业话术)+重点客户清单+风险要点+展业前准备自查，支持一键复制 Markdown 与打印/存PDF；全部复用已接入数据，零新数据依赖。v31 Q9口径/v30 配比/v29 顶栏/v28 性能均保留
 //__NX_EMBED_HOOK__
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
