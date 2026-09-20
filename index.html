@@ -245,6 +245,22 @@
   .var-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px;}
   .var-table .var-head{display:grid;grid-template-columns:1fr 60px 2.2fr;background:#12294a;border-radius:6px 6px 0 0;padding:7px 10px;color:var(--gold);font-weight:bold;}
   .var-table .var-row{display:grid;grid-template-columns:1fr 60px 2.2fr;border-bottom:1px solid var(--border);padding:7px 10px;align-items:start;gap:8px;}
+
+  /* ===== 一键拜访包（Q10）===== */
+  #visitPackModal .vp-box{max-width:760px;}
+  #visitPackModal .vp-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0 4px;padding-bottom:9px;border-bottom:1px solid var(--border);}
+  #visitPackModal .vp-hint{font-size:11.5px;color:var(--txt2);}
+  .vp-sec{margin:12px 0;border-top:1px solid var(--border);padding-top:9px;}
+  .vp-sec:first-child{border-top:none;padding-top:0;}
+  .vp-t{font-size:13px;font-weight:bold;color:var(--gold);margin-bottom:7px;}
+  .vp-dir{margin:8px 0;padding:9px 11px;background:#0c1a30;border-radius:8px;border:1px solid var(--border);}
+  .vp-dh{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+  .vp-dh .lvl{font-size:11px;font-weight:bold;padding:2px 9px;border-radius:10px;color:#08111f;}
+  .vp-cli{font-size:12.5px;line-height:1.75;white-space:normal;word-break:break-word;}
+  .vp-warn{background:#5a3a12;color:#ffcf8a;font-size:10.5px;font-weight:bold;padding:1px 8px;border-radius:10px;margin-left:4px;}
+  .vp-note{font-size:11.5px;color:#ffcf8a;margin-top:6px;line-height:1.55;}
+  .vp-check{display:flex;flex-direction:column;gap:5px;font-size:12.5px;}
+  .vp-check label{cursor:default;}
   .var-table .var-row:last-child{border-bottom:none;border-radius:0 0 6px 6px;}
   .var-table .var-row:nth-child(odd){background:#0b1d33;}
   .var-table .var-row:nth-child(even){background:#0e2138;}
@@ -562,6 +578,22 @@
   </div>
 </div>
 
+  <div id="visitPackModal" class="modal" style="display:none">
+    <div class="box vp-box">
+      <div class="hd">
+        <h3>📦 一键拜访包：<span id="vpName"></span></h3>
+        <span class="sub" id="vpSub"></span>
+        <span class="x" onclick="document.getElementById('visitPackModal').style.display='none'">✕</span>
+      </div>
+      <div class="vp-actions">
+        <button class="gold" onclick="copyVisitPack()">📋 复制全部（Markdown）</button>
+        <button onclick="printVisitPack()">🖨 打印 / 存PDF</button>
+        <span class="vp-hint">含县情·三类机会·话术·客户·风险·展业前准备，可直接带去见客户 / 汇报</span>
+      </div>
+      <div class="vlist" id="vpBody"></div>
+    </div>
+  </div>
+
 <div id="rankModal">
   <div class="box">
     <div class="hd">
@@ -734,7 +766,7 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-09-20-v31';   // v31：Q9 品种深数据卡口径修正——旧版拿「县级三类业务方向」硬套品种，导致点玉米也出现「水产·养殖险」；现改为优先取各县 directions[dk].varieties 中 base 名==本品种 的**品种级条目**（name 含风险点、lvl 为该县该品种机会等级）聚合，并按品种品类剔除无关方向（种植品种不取养殖方向、畜禽标签改「养殖险（畜禽）」）；品种级明细不足 10% 时回退县级口径并标注；适配险种条改为「高/中/低」堆叠条+高机会县占比（原 (高+中)/n 恒=100% 无区分度）；补齐深卡内 .vr/.vsub 样式（此前只在 #varModal 下定义，深卡失效）。v30 版式与 v29/v28 全部保留
+const CACHE_VERSION = '2026-09-20-v32';   // v32：Q10 一键拜访包——县区详情工具栏新增「📦 一键拜访包」按钮，弹窗组装县情速览+三类业务机会(含政策/商业展业话术)+重点客户清单+风险要点+展业前准备自查，支持一键复制 Markdown 与打印/存PDF；全部复用已接入数据，零新数据依赖。v31 Q9口径/v30 配比/v29 顶栏/v28 性能均保留
 //__NX_EMBED_HOOK__
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
@@ -1850,6 +1882,117 @@ function copySummary(name){
 }
 function fallbackCopy(md){ const ta=document.createElement('textarea'); ta.value=md; document.body.appendChild(ta); ta.select(); try{document.execCommand('copy'); toast('已复制展业摘要');}catch(e){ toast('复制失败，请手动选择'); } ta.remove(); }
 
+// ===================== 一键拜访包（Q10）=====================
+// 组装：县情速览 + 三类业务机会(含话术) + 重点客户清单 + 风险要点 + 展业前准备
+// 零新数据依赖，全部复用各县区已接入的 pitch / enterprises_cleaned / opp / risk_analysis
+let VP_MD='';
+function openVisitPack(name){
+  const c=getCounty(name); if(!c) return;
+  const e=effOpp(c); const tier=e?e.tier:'—'; const score=e?e.score:'—';
+  const psKey='nx_push_'+(c.province||'')+'_'+c.name;
+  const psCur=localStorage.getItem(psKey)||c.push_status||'未接触';
+  const dk0=c.directions[curDir]?curDir:Object.keys(c.directions)[0];
+  const d0=c.directions[dk0];
+  let h=''; let md=`# 📦 农险拜访包 · ${c.name}（${c.province}）\n\n> 生成时间：${new Date().toLocaleString('zh-CN')} · 阳光农险业务机会地图\n\n`;
+  // 一、县情速览
+  h+=`<div class="vp-sec"><div class="vp-t">一、县情速览</div>`;
+  h+=fld('综合机会分', `${score}（${tier}）`+(e&&e.note?` ｜ ${e.note}`:''));
+  h+=fld('归属', `${c.province} · 县区级试点`);
+  h+=fld('主导业务方向', `${DIR_LABEL[dk0]}（${d0.lvl}）`);
+  h+=fld('展业推动状态', psCur+'（本机记录）');
+  h+=`</div>`;
+  md+=`## 一、县情速览\n- 综合机会分：**${score}（${tier}）**${e&&e.note?(' ｜ '+e.note):''}\n- 归属：${c.province} · 县区级试点\n- 主导方向：${DIR_LABEL[dk0]}（${d0.lvl}）\n- 推动状态：${psCur}\n\n`;
+  // 二、三类业务机会
+  h+=`<div class="vp-sec"><div class="vp-t">二、三类业务机会（已接入数据）</div>`;
+  md+=`## 二、三类业务机会\n\n`;
+  let hasDai=false;
+  ['weather','aqua','credit'].forEach(dk=>{
+    const d=c.directions[dk]; if(!d) return;
+    const lbl=DIR_LABEL[dk];
+    h+=`<div class="vp-dir"><div class="vp-dh"><span>${lbl}</span><span class="lvl ${d.lvl}">${d.lvl}</span></div>`;
+    h+=fld('市场规模', d.market_size||'—');
+    h+=fld('机会点', d.opportunity||'—');
+    const cust=d.enterprises_cleaned||d.enterprises||'—';
+    if(/待核/.test(cust)) hasDai=true;
+    h+=fld('重点客户/主体', cust);
+    h+=fld('预期规模', d.expected_scale||'—');
+    const p=(c.pitch&&c.pitch[dk])||{};
+    if(p.policy) h+=fld('展业话术·政策性', p.policy);
+    if(p.commercial) h+=fld('展业话术·商业性', p.commercial);
+    h+=`</div>`;
+    md+=`### ${lbl}（${d.lvl}）\n- 市场规模：${d.market_size||'—'}\n- 机会点：${d.opportunity||'—'}\n- 重点客户/主体：${cust}\n- 预期规模：${d.expected_scale||'—'}\n`;
+    if(p.policy) md+=`- 话术·政策性：${p.policy}\n`;
+    if(p.commercial) md+=`- 话术·商业性：${p.commercial}\n`;
+    md+=`\n`;
+  });
+  h+=`</div>`;
+  // 三、重点客户清单汇总
+  let cli='';
+  ['weather','aqua','credit'].forEach(dk=>{ const d=c.directions[dk]; if(!d)return;
+    const cc=(d.customers_cleaned||d.customers||''); const ec=(d.enterprises_cleaned||d.enterprises||'');
+    const blob=[ec,cc].filter(x=>x&&x!=='—').join('；');
+    if(blob) cli+=`- ${DIR_LABEL[dk]}：${blob}\n`;
+  });
+  h+=`<div class="vp-sec"><div class="vp-t">三、重点客户清单${hasDai?' <span class="vp-warn">含待核</span>':''}</div>`;
+  h+= cli? `<div class="vp-cli">${cli.replace(/\n/g,'<br>')}</div>` : fld('','（暂无录入）');
+  if(hasDai) h+=`<div class="vp-note">⚠ 部分客户名单显示「待核」，属真实台账待回填项，拜访前请以内部客户台账 / 政府推荐名录 / 省农担白名单复核。</div>`;
+  h+=`</div>`;
+  md+=`## 三、重点客户清单${hasDai?'（含待核项）':''}\n${cli||'（暂无录入）'}\n${hasDai?'> ⚠ 待核项须以内部台账复核。\n':''}\n`;
+  // 四、风险要点
+  let risk='';
+  ['weather','aqua','credit'].forEach(dk=>{ const d=c.directions[dk]; if(!d||!d.risk_analysis)return; risk+=`- ${DIR_LABEL[dk]}：${d.risk_analysis}\n`; });
+  if(risk){ h+=`<div class="vp-sec"><div class="vp-t">四、风险要点</div><div class="vp-cli">${risk.replace(/\n/g,'<br>')}</div></div>`; md+=`## 四、风险要点\n${risk}\n`; }
+  // 五、展业前准备
+  const auth=d0.authority||'农业农村局 / 财政';
+  const checks=[
+    '确认该县政策性资格状态（已入围 / 仅商业性 / 待争取）',
+    '预约主管部门（'+auth+'）与龙头主体对接人',
+    '带齐对应产品条款、费率表与再保分出说明（最高 90%）',
+    '准备 1–2 个同省同类标杆案例与话术',
+    '梳理该县真实客户名单（清「待核」项）'
+  ];
+  h+=`<div class="vp-sec"><div class="vp-t">五、展业前准备（自查）</div><div class="vp-check">`+
+     checks.map(t=>`<label>☐ ${t}</label>`).join('')+`</div></div>`;
+  md+=`## 五、展业前准备（自查）\n- [ ] 确认政策性资格状态\n- [ ] 预约主管部门与龙头对接人\n- [ ] 带齐产品条款/费率表/再保说明\n- [ ] 准备同省标杆案例\n- [ ] 梳理真实客户名单（清待核项）\n`;
+  md+=`---\n> 本拜访包由阳光农险业务机会地图自动生成，数据取自各县区已接入业务机会详析；客户名单「待核」项须以内部台账复核后方可对外使用。\n`;
+  document.getElementById('vpName').textContent=c.name+'（'+c.province+'）';
+  document.getElementById('vpSub').textContent='生成于 '+new Date().toLocaleString('zh-CN');
+  document.getElementById('vpBody').innerHTML=h;
+  VP_MD=md;
+  document.getElementById('visitPackModal').style.display='flex';
+}
+function copyVisitPack(){
+  if(!VP_MD){ toast('请先打开拜访包'); return; }
+  const done=()=>toast('已复制拜访包全文，可粘贴至汇报 / CRM / 邮件');
+  if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(VP_MD).then(done).catch(()=>fallbackCopy(VP_MD)); }
+  else fallbackCopy(VP_MD);
+}
+function mdToHtml(md){
+  return md
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/^# (.+)$/gm,'<h1>$1</h1>')
+    .replace(/^## (.+)$/gm,'<h2>$1</h2>')
+    .replace(/^### (.+)$/gm,'<h3>$1</h3>')
+    .replace(/^> (.+)$/gm,'<blockquote>$1</blockquote>')
+    .replace(/^---$/gm,'<hr>')
+    .replace(/^- \[ \] (.+)$/gm,'<div style="margin:3px 0">☐ $1</div>')
+    .replace(/^- (.+)$/gm,'<div style="margin:3px 0">• $1</div>')
+    .replace(/\n\n+/g,'<br><br>');
+}
+function printVisitPack(){
+  if(!VP_MD){ toast('请先打开拜访包'); return; }
+  const style='body{font-family:"Songti SC","SimSun",serif;color:#111;max-width:840px;margin:28px auto;padding:0 24px;line-height:1.75}'+
+    'h1{font-size:20px;border-bottom:2px solid #0b3d91;padding-bottom:8px;margin-bottom:6px}'+
+    'h2{font-size:16px;color:#0b3d91;margin:22px 0 6px}'+
+    'h3{font-size:14px;margin:12px 0 4px;color:#1a4fa0}'+
+    'blockquote{border-left:3px solid #0b3d91;margin:8px 0;padding:4px 12px;color:#555;background:#f7f9fc}'+
+    'hr{border:none;border-top:1px solid #ddd;margin:20px 0}';
+  const html=`<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>农险拜访包 · ${document.getElementById('vpName').textContent}</title><style>${style}</style></head><body>${mdToHtml(VP_MD)}</body></html>`;
+  const w=window.open('','_blank'); if(!w){ toast('弹窗被拦截，请允许后重试'); return; }
+  w.document.open(); w.document.write(html); w.document.close();
+  setTimeout(()=>{ try{ w.focus(); w.print(); }catch(e){} }, 400);
+}
+
 // ---- 我的本地备注 ----
 function noteKey(name){ return 'nx_note_'+(name||''); }
 function getNotes(name){ try{ return JSON.parse(localStorage.getItem(noteKey(name))||'[]'); }catch(e){ return []; } }
@@ -2169,6 +2312,7 @@ function selectCounty(name){
   // 展业工具条 + 互动（★新增）
   const favOn=isFav(c.name)?'on':'';
   h+=`<div class="co-toolbar">
+    <button class="gold" onclick="openVisitPack('${c.name.replace(/'/g,"\\'")}')">📦 一键拜访包</button>
     <button id="favBtn" class="${favOn}" onclick="toggleFav('${c.name.replace(/'/g,"\\'")}')">${favOn?'★ 已关注':'☆ 关注'}</button>
     <button onclick="copySummary('${c.name.replace(/'/g,"\\'")}')">📋 复制展业摘要</button>
     <button class="gold" onclick="openAgri('${c.name.replace(/'/g,"\\'")}')">📊 农业概况·近5年</button>
