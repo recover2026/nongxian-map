@@ -203,7 +203,19 @@
   #varModal .vr .vs{font-size:13px;font-weight:bold;color:var(--gold);}
   #varModal .vr .vt{font-size:11px;font-weight:bold;padding:2px 9px;border-radius:10px;color:#08111f;}
   /* ===== 品种深数据卡（Q9）===== */
+  #vdeepModal .box{max-width:780px;}
+  #vdeepModal .vsub{font-size:12px;color:var(--txt2);margin-left:10px;font-weight:normal;}
   #vdeepModal .vlist{max-height:64vh;overflow:auto;margin-top:8px;}
+  /* 深卡内的 Top 县行：此前只在 #varModal 下定义，深卡里失效导致文字挤成一坨，现补齐 */
+  #vdeepModal .vr{display:flex;align-items:center;gap:9px;padding:8px 10px;border-bottom:1px solid var(--border);cursor:pointer;border-radius:7px;}
+  #vdeepModal .vr:hover{background:#0e2138;}
+  #vdeepModal .vr .rk{width:24px;text-align:center;color:var(--gold);font-weight:bold;flex:0 0 auto;}
+  #vdeepModal .vr .vn{font-weight:bold;color:#fff;min-width:96px;flex:0 0 auto;}
+  #vdeepModal .vr .vp{color:var(--txt2);font-size:12px;flex:1 1 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  #vdeepModal .vr .vs{font-size:13px;font-weight:bold;color:var(--gold);flex:0 0 auto;}
+  #vdeepModal .vr .vt{font-size:11px;font-weight:bold;padding:2px 9px;border-radius:10px;color:#08111f;flex:0 0 auto;}
+  .vdl{font-size:10.5px;font-weight:bold;padding:1px 7px;border-radius:9px;background:#12324f;color:#8fc7ff;border:1px solid #2b456b;flex:0 0 auto;}
+  .vd-cap{font-size:11px;color:var(--txt2);margin-top:6px;line-height:1.5;}
   .vd-sec{margin:12px 0;border-top:1px solid var(--border);padding-top:9px;}
   .vd-sec:first-child{border-top:none;padding-top:0;}
   .vd-t{font-size:13px;font-weight:bold;color:var(--gold);margin-bottom:7px;}
@@ -217,9 +229,10 @@
   .vd-ins{display:flex;flex-direction:column;gap:8px;}
   .vd-ir{display:flex;align-items:center;gap:9px;font-size:12px;}
   .vd-il{min-width:108px;color:#cfe6ff;font-weight:bold;}
-  .vd-bar{flex:1;height:10px;background:#0e2138;border-radius:6px;overflow:hidden;border:1px solid var(--border);}
-  .vd-bar i{display:block;height:100%;border-radius:6px;}
-  .vd-ic{color:var(--txt2);min-width:150px;text-align:right;}
+  .vd-bar{flex:1;height:10px;background:#0e2138;border-radius:6px;overflow:hidden;border:1px solid var(--border);display:flex;}
+  .vd-bar i{display:block;height:100%;}
+  .vd-ic{color:var(--txt2);flex:0 0 auto;text-align:right;font-size:11.5px;padding-right:6px;}
+  .vd-few{font-size:10px;color:#8a9bb0;border:1px solid #2b456b;border-radius:8px;padding:0 5px;margin-left:5px;}
   .vd-note{font-size:11px;color:var(--txt2);border-top:1px dashed var(--border);margin-top:10px;padding-top:7px;line-height:1.5;}
   .vd-jump{font-size:12px;color:var(--accent);cursor:pointer;margin-top:5px;display:inline-block;}
   .vd-jump:hover{text-decoration:underline;}
@@ -721,7 +734,7 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-09-20-v30';   // v30：地图框与右侧文字面板配比重构——默认由 ~60:40 调整为 ~48:52（地图 flex 1.5→1、面板 max-width 560→880），县区详情态面板放宽至 1000；中窄屏(≤1000)同步收窄地图，避免面板被压到最小；v29 顶栏两段式与 v28 性能(Q9 深卡/merge 快刷/O(1)查找)全部保留
+const CACHE_VERSION = '2026-09-20-v31';   // v31：Q9 品种深数据卡口径修正——旧版拿「县级三类业务方向」硬套品种，导致点玉米也出现「水产·养殖险」；现改为优先取各县 directions[dk].varieties 中 base 名==本品种 的**品种级条目**（name 含风险点、lvl 为该县该品种机会等级）聚合，并按品种品类剔除无关方向（种植品种不取养殖方向、畜禽标签改「养殖险（畜禽）」）；品种级明细不足 10% 时回退县级口径并标注；适配险种条改为「高/中/低」堆叠条+高机会县占比（原 (高+中)/n 恒=100% 无区分度）；补齐深卡内 .vr/.vsub 样式（此前只在 #varModal 下定义，深卡失效）。v30 版式与 v29/v28 全部保留
 //__NX_EMBED_HOOK__
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
@@ -1636,47 +1649,150 @@ function openVarietyModal(v){
   document.getElementById('varModal').style.display='flex';
 }
 
-// ===== 品种深数据卡（Q9）=====
-// 全部由现有县区数据反向聚合：布局省份分布、典型风险词频、三类业务适配险种覆盖度、机会分 Top 县
-// 零编造；生长周期等农技深数据将在接入 04 产业技术风险库后补充（见卡片底部说明）
-const DISASTER_KEYWORDS = ['干旱','旱灾','缺水','洪涝','暴雨','渍涝','内涝','冰雹','霜冻','低温','寒潮','倒春寒','寒露风','高温','热害','连阴雨','台风','病害','疫病','病虫害','赤潮','冻害','雪灾','风灾','沙尘暴','高温热害','干热风'];
+// ===== 品种深数据卡（Q9 v2·品种级口径）=====
+// 【口径修正 2026-09-20】旧版拿「县级三类业务方向」硬套品种，导致点玉米也出现「水产·养殖险」
+// （directions.aqua 是"该县水产产业机会"，与玉米无关）。
+// 现改为优先取各县 directions[dk].varieties 中 base 名 == 当前品种 的**品种级条目**
+// （条目 name 含风险点、lvl 为该县该品种机会等级）——玉米只会落到 weather/credit，不会出现水产。
+// 无品种级条目的品种（如桃/梨/枣）回退县级口径，并在卡面显式标注「县级口径」。
+const RISK_VOCAB = ['花期冻害','低温冷害','高温热害','海水倒灌','连阴雨','沙尘暴','干热风','倒春寒','寒露风','晚疫病','病虫害','泛塘','渍涝','内涝','干旱','旱灾','缺水','洪涝','涝渍','暴雨','寡照','冰雹','雹灾','霜冻','冻害','低温','高温','热害','寒潮','台风','风灾','大风','雪灾','暴雪','疫病','病害','赤潮','溶氧'].sort((a,b)=>b.length-a.length);
+function baseVarName(n){ return String(n||'').split(/[（(]/)[0].trim(); }
+function parenOf(n){ const m=String(n||'').match(/[（(]([^）)]*)[）)]/); return m?m[1]:''; }
+// 从条目括号文本中按灾害词表提取（最长优先，命中即占位，避免"低温冷害"被"低温"重复计）
+function extractRisks(txt){
+  let t=String(txt||'');
+  const out=[];
+  for(const k of RISK_VOCAB){ let i=t.indexOf(k); while(i>=0){ out.push(k); t=t.slice(0,i)+'\u3000'+t.slice(i+k.length); i=t.indexOf(k); } }
+  return out;
+}
+// 条目名与品种的匹配：base 完全相等，或条目名以该品种开头（"玉米（…）"）；或品种名以 base 开头（"南美白对虾" ↔ "对虾"）
+function matchVarietyItem(itemName, v){
+  const b=baseVarName(itemName);
+  if(!b) return false;
+  if(b===v) return true;
+  if(b.indexOf(v)===0) return true;
+  if(b.length>=2 && v.indexOf(b)===0) return true;
+  return false;
+}
+// 兜底口径用：品种品类（用于在无品种级明细时，只取相关业务方向，避免种植品种混入水产）
+function varietyKind(v){
+  if(/对虾|虾|蟹|鱼|贝|蛤|蛏|螺|鲍|参|鳖|龟|蛙|鳅|鳝|紫菜|海带|海藻|牡蛎|蚝|蛏子|海胆|水蛭|珍珠|海洋牧场|稻渔综合种养/.test(v)) return 'aqua';
+  if(/猪|牛|羊|鸡|鸭|鹅|鸽|兔|蜂|蚕|鹿|驴|马|骆驼|貂|貉|狐/.test(v)) return 'livestock';
+  return 'crop';
+}
+const VD_RANK={高:3,中:2,低:1};
+// 方向标签按品种品类动态命名：水产类→"水产·养殖险"；畜禽类若落在养殖方向→"养殖险（畜禽）"
+function vdDirLabel(dk,v){
+  if(dk==='weather') return '气象/天气指数险';
+  if(dk==='credit') return '信贷保证险';
+  return varietyKind(v)==='aqua' ? '水产·养殖险' : '养殖险（畜禽）';
+}
+function vdDirShort(dk,v){
+  if(dk==='weather') return '气象';
+  if(dk==='credit') return '信贷';
+  return varietyKind(v)==='aqua' ? '水产' : '养殖';
+}
+const VD_ITEM_MIN_RATIO=0.10;   // 品种级明细覆盖布局县不足 10% 时，回退县级口径（更完整）
 function openVarietyDeep(v){
+  const $vd=document.getElementById('vdeepModal'), body=document.getElementById('vdBody');
   const list=(VARIETY_INDEX[v]||[]).slice().sort((a,b)=>(effOpp(b)?effOpp(b).score:0)-(effOpp(a)?effOpp(a).score:0));
   const total=list.length;
+  const VK=varietyKind(v);                 // crop / aqua / livestock
   document.getElementById('vdName').textContent=v;
-  document.getElementById('vdSub').textContent='全国 '+total+' 个县有布局';
-  const body=document.getElementById('vdBody');
-  if(!total){ body.innerHTML='<div class="empty-r">暂无该县区数据</div>'; document.getElementById('vdeepModal').style.display='flex'; return; }
-  // 1) 省份分布
+  if(!total){ document.getElementById('vdSub').textContent=''; body.innerHTML='<div class="empty-r">暂无该县区数据</div>'; $vd.style.display='flex'; return; }
+
+  // ---- 1) 品种级条目聚合（首选口径）：只认 base 名 == 本品种 的条目；种植品种一律不取养殖方向 ----
+  const dirAgg={}, riskCnt={}, lvlMap={}, itemCounties=new Set();
+  list.forEach(c=>{
+    const dd=c.directions||{};
+    for(const dk of ['weather','aqua','credit']){
+      const x=dd[dk];
+      if(!x || !Array.isArray(x.varieties)) continue;
+      if(dk==='aqua' && VK==='crop') continue;                 // 种植品种剔除养殖方向（避免"玉米出现水产"）
+      x.varieties.forEach(it=>{
+        if(!it || !matchVarietyItem(it.name,v)) return;
+        const key=c.region+'|'+c.name;
+        const a=dirAgg[dk]||(dirAgg[dk]={cs:new Set(),hi:0,mid:0,lo:0});
+        a.cs.add(key);
+        if(it.lvl==='高')a.hi++; else if(it.lvl==='中')a.mid++; else if(it.lvl==='低')a.lo++;
+        extractRisks(parenOf(it.name)).forEach(k=>{ riskCnt[k]=(riskCnt[k]||0)+1; });
+        itemCounties.add(key);
+        if(it.lvl){ if(!lvlMap[key]||VD_RANK[it.lvl]>VD_RANK[lvlMap[key].lvl]) lvlMap[key]={lvl:it.lvl,dk}; }
+      });
+    }
+  });
+  let matchN=0; for(const k in dirAgg) matchN+=dirAgg[k].cs.size;
+  const useItem = (itemCounties.size/total) >= VD_ITEM_MIN_RATIO;   // 品种级明细是否足够
+  const useDirs = VK==='aqua' ? ['aqua','weather','credit'] : ['weather','credit'];
+
+  let rows;
+  // 行结构：[方向标签] + 堆叠条（高/中/低构成）+ 明细文字。避免"高+中恒=100%"的满格空洞条。
+  const mkRow=(dk,label,n,hi,mid,lo)=>{ const den=Math.max(hi+mid+lo,1);
+    return {dk,label,n,hi,mid,lo,hiP:Math.round(hi/den*100),midP:Math.round(mid/den*100)}; };
+  if(useItem){
+    rows=Object.keys(dirAgg).map(dk=>{ const a=dirAgg[dk];
+      return mkRow(dk,vdDirLabel(dk,v),a.cs.size,a.hi,a.mid,a.lo); }).sort((x,y)=>y.n-x.n);
+  } else {
+    // 兜底：无 / 过少品种级明细 → 县级口径 + 品类过滤（仍不混入无关方向）
+    const agg={};
+    list.forEach(c=>{
+      const dd=c.directions||{};
+      useDirs.forEach(dk=>{ const d=dd[dk]; if(!d||!d.lvl) return; const a=agg[dk]||(agg[dk]={n:0,hi:0,mid:0,lo:0});
+        a.n++; if(d.lvl==='高')a.hi++; else if(d.lvl==='中')a.mid++; else a.lo++; });
+    });
+    rows=Object.keys(agg).map(dk=>{ const a=agg[dk]; return mkRow(dk,vdDirLabel(dk,v),a.n,a.hi,a.mid,a.lo); }).sort((x,y)=>y.n-x.n);
+  }
+  // 典型风险点：品种级条目风险点为空时（如条目未带括号风险点），回退扫相关方向描述文本
+  let riskSrc = useItem ? 'item' : 'desc';
+  if(riskSrc==='item' && !Object.keys(riskCnt).length) riskSrc='desc';
+  if(riskSrc==='desc'){
+    list.forEach(c=>{ const dd=c.directions||{}; useDirs.forEach(dk=>{ const d=dd[dk]; if(!d) return;
+      extractRisks((d.risk_analysis||'')+' '+(d.opportunity||'')).forEach(k=>{ riskCnt[k]=(riskCnt[k]||0)+1; }); }); });
+  }
+
+  // ---- 2) 省份分布 ----
   const provCnt={};
   list.forEach(c=>{ const p=c.province||'未知'; provCnt[p]=(provCnt[p]||0)+1; });
   const provTop=Object.entries(provCnt).sort((a,b)=>b[1]-a[1]).slice(0,8);
-  // 2) 典型风险关键词（扫描各县三类方向的风险描述+机会描述）
-  const riskCnt={};
-  list.forEach(c=>{ for(const dk of ['weather','aqua','credit']){ const d=c.directions[dk]; if(!d)continue; const txt=(d.risk_analysis||'')+' '+(d.opportunity||''); for(const k of DISASTER_KEYWORDS){ if(txt.indexOf(k)>=0) riskCnt[k]=(riskCnt[k]||0)+1; } } });
   const riskTop=Object.entries(riskCnt).sort((a,b)=>b[1]-a[1]).slice(0,8);
-  // 3) 适配险种（按三类业务机会等级「高/中」覆盖度）
-  const dirAgg={weather:{hi:0,mid:0},aqua:{hi:0,mid:0},credit:{hi:0,mid:0}};
-  list.forEach(c=>{ for(const dk of ['weather','aqua','credit']){ const d=c.directions[dk]; if(!d)continue; if(d.lvl==='高')dirAgg[dk].hi++; else if(d.lvl==='中')dirAgg[dk].mid++; } });
-  const dirLabel={weather:'气象/天气指数险',aqua:'水产·养殖险',credit:'信贷保证险'};
-  const dirRows=['weather','aqua','credit'].map(dk=>{ const a=dirAgg[dk]; const cov=Math.round((a.hi+a.mid)/total*100); return {dk,label:dirLabel[dk],cov,hi:a.hi,mid:a.mid}; }).sort((x,y)=>y.cov-x.cov);
-  // 4) 机会分 Top 县
-  const topCounties=list.slice(0,12);
+
+  // ---- 3) Top 县：该品种在本县有机会等级的优先（高→中→低），同级再按综合机会分 ----
+  const ranked=list.slice().sort((a,b)=>{
+    const la=lvlMap[a.region+'|'+a.name], lb=lvlMap[b.region+'|'+b.name];
+    const ra=la?VD_RANK[la.lvl]:0, rb=lb?VD_RANK[lb.lvl]:0;
+    if(ra!==rb) return rb-ra;
+    return (effOpp(b)?effOpp(b).score:0)-(effOpp(a)?effOpp(a).score:0);
+  }).slice(0,12);
+
+  document.getElementById('vdSub').textContent='全国 '+total+' 个县有布局'+(useItem?(' · 其中 '+itemCounties.size+' 县有品种级明细'):' · 县级口径参考');
+
   let h='';
   h+=`<div class="vd-sec"><div class="vd-t">📍 全国布局（${total} 县）</div><div class="vd-prov">`+
      provTop.map(([p,n])=>`<span class="vd-pv">${p}<b>${n}</b></span>`).join('')+`</div></div>`;
-  h+=`<div class="vd-sec"><div class="vd-t">🌪 典型风险（词频来自各县风险描述）</div>`+
-     (riskTop.length?`<div class="vd-risk">`+riskTop.map(([k,n])=>`<span class="vd-rk">${k}<b>${n}</b></span>`).join('')+`</div>`:`<div class="vd-empty">各县风险描述中未命中标准灾害词</div>`)+`</div>`;
-  h+=`<div class="vd-sec"><div class="vd-t">🛡 适配险种（按三类业务机会等级覆盖度）</div><div class="vd-ins">`+
-     dirRows.map(r=>{ const strong=r.cov>=50?'强':(r.cov>=20?'中':'弱'); const col=r.cov>=50?'#2e9bff':(r.cov>=20?'#74b9ff':'#aacdf0');
-       return `<div class="vd-ir"><span class="vd-il">${r.label}</span><span class="vd-bar"><i style="width:${r.cov}%;background:${col}"></i></span><span class="vd-ic">${strong}（${r.cov}% 县·高${r.hi}/中${r.mid}）</span></div>`; }).join('')+`</div></div>`;
-  h+=`<div class="vd-sec"><div class="vd-t">🏆 综合机会分 Top 县</div><div class="vd-top">`+
-     topCounties.map((c,i)=>{ const e=effOpp(c); const t=e?e.tier:'—'; const s=e?e.score:'—'; const tc=e?OPP_TIER_COLOR[t]:'#3a4d66';
-       return `<div class="vr" onclick="document.getElementById('vdeepModal').style.display='none';selectUnit('${c.region.replace(/'/g,"\\'")}');selectCounty('${c.name.replace(/'/g,"\\'")}')"><span class="rk">${i+1}</span><span class="vn">${c.name}</span><span class="vp">${c.province}</span><span class="vs">${s}</span><span class="vt" style="background:${tc}">${t}</span></div>`; }).join('')+`</div></div>`;
+
+  const riskCap = riskSrc==='item'
+    ? `<div class="vd-cap">口径：来自 ${itemCounties.size} 个县业务方向内「${v}」品种级条目（括号风险点），已排除该县其他产业方向</div>`
+    : `<div class="vd-cap">口径：${useItem?'品种级条目未带风险点，改取':'该品种暂无足够品种级明细，取'}所在县「${rows.map(r=>vdDirShort(r.dk,v)).join('/')}」方向描述做灾害词频（县级口径）</div>`;
+  h+=`<div class="vd-sec"><div class="vd-t">🌪 典型风险点${riskSrc==='item'?'（品种级条目词频）':'（县级口径）'}</div>`+
+     (riskTop.length?`<div class="vd-risk">`+riskTop.map(([k,n])=>`<span class="vd-rk">${k}<b>${n}</b></span>`).join('')+`</div>`:`<div class="vd-empty">未命中标准灾害词</div>`)+riskCap+`</div>`;
+
+  h+=`<div class="vd-sec"><div class="vd-t">🛡 适配险种${useItem?'（按该品种条目所属方向聚合）':'（按县级业务机会等级推断）'}</div><div class="vd-ins">`+
+     (rows.length?rows.map(r=>`<div class="vd-ir"><span class="vd-il">${r.label}</span>`+
+         `<span class="vd-bar" title="高 ${r.hi} / 中 ${r.mid}${r.lo?' / 低 '+r.lo:''} 个县">`+
+         `<i style="width:${r.hiP}%;background:#2e9bff"></i><i style="width:${r.midP}%;background:#5aa9f0"></i><i style="flex:1 1 auto;background:#22344e"></i></span>`+
+         `<span class="vd-ic">${r.n} 县 · 高 <b style="color:#7fc4ff">${r.hi}</b>（${r.hiP}%）/ 中 ${r.mid}${r.lo?' / 低 '+r.lo:''}${r.n/total<0.05?'<span class="vd-few">样本少</span>':''}</span></div>`).join(''):'<div class="vd-empty">暂无可判定方向</div>')+`</div>`+
+     `<div class="vd-cap">条形＝该方向下各县机会等级构成（<span style="color:#2e9bff">■</span>高 <span style="color:#5aa9f0">■</span>中 <span style="color:#22344e">■</span>低/未定）；「高 X（Y%）」＝该方向机会等级为「高」的县数及其占本行县数比例，可据此排优先级。</div></div>`;
+
+  h+=`<div class="vd-sec"><div class="vd-t">🏆 ${useItem?'该品种机会等级':'综合机会分'} Top 县</div><div class="vd-top">`+
+     ranked.map((c,i)=>{ const e=effOpp(c); const t=e?e.tier:'—'; const s=e?e.score:'—'; const tc=e?OPP_TIER_COLOR[t]:'#3a4d66';
+       const li=lvlMap[c.region+'|'+c.name];
+       const tag=li?`<span class="vdl">${vdDirShort(li.dk,v)}·${li.lvl}</span>`:'';
+       return `<div class="vr" onclick="document.getElementById('vdeepModal').style.display='none';selectUnit('${c.region.replace(/'/g,"\\'")}');selectCounty('${c.name.replace(/'/g,"\\'")}')"><span class="rk">${i+1}</span><span class="vn">${c.name}</span><span class="vp">${c.province}</span>${tag}<span class="vs">${s}</span><span class="vt" style="background:${tc}">${t}</span></div>`; }).join('')+`</div></div>`;
+
   h+=`<div class="vd-jump" onclick="document.getElementById('vdeepModal').style.display='none';openVarietyModal('${v.replace(/'/g,"\\'")}')">查看全国布局全部 ${total} 个县 →</div>`;
-  h+=`<div class="vd-note">数据来源：基于各县区已接入的业务机会详析（风险描述 / 三类业务机会等级 / 综合机会分）反向聚合，未引用外部数据；「生长周期·农技规程」等深数据将在接入 04 产业技术风险库后补充。</div>`;
+  h+=`<div class="vd-note">口径说明：适配险种与典型风险点<b>优先取自各县业务方向内「${v}」品种级条目</b>（方向 varieties 的名称/机会等级/风险点），并按品种品类剔除无关方向——因此种植品种不会出现水产养殖险；品种级明细不足 ${Math.round(VD_ITEM_MIN_RATIO*100)}% 时回退县级口径（已按品类过滤）并在卡面标注。全部数据来自各县已接入数据，未引用外部数据；「生长周期·农技规程」等深数据将在接入 04 产业技术风险库后补充。</div>`;
   body.innerHTML=h;
-  document.getElementById('vdeepModal').style.display='flex';
+  $vd.style.display='flex';
 }
 
 // ---- 关注（我的清单） ----
