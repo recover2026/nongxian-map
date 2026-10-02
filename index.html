@@ -473,7 +473,7 @@
         <input id="searchInput" type="text" placeholder="🔍 搜县/省/品种/龙头" oninput="onSearchInput(this.value)" />
         <div id="searchResults"></div>
       </div>
-      <div class="meta">数据基准：<b id="dataDate">2026-09-06</b> · 覆盖 <b id="covN">33</b> 业务单元</div>
+      <div class="meta" id="dataBaseline" style="cursor:pointer" onclick="document.getElementById('srcModal').style.display='flex'" title="点击查看数据来源与更新机制">数据基准：<b id="dataDate">2026-10-02</b> · 覆盖 <b id="covN">33</b> 业务单元 · <b>v35</b> 政策底座已升财金〔2026〕88号</div>
     </div>
     <div class="hdr-bar">
       <div class="seg" id="mapModeSeg" title="切换地图着色口径">
@@ -577,6 +577,48 @@
     </div>
   </div>
 </div>
+
+  <div id="srcModal" class="modal" style="display:none">
+    <div class="box vp-box">
+      <div class="hd">
+        <h3>📡 数据来源与更新机制<span class="vsub">农险信息雷达 · 信息获取方式说明</span></h3>
+        <span class="x" onclick="document.getElementById('srcModal').style.display='none'">✕</span>
+      </div>
+      <div class="vp-sec" style="display:block">
+        <div class="vp-t">本版数据基准（v35 · 2026-10-02）</div>
+        <p style="line-height:1.85;margin:0">
+          <b>政策底座</b>：全部 1365 个县区已统一前置国家新政
+          <a href="https://www.gov.cn/zhengce/zhengceku/202609/content_7080788.htm" target="_blank" style="color:var(--gold)">财金〔2026〕88号《关于加快农业保险高质量发展的实施方案》</a>
+          （2026-09-08，财政部/农业农村部/金融监管总局/国家林草局，经国务院同意）。核心指标：到 2030 年保险深度 1.9%、保险密度 1200 元/人、科技投入强度 1%、三大主粮覆盖率 90% 左右、综合费用率 ≤20%。
+          <br>原各省实施细则文号（鲁财金、冀财金、云财规等 80 个）<b>全部保留未删</b>，地方差异以省级口径为准。
+          <br><b>保费池基准</b>：2026 年中央财政农业保险保费补贴预算 <b>530 亿元</b>，较 2025 年执行数增加 29.63 亿元、增长 5.9%（财政部《关于2026年中央对地方转移支付预算的说明》）。2025 年农险保费超 1550 亿元、年提供风险保障超 5 万亿元（财金〔2026〕88号答记者问）。
+        </p>
+      </div>
+      <div class="vp-sec" style="display:block">
+        <div class="vp-t">信息获取方式（v35 升级：手工核查 → 自动采集管线）</div>
+        <p style="line-height:1.85;margin:0 0 8px">
+          过去每更新一批县的数据，都需逐县人工联网检索、手工核对文号、逐条比对——慢且易错。本版起改为可重复执行的采集管线：
+        </p>
+        <ul style="line-height:1.9;margin:0;padding-left:20px">
+          <li><b>源清单注册表</b>：15 个权威源统一登记 URL、抓取方式、频率、可达性（含实测不可用原因），新增源先登记再写抓取器。</li>
+          <li><b>批量采集</b>：一键抓取全部可用源，原始快照留痕（sha256 + 抓取时点），可复现、可追溯。</li>
+          <li><b>差异报告</b>：自动比对现有数据与最新权威口径，输出「建议更新 / 已过期 / 待人工」三段式清单。</li>
+          <li><b>人工确认后写回</b>：采集只产出待确认条目，<b>绝不自动覆盖</b>业务数据。</li>
+          <li><b>新鲜度台账</b>：记录每个源最近一次成功抓取的时点与状态。</li>
+        </ul>
+      </div>
+      <div class="vp-sec" style="display:block">
+        <div class="vp-t">数据真实性边界（如实告知）</div>
+        <ul style="line-height:1.85;margin:0;padding-left:20px">
+          <li><b>需人工获取</b>：县级农业产值最权威口径《中国县域统计年鉴》为纸质书无 API；分县成本收益资料同此。当前县级产值仍以各县统计公报为准。</li>
+          <li><b>暂不可自动抓</b>：国家统计局分省年度 API 对本机出口 IP 返回 403；农产品批发价格 200 指数接口需认证。恢复后可直接接入。</li>
+          <li><b>已冻结</b>：全国一村一品示范村镇最后为第十二批（2023-03），此后农业农村部不再开展全国认定——不再作为"最新数据"更新，以免造成时点误读。</li>
+          <li><b>待发布</b>：2026 年 9 月灾情通报（约 10 月中旬）、秋粮产量（约 12 月）尚未发布，一律留空，不用上年数据顶替。</li>
+          <li>凡未标来源的客户与产值信息，一律为「待核」，须以公司内部台账或政府推荐名录为准。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
   <div id="visitPackModal" class="modal" style="display:none">
     <div class="box vp-box">
@@ -766,7 +808,7 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-10-01-auto';   // 月度自动更新：全量县区三方向农险机会数据刷新（大连标准量化表+真实可溯源，零编造）   // 月度自动更新：全量县区三方向农险机会数据刷新（大连标准量化表+真实可溯源，零编造）   // v34：联网核实真实数据回填（第二批7县：苍溪红心猕猴桃/雪梨、洛川苹果、盘锦大洼/盘山/兴隆台河蟹大米、科尔沁区肉牛玉米、阿鲁科尔沁旗苜蓿肉牛；同步校正五常市龙头企业口径 国家级3/省级21→2025奋斗网口径 国家级5/省级22/市级14，并剔除鹤岗崧阳粮油错配）+ 第二批跨区错配修正（洛川猕猴桃/小麦原挂石羊/邦淇、盘锦海参扇贝原挂大连企业、科尔沁/阿鲁科尔沁玉米小麦原挂蒙牛/兆丰河套面业、盐碱鱼虾原挂呼伦贝尔农垦，均标注移除/待核）。v33/v32 均保留。
+const CACHE_VERSION = '2026-10-02-v35';   // v35 全面更新：①国家政策底座升级——1365县/100%前置财金〔2026〕88号《关于加快农业保险高质量发展的实施方案》(2026-09-08 经国务院同意)，含2030年五项KPI(保险深度1.9%/密度1200元/人/科技投入强度1%/主粮覆盖率90%/综合费用率≤20%)、三大主粮+大豆完全成本与收入保险、产粮大县县级承担比例下调、省级对省级结算、大灾风险基金；保费池基准换为2026年中央财政补贴预算530亿(+5.9%)；原省级文号100%保留未删。②信息获取方式升级为「农险信息雷达」自动采集管线：sources.json源清单(15源含实测可达性) + fetch_sources.py批量抓取(已实测9/9可达) + diff_report.py三段式差异报告(建议更新/已过期/待人工) + apply_policy_update.py人工确认后写回 + freshness.json新鲜度台账 + raw/原始快照留痕。③一村一品冻结标注(第十二批2023-03后全国停止认定)。v34/v33/v32 均保留。
 //__NX_EMBED_HOOK__
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
