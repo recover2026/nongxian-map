@@ -4214,7 +4214,25 @@
    "varieties": [
     "设施蔬菜",
     "设施农业"
-   ]
+   ],
+   "provincial_leaders": {
+    "enterprises": [
+     "内江市中区高家庄农业开发有限公司",
+     "内江市雷丰种植有限责任公司",
+     "四川恒通内江猪保种繁育有限公司",
+     "四川新茂源农业发展有限责任公司",
+     "四川省浙新农业科技发展有限公司"
+    ],
+    "count": 5,
+    "level": "省级",
+    "city": "内江市",
+    "doc": "四川省农业产业化省级重点龙头企业名单",
+    "doc_date": "2025-03-21",
+    "source_url": "https://nynct.sc.gov.cn/nynct/qtwj/2025/3/21/cd99709ea1f54be1b56d10be65b2b279.shtml",
+    "confidence": "HIGH-官方县列",
+    "fetched_at": "2026-10-03 14:24:02",
+    "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   }
   },
   {
    "region": "济南市",
