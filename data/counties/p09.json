@@ -31631,7 +31631,33 @@
    "varieties": [
     "大蒜",
     "设施蔬菜"
-   ]
+   ],
+   "county_stat": {
+    "province": "山东省",
+    "county": "兰陵县",
+    "text": "【县级统计数据·山东省|兰陵县】农林牧渔业总产值 155.12亿元；粮食产量 69.02万吨；地区生产总值 376.6亿元。来源：2025年报统计公报（https://www.lanling.gov.cn/info/1440/1490762.htm）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "155.12",
+      "unit": "亿元",
+      "亿元": 155.12
+     },
+     "粮食产量": {
+      "raw": "69.02万吨",
+      "unit": ""
+     },
+     "地区生产总值": {
+      "raw": "376.6",
+      "unit": "亿元",
+      "亿元": 376.6
+     }
+    },
+    "bulletin_title": "2025年报统计公报",
+    "bulletin_url": "https://www.lanling.gov.cn/info/1440/1490762.htm",
+    "site": "www.lanling.gov.cn",
+    "fetched_at": "2026-10-03 21:49:54",
+    "note": "WebFetch实测打开原文确认"
+   }
   },
   {
    "region": "临沂市",
