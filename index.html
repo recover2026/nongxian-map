@@ -301,6 +301,10 @@
   .nl-more{margin-top:4px;font-size:11px;color:var(--txt2);}
   .nl-src{margin-top:5px;padding-top:5px;border-top:1px dashed rgba(201,162,74,.22);
     font-size:10.5px;line-height:1.55;color:var(--txt2);}
+  /* 省级龙头卡：与国家级区分，用蓝色系 */
+  .pl-card{border-color:rgba(96,165,250,.30);background:rgba(30,58,95,.24);}
+  .pl-badge{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:9px;
+    background:rgba(96,165,250,.18);color:#7cb8ff;font-size:11px;font-weight:bold;vertical-align:middle;}
   .counties{margin-top:6px;}
   .counties .ttl{font-size:13px;color:var(--gold);margin:4px 0 8px;display:flex;align-items:center;gap:6px;}
   .co-row{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#0e2138;border:1px solid var(--border);
@@ -819,7 +823,7 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-10-03-v37';   // v37 省级含县名单锚定：解析四川省第十二批(1041家)与湖南省(1192家)省级重点龙头名单，两省名单均自带「市州+县」官方字段（远强于名称推断），按企业名与国家2250家名单匹配，消化原NONE档173家→118个法定县（已剔除经开区/高新区/天府新区等非法定建制13条），累计national_leaders达182县/310家。v36 国家级龙头企业批量回填：从农业农村部《农业产业化国家重点龙头企业名单》(2025-05-27第十一次监测合格，全国2250家)解析2264家，经「省份约束+地市约束+县名唯一+开头地名优先+跨省名冲突排除」五重校验消除17%跨省错配(57→0)后，HIGH档250家落地140个资质县，写入 national_leaders 字段(不覆盖任何原字段)；县区面板新增「🏛国家级龙头企业」卡片+拜访包/展业摘要同步输出。AMBIG(同名县)与NONE(无县名)一律不写，宁可留待核也不写错配。v35 全面更新：①国家政策底座升级——1365县/100%前置财金〔2026〕88号《关于加快农业保险高质量发展的实施方案》(2026-09-08 经国务院同意)，含2030年五项KPI(保险深度1.9%/密度1200元/人/科技投入强度1%/主粮覆盖率90%/综合费用率≤20%)、三大主粮+大豆完全成本与收入保险、产粮大县县级承担比例下调、省级对省级结算、大灾风险基金；保费池基准换为2026年中央财政补贴预算530亿(+5.9%)；原省级文号100%保留未删。②信息获取方式升级为「农险信息雷达」自动采集管线：sources.json源清单(15源含实测可达性) + fetch_sources.py批量抓取(已实测9/9可达) + diff_report.py三段式差异报告(建议更新/已过期/待人工) + apply_policy_update.py人工确认后写回 + freshness.json新鲜度台账 + raw/原始快照留痕。③一村一品冻结标注(第十二批2023-03后全国停止认定)。v34/v33/v32 均保留。
+const CACHE_VERSION = '2026-10-03-v38';   // v38 省级龙头直灌+巨潮上市公司源：①解析河北(964家/13市节)与河南(1067家/17市节)省级名单，以「企业名内县级地名+开头优先」双路落县（0错配），直接回填152县/1070家省级龙头至新字段 provincial_leaders（与 national_leaders 分列，不覆盖任何原字段）；②打通巨潮资讯网上市公司源，实测可取注册地址精确到县（牧原→内乡县、隆平高科→芙蓉区）+证监会行业分类+主营业务，为后续批量补客户建立可续跑管线。v37 省级含县名单锚定：解析四川省第十二批(1041家)与湖南省(1192家)省级重点龙头名单，两省名单均自带「市州+县」官方字段（远强于名称推断），按企业名与国家2250家名单匹配，消化原NONE档173家→118个法定县（已剔除经开区/高新区/天府新区等非法定建制13条），累计national_leaders达182县/310家。v36 国家级龙头企业批量回填：从农业农村部《农业产业化国家重点龙头企业名单》(2025-05-27第十一次监测合格，全国2250家)解析2264家，经「省份约束+地市约束+县名唯一+开头地名优先+跨省名冲突排除」五重校验消除17%跨省错配(57→0)后，HIGH档250家落地140个资质县，写入 national_leaders 字段(不覆盖任何原字段)；县区面板新增「🏛国家级龙头企业」卡片+拜访包/展业摘要同步输出。AMBIG(同名县)与NONE(无县名)一律不写，宁可留待核也不写错配。v35 全面更新：①国家政策底座升级——1365县/100%前置财金〔2026〕88号《关于加快农业保险高质量发展的实施方案》(2026-09-08 经国务院同意)，含2030年五项KPI(保险深度1.9%/密度1200元/人/科技投入强度1%/主粮覆盖率90%/综合费用率≤20%)、三大主粮+大豆完全成本与收入保险、产粮大县县级承担比例下调、省级对省级结算、大灾风险基金；保费池基准换为2026年中央财政补贴预算530亿(+5.9%)；原省级文号100%保留未删。②信息获取方式升级为「农险信息雷达」自动采集管线：sources.json源清单(15源含实测可达性) + fetch_sources.py批量抓取(已实测9/9可达) + diff_report.py三段式差异报告(建议更新/已过期/待人工) + apply_policy_update.py人工确认后写回 + freshness.json新鲜度台账 + raw/原始快照留痕。③一村一品冻结标注(第十二批2023-03后全国停止认定)。v34/v33/v32 均保留。
 //__NX_EMBED_HOOK__
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
@@ -1621,6 +1625,23 @@ function nationalLeaderCard(c){
     <div class="nl-src">来源：${nl.doc}（${nl.doc_date}）· 匹配口径：企业名含县级地名且省/市约束通过；同省重名与无县名企业未收录，避免错配</div>
   </div>`;
 }
+// 省级龙头企业卡：与国家级分列展示（省级龙头是独立客户线索，不混为一谈）
+function provincialLeaderCard(c){
+  const pl=c&&c.provincial_leaders;
+  if(!pl||!pl.enterprises||!pl.enterprises.length) return '';
+  const list=pl.enterprises;
+  const show=list.length<=8?list:list.slice(0,8);
+  const conf=String(pl.confidence||'');
+  return `<div class="nl-card pl-card">
+    <div class="sec-title">🏢 省级龙头企业 <span class="pl-badge">${pl.count} 家</span></div>
+    <div class="mini-cust-table nl-table">
+      <table><tbody>${show.map((e,i)=>`<tr><td>${i+1}</td><td>${e}</td></tr>`).join('')}</tbody></table>
+    </div>
+    ${list.length>8?`<div class="nl-more">…另有 ${list.length-8} 家，详见拜访包</div>`:''}
+    <div class="nl-src">来源：${pl.doc}${pl.doc_date?`（${pl.doc_date}）`:''}　置信度：${conf}<br>
+      ${conf.startsWith('HIGH')?'省名单自带县列（官方字段）':'分市节+企业名内县名匹配'}</div>
+  </div>`;
+}
 // 展业话术卡：依据县级 pitch.{direction}.{policy|commercial} 渲染，支持政策性/商业性切换
 function pitchCard(c, dk){
   const p=(c.pitch&&c.pitch[dk])||{};
@@ -2008,11 +2029,17 @@ function openVisitPack(name){
     h+=`<div class="vp-note">🏛 <b>国家级龙头企业（${nl.count}家）</b>：${nl.enterprises.join('、')}<br>
       <span style="opacity:.75">来源：${nl.doc}（${nl.doc_date}）</span></div>`;
   }
+  const pl=c.provincial_leaders;
+  if(pl&&pl.enterprises&&pl.enterprises.length){
+    h+=`<div class="vp-note">🏢 <b>省级龙头企业（${pl.count}家）</b>：${pl.enterprises.join('、')}<br>
+      <span style="opacity:.75">来源：${pl.doc}${pl.doc_date?`（${pl.doc_date}）`:''} · 置信度：${pl.confidence||''}</span></div>`;
+  }
   h+= cli? `<div class="vp-cli">${cli.replace(/\n/g,'<br>')}</div>` : (nl?'':'（暂无录入）');
   if(hasDai) h+=`<div class="vp-note">⚠ 部分客户名单显示「待核」，属真实台账待回填项，拜访前请以内部客户台账 / 政府推荐名录 / 省农担白名单复核。</div>`;
   h+=`</div>`;
   md+=`## 三、重点客户清单${hasDai?'（含待核项）':''}\n`;
   if(nl&&nl.enterprises&&nl.enterprises.length) md+=`\n### 国家级龙头企业（${nl.count}家）\n${nl.enterprises.map((e,i)=>`${i+1}. ${e}`).join('\n')}\n> 来源：${nl.doc}（${nl.doc_date}）\n`;
+  if(pl&&pl.enterprises&&pl.enterprises.length) md+=`\n### 省级龙头企业（${pl.count}家）\n${pl.enterprises.map((e,i)=>`${i+1}. ${e}`).join('\n')}\n> 来源：${pl.doc}${pl.doc_date?`（${pl.doc_date}）`:''} · ${pl.confidence||''}\n`;
   md+=`${cli||'（暂无录入）'}\n${hasDai?'> ⚠ 待核项须以内部台账复核。\n':''}\n`;
   // 四、风险要点
   let risk='';
@@ -2375,6 +2402,7 @@ function selectCounty(name){
      `</select><span class="push-hint">本地保存（清缓存可重置，不影响发布数据）；用于跟踪该县区展业推动进度</span></div>`;
   h+=dirCard(dk,d);
   h+=nationalLeaderCard(c);
+  h+=provincialLeaderCard(c);
   h+=pitchCard(c, dk);
   const others=Object.keys(c.directions).filter(x=>x!==dk);
   if(others.length){
