@@ -3559,7 +3559,8 @@
    },
    "county_stat": {
     "province": "河北省",
-    "text": "【县级统计数据·河北省行唐县】农林牧渔业总产值 89.5亿元（亿元，原文值 89.5）；粮食产量 36.5万吨；农村居民人均可支配收入 15988元。来源：行唐县2025年国民经济和社会发展统计公报（https://www.xingtang.gov.cn/），发布时间见原页。",
+    "county": "行唐县",
+    "text": "【县级统计数据·河北省|行唐县】农林牧渔业总产值 89.5亿元；粮食产量 36.5万吨。来源：2025年报统计公报（https://www.xingtang.gov.cn/columns/27300e93-f264-402b-9241-0e39cc24246c/index.html）。",
     "metrics": {
      "农林牧渔业总产值": {
       "raw": "89.5",
@@ -3567,21 +3568,16 @@
       "亿元": 89.5
      },
      "粮食产量": {
-      "raw": "36.5",
-      "unit": "万吨",
-      "value": 36.5
+      "raw": "36.5万吨",
+      "unit": ""
      },
-     "农村居民人均可支配收入": {
-      "raw": "15988",
-      "unit": "元",
-      "value": 15988.0
-     }
+     "地区生产总值": {}
     },
-    "bulletin_title": "行唐县2025年国民经济和社会发展统计公报",
-    "bulletin_url": "https://www.xingtang.gov.cn/columns/27300e93-f264-402b-9241-0e39cc24246c/202609/04/60ce53dd-aeeb-495b-ba51-22706ff3767d.html",
-    "site": "https://www.xingtang.gov.cn/",
-    "fetched_at": "2026-10-03 18:17:43",
-    "note": "县政府官网公开数据；单位以原文标注为准，万元/亿元已按原文换算"
+    "bulletin_title": "2025年报统计公报",
+    "bulletin_url": "https://www.xingtang.gov.cn/columns/27300e93-f264-402b-9241-0e39cc24246c/index.html",
+    "site": "www.xingtang.gov.cn",
+    "fetched_at": "2026-10-03 21:49:54",
+    "note": "WebFetch实测打开原文确认"
    }
   },
   {
