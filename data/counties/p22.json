@@ -2271,7 +2271,19 @@
     "中药材",
     "党参",
     "黄芪"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "陇西一方制药有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "定西市",
@@ -3729,7 +3741,19 @@
     "杏",
     "枣",
     "肉羊"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "甘肃省敦煌种业集团股份有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "酒泉市",
@@ -6669,7 +6693,19 @@
    "varieties": [
     "马铃薯",
     "苹果"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "静宁常津果品有限责任公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "庆阳市",
@@ -9335,7 +9371,19 @@
     "食用菌",
     "树莓",
     "中药材"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "和政县华龙乳制品有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "临夏市",
