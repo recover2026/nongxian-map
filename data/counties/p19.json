@@ -2015,7 +2015,29 @@
     "南美白对虾",
     "罗非鱼",
     "石斑鱼"
-   ]
+   ],
+   "county_stat": {
+    "province": "海南省",
+    "county": "万宁市",
+    "text": "【县级统计数据·海南省|万宁市】农林牧渔业总产值 208.02亿元；粮食产量 10.96万吨。来源：2025年报统计公报（https://wanning.hainan.gov.cn/）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "208.02",
+      "unit": "亿元",
+      "亿元": 208.02
+     },
+     "粮食产量": {
+      "raw": "10.96万吨",
+      "unit": ""
+     },
+     "地区生产总值": {}
+    },
+    "bulletin_title": "2025年报统计公报",
+    "bulletin_url": "https://wanning.hainan.gov.cn/",
+    "site": "wanning.hainan.gov.cn",
+    "fetched_at": "2026-10-03 21:49:54",
+    "note": "WebFetch实测打开原文确认；★更正：原参考114.33亿，实为208.02亿"
+   }
   },
   {
    "region": "直辖县",
@@ -2826,7 +2848,29 @@
     "罗非鱼",
     "鳗鱼",
     "石斑鱼"
-   ]
+   ],
+   "county_stat": {
+    "province": "海南省",
+    "county": "琼中黎族苗族自治县",
+    "text": "【县级统计数据·海南省|琼中黎族苗族自治县】农林牧渔业总产值 65.07亿元；粮食产量 2.4966万吨。来源：2025年报统计公报（https://qiongzhong.hainan.gov.cn/）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "65.07",
+      "unit": "亿元",
+      "亿元": 65.07
+     },
+     "粮食产量": {
+      "raw": "2.4966万吨",
+      "unit": ""
+     },
+     "地区生产总值": {}
+    },
+    "bulletin_title": "2025年报统计公报",
+    "bulletin_url": "https://qiongzhong.hainan.gov.cn/",
+    "site": "qiongzhong.hainan.gov.cn",
+    "fetched_at": "2026-10-03 21:49:54",
+    "note": "WebFetch实测打开原文确认；★更正：原参考64.1亿"
+   }
   },
   {
    "region": "直辖县",
@@ -3218,7 +3262,29 @@
     "罗非鱼",
     "金鲳鱼",
     "石斑鱼"
-   ]
+   ],
+   "county_stat": {
+    "province": "海南省",
+    "county": "东方市",
+    "text": "【县级统计数据·海南省|东方市】农林牧渔业总产值 159.76亿元；粮食产量 9.51万吨。来源：2025年报统计公报（https://dongfang.hainan.gov.cn/）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "159.76",
+      "unit": "亿元",
+      "亿元": 159.76
+     },
+     "粮食产量": {
+      "raw": "9.51万吨",
+      "unit": ""
+     },
+     "地区生产总值": {}
+    },
+    "bulletin_title": "2025年报统计公报",
+    "bulletin_url": "https://dongfang.hainan.gov.cn/",
+    "site": "dongfang.hainan.gov.cn",
+    "fetched_at": "2026-10-03 21:49:54",
+    "note": "WebFetch实测打开原文确认；★更正：原参考144.08亿"
+   }
   },
   {
    "region": "直辖县",
@@ -6289,7 +6355,26 @@
     "南美白对虾",
     "罗非鱼",
     "石斑鱼"
-   ]
+   ],
+   "county_stat": {
+    "province": "海南省",
+    "county": "保亭黎族苗族自治县",
+    "text": "【县级统计数据·海南省|保亭黎族苗族自治县】农林牧渔业总产值 49.78亿元。来源：2025年报统计公报（https://baoting.hainan.gov.cn/）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "49.78",
+      "unit": "亿元",
+      "亿元": 49.78
+     },
+     "粮食产量": {},
+     "地区生产总值": {}
+    },
+    "bulletin_title": "2025年报统计公报",
+    "bulletin_url": "https://baoting.hainan.gov.cn/",
+    "site": "baoting.hainan.gov.cn",
+    "fetched_at": "2026-10-03 21:49:54",
+    "note": "WebFetch实测打开原文确认；★更正：原参考52.53亿"
+   }
   }
  ]
 }
