@@ -418,7 +418,26 @@
     "枇杷",
     "鳖",
     "设施农业"
-   ]
+   ],
+   "county_stat": {
+    "province": "浙江省",
+    "county": "临平区",
+    "text": "【县级统计数据·浙江省|临平区】农林牧渔业总产值 30.25亿元。来源：2025年报统计公报（https://www.linping.gov.cn/col/col1229524450/art/2026/art_e7943875b6e649b38e27a69e3a92e602.html）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "30.25",
+      "unit": "亿元",
+      "亿元": 30.25
+     },
+     "粮食产量": {},
+     "地区生产总值": {}
+    },
+    "bulletin_title": "2025年报统计公报",
+    "bulletin_url": "https://www.linping.gov.cn/col/col1229524450/art/2026/art_e7943875b6e649b38e27a69e3a92e602.html",
+    "site": "www.linping.gov.cn",
+    "fetched_at": "2026-10-03 21:49:54",
+    "note": "WebFetch实测打开原文确认；⚠️原文为「农业总产值」口径"
+   }
   },
   {
    "region": "杭州",
@@ -842,7 +861,29 @@
     "茶叶",
     "稻渔综合种养",
     "设施农业"
-   ]
+   ],
+   "county_stat": {
+    "province": "浙江省",
+    "county": "富阳区",
+    "text": "【县级统计数据·浙江省|富阳区】农林牧渔业总产值 81.1亿元；粮食产量 10.2万吨。来源：2025年报统计公报（https://www.fuyang.gov.cn/col/col1229248953/art/2026/art_e1ea862e4b2442a6869bbfabd6ea7938.html）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "81.1",
+      "unit": "亿元",
+      "亿元": 81.1
+     },
+     "粮食产量": {
+      "raw": "10.2万吨",
+      "unit": ""
+     },
+     "地区生产总值": {}
+    },
+    "bulletin_title": "2025年报统计公报",
+    "bulletin_url": "https://www.fuyang.gov.cn/col/col1229248953/art/2026/art_e1ea862e4b2442a6869bbfabd6ea7938.html",
+    "site": "www.fuyang.gov.cn",
+    "fetched_at": "2026-10-03 21:49:54",
+    "note": "WebFetch实测打开原文确认"
+   }
   },
   {
    "region": "杭州",
@@ -1689,7 +1730,29 @@
     "茶叶",
     "鳖",
     "稻渔综合种养"
-   ]
+   ],
+   "county_stat": {
+    "province": "浙江省",
+    "county": "临安区",
+    "text": "【县级统计数据·浙江省|临安区】农林牧渔业总产值 75.39亿元；粮食产量 5.7万吨。来源：2025年报统计公报（https://www.linan.gov.cn/col/col1229252926/art/2026/art_2dd0556ceaf144feb4674fbc527421fb.html）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "75.39",
+      "unit": "亿元",
+      "亿元": 75.39
+     },
+     "粮食产量": {
+      "raw": "5.7万吨",
+      "unit": ""
+     },
+     "地区生产总值": {}
+    },
+    "bulletin_title": "2025年报统计公报",
+    "bulletin_url": "https://www.linan.gov.cn/col/col1229252926/art/2026/art_2dd0556ceaf144feb4674fbc527421fb.html",
+    "site": "www.linan.gov.cn",
+    "fetched_at": "2026-10-03 21:49:54",
+    "note": "WebFetch实测打开原文确认"
+   }
   },
   {
    "region": "杭州",
@@ -2923,7 +2986,29 @@
     "草莓",
     "茶叶",
     "中药材"
-   ]
+   ],
+   "county_stat": {
+    "province": "浙江省",
+    "county": "建德市",
+    "text": "【县级统计数据·浙江省|建德市】农林牧渔业总产值 70.74亿元；粮食产量 7.343万吨。来源：2025年报统计公报（https://www.jiande.gov.cn/art/2026/1/27/art_1229535715_4435644.html）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "70.74",
+      "unit": "亿元",
+      "亿元": 70.74
+     },
+     "粮食产量": {
+      "raw": "7.343万吨",
+      "unit": ""
+     },
+     "地区生产总值": {}
+    },
+    "bulletin_title": "2025年报统计公报",
+    "bulletin_url": "https://www.jiande.gov.cn/art/2026/1/27/art_1229535715_4435644.html",
+    "site": "www.jiande.gov.cn",
+    "fetched_at": "2026-10-03 21:49:54",
+    "note": "WebFetch实测打开原文确认"
+   }
   },
   {
    "region": "杭州",
@@ -3352,7 +3437,26 @@
     "鳖",
     "稻渔综合种养",
     "设施农业"
-   ]
+   ],
+   "county_stat": {
+    "province": "浙江省",
+    "county": "余杭区",
+    "text": "【县级统计数据·浙江省|余杭区】农林牧渔业总产值 73.56亿元。来源：2025年报统计公报（https://www.yuhang.gov.cn/col/col1229247534/art/2026/art_0d09f5e0414239c1127ca76dea81110c.html）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "73.56",
+      "unit": "亿元",
+      "亿元": 73.56
+     },
+     "粮食产量": {},
+     "地区生产总值": {}
+    },
+    "bulletin_title": "2025年报统计公报",
+    "bulletin_url": "https://www.yuhang.gov.cn/col/col1229247534/art/2026/art_0d09f5e0414239c1127ca76dea81110c.html",
+    "site": "www.yuhang.gov.cn",
+    "fetched_at": "2026-10-03 21:49:54",
+    "note": "WebFetch实测打开原文确认"
+   }
   },
   {
    "region": "杭州",
@@ -3783,7 +3887,29 @@
     "中药材",
     "鲟鱼",
     "蚕桑"
-   ]
+   ],
+   "county_stat": {
+    "province": "浙江省",
+    "county": "淳安县",
+    "text": "【县级统计数据·浙江省|淳安县】农林牧渔业总产值 68.81亿元；粮食产量 5.65万吨。来源：2025年报统计公报（https://www.qdh.gov.cn/col/col1229260725/）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "68.81",
+      "unit": "亿元",
+      "亿元": 68.81
+     },
+     "粮食产量": {
+      "raw": "5.65万吨",
+      "unit": ""
+     },
+     "地区生产总值": {}
+    },
+    "bulletin_title": "2025年报统计公报",
+    "bulletin_url": "https://www.qdh.gov.cn/col/col1229260725/",
+    "site": "www.qdh.gov.cn",
+    "fetched_at": "2026-10-03 21:49:54",
+    "note": "WebFetch实测打开原文确认；新增"
+   }
   },
   {
    "region": "杭州",
@@ -4601,7 +4727,26 @@
     "花木",
     "花卉",
     "苗木"
-   ]
+   ],
+   "county_stat": {
+    "province": "浙江省",
+    "county": "萧山区",
+    "text": "【县级统计数据·浙江省|萧山区】农林牧渔业总产值 94.61亿元。来源：2025年报统计公报（https://www.xiaoshan.gov.cn/col/col1229292659/art/2026/art_6d61bae3508d42dbafafd5ca87a12a8c.html）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "94.61",
+      "unit": "亿元",
+      "亿元": 94.61
+     },
+     "粮食产量": {},
+     "地区生产总值": {}
+    },
+    "bulletin_title": "2025年报统计公报",
+    "bulletin_url": "https://www.xiaoshan.gov.cn/col/col1229292659/art/2026/art_6d61bae3508d42dbafafd5ca87a12a8c.html",
+    "site": "www.xiaoshan.gov.cn",
+    "fetched_at": "2026-10-03 21:49:54",
+    "note": "WebFetch实测打开原文确认；杭州第一"
+   }
   },
   {
    "region": "杭州",
