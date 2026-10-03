@@ -763,7 +763,19 @@
     "肉牛",
     "肉羊",
     "稻渔综合种养"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "奇台县春蕾麦芽制造有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "昌吉回族自治州",
@@ -2282,7 +2294,19 @@
     "对虾",
     "南美白对虾",
     "苗木"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "新疆呼图壁种牛场有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "阿克苏地区",
@@ -11497,7 +11521,19 @@
     "桃",
     "核桃",
     "肉羊"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "晨光生物科技集团莎车有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "喀什地区",
@@ -15497,7 +15533,19 @@
    },
    "varieties": [
     "棉花"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "新疆石河子花园乳业有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   }
  ]
 }
