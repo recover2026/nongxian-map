@@ -290,6 +290,17 @@
   .mini-cust-table th:nth-child(2),.mini-cust-table td:nth-child(2){width:42%;}
   .mini-cust-table th:nth-child(3),.mini-cust-table td:nth-child(3){width:auto;}
   .mini-cust-table td{word-break:break-word;}
+  /* 国家级龙头企业卡（v36）：单列序号 + 企业名，第2列占满，严禁 nowrap 撑宽 */
+  .nl-card{margin-top:8px;padding:8px 10px;border:1px solid rgba(201,162,74,.28);border-radius:5px;background:rgba(18,41,74,.28);}
+  .nl-badge{display:inline-block;margin-left:6px;padding:1px 8px;border-radius:9px;background:rgba(201,162,74,.18);
+    color:var(--gold);font-size:11px;font-weight:bold;vertical-align:middle;}
+  .nl-table{margin-top:4px;}
+  .nl-table th:nth-child(1),.nl-table td:nth-child(1){width:34px;}
+  .nl-table th:nth-child(2),.nl-table td:nth-child(2){width:auto;}
+  .nl-table td{line-height:1.5;}
+  .nl-more{margin-top:4px;font-size:11px;color:var(--txt2);}
+  .nl-src{margin-top:5px;padding-top:5px;border-top:1px dashed rgba(201,162,74,.22);
+    font-size:10.5px;line-height:1.55;color:var(--txt2);}
   .counties{margin-top:6px;}
   .counties .ttl{font-size:13px;color:var(--gold);margin:4px 0 8px;display:flex;align-items:center;gap:6px;}
   .co-row{display:flex;align-items:center;gap:8px;padding:8px 10px;background:#0e2138;border:1px solid var(--border);
@@ -808,7 +819,7 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-10-02-v35';   // v35 全面更新：①国家政策底座升级——1365县/100%前置财金〔2026〕88号《关于加快农业保险高质量发展的实施方案》(2026-09-08 经国务院同意)，含2030年五项KPI(保险深度1.9%/密度1200元/人/科技投入强度1%/主粮覆盖率90%/综合费用率≤20%)、三大主粮+大豆完全成本与收入保险、产粮大县县级承担比例下调、省级对省级结算、大灾风险基金；保费池基准换为2026年中央财政补贴预算530亿(+5.9%)；原省级文号100%保留未删。②信息获取方式升级为「农险信息雷达」自动采集管线：sources.json源清单(15源含实测可达性) + fetch_sources.py批量抓取(已实测9/9可达) + diff_report.py三段式差异报告(建议更新/已过期/待人工) + apply_policy_update.py人工确认后写回 + freshness.json新鲜度台账 + raw/原始快照留痕。③一村一品冻结标注(第十二批2023-03后全国停止认定)。v34/v33/v32 均保留。
+const CACHE_VERSION = '2026-10-03-v36';   // v36 国家级龙头企业批量回填：从农业农村部《农业产业化国家重点龙头企业名单》(2025-05-27第十一次监测合格，全国2250家)解析2264家，经「省份约束+地市约束+县名唯一+开头地名优先+跨省名冲突排除」五重校验消除17%跨省错配(57→0)后，HIGH档250家落地140个资质县，写入 national_leaders 字段(不覆盖任何原字段)；县区面板新增「🏛国家级龙头企业」卡片+拜访包/展业摘要同步输出。AMBIG(同名县)与NONE(无县名)一律不写，宁可留待核也不写错配。v35 全面更新：①国家政策底座升级——1365县/100%前置财金〔2026〕88号《关于加快农业保险高质量发展的实施方案》(2026-09-08 经国务院同意)，含2030年五项KPI(保险深度1.9%/密度1200元/人/科技投入强度1%/主粮覆盖率90%/综合费用率≤20%)、三大主粮+大豆完全成本与收入保险、产粮大县县级承担比例下调、省级对省级结算、大灾风险基金；保费池基准换为2026年中央财政补贴预算530亿(+5.9%)；原省级文号100%保留未删。②信息获取方式升级为「农险信息雷达」自动采集管线：sources.json源清单(15源含实测可达性) + fetch_sources.py批量抓取(已实测9/9可达) + diff_report.py三段式差异报告(建议更新/已过期/待人工) + apply_policy_update.py人工确认后写回 + freshness.json新鲜度台账 + raw/原始快照留痕。③一村一品冻结标注(第十二批2023-03后全国停止认定)。v34/v33/v32 均保留。
 //__NX_EMBED_HOOK__
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
@@ -1594,6 +1605,22 @@ function dirCard(dk,d){
     `<div class="sec">${operation}</div>`+
     `<div class="sec">${extra}</div></div>`;
 }
+// 国家级龙头企业卡：数据来自 radar 映射表回填的 national_leaders 字段
+// 来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)
+function nationalLeaderCard(c){
+  const nl=c&&c.national_leaders;
+  if(!nl||!nl.enterprises||!nl.enterprises.length) return '';
+  const list=nl.enterprises;
+  const show=list.length<=8?list:list.slice(0,8);
+  return `<div class="nl-card">
+    <div class="sec-title">🏛 国家级龙头企业 <span class="nl-badge">${nl.count} 家</span></div>
+    <div class="mini-cust-table nl-table">
+      <table><tbody>${show.map((e,i)=>`<tr><td>${i+1}</td><td>${e}</td></tr>`).join('')}</tbody></table>
+    </div>
+    ${list.length>8?`<div class="nl-more">…另有 ${list.length-8} 家，详见拜访包或映射表</div>`:''}
+    <div class="nl-src">来源：${nl.doc}（${nl.doc_date}）· 匹配口径：企业名含县级地名且省/市约束通过；同省重名与无县名企业未收录，避免错配</div>
+  </div>`;
+}
 // 展业话术卡：依据县级 pitch.{direction}.{policy|commercial} 渲染，支持政策性/商业性切换
 function pitchCard(c, dk){
   const p=(c.pitch&&c.pitch[dk])||{};
@@ -1976,10 +2003,17 @@ function openVisitPack(name){
     if(blob) cli+=`- ${DIR_LABEL[dk]}：${blob}\n`;
   });
   h+=`<div class="vp-sec"><div class="vp-t">三、重点客户清单${hasDai?' <span class="vp-warn">含待核</span>':''}</div>`;
-  h+= cli? `<div class="vp-cli">${cli.replace(/\n/g,'<br>')}</div>` : fld('','（暂无录入）');
+  const nl=c.national_leaders;
+  if(nl&&nl.enterprises&&nl.enterprises.length){
+    h+=`<div class="vp-note">🏛 <b>国家级龙头企业（${nl.count}家）</b>：${nl.enterprises.join('、')}<br>
+      <span style="opacity:.75">来源：${nl.doc}（${nl.doc_date}）</span></div>`;
+  }
+  h+= cli? `<div class="vp-cli">${cli.replace(/\n/g,'<br>')}</div>` : (nl?'':'（暂无录入）');
   if(hasDai) h+=`<div class="vp-note">⚠ 部分客户名单显示「待核」，属真实台账待回填项，拜访前请以内部客户台账 / 政府推荐名录 / 省农担白名单复核。</div>`;
   h+=`</div>`;
-  md+=`## 三、重点客户清单${hasDai?'（含待核项）':''}\n${cli||'（暂无录入）'}\n${hasDai?'> ⚠ 待核项须以内部台账复核。\n':''}\n`;
+  md+=`## 三、重点客户清单${hasDai?'（含待核项）':''}\n`;
+  if(nl&&nl.enterprises&&nl.enterprises.length) md+=`\n### 国家级龙头企业（${nl.count}家）\n${nl.enterprises.map((e,i)=>`${i+1}. ${e}`).join('\n')}\n> 来源：${nl.doc}（${nl.doc_date}）\n`;
+  md+=`${cli||'（暂无录入）'}\n${hasDai?'> ⚠ 待核项须以内部台账复核。\n':''}\n`;
   // 四、风险要点
   let risk='';
   ['weather','aqua','credit'].forEach(dk=>{ const d=c.directions[dk]; if(!d||!d.risk_analysis)return; risk+=`- ${DIR_LABEL[dk]}：${d.risk_analysis}\n`; });
@@ -2340,6 +2374,7 @@ function selectCounty(name){
      PS_OPT.map(o=>`<option value="${o}" ${o===psCur?'selected':''}>${o}</option>`).join('')+
      `</select><span class="push-hint">本地保存（清缓存可重置，不影响发布数据）；用于跟踪该县区展业推动进度</span></div>`;
   h+=dirCard(dk,d);
+  h+=nationalLeaderCard(c);
   h+=pitchCard(c, dk);
   const others=Object.keys(c.directions).filter(x=>x!==dk);
   if(others.length){
