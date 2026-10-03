@@ -1158,7 +1158,33 @@
     "水稻",
     "玉米",
     "油菜"
-   ]
+   ],
+   "county_stat": {
+    "province": "重庆市",
+    "county": "云阳县",
+    "text": "【县级统计数据·重庆市|云阳县】农林牧渔业总产值 132.73亿元；粮食产量 41.92万吨；地区生产总值 626.71亿元。来源：2025年报统计公报（https://www.yunyang.gov.cn/zwgk_257/zfxxgkml/tjxx/tjgb/202604/t20260420_15623268.html）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "132.73",
+      "unit": "亿元",
+      "亿元": 132.73
+     },
+     "粮食产量": {
+      "raw": "41.92万吨",
+      "unit": ""
+     },
+     "地区生产总值": {
+      "raw": "626.71",
+      "unit": "亿元",
+      "亿元": 626.71
+     }
+    },
+    "bulletin_title": "2025年报统计公报",
+    "bulletin_url": "https://www.yunyang.gov.cn/zwgk_257/zfxxgkml/tjxx/tjgb/202604/t20260420_15623268.html",
+    "site": "www.yunyang.gov.cn",
+    "fetched_at": "2026-10-03 21:49:54",
+    "note": "WebFetch实测打开原文确认"
+   }
   },
   {
    "region": "重庆市",
@@ -2863,7 +2889,33 @@
     "水稻",
     "玉米",
     "油菜"
-   ]
+   ],
+   "county_stat": {
+    "province": "重庆市",
+    "county": "綦江区",
+    "text": "【县级统计数据·重庆市|綦江区】农林牧渔业总产值 118.47亿元；粮食产量 36.05万吨；地区生产总值 767.63亿元。来源：2025年报统计公报（http://www.cqqj.gov.cn/zwgk_159/fdzdgknr/tjxx/sjfb/tjgb/202604/t20260424_15634736.html）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "118.47",
+      "unit": "亿元",
+      "亿元": 118.47
+     },
+     "粮食产量": {
+      "raw": "36.05万吨",
+      "unit": ""
+     },
+     "地区生产总值": {
+      "raw": "767.63",
+      "unit": "亿元",
+      "亿元": 767.63
+     }
+    },
+    "bulletin_title": "2025年报统计公报",
+    "bulletin_url": "http://www.cqqj.gov.cn/zwgk_159/fdzdgknr/tjxx/sjfb/tjgb/202604/t20260424_15634736.html",
+    "site": "www.cqqj.gov.cn",
+    "fetched_at": "2026-10-03 21:49:54",
+    "note": "WebFetch实测打开原文确认；含万盛经开区"
+   }
   },
   {
    "region": "重庆市",
