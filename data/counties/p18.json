@@ -6171,7 +6171,19 @@
     "鳖",
     "花卉",
     "苗木"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "浙江长兴新农都实业有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "湖州",
@@ -9011,7 +9023,19 @@
     "稻渔综合种养",
     "花卉",
     "蚕桑"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "中粮面业（海宁）有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "嘉兴市",
@@ -11882,7 +11906,19 @@
     "猕猴桃",
     "中药材",
     "蜂"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "浙江江山恒亮蜂产品股份有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "衢州",
@@ -18753,7 +18789,19 @@
     "牡蛎",
     "蛏",
     "设施农业"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "三门峡牡仙生物科技有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "温州",
@@ -19499,7 +19547,19 @@
     "茶叶",
     "大黄鱼",
     "海洋牧场"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "瑞安市华盛水产有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "温州",
@@ -28060,7 +28120,19 @@
     "铁皮石斛",
     "生猪",
     "稻渔综合种养"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "浙江义乌农村经济发展有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "金华市",
