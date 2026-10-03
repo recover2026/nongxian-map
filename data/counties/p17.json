@@ -409,7 +409,29 @@
     "生猪",
     "小龙虾",
     "稻渔综合种养"
-   ]
+   ],
+   "provincial_leaders": {
+    "enterprises": [
+     "邓州市久友面粉有限公司",
+     "邓州市冰洁面粉有限责任公司",
+     "邓州市华鑫纸业有限公司",
+     "邓州市建国农副产品有限公司",
+     "邓州市新艺木业有限责任公司",
+     "邓州市永泰棉纺股份有限公司",
+     "邓州市永盛油脂有限公司",
+     "邓州市牧原养殖有限公司",
+     "邓州市荣冠农业科技有限公司"
+    ],
+    "count": 9,
+    "level": "省级",
+    "city": "南阳市",
+    "doc": "河南省农业产业化省级重点龙头企业名单",
+    "doc_date": "2022-12-29",
+    "source_url": "https://nynct.henan.gov.cn/2023/01-09/2669483.html",
+    "confidence": "MEDIUM-企业名内县名",
+    "fetched_at": "2026-10-03 14:24:02",
+    "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   }
   },
   {
    "region": "南阳市",
@@ -789,7 +811,21 @@
     "中药材",
     "花卉",
     "苗木"
-   ]
+   ],
+   "provincial_leaders": {
+    "enterprises": [
+     "南召县锦天园林绿化股份有限公司"
+    ],
+    "count": 1,
+    "level": "省级",
+    "city": "南阳市",
+    "doc": "河南省农业产业化省级重点龙头企业名单",
+    "doc_date": "2022-12-29",
+    "source_url": "https://nynct.henan.gov.cn/2023/01-09/2669483.html",
+    "confidence": "MEDIUM-企业名内县名",
+    "fetched_at": "2026-10-03 14:24:02",
+    "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   }
   },
   {
    "region": "南阳市",
@@ -1198,7 +1234,24 @@
     "中药材",
     "肉鸡",
     "小龙虾"
-   ]
+   ],
+   "provincial_leaders": {
+    "enterprises": [
+     "桐柏县江记油脂有限公司",
+     "桐柏县鑫茗农业有限公司",
+     "桐柏县阳阳生物科技有限公司",
+     "桐柏县黑土地农业种植股份有限公司"
+    ],
+    "count": 4,
+    "level": "省级",
+    "city": "南阳市",
+    "doc": "河南省农业产业化省级重点龙头企业名单",
+    "doc_date": "2022-12-29",
+    "source_url": "https://nynct.henan.gov.cn/2023/01-09/2669483.html",
+    "confidence": "MEDIUM-企业名内县名",
+    "fetched_at": "2026-10-03 14:24:02",
+    "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   }
   },
   {
    "region": "商丘市",
@@ -2009,7 +2062,21 @@
     "芝麻",
     "食用菌",
     "生猪"
-   ]
+   ],
+   "provincial_leaders": {
+    "enterprises": [
+     "沈丘县豫沈牧业有限公司"
+    ],
+    "count": 1,
+    "level": "省级",
+    "city": "周口市",
+    "doc": "河南省农业产业化省级重点龙头企业名单",
+    "doc_date": "2022-12-29",
+    "source_url": "https://nynct.henan.gov.cn/2023/01-09/2669483.html",
+    "confidence": "MEDIUM-企业名内县名",
+    "fetched_at": "2026-10-03 14:24:02",
+    "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   }
   },
   {
    "region": "驻马店市",
