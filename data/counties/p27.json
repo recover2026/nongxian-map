@@ -7449,19 +7449,23 @@
    ],
    "county_stat": {
     "province": "陕西省",
-    "text": "【县级统计数据·陕西省洛川县】农村居民人均可支配收入 5306元。来源：洛川县2026年一季度经济运行简析（http://www.lcx.gov.cn/），发布时间见原页。",
+    "county": "洛川县",
+    "text": "【县级统计数据·陕西省|洛川县】；农村居民人均可支配收入 5306元（2026年一季度）。来源：2026年一季度统计公报（https://www.lcx.gov.cn/zfxxgk/fdzdgknr/tjxx/2081553099604594690.html）。",
     "metrics": {
+     "农林牧渔业总产值": {},
+     "粮食产量": {},
+     "地区生产总值": {},
      "农村居民人均可支配收入": {
       "raw": "5306",
       "unit": "元",
       "value": 5306.0
      }
     },
-    "bulletin_title": "洛川县2026年一季度经济运行简析",
-    "bulletin_url": "https://www.lcx.gov.cn/zfxxgk/fdzdgknr/tjxx/2098304866081521666.html",
-    "site": "http://www.lcx.gov.cn/",
-    "fetched_at": "2026-10-03 18:17:45",
-    "note": "县政府官网公开数据；单位以原文标注为准，万元/亿元已按原文换算"
+    "bulletin_title": "2026年一季度统计公报",
+    "bulletin_url": "https://www.lcx.gov.cn/zfxxgk/fdzdgknr/tjxx/2081553099604594690.html",
+    "site": "www.lcx.gov.cn",
+    "fetched_at": "2026-10-03 21:49:54",
+    "note": "WebFetch实测打开原文确认；仅农民收入"
    }
   },
   {
