@@ -1963,7 +1963,19 @@
     "茶叶",
     "中药材",
     "稻渔综合种养"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "贵州瓮安鑫产园茶业有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "黔南市",
@@ -5206,7 +5218,21 @@
    "varieties": [
     "茶叶",
     "稻渔综合种养"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "贵州湄潭兰馨茶业有限公司",
+     "贵州省湄潭县栗香茶业有限公司",
+     "贵州湄潭茯莹食品开发有限公司"
+    ],
+    "count": 3,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "遵义市",
@@ -6010,7 +6036,19 @@
    },
    "varieties": [
     "稻渔综合种养"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "贵州红赤水集团有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "遵义市",
@@ -11372,7 +11410,20 @@
     "油菜",
     "茶叶",
     "生猪"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "金沙河集团有限公司",
+     "贵州金沙贡茶茶业有限公司"
+    ],
+    "count": 2,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "毕节市",
@@ -12957,7 +13008,19 @@
    "varieties": [
     "南瓜",
     "中药材"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "织金县慷骅农资集团有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "黔西南市",
@@ -13353,7 +13416,19 @@
     "茶叶",
     "中药材",
     "肉牛"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "贵州兴仁薏仁米产业有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "黔西南市",
@@ -14141,7 +14216,19 @@
    },
    "varieties": [
     "茶叶"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "晴隆县吉祥茶业有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "铜仁市",
