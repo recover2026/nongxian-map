@@ -730,7 +730,20 @@
     "生猪",
     "花卉",
     "苗木"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "长沙马王堆农产品股份有限公司",
+     "长沙水渡河农产品配送有限公司"
+    ],
+    "count": 2,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "长沙市",
@@ -3656,7 +3669,19 @@
    },
    "varieties": [
     "花卉"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "湖南大三湘茶油股份有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "岳阳市",
@@ -14045,7 +14070,19 @@
     "油茶",
     "生猪",
     "稻渔综合种养"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "衡阳市金雁粮食购销有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "衡阳市",
@@ -16135,7 +16172,20 @@
    "varieties": [
     "柑橘",
     "稻渔综合种养"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "湖南资兴东江狗脑贡茶业有限公司",
+     "东江鱼（资兴）实业集团有限公司"
+    ],
+    "count": 2,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "郴州",
@@ -17342,7 +17392,19 @@
    "varieties": [
     "辣椒",
     "油茶"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "湖南临武舜华鸭业发展有限责任公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "湘潭市",
@@ -20163,7 +20225,19 @@
    "varieties": [
     "辣椒",
     "稻渔综合种养"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "汝城县繁华食品有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "永州",
