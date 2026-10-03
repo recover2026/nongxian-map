@@ -405,7 +405,27 @@
     "生猪",
     "鲟鱼",
     "稻渔综合种养"
-   ]
+   ],
+   "county_stat": {
+    "province": "重庆市",
+    "county": "开州区",
+    "text": "【县级统计数据·重庆市|开州区】农林牧渔业总产值 158.02亿元；粮食产量 59.26万吨。来源：2025年开州区国民经济和社会发展统计公报（http://www.cqkz.gov.cn/zwgk_238/fdzdgknr/tjxx/tjgb/202604/t20260424_15632986.html）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "158.02",
+      "unit": ""
+     },
+     "粮食产量": {
+      "raw": "59.26",
+      "unit": ""
+     }
+    },
+    "bulletin_title": "2025年开州区国民经济和社会发展统计公报",
+    "bulletin_url": "http://www.cqkz.gov.cn/zwgk_238/fdzdgknr/tjxx/tjgb/202604/t20260424_15632986.html",
+    "site": "www.cqkz.gov.cn",
+    "fetched_at": "2026-10-03 22:52:40",
+    "note": "Playwright浏览器渲染抓取（绕过WAF）+ PDF/OCR，已打开原文核对"
+   }
   },
   {
    "region": "重庆市",
@@ -769,7 +789,27 @@
     "橙",
     "李子",
     "中药材"
-   ]
+   ],
+   "county_stat": {
+    "province": "重庆市",
+    "county": "巫山县",
+    "text": "【县级统计数据·重庆市|巫山县】农林牧渔业总产值 68.86亿元；粮食产量 21.64万吨。来源：2025年巫山县国民经济和社会发展统计公报\n\n2026-04-29（http://www.cqws.gov.cn/xzfbm_73744/sfj_74450/zwgk_72016/fdzdgknr/tjxxgk/zcwj_371155/tjgb/202604/t20260429_15645998.html）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "68.86",
+      "unit": ""
+     },
+     "粮食产量": {
+      "raw": "21.64",
+      "unit": ""
+     }
+    },
+    "bulletin_title": "2025年巫山县国民经济和社会发展统计公报\n\n2026-04-29",
+    "bulletin_url": "http://www.cqws.gov.cn/xzfbm_73744/sfj_74450/zwgk_72016/fdzdgknr/tjxxgk/zcwj_371155/tjgb/202604/t20260429_15645998.html",
+    "site": "www.cqws.gov.cn",
+    "fetched_at": "2026-10-03 22:52:40",
+    "note": "Playwright浏览器渲染抓取（绕过WAF）+ PDF/OCR，已打开原文核对"
+   }
   },
   {
    "region": "重庆市",
@@ -1162,28 +1202,26 @@
    "county_stat": {
     "province": "重庆市",
     "county": "云阳县",
-    "text": "【县级统计数据·重庆市|云阳县】农林牧渔业总产值 132.73亿元；粮食产量 41.92万吨；地区生产总值 626.71亿元。来源：2025年报统计公报（https://www.yunyang.gov.cn/zwgk_257/zfxxgkml/tjxx/tjgb/202604/t20260420_15623268.html）。",
+    "text": "【县级统计数据·重庆市|云阳县】农林牧渔业总产值 132.73亿元；粮食产量 41.92万吨；地区生产总值 626.71亿元。来源：云阳县2025年国民经济和社会发展统计公报（https://www.yunyang.gov.cn/zwgk_257/zfxxgkml/tjxx/tjgb/202604/t20260420_15623268.html）。",
     "metrics": {
      "农林牧渔业总产值": {
       "raw": "132.73",
-      "unit": "亿元",
-      "亿元": 132.73
+      "unit": ""
      },
      "粮食产量": {
-      "raw": "41.92万吨",
+      "raw": "41.92",
       "unit": ""
      },
      "地区生产总值": {
       "raw": "626.71",
-      "unit": "亿元",
-      "亿元": 626.71
+      "unit": ""
      }
     },
-    "bulletin_title": "2025年报统计公报",
+    "bulletin_title": "云阳县2025年国民经济和社会发展统计公报",
     "bulletin_url": "https://www.yunyang.gov.cn/zwgk_257/zfxxgkml/tjxx/tjgb/202604/t20260420_15623268.html",
     "site": "www.yunyang.gov.cn",
-    "fetched_at": "2026-10-03 21:49:54",
-    "note": "WebFetch实测打开原文确认"
+    "fetched_at": "2026-10-03 22:52:40",
+    "note": "Playwright浏览器渲染抓取（绕过WAF）+ PDF/OCR，已打开原文核对"
    }
   },
   {
@@ -1513,7 +1551,31 @@
     "水稻",
     "玉米",
     "油菜"
-   ]
+   ],
+   "county_stat": {
+    "province": "重庆市",
+    "county": "奉节县",
+    "text": "【县级统计数据·重庆市|奉节县】农林牧渔业总产值 119.08亿元；粮食产量 41.53万吨；地区生产总值 421.5亿元。来源：2025年奉节县国民经济和社会发展统计公报（https://www.cqfj.gov.cn/index/bm_168/tjj/zwgk_61835/fdzdgknr_61837/tjxx/sjfb_1/tjgb_1/202607/t20260710_15813067.html）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "119.08",
+      "unit": ""
+     },
+     "粮食产量": {
+      "raw": "41.53",
+      "unit": ""
+     },
+     "地区生产总值": {
+      "raw": "421.5",
+      "unit": ""
+     }
+    },
+    "bulletin_title": "2025年奉节县国民经济和社会发展统计公报",
+    "bulletin_url": "https://www.cqfj.gov.cn/index/bm_168/tjj/zwgk_61835/fdzdgknr_61837/tjxx/sjfb_1/tjgb_1/202607/t20260710_15813067.html",
+    "site": "www.cqfj.gov.cn",
+    "fetched_at": "2026-10-03 22:52:40",
+    "note": "Playwright浏览器渲染抓取（绕过WAF）+ PDF/OCR，已打开原文核对"
+   }
   },
   {
    "region": "重庆市",
@@ -1902,7 +1964,27 @@
     "水稻",
     "玉米",
     "油菜"
-   ]
+   ],
+   "county_stat": {
+    "province": "重庆市",
+    "county": "巫溪县",
+    "text": "【县级统计数据·重庆市|巫溪县】粮食产量 24.7万吨；地区生产总值 165.4亿元。来源：巫溪县2025年国民经济和社会发展统计公报（http://www.cqwx.gov.cn/bm/xtjj/zwgk_68174/fdzdgknr_68177/tjxx/sjfb/tjgb/202605/t20260527_15708878.html）。",
+    "metrics": {
+     "粮食产量": {
+      "raw": "24.7",
+      "unit": ""
+     },
+     "地区生产总值": {
+      "raw": "165.4",
+      "unit": ""
+     }
+    },
+    "bulletin_title": "巫溪县2025年国民经济和社会发展统计公报",
+    "bulletin_url": "http://www.cqwx.gov.cn/bm/xtjj/zwgk_68174/fdzdgknr_68177/tjxx/sjfb/tjgb/202605/t20260527_15708878.html",
+    "site": "www.cqwx.gov.cn",
+    "fetched_at": "2026-10-03 22:52:40",
+    "note": "Playwright浏览器渲染抓取（绕过WAF）+ PDF/OCR，已打开原文核对"
+   }
   },
   {
    "region": "重庆市",
@@ -2560,7 +2642,27 @@
     "水稻",
     "玉米",
     "油菜"
-   ]
+   ],
+   "county_stat": {
+    "province": "重庆市",
+    "county": "梁平区",
+    "text": "【县级统计数据·重庆市|梁平区】农林牧渔业总产值 111.851亿元；粮食产量 36.96万吨。来源：重庆市梁平区2025年国民经济和社会发展统计公报（http://www.cqlp.gov.cn/zwgk_178/fdzdgknr/tjxx/tjgb/202604/t20260417_15620138.html）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "111.851",
+      "unit": ""
+     },
+     "粮食产量": {
+      "raw": "36.96",
+      "unit": ""
+     }
+    },
+    "bulletin_title": "重庆市梁平区2025年国民经济和社会发展统计公报",
+    "bulletin_url": "http://www.cqlp.gov.cn/zwgk_178/fdzdgknr/tjxx/tjgb/202604/t20260417_15620138.html",
+    "site": "www.cqlp.gov.cn",
+    "fetched_at": "2026-10-03 22:52:40",
+    "note": "Playwright浏览器渲染抓取（绕过WAF）+ PDF/OCR，已打开原文核对"
+   }
   },
   {
    "region": "重庆市",
@@ -2893,28 +2995,26 @@
    "county_stat": {
     "province": "重庆市",
     "county": "綦江区",
-    "text": "【县级统计数据·重庆市|綦江区】农林牧渔业总产值 118.47亿元；粮食产量 36.05万吨；地区生产总值 767.63亿元。来源：2025年报统计公报（http://www.cqqj.gov.cn/zwgk_159/fdzdgknr/tjxx/sjfb/tjgb/202604/t20260424_15634736.html）。",
+    "text": "【县级统计数据·重庆市|綦江区】农林牧渔业总产值 118.47亿元；粮食产量 36.05万吨；地区生产总值 767.63亿元。来源：2025年重庆市綦江区国民经济和社会发展统计公报（http://www.cqqj.gov.cn/zwgk_159/fdzdgknr/tjxx/sjfb/tjgb/202604/t20260424_15634736.html）。",
     "metrics": {
      "农林牧渔业总产值": {
       "raw": "118.47",
-      "unit": "亿元",
-      "亿元": 118.47
+      "unit": ""
      },
      "粮食产量": {
-      "raw": "36.05万吨",
+      "raw": "36.05",
       "unit": ""
      },
      "地区生产总值": {
       "raw": "767.63",
-      "unit": "亿元",
-      "亿元": 767.63
+      "unit": ""
      }
     },
-    "bulletin_title": "2025年报统计公报",
+    "bulletin_title": "2025年重庆市綦江区国民经济和社会发展统计公报",
     "bulletin_url": "http://www.cqqj.gov.cn/zwgk_159/fdzdgknr/tjxx/sjfb/tjgb/202604/t20260424_15634736.html",
     "site": "www.cqqj.gov.cn",
-    "fetched_at": "2026-10-03 21:49:54",
-    "note": "WebFetch实测打开原文确认；含万盛经开区"
+    "fetched_at": "2026-10-03 22:52:40",
+    "note": "Playwright浏览器渲染抓取（绕过WAF）+ PDF/OCR，已打开原文核对"
    }
   },
   {
@@ -4692,7 +4792,31 @@
     "水稻",
     "玉米",
     "油菜"
-   ]
+   ],
+   "county_stat": {
+    "province": "重庆市",
+    "county": "黔江区",
+    "text": "【县级统计数据·重庆市|黔江区】农林牧渔业总产值 64.8亿元；粮食产量 23.97万吨；地区生产总值 431.10亿元。来源：2025年黔江区国民经济和社会发展统计公报（https://www.qianjiang.gov.cn/bmjd/xzfgzbm/qtjj/zwgk_49283/fdzdgknr_49285/tjxx/tjgb/202604/t20260408_15597000.html）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "64.8",
+      "unit": ""
+     },
+     "粮食产量": {
+      "raw": "23.97",
+      "unit": ""
+     },
+     "地区生产总值": {
+      "raw": "431.10",
+      "unit": ""
+     }
+    },
+    "bulletin_title": "2025年黔江区国民经济和社会发展统计公报",
+    "bulletin_url": "https://www.qianjiang.gov.cn/bmjd/xzfgzbm/qtjj/zwgk_49283/fdzdgknr_49285/tjxx/tjgb/202604/t20260408_15597000.html",
+    "site": "www.qianjiang.gov.cn",
+    "fetched_at": "2026-10-03 22:52:40",
+    "note": "Playwright浏览器渲染抓取（绕过WAF）+ PDF/OCR，已打开原文核对"
+   }
   },
   {
    "region": "重庆市",
@@ -6637,7 +6761,23 @@
     "水稻",
     "玉米",
     "油菜"
-   ]
+   ],
+   "county_stat": {
+    "province": "重庆市",
+    "county": "秀山土家族苗族自治县",
+    "text": "【县级统计数据·重庆市|秀山土家族苗族自治县】粮食产量 30.54万吨。来源：秀山土家族苗族自治县2025年国民经济和社会发展统计公报（http://www.cqxs.gov.cn/bm/tjj/zwgk_77940/fdzdgknr_77942/tjxx/sjfb/tjgb/202603/t20260330_15576447.html）。",
+    "metrics": {
+     "粮食产量": {
+      "raw": "30.54",
+      "unit": ""
+     }
+    },
+    "bulletin_title": "秀山土家族苗族自治县2025年国民经济和社会发展统计公报",
+    "bulletin_url": "http://www.cqxs.gov.cn/bm/tjj/zwgk_77940/fdzdgknr_77942/tjxx/sjfb/tjgb/202603/t20260330_15576447.html",
+    "site": "www.cqxs.gov.cn",
+    "fetched_at": "2026-10-03 22:52:40",
+    "note": "Playwright浏览器渲染抓取（绕过WAF）+ PDF/OCR，已打开原文核对"
+   }
   },
   {
    "region": "重庆市",
@@ -9749,7 +9889,27 @@
     "水稻",
     "玉米",
     "油菜"
-   ]
+   ],
+   "county_stat": {
+    "province": "重庆市",
+    "county": "江津区",
+    "text": "【县级统计数据·重庆市|江津区】粮食产量 64.53万吨；地区生产总值 1490.78亿元。来源：2024年重庆市江津区国民经济和社会发展统计公报\n2025-04-01（http://www.jiangjin.gov.cn/bm/qtjj_69023/zwgk_81474/fdzdgknr_81476/tjxx/sjfb/tjgb/202504/t20250401_14471088.html）。",
+    "metrics": {
+     "粮食产量": {
+      "raw": "64.53",
+      "unit": ""
+     },
+     "地区生产总值": {
+      "raw": "1490.78",
+      "unit": ""
+     }
+    },
+    "bulletin_title": "2024年重庆市江津区国民经济和社会发展统计公报\n2025-04-01",
+    "bulletin_url": "http://www.jiangjin.gov.cn/bm/qtjj_69023/zwgk_81474/fdzdgknr_81476/tjxx/sjfb/tjgb/202504/t20250401_14471088.html",
+    "site": "www.jiangjin.gov.cn",
+    "fetched_at": "2026-10-03 22:52:40",
+    "note": "Playwright浏览器渲染抓取（绕过WAF）+ PDF/OCR，已打开原文核对"
+   }
   },
   {
    "region": "重庆市",
@@ -10467,7 +10627,32 @@
     "水稻",
     "玉米",
     "油菜"
-   ]
+   ],
+   "county_stat": {
+    "province": "重庆市",
+    "county": "荣昌区",
+    "text": "【县级统计数据·重庆市|荣昌区】农林牧渔业总产值 111.024亿元；粮食产量 29.35万吨；地区生产总值 645.63亿元。来源：2025年重庆市荣昌区国民经济和社会发展统计公报（http://www.rongchang.gov.cn/bm/qtjj/zwgk_70831/fdzdgknr_70834/tjxx_1/tjgb/202604/t20260421_15626591.html）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "111.024",
+      "unit": ""
+     },
+     "粮食产量": {
+      "raw": "29.35",
+      "unit": "万吨",
+      "note": "原文单位为吨，已折算"
+     },
+     "地区生产总值": {
+      "raw": "645.63",
+      "unit": ""
+     }
+    },
+    "bulletin_title": "2025年重庆市荣昌区国民经济和社会发展统计公报",
+    "bulletin_url": "http://www.rongchang.gov.cn/bm/qtjj/zwgk_70831/fdzdgknr_70834/tjxx_1/tjgb/202604/t20260421_15626591.html",
+    "site": "www.rongchang.gov.cn",
+    "fetched_at": "2026-10-03 22:52:40",
+    "note": "Playwright浏览器渲染抓取（绕过WAF）+ PDF/OCR，已打开原文核对"
+   }
   },
   {
    "region": "重庆市",
@@ -10856,7 +11041,27 @@
     "水稻",
     "玉米",
     "油菜"
-   ]
+   ],
+   "county_stat": {
+    "province": "重庆市",
+    "county": "潼南区",
+    "text": "【县级统计数据·重庆市|潼南区】农林牧渔业总产值 146.9亿元；粮食产量 37.99万吨。来源：潼南区2025年统计公报（PDF/OCR）（https://www.cqtn.gov.cn/bm/qtjj/zwgk_25192/fdzdgknr/tjxx_117568/sjfb_tjj/tjgb/202604/P020260428394957093933.pdf）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "146.9",
+      "unit": ""
+     },
+     "粮食产量": {
+      "raw": "37.99",
+      "unit": ""
+     }
+    },
+    "bulletin_title": "潼南区2025年统计公报（PDF/OCR）",
+    "bulletin_url": "https://www.cqtn.gov.cn/bm/qtjj/zwgk_25192/fdzdgknr/tjxx_117568/sjfb_tjj/tjgb/202604/P020260428394957093933.pdf",
+    "site": "www.cqtn.gov.cn",
+    "fetched_at": "2026-10-03 22:52:40",
+    "note": "Playwright浏览器渲染抓取（绕过WAF）+ PDF/OCR，已打开原文核对"
+   }
   },
   {
    "region": "重庆市",
