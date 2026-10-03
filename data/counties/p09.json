@@ -428,7 +428,20 @@
     "对虾",
     "南美白对虾",
     "冬暖式大棚"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "山东省寿光蔬菜产业集团有限公司",
+     "山东寿光天成食品集团有限公司"
+    ],
+    "count": 2,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "山东省",
@@ -853,7 +866,20 @@
     "海带",
     "牡蛎",
     "海洋牧场"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "荣成泰祥食品股份有限公司",
+     "荣成市鑫发水产食品有限公司"
+    ],
+    "count": 2,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "山东省",
@@ -1273,7 +1299,19 @@
     "苹果",
     "桃",
     "樱桃"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "栖霞德丰食品有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "山东省",
@@ -9813,7 +9851,19 @@
     "桃",
     "花卉",
     "设施农业"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "青州市亚泰农业科技有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "潍坊市",
@@ -10598,7 +10648,20 @@
     "红薯",
     "生猪",
     "肉鸡"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "诸城外贸有限责任公司",
+     "诸城市万年食品有限公司"
+    ],
+    "count": 2,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "潍坊市",
@@ -11474,7 +11537,19 @@
    "varieties": [
     "食用菌",
     "设施农业"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "高密市南洋食品有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "潍坊市",
@@ -14778,7 +14853,19 @@
     "鲍鱼",
     "海带",
     "扇贝"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "石岛集团有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "威海市",
@@ -22499,7 +22586,20 @@
     "肉鸡",
     "海参",
     "扇贝"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "中粮长城葡萄酒（蓬莱）有限公司",
+     "蓬莱京鲁渔业有限公司"
+    ],
+    "count": 2,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "烟台市",
@@ -24957,7 +25057,20 @@
    },
    "varieties": [
     "驴"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "东阿阿胶股份有限公司",
+     "山东东阿绿佳食品开发有限公司"
+    ],
+    "count": 2,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "聊城市",
@@ -26256,7 +26369,19 @@
    },
    "varieties": [
     "肉鸡"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "临清德能金玉米生物有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "聊城市",
@@ -29725,7 +29850,19 @@
    "varieties": [
     "生姜",
     "苹果"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "沂水大地玉米开发有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "临沂市",
@@ -36459,7 +36596,19 @@
    "varieties": [
     "花生",
     "西瓜"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "泗水利丰食品有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "济宁市",
@@ -36887,7 +37036,19 @@
    "varieties": [
     "辣椒",
     "大蒜"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "金乡县和福隆水发农业发展有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "济宁市",
@@ -37219,7 +37380,19 @@
    },
    "varieties": [
     "小麦"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "益海嘉里（兖州）粮油工业有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "济宁市",
@@ -43127,7 +43300,19 @@
     "食用菌",
     "设施蔬菜",
     "肉牛"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "山东郓城华宝食品有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "菏泽市",
@@ -47615,7 +47800,20 @@
    },
    "varieties": [
     "肉牛"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "阳信亿利源清真肉类有限公司",
+     "阳信华胜清真肉类有限公司"
+    ],
+    "count": 2,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "滨州",
@@ -56257,7 +56455,19 @@
     "对虾",
     "海参",
     "扇贝"
-   ]
+   ],
+   "national_leaders": {
+    "enterprises": [
+     "滕州合易食品有限公司"
+    ],
+    "count": 1,
+    "level": "国家级",
+    "doc": "农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)",
+    "doc_date": "2025-05-27",
+    "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
+    "fetched_at": "2026-10-03 09:20:20",
+    "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   }
   },
   {
    "region": "枣庄市",
