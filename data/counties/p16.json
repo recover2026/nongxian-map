@@ -1155,7 +1155,23 @@
     "小麦",
     "玉米",
     "梨"
-   ]
+   ],
+   "county_stat": {
+    "province": "河北省",
+    "county": "辛集市",
+    "text": "【县级统计数据·河北省|辛集市】粮食产量 67.65万吨。来源：辛集市2025年国民经济和社会发展统计公报（https://www.xinji.gov.cn/app/tjxx/185619.html）。",
+    "metrics": {
+     "粮食产量": {
+      "raw": "67.65",
+      "unit": ""
+     }
+    },
+    "bulletin_title": "辛集市2025年国民经济和社会发展统计公报",
+    "bulletin_url": "https://www.xinji.gov.cn/app/tjxx/185619.html",
+    "site": "www.xinji.gov.cn",
+    "fetched_at": "2026-10-03 22:52:40",
+    "note": "Playwright浏览器渲染抓取（绕过WAF）+ PDF/OCR，已打开原文核对"
+   }
   },
   {
    "region": "石家庄市",
