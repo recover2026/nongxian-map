@@ -5179,25 +5179,24 @@
    "county_stat": {
     "province": "黑龙江省",
     "county": "五常市",
-    "text": "【县级统计数据·黑龙江省|五常市】农林牧渔业总产值 20.2亿元；地区生产总值 131亿元。来源：2026年1-6月统计公报（http://hljwch.gov.cn/hebwcs/tjsj/lby.shtml）。",
+    "text": "【县级统计数据·黑龙江省|五常市】农林牧渔业总产值 175.3亿元；地区生产总值 350.2亿元。来源：2025年1-12月五常市国民经济主要指标情况（图片表，OCR抽取，https://www.hljwch.gov.cn/hebwcs/tjsj/202603/c01_1111655.shtml）。",
     "metrics": {
      "农林牧渔业总产值": {
-      "raw": "20.2",
+      "raw": "175.3",
       "unit": "亿元",
-      "亿元": 20.2
+      "note": "★2025年全年口径（已修正）"
      },
-     "粮食产量": {},
      "地区生产总值": {
-      "raw": "131",
+      "raw": "350.2",
       "unit": "亿元",
-      "亿元": 131
+      "note": "2025年全年"
      }
     },
-    "bulletin_title": "2026年1-6月统计公报",
-    "bulletin_url": "http://hljwch.gov.cn/hebwcs/tjsj/lby.shtml",
-    "site": "hljwch.gov.cn",
-    "fetched_at": "2026-10-03 21:49:54",
-    "note": "WebFetch实测打开原文确认"
+    "bulletin_title": "2025年1-12月五常市国民经济主要指标情况",
+    "bulletin_url": "https://www.hljwch.gov.cn/hebwcs/tjsj/202603/c01_1111655.shtml",
+    "site": "www.hljwch.gov.cn",
+    "fetched_at": "2026-10-04 11:27:28",
+    "note": "★★口径修正：此前误取「2026年1-6月」的半年累计数(20.2亿/131亿)当全年值。本次取 2025年1-12月 页（图片表OCR）得 GDP 350.2亿、农林牧渔总产值175.3亿，与oweidata的2023年174.02亿量级一致，交叉验证通过。★教训：逐月累计口径的县级月报，必须取「1-12月」或「1-x月」中最接近全年且口径完整的期次，不能拿年中累计数当全年。"
    }
   },
   {
