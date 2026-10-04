@@ -2137,7 +2137,25 @@
     "小麦",
     "萝卜",
     "枣"
-   ]
+   ],
+   "county_stat": {
+    "province": "陕西省",
+    "county": "大荔县",
+    "text": "【县级统计数据·陕西省|大荔县】粮食产量 33.6万吨。来源：大荔县2025年国民经济和社会发展统计公报（http://www.dalisn.gov.cn/zfxxgk/fdzdgknr/tjxx/tjgb/2054093982871195650.html）。",
+    "metrics": {
+     "粮食产量": {
+      "raw": "33.6",
+      "unit": "万吨",
+      "note": ""
+     }
+    },
+    "bulletin_title": "大荔县2025年国民经济和社会发展统计公报",
+    "bulletin_url": "http://www.dalisn.gov.cn/zfxxgk/fdzdgknr/tjxx/tjgb/2054093982871195650.html",
+    "site": "www.dalisn.gov.cn",
+    "fetched_at": "2026-10-04 14:42:29",
+    "verified": true,
+    "note": "★从该县官网「统计数据/数据发布」栏目页→年度统计公报直链抓取（已打开原文核对）"
+   }
   },
   {
    "region": "渭南市",
