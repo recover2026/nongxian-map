@@ -1005,6 +1005,44 @@ function setMapLoading(text){
 let loadedProvinces = new Set();
 let provinceLoadPromises = {};
 
+// ★v51 性能：主分片瘦身 71%（76.2→22.2MB）。加载后需还原两处：
+//   ① shared.{dk}.support_prefix —— 省内共用政策底座，拼接回每个县的 support
+//   ② fullFile —— 详情数据（pitch/画像/来源说明/异议等）下沉，点拜访包或弹窗时才懒加载
+const FULL_CACHE = {};   // prov -> {countyName: extraObj}
+const FULL_LOADED = {};  // prov -> bool
+window.__FULL_CACHE__ = FULL_CACHE; window.__FULL_LOADED__ = FULL_LOADED;   // 调试/测试可访问
+async function loadCountyFull(prov, fileKey){
+  if(!fileKey || FULL_LOADED[prov]) return FULL_CACHE[prov]||{};
+  const url = 'data/counties/'+fileKey;
+  const ck = 'cfull-'+prov;
+  let data=null;
+  try{ data = await cachedFetch(url, ck); }catch(e){ FULL_LOADED[prov]=true; return {}; }
+  if(!data){ FULL_LOADED[prov]=true; return {}; }
+  FULL_LOADED[prov]=true;
+  const map={};
+  (data.counties||[]).forEach(x=>{ if(x && x.name) map[x.name]=x._extra||{}; });
+  FULL_CACHE[prov]=map;
+  return map;
+}
+// 把详情合并进内存对象（只补不改，避免重复合并）
+function mergeCountyFull(c){
+  const map = FULL_CACHE[c.__prov];
+  if(!map) return false;
+  const ex = map[c.name];
+  if(!ex) return false;
+  let changed = false;
+  for(const k in ex){
+    // visit_plan 用完整版覆盖精简版（异议/流程/12月农事历在完整版里）
+    if(k === 'visit_plan'){ c[k] = ex[k]; changed = true; continue; }
+    if(c[k] === undefined){ c[k] = ex[k]; changed = true; }
+  }
+  return changed;
+}
+async function ensureCountyFull(prov){
+  const fileKey = (COUNTY && COUNTY.provinceFiles && COUNTY.provinceFiles[prov]) || null;
+  await loadCountyFull(prov, (fileKey||'') + '_full.json');
+}
+
 async function ensureProvince(prov){
   if(!prov || loadedProvinces.has(prov)) return;
   if(provinceLoadPromises[prov]){ await provinceLoadPromises[prov]; return; }
@@ -1013,14 +1051,29 @@ async function ensureProvince(prov){
   const cacheKey = 'counties-'+prov;
   const url = 'data/counties/'+fileKey+'.json';
   const p = (async()=>{
+    setMapLoading('正在加载 '+prov+' 县区数据…');
     const data = await cachedFetch(url, cacheKey);
     const arr = (data && data.counties) || [];
+    // ★还原共享政策前缀
+    const sh = (data && data.shared) || {};
+    arr.forEach(c=>{
+      const dirs = c.directions||{};
+      ['weather','aqua','credit'].forEach(dk=>{
+        const pre = sh[dk+'.support_prefix'];
+        if(pre && dirs[dk] && typeof dirs[dk].support==='string'){
+          dirs[dk].support = pre + dirs[dk].support;
+        }
+      });
+      c.__prov = prov;
+    });
     if(!COUNTY.counties) COUNTY.counties = [];
-    // 用 Map 去重后合并，避免重复 append
     const exist = new Set(COUNTY.counties.map(c=>c.name));
     for(const c of arr){ if(!exist.has(c.name)){ COUNTY.counties.push(c); exist.add(c.name); COUNTY_MAP.set(c.name,c); } }
-    indexCounties(arr);   // 增量补建品种反向索引（在线逐省加载）
+    indexCounties(arr);
     loadedProvinces.add(prov);
+    // ★详情分片在空闲时静默预载（不阻塞面板展示）
+    const idle = window.requestIdleCallback || ((f)=>setTimeout(f,260));
+    idle(()=>{ loadCountyFull(prov, data.fullFile || fileKey+'_full').catch(()=>{}); });
   })();
   provinceLoadPromises[prov] = p;
   try{ await p; } finally { delete provinceLoadPromises[prov]; }
@@ -2205,6 +2258,8 @@ function pitchBlock(title, text, dk, cname){
 }
 function openVisitPack(name){
   const c=getCounty(name); if(!c) return;
+  // ★v51：拜访包依赖 pitch/visit_plan 详情数据，确保已合并
+  mergeCountyFull(c);
   const e=effOpp(c); const tier=e?e.tier:'—'; const score=e?e.score:'—';
   const psKey='nx_push_'+(c.province||'')+'_'+c.name;
   const psCur=localStorage.getItem(psKey)||c.push_status||'未接触';
@@ -2665,6 +2720,20 @@ function selectCounty(name){
   pausePreload();   // 用户点击县列表，中止后台预载
   const c=getCounty(name);
   if(!c) return;
+  // ★v51：详情数据（话术/画像/来源说明/异议）已下沉到 _full.json
+  //   若已缓存 → 立即合并（面板完整）；若未到 → 先出简版，同时异步拉取后自动补全
+  const needFull = ['pitch','visit_plan','data_source_info','agri_profile_5y','disaster_10y']
+                    .some(k => c[k] === undefined);
+  if(needFull){
+    mergeCountyFull(c);
+    if(!c.pitch){
+      const pv = c.__prov || c.province;
+      const fk = (COUNTY && COUNTY.provinceFiles && COUNTY.provinceFiles[pv]) || null;
+      loadCountyFull(pv, (fk||'') + '_full.json').then(()=>{
+        if(mergeCountyFull(c) && curCounty===c) selectCounty(name);   // 补全后自动重渲染
+      }).catch(()=>{});
+    }
+  }
   curCounty=c;
   setCountyView(true);
   const panel=document.getElementById('panel');
