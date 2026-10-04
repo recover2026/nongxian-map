@@ -18755,7 +18755,25 @@
     "小麦",
     "玉米",
     "苹果"
-   ]
+   ],
+   "county_stat": {
+    "province": "山西省",
+    "county": "翼城县",
+    "text": "【县级统计数据·山西省|翼城县】粮食产量 18.7801万吨。来源：2024年国民经济和社会发展统计公报（http://www.yicheng.gov.cn/contents/6328/1208.html）。",
+    "metrics": {
+     "粮食产量": {
+      "raw": "18.7801",
+      "unit": "万吨",
+      "note": "原文187801吨"
+     }
+    },
+    "bulletin_title": "2024年国民经济和社会发展统计公报",
+    "bulletin_url": "http://www.yicheng.gov.cn/contents/6328/1208.html",
+    "site": "www.yicheng.gov.cn",
+    "fetched_at": "2026-10-04 13:17:32",
+    "verified": true,
+    "note": "★该县公报未公布农林牧渔业总产值；原文187801吨"
+   }
   },
   {
    "region": "临汾市",
@@ -19121,7 +19139,30 @@
     "小麦",
     "玉米",
     "中药材"
-   ]
+   ],
+   "county_stat": {
+    "province": "山西省",
+    "county": "洪洞县",
+    "text": "【县级统计数据·山西省|洪洞县】第一产业增加值 15.87亿元；粮食产量 37.55万吨。来源：2025年国民经济和社会发展统计公报（http://www.hongtong.gov.cn/upload/files/2026/7/13dba6518207cee5.pdf）。",
+    "metrics": {
+     "第一产业增加值": {
+      "raw": "15.87",
+      "unit": "亿元",
+      "note": ""
+     },
+     "粮食产量": {
+      "raw": "37.55",
+      "unit": "万吨",
+      "note": ""
+     }
+    },
+    "bulletin_title": "2025年国民经济和社会发展统计公报",
+    "bulletin_url": "http://www.hongtong.gov.cn/upload/files/2026/7/13dba6518207cee5.pdf",
+    "site": "www.hongtong.gov.cn",
+    "fetched_at": "2026-10-04 13:17:32",
+    "verified": true,
+    "note": "PDF附件直取（26页）；★只公布增加值不公布总产值"
+   }
   },
   {
    "region": "临汾市",
@@ -19847,7 +19888,25 @@
     "辣椒",
     "设施蔬菜",
     "中药材"
-   ]
+   ],
+   "county_stat": {
+    "province": "山西省",
+    "county": "侯马市",
+    "text": "【县级统计数据·山西省|侯马市】粮食产量 8.7418万吨。来源：2025年国民经济和社会发展统计公报（http://www.houma.gov.cn/contents/18673/2224.html）。",
+    "metrics": {
+     "粮食产量": {
+      "raw": "8.7418",
+      "unit": "万吨",
+      "note": "原文87418吨"
+     }
+    },
+    "bulletin_title": "2025年国民经济和社会发展统计公报",
+    "bulletin_url": "http://www.houma.gov.cn/contents/18673/2224.html",
+    "site": "www.houma.gov.cn",
+    "fetched_at": "2026-10-04 13:17:32",
+    "verified": true,
+    "note": "★该县公报未公布农林牧渔业总产值；原文87418吨"
+   }
   },
   {
    "region": "忻州",
