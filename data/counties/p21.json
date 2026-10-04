@@ -19950,6 +19950,33 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:02",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "county_stat": {
+    "province": "湖南省",
+    "county": "澧县",
+    "text": "【县级统计数据·湖南省|澧县】农林牧渔业总产值 132.7亿元；粮食产量 53.3万吨；地区生产总值 536.4亿元。来源：2025年国民经济和社会发展统计公报（https://www.li-xian.gov.cn/zwgk/public/6616363/3963447391.html）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "132.7",
+      "unit": "亿元",
+      "note": ""
+     },
+     "粮食产量": {
+      "raw": "53.3",
+      "unit": "万吨",
+      "note": ""
+     },
+     "地区生产总值": {
+      "raw": "536.4",
+      "unit": "亿元",
+      "note": ""
+     }
+    },
+    "bulletin_title": "2025年国民经济和社会发展统计公报",
+    "bulletin_url": "https://www.li-xian.gov.cn/zwgk/public/6616363/3963447391.html",
+    "site": "www.li-xian.gov.cn",
+    "fetched_at": "2026-10-04 09:55:09",
+    "note": "curl直取官网详情页正文"
    }
   },
   {
@@ -20395,6 +20422,33 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:02",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "county_stat": {
+    "province": "湖南省",
+    "county": "桃源县",
+    "text": "【县级统计数据·湖南省|桃源县】农林牧渔业总产值 190.8亿元；粮食产量 77.2万吨；地区生产总值 555.9亿元。来源：2025年国民经济和社会发展统计公报（https://www.taoyuan.gov.cn/zwgk/public/6616339/3970341461.html）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "190.8",
+      "unit": "亿元",
+      "note": ""
+     },
+     "粮食产量": {
+      "raw": "77.2",
+      "unit": "万吨",
+      "note": ""
+     },
+     "地区生产总值": {
+      "raw": "555.9",
+      "unit": "亿元",
+      "note": ""
+     }
+    },
+    "bulletin_title": "2025年国民经济和社会发展统计公报",
+    "bulletin_url": "https://www.taoyuan.gov.cn/zwgk/public/6616339/3970341461.html",
+    "site": "www.taoyuan.gov.cn",
+    "fetched_at": "2026-10-04 09:55:09",
+    "note": "curl直取官网详情页正文"
    }
   },
   {
