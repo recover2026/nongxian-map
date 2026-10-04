@@ -358,7 +358,82 @@
     "草鱼",
     "鲤鱼",
     "稻渔综合种养"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、收入保险按宁财农发〔2024〕361号、宁财规发〔2022〕2号、宁财农发〔2024〕361号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "贺兰县统计公报(2024)/百度百科：https://baike.baidu.com/view/4429024.htm ；贺兰县葡萄酒产业：https://12316.nynct.nx.gov.cn/wsjk/14480.jhtml ；银川日报丰收报道：https://szb.ycfbapp.com/ycrb/pc/con/202510/09/content_93016.html ；中国新闻网：https://m.chinanews.com/wap/detail/cht/zw/10493573.shtml",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "中国银行保险报：https://www.cbimc.cn/news/302285 ；人民网宁夏：https://nx.people.com.cn/BIG5/n2/2025/1103/c192482-41399376.html ；宁夏日报：https://www.nxrb.cn/nxrb/template/displayTemplate/news/newsDetail/8220/8149596.html ；腾讯新闻：https://so.html5.qq.com/page/real/search_news?docid=70000021_72468ea62a811552",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "人民网宁夏：https://nx.people.com.cn/BIG5/n2/2025/1103/c192482-41399376.html ；宁夏日报：https://www.nxrb.cn/nxrb/template/displayTemplate/news/newsDetail/8220/8149596.html ；中国银行保险报：https://www.cbimc.cn/news/302285",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "银川市",
@@ -708,7 +783,82 @@
     "奶牛",
     "肉羊",
     "鲤鱼"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、收入保险按宁财农发〔2024〕361号、宁财规发〔2022〕2号、宁财农发〔2024〕361号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "人民网宁夏：https://nx.people.com.cn/BIG5/n2/2024/1025/c384604-41020533.html ；宁夏农业农村厅：https://nynct.nx.gov.cn/zzb/sxdt/202408/t20240809_4619265.html ；灵武市2017政策性农险通知：https://www.nxlw.gov.cn/zwgk/zfbmzsjgxxgk/lwsczj_29168/xxgkml_29172/zdjsxm_29180/201812/t20181203_1188672.html ；灵武市政府现代农业：https://www.nxlw.gov.cn/mllw/zwxx/201804/t20180411_734937.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "银川鲤鱼地理标志（百度百科/农业部2010登记）；灵武市统计公报与农业农村局（待核实水产规模）。",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "灵武市农业农村局2026部门预算：https://nxlw.gov.cn/zwgk/zfbmzsjgxxgk/lwsnmj_29340/xxgkml_29344/czzj_29352/czyjsjsgjf_29353/202602/W020260209413623650868.pdf ；人民网宁夏：https://nx.people.com.cn/BIG5/n2/2024/1025/c384604-41020533.html ；宁夏农业农村厅：https://nynct.nx.gov.cn/zzb/sxdt/202408/t20240809_4619265.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "银川市",
@@ -1068,7 +1218,82 @@
     "南美白对虾",
     "大闸蟹",
     "花卉"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、收入保险按宁财农发〔2024〕361号、宁财规发〔2022〕2号、宁财农发〔2024〕361号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "人民网宁夏：https://nx.people.com.cn/BIG5/n2/2026/0808/c412801-41662746.html ；兴庆区统计资料(2022)：http://dag.yinchuan.gov.cn/fzyw/nj/ycnj_01/202403/P020240313405266583910.pdf ；中国金融信息网(博鳌)：https://www.cnfin.com/cmjj-lb/detail/20251208/4347257_1.html ；银川市瓜菜产业：https://www.yinchuan.gov.cn/xxgk/bmxxgkml/snmj/xxgkml_2283/nqdt/202606/t20260616_5267239.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "中国金融信息网(博鳌)：https://www.cnfin.com/cmjj-lb/detail/20251208/4347257_1.html ；人民网宁夏：https://nx.people.com.cn/BIG5/n2/2026/0808/c412801-41662746.html ；兴庆区统计资料(2018)：http://dag.yinchuan.gov.cn/fzyw/nj/ycnj_01/202009/P020200922389556357974.pdf",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "人民网宁夏：https://nx.people.com.cn/BIG5/n2/2026/0808/c412801-41662746.html ；中国金融信息网(博鳌)：https://www.cnfin.com/cmjj-lb/detail/20251208/4347257_1.html ；兴庆区统计资料(2022)：http://dag.yinchuan.gov.cn/fzyw/nj/ycnj_01/202403/P020240313405266583910.pdf",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "银川市",
@@ -1423,7 +1648,82 @@
     "樱桃",
     "奶牛",
     "设施农业"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、收入保险按宁财农发〔2024〕361号、宁财规发〔2022〕2号、宁财农发〔2024〕361号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "金凤区政府：https://www.ycjinfeng.gov.cn/xwdt/zwdt/202412/t20241217_4760786.html ；金凤区振兴规划PDF：https://www.ycjinfeng.gov.cn/zzb/gsgg_67940/202508/P020250801608069726367.pdf ；银川日报：https://szb.ycfbapp.com/ycwb/pad/con/202509/24/content_92209.html ；宁夏三农平台(良田镇)：https://12316.nynct.nx.gov.cn/nyyw/14552.jhtml",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "金凤区振兴规划PDF：https://www.ycjinfeng.gov.cn/zzb/gsgg_67940/202508/P020250801608069726367.pdf ；银川日报：https://szb.ycfbapp.com/ycwb/pad/con/202509/24/content_92209.html ；宁夏日报/今日头条(2026-04)：https://www.toutiao.com/article/7623671751276315170",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "金凤区政府：https://www.ycjinfeng.gov.cn/xwdt/zwdt/202412/t20241217_4760786.html ；金凤区振兴规划PDF：https://www.ycjinfeng.gov.cn/zzb/gsgg_67940/202508/P020250801608069726367.pdf ；银川日报：https://szb.ycfbapp.com/ycwb/pad/con/202509/24/content_92209.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "银川市",
@@ -1781,7 +2081,82 @@
     "对虾",
     "南美白对虾",
     "设施农业"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、收入保险按宁财农发〔2024〕361号、宁财规发〔2022〕2号、宁财农发〔2024〕361号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "宁夏日报(永宁成绩单)：https://szb.nxrb.cn/nxrb/pc/con/202602/03/content_188106.html ；人民网宁夏(葡萄酒)：https://nx.people.com.cn/n2/2025/1212/c413391-41440852.html ；人民网宁夏(土里生金)：https://nx.people.com.cn/BIG5/n2/2023/0319/c192482-40342285.html ；宁夏日报(永宁答卷)：https://szb.nxrb.cn/nxrb/pc/con/202501/18/content_146531.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "宁夏日报(永宁成绩单)：https://szb.nxrb.cn/nxrb/pc/con/202602/03/content_188106.html ；宁夏日报(永宁答卷)：https://szb.nxrb.cn/nxrb/pc/con/202501/18/content_146531.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "人民网宁夏(葡萄酒)：https://nx.people.com.cn/n2/2025/1212/c413391-41440852.html ；宁夏日报(永宁成绩单)：https://szb.nxrb.cn/nxrb/pc/con/202602/03/content_188106.html ；人民网宁夏(土里生金)：https://nx.people.com.cn/BIG5/n2/2023/0319/c192482-40342285.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "吴忠市",
@@ -2142,6 +2517,86 @@
     "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
     "fetched_at": "2026-10-03 09:20:20",
     "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、收入保险按宁财农发〔2024〕361号、宁财规发〔2022〕2号、宁财农发〔2024〕361号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（1 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "中国新闻网宁夏(滩羊升级)：https://www.nx.chinanews.com/ds/2026-08-31/doc-ihfivshq1300394.shtml ；人民网宁夏(科技赋能)：https://nx.people.com.cn/BIG5/n2/2024/1105/c404869-41032034.html ；光明网(多元特色农业)：https://m.gmw.cn/gmsogh/202511/27/38440371.html ；人民网(壮大主导产业/保险)：https://politics.people.com.cn/GB/n1/2020/1214/c1001-31965061.html ；滩羊集团官网：https://yanchitanyanggroup.com",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "光明网(多元特色农业)：https://m.gmw.cn/gmsogh/202511/27/38440371.html ；中国县域经济报(农业上新)：https://www.xyshjj.cn/szb/pc/content/202512/18/c59926.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "中国新闻网宁夏(滩羊升级)：https://www.nx.chinanews.com/ds/2026-08-31/doc-ihfivshq1300394.shtml ；人民网(壮大主导产业/保险)：https://politics.people.com.cn/GB/n1/2020/1214/c1001-31965061.html ；光明网(多元特色农业)：https://m.gmw.cn/gmsogh/202511/27/38440371.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 5,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -2487,7 +2942,82 @@
     "苹果",
     "葡萄",
     "奶牛"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、收入保险按宁财农发〔2024〕361号、宁财规发〔2022〕2号、宁财农发〔2024〕361号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "青铜峡政府网(2025经济运行)：https://www.qtx.gov.cn/xxgk/zfxxgkml/tjgb/202602/t20260213_5173577.html ；青铜峡政府网(2024农业生产)：https://www.qtx.gov.cn/xxgk/zfxxgkml/tjgb/202502/t20250217_4827603.html ；中新网宁夏(产业兴旺)：https://www.nx.chinanews.com/ds/2022-04-13/doc-ihaxmqeq7517655.shtml ；青铜峡政府网(知识产权方案)：https://www.qtx.gov.cn/zzb/zcwj_66868/202211/t20221121_3851665.html ；人民网(秀美青铜峡)：https://m.people.cn/n4/2021/0617/c1560-1505…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "青铜峡政府网(2025经济运行)：https://www.qtx.gov.cn/xxgk/zfxxgkml/tjgb/202602/t20260213_5173577.html ；青铜峡市经济社会发展简介：http://www.nxjlxk.com/qtxs/tjsj/xktjsj/202112/t20211220_480911.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "青铜峡政府网(2025经济运行)：https://www.qtx.gov.cn/xxgk/zfxxgkml/tjgb/202602/t20260213_5173577.html ；中新网宁夏(产业兴旺)：https://www.nx.chinanews.com/ds/2022-04-13/doc-ihaxmqeq7517655.shtml ；人民网(秀美青铜峡)：https://m.people.cn/n4/2021/0617/c1560-15050668.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "石嘴山市",
@@ -2866,7 +3396,82 @@
     "对虾",
     "南美白对虾",
     "稻渔综合种养"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、收入保险按宁财农发〔2024〕361号、宁财规发〔2022〕2号、宁财农发〔2024〕361号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "平罗县2025年统计公报：https://www.pingluo.gov.cn/hlpl/plgk/jjshfzqk/202607/t20260701_5278718.html ；平罗县2025农业生产稳中有增：https://pingluo.gov.cn/xxgk/bmxxgk/plxtjj/fdzdgknr_69925/tjxx_69936/202601/t20260127_5150773.html ；新华网宁夏(现代农业)：http://www.nx.xinhua.org/20260129/9371c09c0fcc4cfc97107564a77095b7/c.html ；南方农村报(种业)：https://epaper.nfncb.cn/nfnc/content/20260728/Articel09001JQ.htm ；宁夏日报(种业)：https://szb.nxrb.cn/nxr…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "平罗县政府网(绿色智慧渔业)：https://www.pingluo.gov.cn/hlpl/tscy/202608/t20260818_5316407.html ；新浪/中国县域经济报(渔兴塞上 碱地生金)：https://k.sina.com.cn/article_7517400647_1c0126e47059093kac.html ；平罗县2025统计公报(渔业5.44亿)：https://www.pingluo.gov.cn/hlpl/plgk/jjshfzqk/202607/t20260701_5278718.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "新华网宁夏(现代农业/信贷背景)：http://www.nx.xinhua.org/20260129/9371c09c0fcc4cfc97107564a77095b7/c.html ；南方农村报(种业)：https://epaper.nfncb.cn/nfnc/content/20260728/Articel09001JQ.htm ；平罗党建网(玖倍尔)：http://www.nxpldj.gov.cn/djyw/202607/t20260709_1133042.html ；平罗县统计公报：https://www.pingluo.gov.cn/hlpl/plgk/jjshfzqk/202607/t20260701_5278718.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "中卫市",
@@ -3267,7 +3872,82 @@
     "马铃薯",
     "枸杞",
     "肉牛"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、收入保险按宁财农发〔2024〕361号、宁财规发〔2022〕2号、宁财农发〔2024〕361号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "中卫新闻网(三大特色产业)：https://zwxww.ytzwapp.cn/content/202604/13/c208882.html ；中卫新闻网(十四五纪实)：https://zwxww.ytzwapp.cn/content/202609/01/c217793.html ；宁夏日报(一主四特)：https://szb.nxrb.cn/nxrb/pad/con/202410/31/content_138074.html ；澎湃新闻(庆丰收)：https://m.thepaper.cn/baijiahao_14747422 ；科创中国(金融保险)：https://www.kczg.org.cn/rules/detail?id=6323720 ；人民网宁夏(肉牛)：https://nx.people.com.cn/BIG5/n2/2022/1013/c192482-40159114.ht…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "海原县人民政府：http://www.hy.gov.cn ；中卫新闻网(海原特色产业)：https://zwxww.ytzwapp.cn/content/202604/13/c208882.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "科创中国(金融保险服务体系/30亿授信)：https://www.kczg.org.cn/rules/detail?id=6323720 ；澎湃新闻(庆丰收/产业)：https://m.thepaper.cn/baijiahao_14747422 ；宁夏日报(一主四特)：https://szb.nxrb.cn/nxrb/pad/con/202410/31/content_138074.html ；人民网宁夏(肉牛战略合作)：https://nx.people.com.cn/BIG5/n2/2022/1013/c192482-40159114.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：2023（最新公开年）。县级农业保险保费、第一产业增加值、就业人数政府网站一般不公开到县；本表为基于省级公开数据按本县主导产业规模分摊的推算值，仅供展业参考，不作精确统计依据。待接入各县统计公报/公司分县保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）。灾害与价格波动为基于省级/区域公开资料的典型性描述（中国气象局、农业农村部历年灾情公报）。具体到本县的受灾频次、损失规模以县气象·农业农村部门灾情记录为准；标「区域典型」项待接入本县灾情台账后细化。保险作用评价基于政策性农险责任范围（含暴雨、洪水、干旱、台风、冰雹、冻害、病虫害等），价格类风险需'保险+期货'/价格保险（地方特色或商业）补充。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "固原市",
@@ -3628,7 +4308,82 @@
     "杏",
     "中药材",
     "肉牛"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、收入保险按宁财农发〔2024〕361号、宁财规发〔2022〕2号、宁财农发〔2024〕361号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "彭阳县2025计划执行报告：https://www.pengyang.gov.cn/xxgk_13872/zfxxgkml/ghjh/sjgg_68285/202603/t20260303_5183454.html ；彭阳县2026农业方案：https://www.pengyang.gov.cn/xxgk_13872/zfxxgkml/zdlyxx/nyxx/202607/t20260727_5299038.html ；彭阳县金融服务红梅杏：https://www.pengyang.gov.cn/xwzx/zwyw/202407/t20240705_4588343.html ；中国乡村振兴网(红梅杏保险)：http://www.zgxczxzz.com/index.php?a_id=50976&c=IndexArchives&m=Archives ；宁夏日报(彭阳振兴)：https://s…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "彭阳县人民政府：https://www.pengyang.gov.cn ；彭阳县2025计划执行报告：https://www.pengyang.gov.cn/xxgk_13872/zfxxgkml/ghjh/sjgg_68285/202603/t20260303_5183454.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "彭阳县金融服务红梅杏：https://www.pengyang.gov.cn/xwzx/zwyw/202407/t20240705_4588343.html ；固原日报(地标授信)：https://szb.gyxww.net/html/202605/22/content_35870.html ；彭阳县2026农业方案：https://www.pengyang.gov.cn/xxgk_13872/zfxxgkml/zdlyxx/nyxx/202607/t20260727_5299038.html ；宁夏农业农村厅(产业链)：https://nynct.nx.gov.cn/xwzx/qqnyxw/202206/t20220623_3583100.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "固原市",
@@ -3989,7 +4744,82 @@
     "杏",
     "中药材",
     "肉牛"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、收入保险按宁财农发〔2024〕361号、宁财规发〔2022〕2号、宁财农发〔2024〕361号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "西吉县2025-2029政策性农业保险实施方案：https://www.nxxj.gov.cn/zzb/zcwj_67023/202506/t20250619_4938427.html ；西吉县2025政府工作报告：https://www.nxxj.gov.cn/xxgk_13648/zfgzbg/202602/t20260204_5159431.html ；中国新闻网宁夏(产业振兴)：https://www.nx.chinanews.com.cn/ds/2025-04-11/doc-iheqknei6594367.shtml ；宁夏日报(2025答卷)：https://szb.nxrb.cn/nxrb/pc/con/202602/05/content_188438.html ；西吉农商行(信贷)：http://jrjgj.nx.gov.cn/jrrd/gwyxx/202511/t2025…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "西吉县人民政府：https://www.nxxj.gov.cn ；西吉县2025政府工作报告：https://www.nxxj.gov.cn/xxgk_13648/zfgzbg/202602/t20260204_5159431.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "西吉农商行(信贷支持)：http://jrjgj.nx.gov.cn/jrrd/gwyxx/202511/t20251107_5077531.html ；西吉县2025-2029政策性农险方案：https://www.nxxj.gov.cn/zzb/zcwj_67023/202506/t20250619_4938427.html ；西吉县2025政府工作报告：https://www.nxxj.gov.cn/xxgk_13648/zfgzbg/202602/t20260204_5159431.html ；中国新闻网宁夏(产业)：https://www.nx.chinanews.com.cn/ds/2025-04-11/doc-iheqknei6594367.shtml",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   }
  ]
 }
