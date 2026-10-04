@@ -4073,7 +4073,28 @@
     "罗非鱼",
     "金鲳鱼",
     "海洋牧场"
-   ]
+   ],
+   "county_stat": {
+    "province": "海南省",
+    "county": "儋州市",
+    "text": "【县级统计数据·海南省|儋州市】农林牧渔业总产值 259.45亿元；地区生产总值 1030.34亿元。来源：2025年儋州市国民经济和社会发展统计公报（https://www.danzhou.gov.cn/danzhou/zfxxgkzl/bm/tjj/gkml/202604/t20260424_4065555.html）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "259.45",
+      "unit": "亿元"
+     },
+     "粮食产量": {},
+     "地区生产总值": {
+      "raw": "1030.34",
+      "unit": "亿元"
+     }
+    },
+    "bulletin_title": "2025年儋州市国民经济和社会发展统计公报",
+    "bulletin_url": "https://www.danzhou.gov.cn/danzhou/zfxxgkzl/bm/tjj/gkml/202604/t20260424_4065555.html",
+    "site": "www.danzhou.gov.cn",
+    "fetched_at": "2026-10-04 09:36:13",
+    "note": "Playwright浏览器渲染实抓正文"
+   }
   },
   {
    "region": "直辖县",
