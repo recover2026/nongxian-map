@@ -1589,7 +1589,25 @@
     "南美白对虾",
     "罗非鱼",
     "石斑鱼"
-   ]
+   ],
+   "county_stat": {
+    "province": "海南省",
+    "county": "琼海市",
+    "text": "【县级统计数据·海南省|琼海市】地区生产总值 387.18亿元。来源：· 2025年琼海市国民经济和社会发展统计公报（https://qionghai.hainan.gov.cn/zfxxgkzl/bm/tjj/gkml/202604/t20260422_4063195.html）。",
+    "metrics": {
+     "地区生产总值": {
+      "raw": "387.18",
+      "unit": "亿元",
+      "note": ""
+     }
+    },
+    "bulletin_title": "· 2025年琼海市国民经济和社会发展统计公报",
+    "bulletin_url": "https://qionghai.hainan.gov.cn/zfxxgkzl/bm/tjj/gkml/202604/t20260422_4063195.html",
+    "site": "qionghai.hainan.gov.cn",
+    "fetched_at": "2026-10-04 14:42:29",
+    "verified": true,
+    "note": "★从该县官网「统计数据/数据发布」栏目页→年度统计公报直链抓取（已打开原文核对）"
+   }
   },
   {
    "region": "直辖县",
