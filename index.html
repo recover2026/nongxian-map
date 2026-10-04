@@ -247,7 +247,26 @@
   .var-table .var-row{display:grid;grid-template-columns:1fr 60px 2.2fr;border-bottom:1px solid var(--border);padding:7px 10px;align-items:start;gap:8px;}
 
   /* ===== 一键拜访包（Q10）===== */
-  #visitPackModal .vp-box{max-width:760px;}
+  #visitPackModal .vp-box{max-width:860px;}
+  /* ★v52 修复「拜访包滑不动」：.box 是 flex column + max-height:86vh，
+     但 .vlist 没有 flex:1 + overflow-y:auto → 内容撑破容器且无法滚动。
+     flex 子项默认 min-height:auto，必须显式 min-height:0 才能正确收缩并滚动。 */
+  #visitPackModal .vlist{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;
+    -webkit-overflow-scrolling:touch;overscroll-behavior:contain;
+    padding-right:6px;margin-top:4px;}
+  #visitPackModal .vlist::-webkit-scrollbar{width:9px;}
+  #visitPackModal .vlist::-webkit-scrollbar-track{background:rgba(255,255,255,.05);border-radius:5px;}
+  #visitPackModal .vlist::-webkit-scrollbar-thumb{background:rgba(201,162,74,.42);
+    border-radius:5px;border:2px solid transparent;background-clip:content-box;}
+  #visitPackModal .vlist::-webkit-scrollbar-thumb:hover{background:rgba(201,162,74,.72);
+    background-clip:content-box;}
+  #visitPackModal .hd{flex-shrink:0;}
+  #visitPackModal .vp-actions{flex-shrink:0;}
+  /* 窄屏：弹窗贴顶占满，内容区仍可滚 */
+  @media (max-height:700px){
+    #visitPackModal{padding:12px;}
+    #visitPackModal .vp-box{max-height:94vh;}
+  }
   #visitPackModal .vp-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:8px 0 4px;padding-bottom:9px;border-bottom:1px solid var(--border);}
   #visitPackModal .vp-hint{font-size:11.5px;color:var(--txt2);}
   .vp-sec{margin:12px 0;border-top:1px solid var(--border);padding-top:9px;}
@@ -927,7 +946,18 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-10-04-v51';   // v51 **性能优化：分片瘦身 + 详情懒加载**（实测基线 4G/4Mbps：点省 7.4s 为瓶颈）：
+const CACHE_VERSION = '2026-10-04-v52';   // v52 **修复「一键拜访包滑不动」**（用户反馈）：
+//   症状：拜访包内容很长但**拖不动也不滚**，只能看顶部一小块。
+//   根因：`.box` 是 `display:flex; flex-direction:column; max-height:86vh`，
+//        但内容区 `#vpBody.vlist` **既没有 `flex:1` 也没有 `overflow-y:auto`** →
+//        内容撑破容器，且 flex 子项默认 `min-height:auto` 使其无法收缩，于是既溢出又滚不了。
+//   修法：`#visitPackModal .vlist{flex:1 1 auto; min-height:0; overflow-y:auto}`，
+//        并给 `.hd` / `.vp-actions` 加 `flex-shrink:0` 保证标题与工具条常驻；
+//        另加自绘滚动条样式（默认滚动条在深色底上看不见）与窄屏媒体查询。
+//   顺带把弹窗宽度从 760px 放宽到 860px（长表格更易读）。
+//   实测（莎车县＝内容最长的县，视口 1080x1130）：scrollHeight 2933 / clientHeight 858，
+//        滚动条可拖动 0→2075，末尾「展业前准备/异议应对」完整，Playwright **12/12 PASS**。
+// v51 **性能优化：分片瘦身 + 详情懒加载**（实测基线 4G/4Mbps：点省 7.4s 为瓶颈）：
 // ①★先测再优化——发现 GitHub Pages **已自动 gzip**（3.36MB→700KB 省 79%），
 //    所以瓶颈不在传输而在"传输量绝对值 + JSON.parse 主线程阻塞"，不做无用的预生成 .gz。
 // ②★分片瘦身三招（76.2MB → 主分片 22.2MB，**省 71%**）：
