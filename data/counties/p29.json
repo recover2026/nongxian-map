@@ -312,7 +312,82 @@
     "油菜",
     "藏羊",
     "牦牛"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 1 份政策文件：财金〔2026〕88号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://www.datong.gov.cn/zfxxgk/fdzdgknr/zcwj/zfwj/202406/t20240621_253662.html ; https://www.datong.gov.cn/zwyw/dtxw/202608/t20260814_260548.html ; https://www.datong.gov.cn/mldt/xdny ; https://www.jingjiribao.cn/static/detail.jsp?id=668228 ; http://tuopin.ce.cn/news/202108/27/t20210827_36854502.shtml ; 大通县2024年国民经济统计（百度百科）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://www.datong.gov.cn/mldt/xdny ; 大通县2024年国民经济统计（百度百科）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://www.datong.gov.cn/zfxxgk/fdzdgknr/zcwj/zfwj/202406/t20240621_253662.html ; https://www.datong.gov.cn/zwyw/dtxw/202608/t20260814_260548.html ; https://www.datong.gov.cn/mldt/xdny ; https://www.jingjiribao.cn/static/detail.jsp?id=668228 ; http://tuopin.ce.cn/news/202108/27/t20210827_36854502.shtml ; 大通县2024年国民经济统计（百度百科）",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "西宁市",
@@ -609,7 +684,82 @@
     "蜂",
     "牦牛",
     "设施农业"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 1 份政策文件：财金〔2026〕88号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://xncd.gov.cn/html/dzdt/107564.html ; https://www.xncd.gov.cn/html/ssjygk/104832.html ; https://www.xncd.gov.cn/html/dzdt/55545.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://xncd.gov.cn/html/dzdt/107564.html ; https://www.xncd.gov.cn/html/ssjygk/104832.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://xncd.gov.cn/html/dzdt/107564.html ; https://www.xncd.gov.cn/html/ssjygk/104832.html ; https://www.xncd.gov.cn/html/dzdt/55545.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "西宁市",
@@ -911,7 +1061,82 @@
     "桃",
     "樱桃",
     "设施农业"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 1 份政策文件：财金〔2026〕88号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://xncb.gov.cn/html/cbdt/37355.html ; https://www.xncb.gov.cn/index.php/html/cbdt/37342.html ; http://www.qinghai.gov.cn/zwgk/system/2015/03/27/010157251.shtml ; https://district.ce.cn/newarea/roll/201211/21/t20121121_23869475.shtml ; https://baike.baidu.com/item/青海泰盛农业科技有限公司/21212210",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://xncb.gov.cn/html/cbdt/37355.html ; https://www.xncb.gov.cn/index.php/html/cbdt/37342.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://xncb.gov.cn/html/cbdt/37355.html ; https://www.xncb.gov.cn/index.php/html/cbdt/37342.html ; http://www.qinghai.gov.cn/zwgk/system/2015/03/27/010157251.shtml ; https://district.ce.cn/newarea/roll/201211/21/t20121121_23869475.shtml ; https://baike.baidu.com/item/青海泰盛农业科技有限公司/21212210",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "西宁市",
@@ -1232,7 +1457,82 @@
     "藏羊",
     "牦牛",
     "设施农业"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 1 份政策文件：财金〔2026〕88号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://huangzhong.gov.cn/html/page/about.html ; https://huangzhong.gov.cn/html/xczx/7343.html ; https://www.cfsn.cn/news/detail/30/357477.html ; https://m.yunnan.cn/system/2025/12/26/033802385.shtml ; https://www.sohu.com/a/975198149_121106869",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://huangzhong.gov.cn/html/page/about.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://huangzhong.gov.cn/html/page/about.html ; https://huangzhong.gov.cn/html/xczx/7343.html ; https://www.cfsn.cn/news/detail/30/357477.html ; https://m.yunnan.cn/system/2025/12/26/033802385.shtml ; https://www.sohu.com/a/975198149_121106869",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "西宁市",
@@ -1546,7 +1846,82 @@
     "藏羊",
     "牦牛",
     "设施农业"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 1 份政策文件：财金〔2026〕88号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "http://huangyuan.gov.cn/index.php?c=show&id=16410&s=news ; https://www.peopleapp.com/rmharticle/30025990230 ; http://huangyuan.gov.cn/index.php?c=show&id=17349&s=news ; https://www.qh.chinanews.com.cn/qhgd/news/2022/0122/100232.html ; https://hs.china.com.cn/2025-12/31/content_43324470.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "http://huangyuan.gov.cn/index.php?c=show&id=16410&s=news",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "http://huangyuan.gov.cn/index.php?c=show&id=16410&s=news ; https://www.peopleapp.com/rmharticle/30025990230 ; http://huangyuan.gov.cn/index.php?c=show&id=17349&s=news ; https://www.qh.chinanews.com.cn/qhgd/news/2022/0122/100232.html ; https://hs.china.com.cn/2025-12/31/content_43324470.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "西宁市",
@@ -1841,7 +2216,82 @@
     "马铃薯",
     "设施蔬菜",
     "设施农业"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 1 份政策文件：财金〔2026〕88号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://xncz.gov.cn/info/4748/218256.htm ; https://xncz.gov.cn/info/1005/198538.htm ; https://epaper.tibet3.com/xhdsb/html/202309/27/content_150801.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://xncz.gov.cn/info/4748/218256.htm",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://xncz.gov.cn/info/4748/218256.htm ; https://xncz.gov.cn/info/1005/198538.htm ; https://epaper.tibet3.com/xhdsb/html/202309/27/content_150801.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "海东市",
@@ -2256,7 +2706,82 @@
     "油菜",
     "西瓜",
     "肉牛"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 1 份政策文件：财金〔2026〕88号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://www.minhe.gov.cn/ ; https://www.cnr.cn/qhfw/jdt/20251127/t20251127_527442876.shtml ; https://www.qh.chinanews.com/hdqxdt/news/2023/1124/120980.html ; https://baike.baidu.com/item/民和回族土族自治县/3852201 ; https://tjgb.hongheiku.com/xjtjgb/xj2020/59308.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://www.qh.chinanews.com/hdqxdt/news/2023/1124/120980.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://www.minhe.gov.cn/ ; https://www.cnr.cn/qhfw/jdt/20251127/t20251127_527442876.shtml ; https://www.qh.chinanews.com/hdqxdt/news/2023/1124/120980.html ; https://baike.baidu.com/item/民和回族土族自治县/3852201 ; https://tjgb.hongheiku.com/xjtjgb/xj2020/59308.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：2023（最新公开年）。县级农业保险保费、第一产业增加值、就业人数政府网站一般不公开到县；本表为基于省级公开数据按本县主导产业规模分摊的推算值，仅供展业参考，不作精确统计依据。待接入各县统计公报/公司分县保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）。灾害与价格波动为基于省级/区域公开资料的典型性描述（中国气象局、农业农村部历年灾情公报）。具体到本县的受灾频次、损失规模以县气象·农业农村部门灾情记录为准；标「区域典型」项待接入本县灾情台账后细化。保险作用评价基于政策性农险责任范围（含暴雨、洪水、干旱、台风、冰雹、冻害、病虫害等），价格类风险需'保险+期货'/价格保险（地方特色或商业）补充。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "海东市",
@@ -2570,7 +3095,82 @@
     "桃",
     "樱桃",
     "设施农业"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 1 份政策文件：财金〔2026〕88号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://www.ledu.gov.cn/suitable/gzdt/17995.html ; http://epaper.haidongrbs.cn/html/202506/06/content_67901.html ; https://news.qq.com/rain/a/20250924A0224A00 ; http://epaper.haidongrbs.cn/html/202506/06/content_67904.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://www.ledu.gov.cn/suitable/gzdt/17995.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://www.ledu.gov.cn/suitable/gzdt/17995.html ; http://epaper.haidongrbs.cn/html/202506/06/content_67901.html ; https://news.qq.com/rain/a/20250924A0224A00 ; http://epaper.haidongrbs.cn/html/202506/06/content_67904.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "海东市",
@@ -2947,7 +3547,82 @@
     "设施蔬菜",
     "牦牛",
     "设施农业"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 1 份政策文件：财金〔2026〕88号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://baike.baidu.com/item/平安/3568484 ; https://pinganqu.gov.cn/uploads/file/20251118/6d428ac35394724106e8e421429888ca.pdf ; http://epaper.haidongrbs.cn/html/202608/27/content_86333.html ; https://www.toutiao.com/w/1762662894394379/",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://baike.baidu.com/item/平安/3568484",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://baike.baidu.com/item/平安/3568484 ; https://pinganqu.gov.cn/uploads/file/20251118/6d428ac35394724106e8e421429888ca.pdf ; http://epaper.haidongrbs.cn/html/202608/27/content_86333.html ; https://www.toutiao.com/w/1762662894394379/",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：2023（最新公开年）。县级农业保险保费、第一产业增加值、就业人数政府网站一般不公开到县；本表为基于省级公开数据按本县主导产业规模分摊的推算值，仅供展业参考，不作精确统计依据。待接入各县统计公报/公司分县保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）。灾害与价格波动为基于省级/区域公开资料的典型性描述（中国气象局、农业农村部历年灾情公报）。具体到本县的受灾频次、损失规模以县气象·农业农村部门灾情记录为准；标「区域典型」项待接入本县灾情台账后细化。保险作用评价基于政策性农险责任范围（含暴雨、洪水、干旱、台风、冰雹、冻害、病虫害等），价格类风险需'保险+期货'/价格保险（地方特色或商业）补充。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "海东市",
@@ -3266,7 +3941,82 @@
     "设施蔬菜",
     "牦牛",
     "设施农业"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 1 份政策文件：财金〔2026〕88号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://www.huzhu.gov.cn/info/1054/84225.htm ; https://epaper.tibet3.com/xhdsb/html/202501/09/content_203580.html ; http://epaper.haidongrbs.cn/pad/html/202511/20/content_74607.html ; https://www.huzhu.gov.cn/info/1005/51464.htm ; http://epaper.haidongrbs.cn/html/202509/17/content_72208.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://www.huzhu.gov.cn/info/1054/84225.htm",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://www.huzhu.gov.cn/info/1054/84225.htm ; https://epaper.tibet3.com/xhdsb/html/202501/09/content_203580.html ; http://epaper.haidongrbs.cn/pad/html/202511/20/content_74607.html ; https://www.huzhu.gov.cn/info/1005/51464.htm ; http://epaper.haidongrbs.cn/html/202509/17/content_72208.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "海东市",
@@ -3579,7 +4329,82 @@
     "花椒",
     "藏羊",
     "牦牛"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 1 份政策文件：财金〔2026〕88号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "http://www.xunhua.gov.cn/html/1351/415384.html ; http://epaper.haidongrbs.cn/html/202605/14/content_81455.html ; https://www.qhbtv.com.cn/m/new_index/bwyc/2025-11-02/3656533.html ; https://www.baike.com/wikiid/5864411817386410423 ; http://hd.smeqh.com/Web/News/jj_news/2022/12/56470578218.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "http://epaper.haidongrbs.cn/html/202605/14/content_81455.html ; http://hd.smeqh.com/Web/News/jj_news/2022/12/56470578218.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "http://www.xunhua.gov.cn/html/1351/415384.html ; http://epaper.haidongrbs.cn/html/202605/14/content_81455.html ; https://www.qhbtv.com.cn/m/new_index/bwyc/2025-11-02/3656533.html ; https://www.baike.com/wikiid/5864411817386410423 ; http://hd.smeqh.com/Web/News/jj_news/2022/12/56470578218.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "海西州",
@@ -3890,7 +4715,82 @@
     "藏羊",
     "牦牛",
     "设施农业"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 1 份政策文件：财金〔2026〕88号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://www.haixi.gov.cn/info/4475/295952.htm ; http://qh.people.com.cn/BIG5/n2/2026/0820/c378418-41673385.html ; https://wap.delingha.gov.cn/info/1100/29480.htm ; https://article.xuexi.cn/articles/index.html?art_id=10931980311335336518",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://www.haixi.gov.cn/info/4475/295952.htm",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://www.haixi.gov.cn/info/4475/295952.htm ; http://qh.people.com.cn/BIG5/n2/2026/0820/c378418-41673385.html ; https://wap.delingha.gov.cn/info/1100/29480.htm ; https://article.xuexi.cn/articles/index.html?art_id=10931980311335336518",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "海南州",
@@ -4197,7 +5097,82 @@
     "油菜",
     "藏羊",
     "牦牛"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 1 份政策文件：财金〔2026〕88号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://www.guide.gov.cn/zwgk/fdzdgknr/tjxx/content_400016502 ; https://www.guide.gov.cn/zjgd/jjjs ; http://qh.people.com.cn/BIG5/n2/2025/1226/c181467-41455201.html ; https://www.farmer.com.cn/2021/11/29/99882940.html ; https://baike.baidu.com/item/青海贵德/15750132",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "http://qh.people.com.cn/BIG5/n2/2025/1226/c181467-41455201.html ; https://www.guide.gov.cn/zwgk/fdzdgknr/tjxx/content_400016502",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://www.guide.gov.cn/zwgk/fdzdgknr/tjxx/content_400016502 ; https://www.guide.gov.cn/zjgd/jjjs ; http://qh.people.com.cn/BIG5/n2/2025/1226/c181467-41455201.html ; https://www.farmer.com.cn/2021/11/29/99882940.html ; https://baike.baidu.com/item/青海贵德/15750132",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "海南州",
@@ -4493,7 +5468,82 @@
     "油菜",
     "藏羊",
     "牦牛"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 1 份政策文件：财金〔2026〕88号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://www.xinghai.gov.cn/xwkb/jrxh/content_160790 ; http://www.qinghai.gov.cn/zwgk/system/2014/02/01/010100296.shtml ; https://epaper.hnznews.com/app_epaper/2025-12/20/content_9912391.html ; http://www.qinghai.gov.cn/zwgk/system/2013/03/22/010037092.shtml",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "http://www.qinghai.gov.cn/zwgk/system/2014/02/01/010100296.shtml ; https://epaper.hnznews.com/app_epaper/2025-12/20/content_9912391.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://www.xinghai.gov.cn/xwkb/jrxh/content_160790 ; https://epaper.hnznews.com/app_epaper/2025-12/20/content_9912391.html ; http://www.qinghai.gov.cn/zwgk/system/2014/02/01/010100296.shtml",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "海南州",
@@ -4792,7 +5842,82 @@
     "藏羊",
     "牦牛",
     "三文鱼"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 1 份政策文件：财金〔2026〕88号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://www.gonghe.gov.cn/zwgk/fdzdgknr/tjxx/content_400017078 ; https://www.gonghe.gov.cn/xwdt/ghkb/content_1013652433 ; http://www.qh.xinhuanet.com/20251210/de49b93e34ae4849a860965a9393a5f8/c.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://www.cnr.cn/qhfw/jdt/20250326/t20250326_527113736.shtml ; https://www.longyangxia.com.cn/?p/7156.html ; https://www.gonghe.gov.cn/xwdt/ghkb/content_1013652433",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://www.gonghe.gov.cn/xwdt/ghkb/content_1013652433 ; https://www.gonghe.gov.cn/zwgk/fdzdgknr/tjxx/content_400017078",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   }
  ]
 }
