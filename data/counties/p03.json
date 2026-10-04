@@ -15476,6 +15476,38 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "county_stat": {
+    "province": "四川省",
+    "county": "绵竹市",
+    "text": "【县级统计数据·四川省|绵竹市】农林牧渔业总产值 67.2亿元；粮食产量 30万吨；地区生产总值 501.82亿元；水果产量 2.6万吨。来源：2025年统计公报/经济运行公报（https://www.mz.gov.cn/gk/zfxxgk/fdzdnr/tjxx/tjgb/1648814.htm）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "67.2",
+      "unit": "亿元",
+      "note": ""
+     },
+     "粮食产量": {
+      "raw": "30.0",
+      "unit": "万吨",
+      "note": ""
+     },
+     "地区生产总值": {
+      "raw": "501.82",
+      "unit": "亿元",
+      "note": ""
+     },
+     "水果产量": {
+      "raw": "2.6",
+      "unit": "万吨",
+      "note": ""
+     }
+    },
+    "bulletin_title": "2025年统计公报或经济运行公报",
+    "bulletin_url": "https://www.mz.gov.cn/gk/zfxxgk/fdzdnr/tjxx/tjgb/1648814.htm",
+    "site": "www.mz.gov.cn",
+    "fetched_at": "2026-10-04 09:37:52",
+    "note": "curl直取官网正文（已打开原文核对）"
    }
   },
   {
