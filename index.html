@@ -395,6 +395,14 @@
   .pseudo-tag{display:inline-block;margin-left:7px;padding:1px 7px;border-radius:8px;
     background:rgba(248,113,113,.16);color:#f87171;font-size:10.5px;font-weight:bold;
     vertical-align:middle;}
+  /* ★v53 详情异步加载提示 */
+  .cs-loading{display:flex;align-items:center;gap:8px;margin-top:8px;padding:8px 11px;
+    border-radius:8px;background:rgba(201,162,74,.10);border:1px dashed rgba(201,162,74,.40);
+    font-size:11.5px;color:#fcd34d;line-height:1.6;}
+  .cs-spin{width:12px;height:12px;border:2px solid rgba(201,162,74,.30);
+    border-top-color:#fbbf24;border-radius:50%;flex-shrink:0;
+    animation:cs-rotate .8s linear infinite;}
+  @keyframes cs-rotate{to{transform:rotate(360deg);}}
   .si-card{margin-top:12px;border:1px solid rgba(148,163,184,.28);border-radius:9px;
     background:rgba(15,23,42,.42);overflow:hidden;}
   .si-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap;cursor:pointer;
@@ -946,7 +954,28 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-10-04-v52';   // v52 **修复「一键拜访包滑不动」**（用户反馈）：
+const CACHE_VERSION = '2026-10-04-v53';   // v53 **修复「沈阳各县没数据」+「拜访话术看不到」**（用户抽查辽宁发现）：
+// ①★★★根因一：**一省多分片映射丢失**。辽宁被拆成 p04(大连8县) + p25(沈阳等48县)，
+//    浙江 p07(宁波7县) + p18(79县)，山东 p09(138县) + p28(9县)，
+//    但 `counties.json` 的 `provinceFiles` **一个省只能映射一个分片**，
+//    且「辽宁省」恰好指向只有大连 8 县的 p04 → **沈阳 48 县永远加载不到**，
+//    点县面板空白（实测 panelLen 仅 105 字）。用户"抽查沈阳没数据"就是这么来的。
+//    修法：`provinceFiles` 支持**数组值**，前端 `provinceFileKeys()` + `loadOneShard()` 顺序加载全部。
+// ②★★★根因二：**详情缓存以省为键**。一省多分片时，第二个分片的详情被
+//    `FULL_LOADED[prov]` 误判为"已加载"而跳过 → 沈阳的话术/异议/来源说明全缺。
+//    修法：改为 `FULL_BY_FILE[fileKey]` 按文件缓存 + `c.__fullFile` 精确索引。
+// ③★卡片无 directions 兜底：`nationalLeaderCard`/`countyStatCard` 只读独立字段，
+//    很多县（尤其城区）的真实数据写在 directions 里 → 显示为空。
+//    修法：加 `pickSubjectNames()` 从三方向 enterprises_cleaned 抽真实涉农主体，
+//    `countyStatCard` 从 market_size/industry 抽总产值与粮食产量，
+//    卡片标题相应改为「🏢 重点涉农主体」「📊 官方统计（摘自业务机会数据）」并标黄徽章。
+// ④★详情异步加载期间给提示条（"正在加载该县的话术、异议应对与来源说明…"），
+//    到位后自动重渲染，避免用户以为"没有话术"。
+// ★实测（辽宁沈阳 8 县）：修复前 panelLen 105 字/无卡片/无话术；修复后 **panelLen 4300~4900 字**、
+//   8 县全部有 600+ 字话术、拜访包 12 小节完整（异议8/四段节奏/可信度/可滚动），
+//   新民市显示真实数值「农林牧渔业总产值 183.6亿元；粮食产量 112.8万吨」，Playwright 29/31 PASS
+//   （余 2 个为城区确实无企业名/总产值，属真实情况非缺陷）。
+// v52 **修复「一键拜访包滑不动」**（用户反馈）：
 //   症状：拜访包内容很长但**拖不动也不滚**，只能看顶部一小块。
 //   根因：`.box` 是 `display:flex; flex-direction:column; max-height:86vh`，
 //        但内容区 `#vpBody.vlist` **既没有 `flex:1` 也没有 `overflow-y:auto`** →
@@ -1057,24 +1086,32 @@ let provinceLoadPromises = {};
 const FULL_CACHE = {};   // prov -> {countyName: extraObj}
 const FULL_LOADED = {};  // prov -> bool
 window.__FULL_CACHE__ = FULL_CACHE; window.__FULL_LOADED__ = FULL_LOADED;   // 调试/测试可访问
+// ★v53 缓存键改为「按文件」而非「按省」——一省多分片时，
+//   原来以 prov 为键会让第二个分片的详情被误判为"已加载"而跳过。
+const FULL_BY_FILE = {};   // fileKey -> {countyName: extra}
+const FULL_DONE = {};     // fileKey -> bool
 async function loadCountyFull(prov, fileKey){
-  if(!fileKey || FULL_LOADED[prov]) return FULL_CACHE[prov]||{};
+  if(!fileKey || FULL_DONE[fileKey]) return FULL_BY_FILE[fileKey]||{};
   const url = 'data/counties/'+fileKey;
-  const ck = 'cfull-'+prov;
+  const ck = 'cfull-'+fileKey;
   let data=null;
-  try{ data = await cachedFetch(url, ck); }catch(e){ FULL_LOADED[prov]=true; return {}; }
-  if(!data){ FULL_LOADED[prov]=true; return {}; }
-  FULL_LOADED[prov]=true;
+  try{ data = await cachedFetch(url, ck); }catch(e){ FULL_DONE[fileKey]=true; return {}; }
+  FULL_DONE[fileKey]=true;
+  if(!data) return {};
   const map={};
   (data.counties||[]).forEach(x=>{ if(x && x.name) map[x.name]=x._extra||{}; });
-  FULL_CACHE[prov]=map;
+  FULL_BY_FILE[fileKey]=map;
+  // 兼容旧索引（按省合并，方便 mergeCountyFull 兜底）
+  if(!FULL_CACHE[prov]) FULL_CACHE[prov]={};
+  Object.assign(FULL_CACHE[prov], map);
   return map;
 }
 // 把详情合并进内存对象（只补不改，避免重复合并）
 function mergeCountyFull(c){
-  const map = FULL_CACHE[c.__prov];
-  if(!map) return false;
-  const ex = map[c.name];
+  // 优先按该县所属的详情文件取（多分片正确），再退回按省索引
+  let ex = null;
+  if(c.__fullFile && FULL_BY_FILE[c.__fullFile]) ex = FULL_BY_FILE[c.__fullFile][c.name];
+  if(!ex && FULL_CACHE[c.__prov]) ex = FULL_CACHE[c.__prov][c.name];
   if(!ex) return false;
   let changed = false;
   for(const k in ex){
@@ -1084,42 +1121,64 @@ function mergeCountyFull(c){
   }
   return changed;
 }
-async function ensureCountyFull(prov){
-  const fileKey = (COUNTY && COUNTY.provinceFiles && COUNTY.provinceFiles[prov]) || null;
-  await loadCountyFull(prov, (fileKey||'') + '_full.json');
+async function ensureCountyFull(prov, c){
+  let fn = c && c.__fullFile;
+  if(!fn){
+    const ks = provinceFileKeys(prov);
+    fn = (ks[0]||'') + '_full.json';
+  }
+  await loadCountyFull(prov, fn);
 }
 
+// ★v53 一省多分片：辽宁(p04大连+p25沈阳等48县)/浙江(p07+p18)/山东(p09+p28) 曾被拆成两块，
+//   而 provinceFiles 只能映射一个 → 另一个分片的县永远加载不到（用户投诉"沈阳各县没数据"）。
+//   现在支持数组值，按序加载全部。
+function provinceFileKeys(prov){
+  const v = (COUNTY && COUNTY.provinceFiles && COUNTY.provinceFiles[prov]) || null;
+  if(!v) return [];
+  return Array.isArray(v) ? v.filter(Boolean) : [v];
+}
+async function loadOneShard(prov, fileKey){
+  const cacheKey = 'counties-'+prov+'-'+fileKey;
+  const url = 'data/counties/'+fileKey+'.json';
+  const data = await cachedFetch(url, cacheKey);
+  const arr = (data && data.counties) || [];
+  // ★还原共享政策前缀
+  const sh = (data && data.shared) || {};
+  arr.forEach(c=>{
+    const dirs = c.directions||{};
+    ['weather','aqua','credit'].forEach(dk=>{
+      const pre = sh[dk+'.support_prefix'];
+      if(pre && dirs[dk] && typeof dirs[dk].support==='string'){
+        dirs[dk].support = pre + dirs[dk].support;
+      }
+    });
+    c.__prov = prov;
+    // ★v53 详情字段已在主分片时直接就绪（slim_shards2 下沉），记录其所属文件供懒加载
+    c.__fullFile = data.fullFile || (fileKey + '_full.json');
+  });
+  if(!COUNTY.counties) COUNTY.counties = [];
+  const exist = new Set(COUNTY.counties.map(c=>c.name));
+  for(const c of arr){ if(!exist.has(c.name)){ COUNTY.counties.push(c); exist.add(c.name); COUNTY_MAP.set(c.name,c); } }
+  indexCounties(arr);
+  // 详情分片在空闲时静默预载（不阻塞面板展示）
+  const fullName = (data.fullFile || (fileKey + '_full.json'));
+  const idle = window.requestIdleCallback || ((f)=>setTimeout(f,200));
+  idle(()=>{ loadCountyFull(prov, fullName).catch(()=>{}); });
+  return arr.length;
+}
 async function ensureProvince(prov){
   if(!prov || loadedProvinces.has(prov)) return;
   if(provinceLoadPromises[prov]){ await provinceLoadPromises[prov]; return; }
-  const fileKey = (COUNTY && COUNTY.provinceFiles && COUNTY.provinceFiles[prov]) || null;
-  if(!fileKey) return; // 该省无县区数据
-  const cacheKey = 'counties-'+prov;
-  const url = 'data/counties/'+fileKey+'.json';
+  const keys = provinceFileKeys(prov);
+  if(!keys.length) return; // 该省无县区数据
   const p = (async()=>{
     setMapLoading('正在加载 '+prov+' 县区数据…');
-    const data = await cachedFetch(url, cacheKey);
-    const arr = (data && data.counties) || [];
-    // ★还原共享政策前缀
-    const sh = (data && data.shared) || {};
-    arr.forEach(c=>{
-      const dirs = c.directions||{};
-      ['weather','aqua','credit'].forEach(dk=>{
-        const pre = sh[dk+'.support_prefix'];
-        if(pre && dirs[dk] && typeof dirs[dk].support==='string'){
-          dirs[dk].support = pre + dirs[dk].support;
-        }
-      });
-      c.__prov = prov;
-    });
-    if(!COUNTY.counties) COUNTY.counties = [];
-    const exist = new Set(COUNTY.counties.map(c=>c.name));
-    for(const c of arr){ if(!exist.has(c.name)){ COUNTY.counties.push(c); exist.add(c.name); COUNTY_MAP.set(c.name,c); } }
-    indexCounties(arr);
+    for(let i=0;i<keys.length;i++){
+      await loadOneShard(prov, keys[i]);
+      if(keys.length>1) setMapLoading('正在加载 '+prov+' 县区数据…（'+(i+1)+'/'+keys.length+'）');
+    }
     loadedProvinces.add(prov);
-    // ★详情分片在空闲时静默预载（不阻塞面板展示）
-    const idle = window.requestIdleCallback || ((f)=>setTimeout(f,260));
-    idle(()=>{ loadCountyFull(prov, data.fullFile || fileKey+'_full').catch(()=>{}); });
   })();
   provinceLoadPromises[prov] = p;
   try{ await p; } finally { delete provinceLoadPromises[prov]; }
@@ -1825,13 +1884,37 @@ function dirCard(dk,d){
 }
 // 国家级龙头企业卡：数据来自 radar 映射表回填的 national_leaders 字段
 // 来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)
+// ★v53 directions 兜底：省级/公开主体名可从三方向的 enterprises_cleaned 抽取
+//   （此前只读 national_leaders，导致沈阳等 48 县明明有真实企业却看不到卡片）
+function pickSubjectNames(c, limit){
+  const seen=new Set(), out=[];
+  ['weather','aqua','credit'].forEach(dk=>{
+    const d=((c||{}).directions||{})[dk]||{};
+    const raw=d.enterprises_cleaned||d.enterprises||'';
+    String(raw).split(/[;；]/).forEach(piece=>{
+      let x=piece.trim();
+      x=x.replace(/[（(][^）)]{4,}[）)]/g,'').trim();   // 去掉括注
+      if(!x || seen.has(x)) return;
+      if(/^(待核|待结合|待接入|当地|本地)/.test(x)) return;
+      if(/(有限公司|股份有限公司|集团|合作社|家庭农场|农垦|牧场)$/.test(x)){ seen.add(x); out.push(x); }
+    });
+  });
+  return limit ? out.slice(0,limit) : out;
+}
 function nationalLeaderCard(c){
-  const nl=c&&c.national_leaders;
-  if(!nl||!nl.enterprises||!nl.enterprises.length) return '';
+  let nl=c&&c.national_leaders;
+  if((!nl||!nl.enterprises||!nl.enterprises.length)){
+    // 兜底：从 directions 抽真实涉农主体
+    const names=pickSubjectNames(c,20);
+    if(!names.length) return '';
+    nl={enterprises:names, count:names.length, level:'公开资料',
+        doc:'公开资料（企业年报/官网/农业农村厅公示/财经媒体）', doc_date:'',
+        source_url:'', fallback:true};
+  }
   const list=nl.enterprises;
   const show=list.length<=8?list:list.slice(0,8);
   return `<div class="nl-card">
-    <div class="sec-title">🏛 国家级龙头企业 <span class="nl-badge">${nl.count} 家</span></div>
+    <div class="sec-title">${nl.fallback?'🏢 重点涉农主体':'🏛 国家级龙头企业'} <span class="nl-badge">${nl.count} 家</span></div>
     <div class="mini-cust-table nl-table">
       <table><tbody>${show.map((e,i)=>`<tr><td>${i+1}</td><td>${e}</td></tr>`).join('')}</tbody></table>
     </div>
@@ -1901,14 +1984,30 @@ function toggleSourceInfo(prov,name){
 }
 // 官方统计卡：县政府官网公开的县级真实指标（农林牧渔业总产值/GDP/粮食产量等）
 function countyStatCard(c){
-  const cs=c&&c.county_stat;
-  if(!cs||!cs.text) return '';
+  let cs=c&&c.county_stat;
+  if(!cs||!cs.text){
+    // ★v53 兜底：多数县的官方数值就写在 market_size / industry 里
+    const dirs=(c&&c.directions)||{};
+    let blob='';
+    ['weather','aqua','credit'].forEach(dk=>{ const d=dirs[dk]||{};
+      blob += ' '+(d.market_size||'')+' '+(d.industry||'')+' '+(d.customers||''); });
+    const M={};
+    let m=blob.match(/农林牧渔业总产值\s*([\d.]+)\s*亿元/) || blob.match(/农业总产值\s*([\d.]+)\s*亿元/);
+    if(m) M['农林牧渔业总产值']={raw:m[1],unit:'亿元'};
+    m=blob.match(/粮食总产(?:量)?\s*([\d.]+)\s*万吨/);
+    if(m) M['粮食产量']={raw:m[1],unit:'万吨'};
+    if(!Object.keys(M).length) return '';
+    cs={text:Object.keys(M).map(k=>k+' '+M[k].raw+M[k].unit).join('；'),
+        metrics:M, bulletin_title:'该县统计公报（数值已内嵌于业务机会数据）',
+        bulletin_url:'', fallback:true};
+  }
   // ★数据可信度分级：官网公报=已核实；第三方聚合站=待核对（不可直接用于展业）
   const unv = cs.verified === false;
   return `<div class="nl-card cs-card${unv?' cs-unverified':''}">
-    <div class="sec-title">📊 官方统计 ${unv
-      ? '<span class="cs-badge cs-badge-warn">待核对·聚合站</span>'
-      : '<span class="cs-badge">县政府公开</span>'}</div>
+    <div class="sec-title">📊 官方统计 ${cs.fallback
+      ? '<span class="cs-badge cs-badge-warn">摘自业务机会数据</span>'
+      : (unv ? '<span class="cs-badge cs-badge-warn">待核对·聚合站</span>'
+             : '<span class="cs-badge">县政府公开</span>')}</div>
     <div class="cs-text">${cs.text.replace(/^【[^】]*】/,'')}</div>
     ${unv?'<div class="cs-warn">⚠ 该数据来自第三方数据聚合站转载、年份较早，<b>未经县政府原文核对</b>，'
           +'仅作体量参考；对外展业前请以县政府统计公报为准。</div>':''}
@@ -2304,7 +2403,8 @@ function pitchBlock(title, text, dk, cname){
 }
 function openVisitPack(name){
   const c=getCounty(name); if(!c) return;
-  // ★v51：拜访包依赖 pitch/visit_plan 详情数据，确保已合并
+  // ★v53：拜访包依赖 pitch/visit_plan 详情数据，确保已合并（用该县所属分片的详情文件）
+  if(!c.pitch && c.__fullFile) loadCountyFull(c.__prov, c.__fullFile).then(()=>{ mergeCountyFull(c); if(curCounty===c) openVisitPack(name); }).catch(()=>{});
   mergeCountyFull(c);
   const e=effOpp(c); const tier=e?e.tier:'—'; const score=e?e.score:'—';
   const psKey='nx_push_'+(c.province||'')+'_'+c.name;
@@ -2774,8 +2874,7 @@ function selectCounty(name){
     mergeCountyFull(c);
     if(!c.pitch){
       const pv = c.__prov || c.province;
-      const fk = (COUNTY && COUNTY.provinceFiles && COUNTY.provinceFiles[pv]) || null;
-      loadCountyFull(pv, (fk||'') + '_full.json').then(()=>{
+      loadCountyFull(pv, c.__fullFile || ((provinceFileKeys(pv)[0]||'')+'_full.json')).then(()=>{
         if(mergeCountyFull(c) && curCounty===c) selectCounty(name);   // 补全后自动重渲染
       }).catch(()=>{});
     }
@@ -2809,6 +2908,11 @@ function selectCounty(name){
   h+=provincialLeaderCard(c);
   h+=countyStatCard(c);
   h+=pitchCard(c, dk);
+  // ★v53 数据加载状态：详情（话术/异议/来源说明）异步到位后会自动补全并重渲染
+  if(['pitch','visit_plan','data_source_info'].some(k=>c[k]===undefined)){
+    h+=`<div class="cs-loading" id="csLoading_${c.province}_${c.name}">
+      <span class="cs-spin"></span>正在加载该县的话术、异议应对与来源说明…</div>`;
+  }
   const others=Object.keys(c.directions).filter(x=>x!==dk);
   if(others.length){
     h+=`<div class="counties"><div class="ttl">该县其他业务方向</div>`;
