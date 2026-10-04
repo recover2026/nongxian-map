@@ -973,7 +973,7 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-10-04-v54';   // v54 **整体色调改阳光橘黄 + 机会等级五档高辨识度**（用户反馈）：
+const CACHE_VERSION = '2026-10-04-auto';   // 月度自动更新：全量县区三方向农险机会数据刷新（大连标准量化表+真实可溯源，零编造）   // v54 **整体色调改阳光橘黄 + 机会等级五档高辨识度**（用户反馈）：
 //  ①主色调参照阳光保险 logo 的橙金整体暖化：底色深棕黑(#1a1208)、面板深橙褐(#2e2113)、
 //    主色阳光橙(#f08c00)、金(#ffb020)、文字暖白(#f7e9d4)。
 //    用 HSL 色相偏移批量转换 CSS 里 84 种色值（原 129 处偏蓝硬编码全部转为暖橙系），
