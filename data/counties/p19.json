@@ -383,7 +383,82 @@
     "鲤鱼",
     "罗非鱼",
     "石斑鱼"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 2 份政策文件：财金〔2026〕88号、琼财金规〔2023〕5号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "来源：琼山区2025年经济运行分析报告(https://qsqzf.haikou.gov.cn/qsqtjj/ywgz/202603/c0b0880edcb64cfc8334806c9fd8863d.shtml)；琼山区2026年政府工作报告(https://www.haikou.gov.cn/xxgk/szfbjxxgk/jhzj/qzfgzbg/202603/t1511123.shtml)；南海网《关于推动海口琼山区农业高质量发展的调研报告》(https://www.hinews.cn/news/system/2023/12/22/033093429.shtml)；琼山概况(https://qsqzf.haikou.gov.cn/hksqsqzf/qsgk/202509/303e9f50599348009ce96d136c590b43.shtml)；海口市人民政府三门坡镇报道(http…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "来源：琼山区2025年经济运行分析报告(https://qsqzf.haikou.gov.cn/qsqtjj/ywgz/202603/c0b0880edcb64cfc8334806c9fd8863d.shtml)；琼山区2026年政府工作报告(https://www.haikou.gov.cn/xxgk/szfbjxxgk/jhzj/qzfgzbg/202603/t1511123.shtml)；南海网《关于推动海口琼山区农业高质量发展的调研报告》(https://www.hinews.cn/news/system/2023/12/22/033093429.shtml)；琼山概况(https://qsqzf.haikou.gov.cn/hksqsqzf/qsgk/202509/303e9f50599348009ce96d136c590b43.shtml)；海口市人民政府三门坡镇报道(http…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "来源：琼山区2025年经济运行分析报告(https://qsqzf.haikou.gov.cn/qsqtjj/ywgz/202603/c0b0880edcb64cfc8334806c9fd8863d.shtml)；琼山区2026年政府工作报告(https://www.haikou.gov.cn/xxgk/szfbjxxgk/jhzj/qzfgzbg/202603/t1511123.shtml)；南海网《关于推动海口琼山区农业高质量发展的调研报告》(https://www.hinews.cn/news/system/2023/12/22/033093429.shtml)；琼山概况(https://qsqzf.haikou.gov.cn/hksqsqzf/qsgk/202509/303e9f50599348009ce96d136c590b43.shtml)；海口市人民政府三门坡镇报道(http…",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：2023（最新公开年）。县级农业保险保费、第一产业增加值、就业人数政府网站一般不公开到县；本表为基于省级公开数据按本县主导产业规模分摊的推算值，仅供展业参考，不作精确统计依据。待接入各县统计公报/公司分县保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）。灾害与价格波动为基于省级/区域公开资料的典型性描述（中国气象局、农业农村部历年灾情公报）。具体到本县的受灾频次、损失规模以县气象·农业农村部门灾情记录为准；标「区域典型」项待接入本县灾情台账后细化。保险作用评价基于政策性农险责任范围（含暴雨、洪水、干旱、台风、冰雹、冻害、病虫害等），价格类风险需'保险+期货'/价格保险（地方特色或商业）补充。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "海口市",
@@ -803,7 +878,82 @@
     "南美白对虾",
     "罗非鱼",
     "石斑鱼"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 2 份政策文件：财金〔2026〕88号、琼财金规〔2023〕5号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "来源：龙华区2022年计划报告(https://lhqzf.haikou.gov.cn/xxgk/lhqzf/lhqfzhggwyh/fdzdgknr/ghjh_9532/202306/t1284856.shtml)；龙华区农业农村局2022年总结(https://lhqzf.haikou.gov.cn/xxgk/lhqzf/lhqnyncj/fdzdgknr/ghjh_9702/202303/t1249360.shtml)；龙泉镇特色产业(https://hnhk.wenming.cn/wmdt/202407/t20240705_8588866.html)；湿地丰收节/龙华好物(https://hain.chinadaily.com.cn/a/202306/11/WS64852b37a310dbde06d22d0b.html)；五丰香芋推介(https://www.163.com/dy/…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "来源：龙华区2021年统计公报(https://lhqzf.haikou.gov.cn/sj/tjxx/202205/t919249.shtml)；龙华区农业农村局2022年工作总结(https://lhqzf.haikou.gov.cn/xxgk/lhqzf/lhqnyncj/fdzdgknr/ghjh_9702/202303/t1249360.shtml)；仁南村蓝龙虾报道·南海网(https://www.hinews.cn/news/system/2022/09/15/032834666.shtml)。",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "来源：龙华区2022年计划报告(https://lhqzf.haikou.gov.cn/xxgk/lhqzf/lhqfzhggwyh/fdzdgknr/ghjh_9532/202306/t1284856.shtml)；龙华区农业农村局2022年总结(https://lhqzf.haikou.gov.cn/xxgk/lhqzf/lhqnyncj/fdzdgknr/ghjh_9702/202303/t1249360.shtml)；龙泉镇特色产业(https://hnhk.wenming.cn/wmdt/202407/t20240705_8588866.html)；湿地丰收节/龙华好物(https://hain.chinadaily.com.cn/a/202306/11/WS64852b37a310dbde06d22d0b.html)；五丰香芋推介(https://www.163.com/dy/…",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：2023（最新公开年）。县级农业保险保费、第一产业增加值、就业人数政府网站一般不公开到县；本表为基于省级公开数据按本县主导产业规模分摊的推算值，仅供展业参考，不作精确统计依据。待接入各县统计公报/公司分县保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）。灾害与价格波动为基于省级/区域公开资料的典型性描述（中国气象局、农业农村部历年灾情公报）。具体到本县的受灾频次、损失规模以县气象·农业农村部门灾情记录为准；标「区域典型」项待接入本县灾情台账后细化。保险作用评价基于政策性农险责任范围（含暴雨、洪水、干旱、台风、冰雹、冻害、病虫害等），价格类风险需'保险+期货'/价格保险（地方特色或商业）补充。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "海口市",
@@ -1200,7 +1350,82 @@
     "南美白对虾",
     "罗非鱼",
     "石斑鱼"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 2 份政策文件：财金〔2026〕88号、琼财金规〔2023〕5号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "来源：美兰区2025年统计公报(https://mlqzf.haikou.gov.cn/xgk/mlqzf/mlqtjj_8442/fdzdgknr/ywgz_9103/202606/t1528590.shtml)；美兰区2022年计划报告(https://mlqzf.haikou.gov.cn/xgk/fdzdgknr/bmwj/202305/t1281893.shtml)；全国农业科技现代化先行县(https://hi.people.com.cn/BIG5/n2/2021/0906/c231190-34901556.html)；政协235号提案协办函(https://mlqzf.haikou.gov.cn/hdjl/zxta/202011/t517063.shtml)；海南省农业农村厅品牌报道(https://agri.hainan.gov.cn/hnsnytgzny/mtjj/202…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "来源：美兰区2025年统计公报(https://mlqzf.haikou.gov.cn/xgk/mlqzf/mlqtjj_8442/fdzdgknr/ywgz_9103/202606/t1528590.shtml)；美兰区2022年计划报告(https://mlqzf.haikou.gov.cn/xgk/fdzdgknr/bmwj/202305/t1281893.shtml)；全国农业科技现代化先行县(https://hi.people.com.cn/BIG5/n2/2021/0906/c231190-34901556.html)；政协235号提案协办函(https://mlqzf.haikou.gov.cn/hdjl/zxta/202011/t517063.shtml)；海南省农业农村厅品牌报道(https://agri.hainan.gov.cn/hnsnytgzny/mtjj/202…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "来源：美兰区2025年统计公报(https://mlqzf.haikou.gov.cn/xgk/mlqzf/mlqtjj_8442/fdzdgknr/ywgz_9103/202606/t1528590.shtml)；美兰区2022年计划报告(https://mlqzf.haikou.gov.cn/xgk/fdzdgknr/bmwj/202305/t1281893.shtml)；全国农业科技现代化先行县(https://hi.people.com.cn/BIG5/n2/2021/0906/c231190-34901556.html)；政协235号提案协办函(https://mlqzf.haikou.gov.cn/hdjl/zxta/202011/t517063.shtml)；海南省农业农村厅品牌报道(https://agri.hainan.gov.cn/hnsnytgzny/mtjj/202…",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：2023（最新公开年）。县级农业保险保费、第一产业增加值、就业人数政府网站一般不公开到县；本表为基于省级公开数据按本县主导产业规模分摊的推算值，仅供展业参考，不作精确统计依据。待接入各县统计公报/公司分县保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）。灾害与价格波动为基于省级/区域公开资料的典型性描述（中国气象局、农业农村部历年灾情公报）。具体到本县的受灾频次、损失规模以县气象·农业农村部门灾情记录为准；标「区域典型」项待接入本县灾情台账后细化。保险作用评价基于政策性农险责任范围（含暴雨、洪水、干旱、台风、冰雹、冻害、病虫害等），价格类风险需'保险+期货'/价格保险（地方特色或商业）补充。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "直辖县",
@@ -1607,6 +1832,94 @@
     "fetched_at": "2026-10-04 14:42:29",
     "verified": true,
     "note": "★从该县官网「统计数据/数据发布」栏目页→年度统计公报直链抓取（已打开原文核对）"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 2 份政策文件：财金〔2026〕88号、琼财金规〔2023〕5号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "官网已核实",
+      "detail": "含 地区生产总值；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "· 2025年琼海市国民经济和社会发展统计公报",
+        "u": "https://qionghai.hainan.gov.cn/zfxxgkzl/bm/tjj/gkml/202604/t20260422_4063195.html"
+       }
+      ],
+      "note": ""
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "来源：琼海市2025年统计公报(https://qionghai.hainan.gov.cn/zfxxgkzl/bm/tjj/gkml/202604/t20260422_4063195.html)；琼海市2024年经济运行分析(https://qionghai.hainan.gov.cn/zfxxgkzl/bm/tjj/gkml/202502/t20250214_3816269.html)；海南省农业农村厅热带水果产业报道(https://agri.hainan.gov.cn/hnsnyt/ywdt/zwdt/202509/t20250918_3932886.html)；琼海市农业农村局品牌提案答复(https://qionghai.hainan.gov.cn/hdjl/zxta/202010/t20201030_2876797.html)；海南省农业农村厅温泉鹅报道(https://ag…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "来源：琼海市2025年统计公报(https://qionghai.hainan.gov.cn/zfxxgkzl/bm/tjj/gkml/202604/t20260422_4063195.html)；琼海市2024年经济运行分析(https://qionghai.hainan.gov.cn/zfxxgkzl/bm/tjj/gkml/202502/t20250214_3816269.html)；海南省农业农村厅热带水果产业报道(https://agri.hainan.gov.cn/hnsnyt/ywdt/zwdt/202509/t20250918_3932886.html)；琼海市农业农村局品牌提案答复(https://qionghai.hainan.gov.cn/hdjl/zxta/202010/t20201030_2876797.html)；海南省农业农村厅温泉鹅报道(https://ag…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "来源：琼海市2025年统计公报(https://qionghai.hainan.gov.cn/zfxxgkzl/bm/tjj/gkml/202604/t20260422_4063195.html)；琼海市2024年经济运行分析(https://qionghai.hainan.gov.cn/zfxxgkzl/bm/tjj/gkml/202502/t20250214_3816269.html)；海南省农业农村厅热带水果产业报道(https://agri.hainan.gov.cn/hnsnyt/ywdt/zwdt/202509/t20250918_3932886.html)；琼海市农业农村局品牌提案答复(https://qionghai.hainan.gov.cn/hdjl/zxta/202010/t20201030_2876797.html)；海南省农业农村厅温泉鹅报道(https://ag…",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 5,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -2055,6 +2368,94 @@
     "site": "wanning.hainan.gov.cn",
     "fetched_at": "2026-10-03 21:49:54",
     "note": "WebFetch实测打开原文确认；★更正：原参考114.33亿，实为208.02亿"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 2 份政策文件：财金〔2026〕88号、琼财金规〔2023〕5号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "官网已核实",
+      "detail": "含 农林牧渔业总产值、粮食产量、地区生产总值；采集于 2026-10-03",
+      "links": [
+       {
+        "t": "2025年报统计公报",
+        "u": "https://wanning.hainan.gov.cn/"
+       }
+      ],
+      "note": ""
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "来源：万宁市2024年经济运行简况(https://wanning.hainan.gov.cn/zfxxgk/sgbmgk/tjj/gkml/202503/t20250313_3832249.html)；万宁市2023年经济运行简况(https://wanning.hainan.gov.cn/zfxxgk/sgbmgk/tjj/gkml/202402/t20240206_3591203.html)；百度百科万宁市(2025年农林牧渔数据)(https://baike.baidu.com/item/%E4%B8%87%E5%AE%81/1118984)；凤凰网万宁现代农业产业园(https://i.ifeng.com/c/8f71gXYUVOo)；南国都市报东星斑产业(https://szb.ngdsb.cn/html/2024-12/13/content_58870_18087401.ht…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "来源：万宁市2024年经济运行简况(https://wanning.hainan.gov.cn/zfxxgk/sgbmgk/tjj/gkml/202503/t20250313_3832249.html)；万宁市2023年经济运行简况(https://wanning.hainan.gov.cn/zfxxgk/sgbmgk/tjj/gkml/202402/t20240206_3591203.html)；百度百科万宁市(2025年农林牧渔数据)(https://baike.baidu.com/item/%E4%B8%87%E5%AE%81/1118984)；凤凰网万宁现代农业产业园(https://i.ifeng.com/c/8f71gXYUVOo)；南国都市报东星斑产业(https://szb.ngdsb.cn/html/2024-12/13/content_58870_18087401.ht…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "来源：万宁市2024年经济运行简况(https://wanning.hainan.gov.cn/zfxxgk/sgbmgk/tjj/gkml/202503/t20250313_3832249.html)；万宁市2023年经济运行简况(https://wanning.hainan.gov.cn/zfxxgk/sgbmgk/tjj/gkml/202402/t20240206_3591203.html)；百度百科万宁市(2025年农林牧渔数据)(https://baike.baidu.com/item/%E4%B8%87%E5%AE%81/1118984)；凤凰网万宁现代农业产业园(https://i.ifeng.com/c/8f71gXYUVOo)；南国都市报东星斑产业(https://szb.ngdsb.cn/html/2024-12/13/content_58870_18087401.ht…",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：2023（最新公开年）。县级农业保险保费、第一产业增加值、就业人数政府网站一般不公开到县；本表为基于省级公开数据按本县主导产业规模分摊的推算值，仅供展业参考，不作精确统计依据。待接入各县统计公报/公司分县保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）。灾害与价格波动为基于省级/区域公开资料的典型性描述（中国气象局、农业农村部历年灾情公报）。具体到本县的受灾频次、损失规模以县气象·农业农村部门灾情记录为准；标「区域典型」项待接入本县灾情台账后细化。保险作用评价基于政策性农险责任范围（含暴雨、洪水、干旱、台风、冰雹、冻害、病虫害等），价格类风险需'保险+期货'/价格保险（地方特色或商业）补充。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 5,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -2482,7 +2883,82 @@
     "罗非鱼",
     "金鲳鱼",
     "石斑鱼"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 2 份政策文件：财金〔2026〕88号、琼财金规〔2023〕5号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "来源：乐东县2025年统计公报(https://ledong.hainan.gov.cn/ledong/3100/202605/3a37b3bbb2834e2eb953dbfe35b546f7.shtml)；乐东县2024年统计公报(https://ledong.hainan.gov.cn/ledong/3100/202505/1a7e962b8ac64040b165fc59f6316ca0.shtml)；海南省政府网《乐东加快建设农业强县》(https://www.hainan.gov.cn/hainan/sxian/202401/1acb6897df9943b9aa43cb9d0338eebc.shtml)；人民网乐东农业高质量发展(https://hainan.people.com.cn/BIG5/n2/2023/1230/c231207-40698475.html)；人民网种养渔(…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "来源：乐东县2025年统计公报(https://ledong.hainan.gov.cn/ledong/3100/202605/3a37b3bbb2834e2eb953dbfe35b546f7.shtml)；乐东县2024年统计公报(https://ledong.hainan.gov.cn/ledong/3100/202505/1a7e962b8ac64040b165fc59f6316ca0.shtml)；海南省政府网《乐东加快建设农业强县》(https://www.hainan.gov.cn/hainan/sxian/202401/1acb6897df9943b9aa43cb9d0338eebc.shtml)；人民网乐东农业高质量发展(https://hainan.people.com.cn/BIG5/n2/2023/1230/c231207-40698475.html)；人民网种养渔(…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "来源：乐东县2025年统计公报(https://ledong.hainan.gov.cn/ledong/3100/202605/3a37b3bbb2834e2eb953dbfe35b546f7.shtml)；乐东县2024年统计公报(https://ledong.hainan.gov.cn/ledong/3100/202505/1a7e962b8ac64040b165fc59f6316ca0.shtml)；海南省政府网《乐东加快建设农业强县》(https://www.hainan.gov.cn/hainan/sxian/202401/1acb6897df9943b9aa43cb9d0338eebc.shtml)；人民网乐东农业高质量发展(https://hainan.people.com.cn/BIG5/n2/2023/1230/c231207-40698475.html)；人民网种养渔(…",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：2023（最新公开年）。县级农业保险保费、第一产业增加值、就业人数政府网站一般不公开到县；本表为基于省级公开数据按本县主导产业规模分摊的推算值，仅供展业参考，不作精确统计依据。待接入各县统计公报/公司分县保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）。灾害与价格波动为基于省级/区域公开资料的典型性描述（中国气象局、农业农村部历年灾情公报）。具体到本县的受灾频次、损失规模以县气象·农业农村部门灾情记录为准；标「区域典型」项待接入本县灾情台账后细化。保险作用评价基于政策性农险责任范围（含暴雨、洪水、干旱、台风、冰雹、冻害、病虫害等），价格类风险需'保险+期货'/价格保险（地方特色或商业）补充。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "直辖县",
@@ -2888,6 +3364,94 @@
     "site": "qiongzhong.hainan.gov.cn",
     "fetched_at": "2026-10-03 21:49:54",
     "note": "WebFetch实测打开原文确认；★更正：原参考64.1亿"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 2 份政策文件：财金〔2026〕88号、琼财金规〔2023〕5号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "官网已核实",
+      "detail": "含 农林牧渔业总产值、粮食产量、地区生产总值；采集于 2026-10-03",
+      "links": [
+       {
+        "t": "2025年报统计公报",
+        "u": "https://qiongzhong.hainan.gov.cn/"
+       }
+      ],
+      "note": ""
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "来源：琼中县2025年统计公报(https://qiongzhong.hainan.gov.cn/qzsj/sjfx/dczs/202605/t20260529_4083897.html)；百度百科琼中黎族苗族自治县(https://wapbaike.baidu.com/view/1747722.htm)；海南省政府网《琼中:优生态 兴产业 惠民生》(https://www.hainan.gov.cn/hainan/xczxzxzx/202304/296f074cb33645c481f9467e67bc4008.shtml)；海南日报《守正创新筑绿脉》(http://news.hndaily.cn/html/2025-12/18/content_58587_19141728.htm)；琼中县政府工作报告(https://www.hainan.gov.cn/hainan/xgwjtv/202…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "来源：琼中县2025年统计公报(https://qiongzhong.hainan.gov.cn/qzsj/sjfx/dczs/202605/t20260529_4083897.html)；百度百科琼中黎族苗族自治县(https://wapbaike.baidu.com/view/1747722.htm)；海南省政府网《琼中:优生态 兴产业 惠民生》(https://www.hainan.gov.cn/hainan/xczxzxzx/202304/296f074cb33645c481f9467e67bc4008.shtml)；海南日报《守正创新筑绿脉》(http://news.hndaily.cn/html/2025-12/18/content_58587_19141728.htm)；琼中县政府工作报告(https://www.hainan.gov.cn/hainan/xgwjtv/202…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "来源：琼中县2025年统计公报(https://qiongzhong.hainan.gov.cn/qzsj/sjfx/dczs/202605/t20260529_4083897.html)；百度百科琼中黎族苗族自治县(https://wapbaike.baidu.com/view/1747722.htm)；海南省政府网《琼中:优生态 兴产业 惠民生》(https://www.hainan.gov.cn/hainan/xczxzxzx/202304/296f074cb33645c481f9467e67bc4008.shtml)；海南日报《守正创新筑绿脉》(http://news.hndaily.cn/html/2025-12/18/content_58587_19141728.htm)；琼中县政府工作报告(https://www.hainan.gov.cn/hainan/xgwjtv/202…",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 5,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -3302,6 +3866,94 @@
     "site": "dongfang.hainan.gov.cn",
     "fetched_at": "2026-10-03 21:49:54",
     "note": "WebFetch实测打开原文确认；★更正：原参考144.08亿"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 2 份政策文件：财金〔2026〕88号、琼财金规〔2023〕5号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "官网已核实",
+      "detail": "含 农林牧渔业总产值、粮食产量、地区生产总值；采集于 2026-10-03",
+      "links": [
+       {
+        "t": "2025年报统计公报",
+        "u": "https://dongfang.hainan.gov.cn/"
+       }
+      ],
+      "note": ""
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "来源：东方市2025年统计公报(https://dongfang.hainan.gov.cn/xxgkzl/stjj/xxgkml/202605/t20260529_4083885.html)；东方市《发展特色产业 助力乡村振兴》(https://dongfang.hainan.gov.cn/ywdt/jrdf/202307/t20230705_3447809.html)；东方国家现代农业产业园全国第三(https://www.toutiao.com/article/7493352314447643177/)；海南日报《以“链”提质》(http://news.hndaily.cn/html/2025-05/28/content_58469_18561302.htm)；东方市《水产“芯”动力》(https://dongfang.hainan.gov.cn/ywdt/jrdf/202412/t…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "来源：东方市2025年统计公报(https://dongfang.hainan.gov.cn/xxgkzl/stjj/xxgkml/202605/t20260529_4083885.html)；东方市《发展特色产业 助力乡村振兴》(https://dongfang.hainan.gov.cn/ywdt/jrdf/202307/t20230705_3447809.html)；东方国家现代农业产业园全国第三(https://www.toutiao.com/article/7493352314447643177/)；海南日报《以“链”提质》(http://news.hndaily.cn/html/2025-05/28/content_58469_18561302.htm)；东方市《水产“芯”动力》(https://dongfang.hainan.gov.cn/ywdt/jrdf/202412/t…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "来源：东方市2025年统计公报(https://dongfang.hainan.gov.cn/xxgkzl/stjj/xxgkml/202605/t20260529_4083885.html)；东方市《发展特色产业 助力乡村振兴》(https://dongfang.hainan.gov.cn/ywdt/jrdf/202307/t20230705_3447809.html)；东方国家现代农业产业园全国第三(https://www.toutiao.com/article/7493352314447643177/)；海南日报《以“链”提质》(http://news.hndaily.cn/html/2025-05/28/content_58469_18561302.htm)；东方市《水产“芯”动力》(https://dongfang.hainan.gov.cn/ywdt/jrdf/202412/t…",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 5,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -3722,7 +4374,82 @@
     "南美白对虾",
     "罗非鱼",
     "石斑鱼"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 2 份政策文件：财金〔2026〕88号、琼财金规〔2023〕5号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "来源：澄迈县2024年国民经济和社会发展统计公报（农林牧渔总产值216.44亿元、蔬菜90.69万吨、水果45.26万吨、水产品11.74万吨、生猪出栏41.10万头）；澄迈县“6+2”农产品区域公用品牌公开报道（桥头地瓜3万亩/产值3.6亿、无核荔枝7800亩/2215吨/1.28亿、福橙8000余亩/3750吨/7500万、凤梨4.3万亩/6.75亿、冬季瓜菜23.7万亩/53万吨/16亿、桥头镇海产4.1万吨/4.88亿）；澄迈县农业农村局龙头企业名录（省级以上龙头企业9家，其中国家级2家、省级7家，翔泰渔业产值5.83亿元）。",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "来源：澄迈县2024年国民经济和社会发展统计公报（农林牧渔总产值216.44亿元、蔬菜90.69万吨、水果45.26万吨、水产品11.74万吨、生猪出栏41.10万头）；澄迈县“6+2”农产品区域公用品牌公开报道（桥头地瓜3万亩/产值3.6亿、无核荔枝7800亩/2215吨/1.28亿、福橙8000余亩/3750吨/7500万、凤梨4.3万亩/6.75亿、冬季瓜菜23.7万亩/53万吨/16亿、桥头镇海产4.1万吨/4.88亿）；澄迈县农业农村局龙头企业名录（省级以上龙头企业9家，其中国家级2家、省级7家，翔泰渔业产值5.83亿元）。",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "来源：澄迈县2024年国民经济和社会发展统计公报（农林牧渔总产值216.44亿元、蔬菜90.69万吨、水果45.26万吨、水产品11.74万吨、生猪出栏41.10万头）；澄迈县“6+2”农产品区域公用品牌公开报道（桥头地瓜3万亩/产值3.6亿、无核荔枝7800亩/2215吨/1.28亿、福橙8000余亩/3750吨/7500万、凤梨4.3万亩/6.75亿、冬季瓜菜23.7万亩/53万吨/16亿、桥头镇海产4.1万吨/4.88亿）；澄迈县农业农村局龙头企业名录（省级以上龙头企业9家，其中国家级2家、省级7家，翔泰渔业产值5.83亿元）。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：2023（最新公开年）。县级农业保险保费、第一产业增加值、就业人数政府网站一般不公开到县；本表为基于省级公开数据按本县主导产业规模分摊的推算值，仅供展业参考，不作精确统计依据。待接入各县统计公报/公司分县保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）。灾害与价格波动为基于省级/区域公开资料的典型性描述（中国气象局、农业农村部历年灾情公报）。具体到本县的受灾频次、损失规模以县气象·农业农村部门灾情记录为准；标「区域典型」项待接入本县灾情台账后细化。保险作用评价基于政策性农险责任范围（含暴雨、洪水、干旱、台风、冰雹、冻害、病虫害等），价格类风险需'保险+期货'/价格保险（地方特色或商业）补充。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "直辖县",
@@ -4112,6 +4839,94 @@
     "site": "www.danzhou.gov.cn",
     "fetched_at": "2026-10-04 09:36:13",
     "note": "Playwright浏览器渲染实抓正文"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 2 份政策文件：财金〔2026〕88号、琼财金规〔2023〕5号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "官网已核实",
+      "detail": "含 农林牧渔业总产值、粮食产量、地区生产总值；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "2025年儋州市国民经济和社会发展统计公报",
+        "u": "https://www.danzhou.gov.cn/danzhou/zfxxgkzl/bm/tjj/gkml/202604/t20260424_4065555.html"
+       }
+      ],
+      "note": ""
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "来源：儋州市2025年国民经济和社会发展统计公报(https://www.danzhou.gov.cn/danzhou/zfxxgkzl/bm/tjj/gkml/202604/t20260424_4065555.html)；儋州市发展热带高效特色农业综述(https://www.danzhou.gov.cn/danzhou/ywdt/jrdz/202604/t20260421_4063015.html)；儋州市政府网品牌农业报道(https://www.danzhou.gov.cn/danzhou/ywdt/mtkdz/202112/t20211224_3118925.html)；儋洋一体化高效农业新闻发布会(https://hnxwfbt.hinews.cn/xinwen/show-1156.html)。",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "来源：儋州市2025年国民经济和社会发展统计公报(https://www.danzhou.gov.cn/danzhou/zfxxgkzl/bm/tjj/gkml/202604/t20260424_4065555.html)；儋州市发展热带高效特色农业综述(https://www.danzhou.gov.cn/danzhou/ywdt/jrdz/202604/t20260421_4063015.html)；儋州市政府网品牌农业报道(https://www.danzhou.gov.cn/danzhou/ywdt/mtkdz/202112/t20211224_3118925.html)；儋洋一体化高效农业新闻发布会(https://hnxwfbt.hinews.cn/xinwen/show-1156.html)。",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "来源：儋州市2025年国民经济和社会发展统计公报(https://www.danzhou.gov.cn/danzhou/zfxxgkzl/bm/tjj/gkml/202604/t20260424_4065555.html)；儋州市发展热带高效特色农业综述(https://www.danzhou.gov.cn/danzhou/ywdt/jrdz/202604/t20260421_4063015.html)；儋州市政府网品牌农业报道(https://www.danzhou.gov.cn/danzhou/ywdt/mtkdz/202112/t20211224_3118925.html)；儋洋一体化高效农业新闻发布会(https://hnxwfbt.hinews.cn/xinwen/show-1156.html)。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 5,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -4500,6 +5315,86 @@
     "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
     "fetched_at": "2026-10-03 09:20:20",
     "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 2 份政策文件：财金〔2026〕88号、琼财金规〔2023〕5号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（2 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "来源：文昌市经济概况(https://wenchang.hainan.gov.cn/wenchang/jjgk/202403/b934f59131bf4a4e8fa29912b3f09de8.shtml)；文昌市2024年计划执行情况与2025年计划报告(https://wenchang.hainan.gov.cn/wenchang/ghxx1/202509/e8a9b61c0acc4586a918d1a0e271a314.shtml)；文昌市农业农村局2025年工作总结(https://wenchang.hainan.gov.cn/wcsnyj/0500/202603/c3fee8bedbda48f68661b0bcb4faebf7.shtml)；文昌特色农业报道(https://www.chinaqw.com/qx/2021/12-16/316827.shtml)。",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "来源：文昌市经济概况(https://wenchang.hainan.gov.cn/wenchang/jjgk/202403/b934f59131bf4a4e8fa29912b3f09de8.shtml)；文昌市2024年计划执行情况与2025年计划报告(https://wenchang.hainan.gov.cn/wenchang/ghxx1/202509/e8a9b61c0acc4586a918d1a0e271a314.shtml)；文昌市农业农村局2025年工作总结(https://wenchang.hainan.gov.cn/wcsnyj/0500/202603/c3fee8bedbda48f68661b0bcb4faebf7.shtml)；文昌特色农业报道(https://www.chinaqw.com/qx/2021/12-16/316827.shtml)。",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "来源：文昌市经济概况(https://wenchang.hainan.gov.cn/wenchang/jjgk/202403/b934f59131bf4a4e8fa29912b3f09de8.shtml)；文昌市2024年计划执行情况与2025年计划报告(https://wenchang.hainan.gov.cn/wenchang/ghxx1/202509/e8a9b61c0acc4586a918d1a0e271a314.shtml)；文昌市农业农村局2025年工作总结(https://wenchang.hainan.gov.cn/wcsnyj/0500/202603/c3fee8bedbda48f68661b0bcb4faebf7.shtml)；文昌特色农业报道(https://www.chinaqw.com/qx/2021/12-16/316827.shtml)。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 5,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -4861,7 +5756,82 @@
     "南美白对虾",
     "罗非鱼",
     "石斑鱼"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 2 份政策文件：财金〔2026〕88号、琼财金规〔2023〕5号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "来源：三都区概况(https://baike.baidu.com/item/%E4%B8%89%E9%83%BD%E5%8C%BA/53123319)；洋浦三都白玉丝瓜备耕报道(https://yangpu.hainan.gov.cn/yangpu/zwdt/202408/ddc21acd96284f438d458bbcd02f5c75.shtml)；洋浦经济开发区农林牧渔数据(https://www.newton.com.tw/wiki/%E6%B4%8B%E6%B5%A6%E7%B6%93%E6%BF%9F%E9%96%8B%E7%99%BC%E5%8D%80/1208562)。",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "来源：三都区概况(https://baike.baidu.com/item/%E4%B8%89%E9%83%BD%E5%8C%BA/53123319)；洋浦三都白玉丝瓜备耕报道(https://yangpu.hainan.gov.cn/yangpu/zwdt/202408/ddc21acd96284f438d458bbcd02f5c75.shtml)；洋浦经济开发区农林牧渔数据(https://www.newton.com.tw/wiki/%E6%B4%8B%E6%B5%A6%E7%B6%93%E6%BF%9F%E9%96%8B%E7%99%BC%E5%8D%80/1208562)。",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "来源：三都区概况(https://baike.baidu.com/item/%E4%B8%89%E9%83%BD%E5%8C%BA/53123319)；洋浦三都白玉丝瓜备耕报道(https://yangpu.hainan.gov.cn/yangpu/zwdt/202408/ddc21acd96284f438d458bbcd02f5c75.shtml)；洋浦经济开发区农林牧渔数据(https://www.newton.com.tw/wiki/%E6%B4%8B%E6%B5%A6%E7%B6%93%E6%BF%9F%E9%96%8B%E7%99%BC%E5%8D%80/1208562)。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "直辖县",
@@ -5230,7 +6200,82 @@
     "南美白对虾",
     "罗非鱼",
     "石斑鱼"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 2 份政策文件：财金〔2026〕88号、琼财金规〔2023〕5号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "来源：五指山市2025年前三季度经济简况(https://wzs.hainan.gov.cn/wzs/tjfx/202604/3dd1251d68704d72ae5d465c798813b0.shtml)；五指山市2025年农林牧渔统计(https://wapbaike.baidu.com/view/23491.htm)；五指山七大产业报道·海南日报(https://res.hndaily.cn/file/news/20251216/cid_153_617500.html)；五指山农业品牌与地理标志(https://www.hainan.gov.cn/hainan/70znwzs/list_70znxwfbh.shtml)。",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "来源：五指山市2025年前三季度经济简况(https://wzs.hainan.gov.cn/wzs/tjfx/202604/3dd1251d68704d72ae5d465c798813b0.shtml)；五指山市2025年农林牧渔统计(https://wapbaike.baidu.com/view/23491.htm)；五指山七大产业报道·海南日报(https://res.hndaily.cn/file/news/20251216/cid_153_617500.html)；五指山农业品牌与地理标志(https://www.hainan.gov.cn/hainan/70znwzs/list_70znxwfbh.shtml)。",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "来源：五指山市2025年前三季度经济简况(https://wzs.hainan.gov.cn/wzs/tjfx/202604/3dd1251d68704d72ae5d465c798813b0.shtml)；五指山市2025年农林牧渔统计(https://wapbaike.baidu.com/view/23491.htm)；五指山七大产业报道·海南日报(https://res.hndaily.cn/file/news/20251216/cid_153_617500.html)；五指山农业品牌与地理标志(https://www.hainan.gov.cn/hainan/70znwzs/list_70znxwfbh.shtml)。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "直辖县",
@@ -5632,7 +6677,82 @@
     "南美白对虾",
     "罗非鱼",
     "石斑鱼"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 2 份政策文件：财金〔2026〕88号、琼财金规〔2023〕5号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "来源：昌江黎族自治县2024年统计公报(https://changjiang.hainan.gov.cn/changjiang/tjgb/202504/e133b656cceb40d9aa90844e6c1c0ddd.shtml)；昌江2025年统计公报(https://changjiang.hainan.gov.cn/changjiang/tjgb/202605/e6c8c4d7370f41e8a7c304d1dbb73fe7.shtml)；昌江“1+5+N”公用品牌·人民网(https://hi.people.com.cn/BIG5/n2/2025/0610/c231190-41255132.html)；昌江“昌廪食”品牌·海南省政府网(https://www.hainan.gov.cn/hainan/c100686p/202412/aebcda6470194dbe836ea5ea8a…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "来源：昌江黎族自治县2024年统计公报(https://changjiang.hainan.gov.cn/changjiang/tjgb/202504/e133b656cceb40d9aa90844e6c1c0ddd.shtml)；昌江2025年统计公报(https://changjiang.hainan.gov.cn/changjiang/tjgb/202605/e6c8c4d7370f41e8a7c304d1dbb73fe7.shtml)；昌江“1+5+N”公用品牌·人民网(https://hi.people.com.cn/BIG5/n2/2025/0610/c231190-41255132.html)；昌江“昌廪食”品牌·海南省政府网(https://www.hainan.gov.cn/hainan/c100686p/202412/aebcda6470194dbe836ea5ea8a…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "来源：昌江黎族自治县2024年统计公报(https://changjiang.hainan.gov.cn/changjiang/tjgb/202504/e133b656cceb40d9aa90844e6c1c0ddd.shtml)；昌江2025年统计公报(https://changjiang.hainan.gov.cn/changjiang/tjgb/202605/e6c8c4d7370f41e8a7c304d1dbb73fe7.shtml)；昌江“1+5+N”公用品牌·人民网(https://hi.people.com.cn/BIG5/n2/2025/0610/c231190-41255132.html)；昌江“昌廪食”品牌·海南省政府网(https://www.hainan.gov.cn/hainan/c100686p/202412/aebcda6470194dbe836ea5ea8a…",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：2023（最新公开年）。县级农业保险保费、第一产业增加值、就业人数政府网站一般不公开到县；本表为基于省级公开数据按本县主导产业规模分摊的推算值，仅供展业参考，不作精确统计依据。待接入各县统计公报/公司分县保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）。灾害与价格波动为基于省级/区域公开资料的典型性描述（中国气象局、农业农村部历年灾情公报）。具体到本县的受灾频次、损失规模以县气象·农业农村部门灾情记录为准；标「区域典型」项待接入本县灾情台账后细化。保险作用评价基于政策性农险责任范围（含暴雨、洪水、干旱、台风、冰雹、冻害、病虫害等），价格类风险需'保险+期货'/价格保险（地方特色或商业）补充。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "直辖县",
@@ -6012,7 +7132,82 @@
     "罗非鱼",
     "金鲳鱼",
     "石斑鱼"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 2 份政策文件：财金〔2026〕88号、琼财金规〔2023〕5号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "来源：陵水黎族自治县2023年统计公报(https://lingshui.hainan.gov.cn/xxgkzl/tongjiju/xxxgkml/202407/t20240731_3707113_mo.html)；陵水农业报道·海南省农业农村厅(https://agri.hainan.gov.cn/hnsnyt/ywdt/zwdt/202504/t20250414_3848462.html)；陵水荔枝报道·经济日报/海南省政府网(https://www.hainan.gov.cn/hainan/mtkhn/202605/5af75dca7c6b4784aab144b16c7b8921.shtml)；陵水经济圈热带特色高效农业报告(https://www.sanyaed.org.cn/SERI/contents/1409/1566.html)。",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "来源：陵水黎族自治县2023年统计公报(https://lingshui.hainan.gov.cn/xxgkzl/tongjiju/xxxgkml/202407/t20240731_3707113_mo.html)；陵水农业报道·海南省农业农村厅(https://agri.hainan.gov.cn/hnsnyt/ywdt/zwdt/202504/t20250414_3848462.html)；陵水荔枝报道·经济日报/海南省政府网(https://www.hainan.gov.cn/hainan/mtkhn/202605/5af75dca7c6b4784aab144b16c7b8921.shtml)；陵水经济圈热带特色高效农业报告(https://www.sanyaed.org.cn/SERI/contents/1409/1566.html)。",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "来源：陵水黎族自治县2023年统计公报(https://lingshui.hainan.gov.cn/xxgkzl/tongjiju/xxxgkml/202407/t20240731_3707113_mo.html)；陵水农业报道·海南省农业农村厅(https://agri.hainan.gov.cn/hnsnyt/ywdt/zwdt/202504/t20250414_3848462.html)；陵水荔枝报道·经济日报/海南省政府网(https://www.hainan.gov.cn/hainan/mtkhn/202605/5af75dca7c6b4784aab144b16c7b8921.shtml)；陵水经济圈热带特色高效农业报告(https://www.sanyaed.org.cn/SERI/contents/1409/1566.html)。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "直辖县",
@@ -6413,6 +7608,94 @@
     "site": "baoting.hainan.gov.cn",
     "fetched_at": "2026-10-03 21:49:54",
     "note": "WebFetch实测打开原文确认；★更正：原参考52.53亿"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 2 份政策文件：财金〔2026〕88号、琼财金规〔2023〕5号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "官网已核实",
+      "detail": "含 农林牧渔业总产值、粮食产量、地区生产总值；采集于 2026-10-03",
+      "links": [
+       {
+        "t": "2025年报统计公报",
+        "u": "https://baoting.hainan.gov.cn/"
+       }
+      ],
+      "note": ""
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "来源：保亭黎族自治县2024年统计公报(https://baoting.hainan.gov.cn/zfxxgk/xgbmgk/tjj/gkml/202504/t20250430_3858148.html)；保亭2025年统计公报(https://baoting.hainan.gov.cn/zfxxgk/xgbmgk/tjj/gkml/202606/t20260625_4099234.html)；保亭红毛丹报道·海南省农业农村厅(https://agri.hainan.gov.cn/hnsnyt/ywdt/zwdt/202507/t20250723_3901166.html)；保亭农业全产业链·新华网(https://hq.xinhuanet.com/20251123/f2343db43fe44c799dd35f79d51bde87/c.html)。",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "来源：保亭黎族自治县2024年统计公报(https://baoting.hainan.gov.cn/zfxxgk/xgbmgk/tjj/gkml/202504/t20250430_3858148.html)；保亭2025年统计公报(https://baoting.hainan.gov.cn/zfxxgk/xgbmgk/tjj/gkml/202606/t20260625_4099234.html)；保亭红毛丹报道·海南省农业农村厅(https://agri.hainan.gov.cn/hnsnyt/ywdt/zwdt/202507/t20250723_3901166.html)；保亭农业全产业链·新华网(https://hq.xinhuanet.com/20251123/f2343db43fe44c799dd35f79d51bde87/c.html)。",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "来源：保亭黎族自治县2024年统计公报(https://baoting.hainan.gov.cn/zfxxgk/xgbmgk/tjj/gkml/202504/t20250430_3858148.html)；保亭2025年统计公报(https://baoting.hainan.gov.cn/zfxxgk/xgbmgk/tjj/gkml/202606/t20260625_4099234.html)；保亭红毛丹报道·海南省农业农村厅(https://agri.hainan.gov.cn/hnsnyt/ywdt/zwdt/202507/t20250723_3901166.html)；保亭农业全产业链·新华网(https://hq.xinhuanet.com/20251123/f2343db43fe44c799dd35f79d51bde87/c.html)。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：2023（最新公开年）。县级农业保险保费、第一产业增加值、就业人数政府网站一般不公开到县；本表为基于省级公开数据按本县主导产业规模分摊的推算值，仅供展业参考，不作精确统计依据。待接入各县统计公报/公司分县保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）。灾害与价格波动为基于省级/区域公开资料的典型性描述（中国气象局、农业农村部历年灾情公报）。具体到本县的受灾频次、损失规模以县气象·农业农村部门灾情记录为准；标「区域典型」项待接入本县灾情台账后细化。保险作用评价基于政策性农险责任范围（含暴雨、洪水、干旱、台风、冰雹、冻害、病虫害等），价格类风险需'保险+期货'/价格保险（地方特色或商业）补充。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 5,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   }
  ]
