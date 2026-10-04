@@ -259,6 +259,59 @@
   .vp-cli{font-size:12.5px;line-height:1.75;white-space:normal;word-break:break-word;}
   .vp-warn{background:#5a3a12;color:#ffcf8a;font-size:10.5px;font-weight:bold;padding:1px 8px;border-radius:10px;margin-left:4px;}
   .vp-note{font-size:11.5px;color:#ffcf8a;margin-top:6px;line-height:1.55;}
+  /* ★v50 新增：全年节奏 / 农事历 / 异议应对 / 流程 / 可信度 */
+  .vp-cal{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;}
+  .vp-round{padding:7px 8px;border-radius:6px;background:rgba(30,41,59,.5);
+    border:1px solid rgba(148,163,184,.18);}
+  .vp-round.cur{background:rgba(201,162,74,.14);border-color:rgba(201,162,74,.45);}
+  .vp-rh{font-size:11.5px;font-weight:bold;color:#fbbf24;margin-bottom:2px;}
+  .vp-round.cur .vp-rh{color:#fcd34d;}
+  .vp-rg{font-size:10.5px;color:var(--txt2);margin-bottom:3px;}
+  .vp-round ul{margin:0;padding-left:13px;}
+  .vp-round li{font-size:10.5px;line-height:1.55;color:var(--txt1);}
+  .vp-now{margin-top:8px;padding-top:7px;border-top:1px dashed rgba(148,163,184,.22);}
+  .vp-nr{font-size:11px;line-height:1.6;color:var(--txt1);margin-bottom:4px;}
+  .vp-nrisk{color:#fbbf24;font-size:10.5px;}
+  .vp-oi{margin-bottom:5px;border:1px solid rgba(148,163,184,.20);border-radius:6px;
+    overflow:hidden;cursor:pointer;}
+  .vp-oq{display:flex;align-items:center;gap:7px;padding:6px 8px;font-size:11.5px;
+    font-weight:bold;color:#e2e8f0;background:rgba(30,41,59,.5);}
+  .vp-oi-no{display:inline-block;width:16px;height:16px;border-radius:50%;
+    background:rgba(201,162,74,.20);color:#fbbf24;font-size:10px;text-align:center;
+    line-height:16px;flex-shrink:0;}
+  .vp-oar{margin-left:auto;color:var(--txt2);font-size:11px;transition:transform .2s;}
+  .vp-oi.open .vp-oar{transform:rotate(180deg);}
+  .vp-oa{display:none;padding:6px 9px 8px;font-size:11px;line-height:1.7;color:var(--txt1);
+    border-top:1px solid rgba(148,163,184,.18);background:rgba(15,23,42,.35);}
+  .vp-oi.open .vp-oa{display:block;}
+  .vp-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;}
+  .vp-fg{padding:7px 8px;border-radius:6px;background:rgba(30,41,59,.5);}
+  .vp-ft{font-size:11px;font-weight:bold;color:#7dd3fc;margin-bottom:3px;}
+  .vp-fg ul{margin:0;padding-left:13px;}
+  .vp-fg li{font-size:10.5px;line-height:1.55;color:var(--txt1);}
+  .vp-trust{font-size:11px;line-height:1.7;color:#fcd34d;padding:7px 9px;border-radius:6px;
+    background:rgba(251,191,36,.10);border-left:3px solid rgba(251,191,36,.42);}
+  @media (max-width:1100px){ .vp-cal,.vp-flow{grid-template-columns:1fr 1fr;} }
+  @media (max-width:760px){ .vp-cal,.vp-flow{grid-template-columns:1fr;} }
+  /* ★v50 话术块：摘要常显 + 全文分段折叠（避免大段文字糊成一片） */
+  .pb{margin:6px 0;border:1px solid rgba(201,162,74,.22);border-radius:6px;
+    background:rgba(201,162,74,.05);overflow:hidden;}
+  .pb-hd{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;padding:6px 9px;cursor:pointer;}
+  .pb-ti{font-size:11.5px;font-weight:bold;color:#fbbf24;white-space:nowrap;}
+  .pb-br{font-size:10.5px;color:var(--txt2);flex:1;line-height:1.55;
+    display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;}
+  .pb-more{font-size:10.5px;color:#7dd3fc;white-space:nowrap;}
+  .pb:hover .pb-more{text-decoration:underline;}
+  .pb-body{display:none;padding:2px 9px 8px;border-top:1px dashed rgba(201,162,74,.18);}
+  .pb.open .pb-body{display:block;}
+  .pb.open .pb-br{display:none;}
+  .pb.open .pb-more::after{content:' 收起 ▴';}
+  .pb.open .pb-more{font-size:0;}
+  .pb.open .pb-more::before{content:'收起全文 ▴';font-size:10.5px;color:#7dd3fc;}
+  .pb-seg{margin-top:5px;display:flex;gap:6px;align-items:flex-start;}
+  .pb-sk{flex-shrink:0;padding:0 6px;border-radius:7px;background:rgba(201,162,74,.16);
+    color:#fbbf24;font-size:10px;font-weight:bold;line-height:16px;}
+  .pb-sv{font-size:11.5px;line-height:1.75;color:var(--txt1);word-break:break-word;flex:1;}
   .vp-check{display:flex;flex-direction:column;gap:5px;font-size:12.5px;}
   .vp-check label{cursor:default;}
   .var-table .var-row:last-child{border-bottom:none;border-radius:0 0 6px 6px;}
@@ -874,7 +927,18 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-10-04-v49';   // v49 **全面检核信息真实性与合理性**（用户要求，五类逐项实测+联网核实）：①联网核实政策文号12个 →**全部真实**（财金〔2026〕88号确实存在，2026-09-08四部委发布，2030年保险深度1.9%/密度1200元/主粮覆盖率90%/综合费用率≤20%）；②联网核实龙头企业9个 →**9个全部在第十一次监测合格名单内**（陆良灿林/宣威浦记/富源雄升/腾冲高黎贡山/晨光腾冲/五常乔府大院/五常金禾/郫都丹丹豆瓣/河南邦淇均属实）。★另追查我在提问中提及的'龙江县乔府大院''栾川县君山种植'两条虚构企业 → **全库搜索确认数据里本就没有**，属我提问时的记忆偏差，非数据污染——这一点必须说清楚，不能让疑点挂着。★追查我记忆中的'龙江县乔府大院''栾川县君山种植'两条虚构企业 → **全库搜索确认数据里本就没有**，属我提问时的记忆偏差，非数据污染。③★修复5类问题：伪县级记录27条标记is_pseudo_unit（地图上不存在的天府新区/开发区等）、计划单列市24县归入真实省份（大连→辽宁/宁波→浙江/青岛→山东，三处分片顶层与counties.json/provinces.json已同步）、话术文号误拼5处（汉府办发〔2021〕30号**保险**→30号）、保费池未标'代理'68县补标（山东为主，0县有官方统计可交叉验证）、句首冗余县名2469处（'灵川县以柑橘…'→'以柑橘…'）。原字段**1365/1365完好**。v48 每县末尾新增「🔎 信息来源说明」可折叠卡：按用户要求，为**全部 1365 个县**逐条说明数据出处与口径，点选展开。每县约 9 条，覆盖 6 类：①政策依据(列出该县实际引用的文号，如财金〔2026〕88号+云财规〔2024〕5号) ②官方统计(县政府公报原文链接+含哪些指标+数据年份+采集日期) ③客户名单(国家级/省级龙头名单文档名+日期+农业农村部原文链接；无名单则明写'未匹配到，不做推测归属') ④业务方向三方向各自的 src 原始出处 ⑤五年农业画像/近十年灾害画像的口径说明 ⑥农险保费与深度的估算项明示。★状态四色区分：**官网已核实(绿) / 第三方转载待核对(黄) / 省级口径县级待核(蓝) / 估算推算(红)**，待核与估算绝不与官方数据混淆。后端 `build_source_info.py` 只新增 data_source_info 字段，不覆盖任何既有字段（原字段 1365/1365 完好）。v47 首页反查统计栏目 + 三省18县官网核实：①★用 curl（而非Playwright networkidle）重诊断注册表全部站，**推翻此前「超时/412」结论**——实测74站首页可达，其中河南6县 https=200、山东/云南路径需重查（注册表路径已404）。②★新增路径：**从县级站首页反向找「统计数据/数据发布/区统计局」栏目入口**（探测到27县有），跟进后拿到13县公报直链，年度公报口径可比再抽指标。③subagent 定位的河南6+山东6+云南6=18县直链一次抓15个。④★核对又拦3处单位错：邓州原文「24.34**亿斤**」（误当万吨→修正12.17万吨，与同页表格121.70万吨印证）、登封粮食误抽0.2024→实为20.66万吨、以及正则万元→亿元分支把unit写成'万吨'的代码bug（蒙阴87.5亿/兰陵151.2亿/开远47.4亿/个旧42.53亿/元阳34.86亿/河口25.0亿共7处已修）。全量区间复核**异常数0**。★county_stat 达 231 县(官网已核实 **57** + 聚合站待核对 174)。v46 山西+吉林12县官网核实 + /contents/ 直链模式：①★发现山西/吉林政府站同款系统用 **`/contents/{栏目ID}/{文章ID}.html`** 路径（此前多次判超时/412），实测 http 与 https 均 200、附件直接挂在 `/upload/files/YYYY/M/{hash}.pdf`；襄汾15页/洪洞26页/乡宁20页PDF + 尧都 .doc 全部一次拿下。②★12县全部官网原文核对入库(verified=true)：吉林榆树农业总产值208.78亿/粮食326.05万吨(玉米265.7+水稻53.7+大豆5.7)、公主岭172.83亿/粮食282.8万吨、德惠155.7亿/163.1万吨、双辽99.5亿、蒲县7.68亿；山西襄汾/洪洞/乡宁/尧都/农安/翼城/侯马7县**公报只公布增加值不公布总产值**（已如实标注，未拿增加值冒充）。③agent 报的乡宁'109121.7万元总产值'经核对原文不存在（该县只公布增加值26.9亿），已剔除。★county_stat 达 225 县(官网已核实51 + 聚合站待核对174)。v45 打开规模化数据通道（oweidata 区划码直构 + 河北PDF）：①★发现可用行政区划码直接构造URL的第三方站 oweidata.com/county/{6位码}，补齐区划码后1202/1365县(88%)可批量抓，约90%成功，取到【农林牧渔业总产值+粮食总产量】20年历史序列(付费墙遮挡最近2年，免费可取2023及更早)。②交叉验证：五常市官网2025全年 GDP350.2亿/农林牧渔175.3亿 vs oweidata 2023年 GDP413.28亿/农林牧渔174.02亿，量级一致确认源可信。③★顺带修正五常市口径错误——此前误取「2026年1-6月」半年累计数(20.2亿)当全年，实为2025全年175.3亿。④石家庄5县：藁城/辛集/鹿泉PDF附件直取(77.2亿/粮食67.65万吨/24.75亿)、灵寿数据入；辛集公报确实无总产值字样已如实标注。★county_stat 达 221 县(官网核实43 + 聚合站待核对178)，前端新增**虚线边框+黄色警示条**区分两者，待核对数据不与官网数据混淆。v44 常德5县攻坚(JS动态加载栏目页的死路)：**改走「详情页直链」一次全中**——湖南常德这套 zwgk/public 系统的栏目列表由JS异步加载、静态HTML无<a>，但详情页URL形如 /zwgk/public/{栏目ID}/{数字ID}.html 可被搜索引擎索引到。派 agent 专门找直链，curl 直取一次拿下5县：桃源190.8亿(粮食77.2万吨/GDP555.9亿)、澧县132.7亿(粮食53.3万吨)、石门100.1亿、临澧77亿、津市54.1亿。★临澧措辞是「农林牧渔业实现总产值77.0亿元」——补 '实现|完成|了' 措辞变体正则才抓到。累计 county_stat 达 43 县(分片内)/53 县(库内)。v43 硬骨头攻坚（简阳/大邑/洪雅三站412）找到突破口：**412不是死路——WebSearch能索引到政府站内的PDF附件直链，绕开WAF直接curl下载**。简阳14页PDF(902KB)一次拿下(总产值88.69亿/粮食40.58万吨/园林水果8.34万吨/肉类6.79万吨)；洪雅11页PDF(314KB)抽到粮食10.6万吨/GDP187.15亿；大邑全站412连浏览器都过不去，用WebSearch返回的官网《农业概况》页正文入库(一产增加值25.65亿/粮食17.78万吨/水果5.27万吨)，已标注来源方式与口径差异。★另识别两个数据口径陷阱：①简阳有双GDP口径(本市584.21亿/全域含东部新区925.57亿)已标注取本市口径；②PDF文本层会把中文拆词('地\n区生产总值')，必须先 re.sub(r'\s+','') 归一化再匹配；③洪雅/大邑官网均未公布农林牧渔业总产值，只有一产增加值——如实标注不虚填。v42 规模化取文修复+域名诊断：①★修browser_fetcher取文——原slice(0,6000)从页面顶部截，导航栏占前1500字符导致只拿到菜单；现改为①iframe正文优先②正文容器(TRS_Editor/#zoom/.content等)③全文兜底，上限20000字符，重庆16县正文从6000→7630~9635字符②批量DNS/路径诊断(58县)：DNS失败9(subagent给错域名)、WAF 412/403共14、路径200可抓11，诊断分类避免盲目重试③注册表82→148县(四川12/陕西9/山西8/吉林5/湖南14/河南10)④新增儋州259.45亿、资兴75.0亿等，32县已入库(重庆12/浙江7/海南5/河北2/黑龙江2/河南1/湖南1/陕西1/山东1)，原字段1365/1365完好。v41 突破WAF+PDF/OCR双通道：**Playwright浏览器渲染**（ignoreHTTPSErrors+去webdriver指纹+goto重试）攻下此前 curl 全败的 WAF 站点，47县目标**成功24个**；**PDF/docx双通道**（PyMuPDF探文本层→无则渲染150dpi→RapidOCR）拿下潼南26页纯图像PDF。合计 **29个县**写入 county_stat（重庆12/浙江7/海南4/河北2/黑龙江2/山东1/陕西1），含农林牧渔业总产值+粮食产量+GDP，并加合理性区间校验(总产值0.5~2000亿、粮食0.3~400万吨)自动拦截单位错（荣昌293537万吨→29.35万吨）。v40 县级统计批量落地：4路subagent并行定位92县政府官网(82县进 county_sites.json 注册表)，抓取+OCR+WebFetch实测确认，**18个县已写入 county_stat**（万宁208.02亿/萧山94.61亿/云阳132.73亿/兰陵155.12亿/綦江118.47亿/行唐89.5亿/龙江119.9亿等，含粮食产量与GDP）。★重要修正：subagent给的预期值多处与官网原文不符（万宁114.33→实为208.02），一律以实际打开的原文为准。★识别并清理33条伪县级记录（开发区/乡镇误录，如「武穴石佛寺县」「瓶窑镇」「天府新区」）。v39 县级官方统计公报接入：按用户指点改用「翻官网」路线而非死磕API——定位并验证10个县政府官网的统计数据栏目(WebSearch定位+归属校验防同名县错配)，打通「官网→统计栏目→公报→图片→OCR→结构化指标」全链路(RapidOCR已验证精准)，首批4县写入 county_stat：五常(农林牧渔业总产值20.2亿)、龙江(119.9亿)、行唐(89.5亿/粮食36.5万吨/农民收入15988元)、洛川。前端新增📊官方统计卡(绿色系)。v38 省级龙头直灌+巨潮上市公司源：①解析河北(964家/13市节)与河南(1067家/17市节)省级名单，以「企业名内县级地名+开头优先」双路落县（0错配），直接回填152县/1070家省级龙头至新字段 provincial_leaders（与 national_leaders 分列，不覆盖任何原字段）；②打通巨潮资讯网上市公司源，实测可取注册地址精确到县（牧原→内乡县、隆平高科→芙蓉区）+证监会行业分类+主营业务，为后续批量补客户建立可续跑管线。v37 省级含县名单锚定：解析四川省第十二批(1041家)与湖南省(1192家)省级重点龙头名单，两省名单均自带「市州+县」官方字段（远强于名称推断），按企业名与国家2250家名单匹配，消化原NONE档173家→118个法定县（已剔除经开区/高新区/天府新区等非法定建制13条），累计national_leaders达182县/310家。v36 国家级龙头企业批量回填：从农业农村部《农业产业化国家重点龙头企业名单》(2025-05-27第十一次监测合格，全国2250家)解析2264家，经「省份约束+地市约束+县名唯一+开头地名优先+跨省名冲突排除」五重校验消除17%跨省错配(57→0)后，HIGH档250家落地140个资质县，写入 national_leaders 字段(不覆盖任何原字段)；县区面板新增「🏛国家级龙头企业」卡片+拜访包/展业摘要同步输出。AMBIG(同名县)与NONE(无县名)一律不写，宁可留待核也不写错配。v35 全面更新：①国家政策底座升级——1365县/100%前置财金〔2026〕88号《关于加快农业保险高质量发展的实施方案》(2026-09-08 经国务院同意)，含2030年五项KPI(保险深度1.9%/密度1200元/人/科技投入强度1%/主粮覆盖率90%/综合费用率≤20%)、三大主粮+大豆完全成本与收入保险、产粮大县县级承担比例下调、省级对省级结算、大灾风险基金；保费池基准换为2026年中央财政补贴预算530亿(+5.9%)；原省级文号100%保留未删。②信息获取方式升级为「农险信息雷达」自动采集管线：sources.json源清单(15源含实测可达性) + fetch_sources.py批量抓取(已实测9/9可达) + diff_report.py三段式差异报告(建议更新/已过期/待人工) + apply_policy_update.py人工确认后写回 + freshness.json新鲜度台账 + raw/原始快照留痕。③一村一品冻结标注(第十二批2023-03后全国停止认定)。v34/v33/v32 均保留。
+const CACHE_VERSION = '2026-10-04-v50';   // v50 **拜访包与话术全年化升级**（用户需求：把问题逐一优化+全年提升拜访话术）：
+// ①★诊断出原拜访包 5 大缺失（实测 1365县×4095套话术）：季节要素覆盖仅 **2%**、风险 43%、
+// 客户名单 42%、规模数字 35%，且只有"政策性/商业性"两态没有全年节奏感。
+// ②新增 **visit_plan**（全 1365 县）：三方向 12 个月**农事历**（种植/养殖/水产各自的关键节点+
+// 当月动作+当月风险）、**全年四段拜访节奏**（备耕抢收1-3月/夏防关键4-8月/秋收理赔9-11月/冬歇总结12月，
+// 当前月份自动高亮）、**8 类高频异议应对**（可点开）、**首次拜访30分钟流程**（破冰5+切入15+收尾10）、
+// **数据可信度提示**（拜访前必读，明确哪些数字不能对客户引用）。
+// ③话术增强 **8190 条**：每条补【时机】（当月农事+风险）+【主体】（优先取 national_leaders/
+// provincial_leaders 纯企业名，可溯源有认定出处；退化时才用 directions.*.enterprises_cleaned
+// 并清理其描述性括号文字）+【落地动作】（本周内出方案、赶承保窗口）。
+// ④拜访包前端新增四~八节，异议应对可折叠展开；窄屏 4列→2列→1列自适应。
+// v49 **全面检核信息真实性与合理性**（用户要求，五类逐项实测+联网核实）：①联网核实政策文号12个 →**全部真实**（财金〔2026〕88号确实存在，2026-09-08四部委发布，2030年保险深度1.9%/密度1200元/主粮覆盖率90%/综合费用率≤20%）；②联网核实龙头企业9个 →**9个全部在第十一次监测合格名单内**（陆良灿林/宣威浦记/富源雄升/腾冲高黎贡山/晨光腾冲/五常乔府大院/五常金禾/郫都丹丹豆瓣/河南邦淇均属实）。★另追查我在提问中提及的'龙江县乔府大院''栾川县君山种植'两条虚构企业 → **全库搜索确认数据里本就没有**，属我提问时的记忆偏差，非数据污染——这一点必须说清楚，不能让疑点挂着。★追查我记忆中的'龙江县乔府大院''栾川县君山种植'两条虚构企业 → **全库搜索确认数据里本就没有**，属我提问时的记忆偏差，非数据污染。③★修复5类问题：伪县级记录27条标记is_pseudo_unit（地图上不存在的天府新区/开发区等）、计划单列市24县归入真实省份（大连→辽宁/宁波→浙江/青岛→山东，三处分片顶层与counties.json/provinces.json已同步）、话术文号误拼5处（汉府办发〔2021〕30号**保险**→30号）、保费池未标'代理'68县补标（山东为主，0县有官方统计可交叉验证）、句首冗余县名2469处（'灵川县以柑橘…'→'以柑橘…'）。原字段**1365/1365完好**。v48 每县末尾新增「🔎 信息来源说明」可折叠卡：按用户要求，为**全部 1365 个县**逐条说明数据出处与口径，点选展开。每县约 9 条，覆盖 6 类：①政策依据(列出该县实际引用的文号，如财金〔2026〕88号+云财规〔2024〕5号) ②官方统计(县政府公报原文链接+含哪些指标+数据年份+采集日期) ③客户名单(国家级/省级龙头名单文档名+日期+农业农村部原文链接；无名单则明写'未匹配到，不做推测归属') ④业务方向三方向各自的 src 原始出处 ⑤五年农业画像/近十年灾害画像的口径说明 ⑥农险保费与深度的估算项明示。★状态四色区分：**官网已核实(绿) / 第三方转载待核对(黄) / 省级口径县级待核(蓝) / 估算推算(红)**，待核与估算绝不与官方数据混淆。后端 `build_source_info.py` 只新增 data_source_info 字段，不覆盖任何既有字段（原字段 1365/1365 完好）。v47 首页反查统计栏目 + 三省18县官网核实：①★用 curl（而非Playwright networkidle）重诊断注册表全部站，**推翻此前「超时/412」结论**——实测74站首页可达，其中河南6县 https=200、山东/云南路径需重查（注册表路径已404）。②★新增路径：**从县级站首页反向找「统计数据/数据发布/区统计局」栏目入口**（探测到27县有），跟进后拿到13县公报直链，年度公报口径可比再抽指标。③subagent 定位的河南6+山东6+云南6=18县直链一次抓15个。④★核对又拦3处单位错：邓州原文「24.34**亿斤**」（误当万吨→修正12.17万吨，与同页表格121.70万吨印证）、登封粮食误抽0.2024→实为20.66万吨、以及正则万元→亿元分支把unit写成'万吨'的代码bug（蒙阴87.5亿/兰陵151.2亿/开远47.4亿/个旧42.53亿/元阳34.86亿/河口25.0亿共7处已修）。全量区间复核**异常数0**。★county_stat 达 231 县(官网已核实 **57** + 聚合站待核对 174)。v46 山西+吉林12县官网核实 + /contents/ 直链模式：①★发现山西/吉林政府站同款系统用 **`/contents/{栏目ID}/{文章ID}.html`** 路径（此前多次判超时/412），实测 http 与 https 均 200、附件直接挂在 `/upload/files/YYYY/M/{hash}.pdf`；襄汾15页/洪洞26页/乡宁20页PDF + 尧都 .doc 全部一次拿下。②★12县全部官网原文核对入库(verified=true)：吉林榆树农业总产值208.78亿/粮食326.05万吨(玉米265.7+水稻53.7+大豆5.7)、公主岭172.83亿/粮食282.8万吨、德惠155.7亿/163.1万吨、双辽99.5亿、蒲县7.68亿；山西襄汾/洪洞/乡宁/尧都/农安/翼城/侯马7县**公报只公布增加值不公布总产值**（已如实标注，未拿增加值冒充）。③agent 报的乡宁'109121.7万元总产值'经核对原文不存在（该县只公布增加值26.9亿），已剔除。★county_stat 达 225 县(官网已核实51 + 聚合站待核对174)。v45 打开规模化数据通道（oweidata 区划码直构 + 河北PDF）：①★发现可用行政区划码直接构造URL的第三方站 oweidata.com/county/{6位码}，补齐区划码后1202/1365县(88%)可批量抓，约90%成功，取到【农林牧渔业总产值+粮食总产量】20年历史序列(付费墙遮挡最近2年，免费可取2023及更早)。②交叉验证：五常市官网2025全年 GDP350.2亿/农林牧渔175.3亿 vs oweidata 2023年 GDP413.28亿/农林牧渔174.02亿，量级一致确认源可信。③★顺带修正五常市口径错误——此前误取「2026年1-6月」半年累计数(20.2亿)当全年，实为2025全年175.3亿。④石家庄5县：藁城/辛集/鹿泉PDF附件直取(77.2亿/粮食67.65万吨/24.75亿)、灵寿数据入；辛集公报确实无总产值字样已如实标注。★county_stat 达 221 县(官网核实43 + 聚合站待核对178)，前端新增**虚线边框+黄色警示条**区分两者，待核对数据不与官网数据混淆。v44 常德5县攻坚(JS动态加载栏目页的死路)：**改走「详情页直链」一次全中**——湖南常德这套 zwgk/public 系统的栏目列表由JS异步加载、静态HTML无<a>，但详情页URL形如 /zwgk/public/{栏目ID}/{数字ID}.html 可被搜索引擎索引到。派 agent 专门找直链，curl 直取一次拿下5县：桃源190.8亿(粮食77.2万吨/GDP555.9亿)、澧县132.7亿(粮食53.3万吨)、石门100.1亿、临澧77亿、津市54.1亿。★临澧措辞是「农林牧渔业实现总产值77.0亿元」——补 '实现|完成|了' 措辞变体正则才抓到。累计 county_stat 达 43 县(分片内)/53 县(库内)。v43 硬骨头攻坚（简阳/大邑/洪雅三站412）找到突破口：**412不是死路——WebSearch能索引到政府站内的PDF附件直链，绕开WAF直接curl下载**。简阳14页PDF(902KB)一次拿下(总产值88.69亿/粮食40.58万吨/园林水果8.34万吨/肉类6.79万吨)；洪雅11页PDF(314KB)抽到粮食10.6万吨/GDP187.15亿；大邑全站412连浏览器都过不去，用WebSearch返回的官网《农业概况》页正文入库(一产增加值25.65亿/粮食17.78万吨/水果5.27万吨)，已标注来源方式与口径差异。★另识别两个数据口径陷阱：①简阳有双GDP口径(本市584.21亿/全域含东部新区925.57亿)已标注取本市口径；②PDF文本层会把中文拆词('地\n区生产总值')，必须先 re.sub(r'\s+','') 归一化再匹配；③洪雅/大邑官网均未公布农林牧渔业总产值，只有一产增加值——如实标注不虚填。v42 规模化取文修复+域名诊断：①★修browser_fetcher取文——原slice(0,6000)从页面顶部截，导航栏占前1500字符导致只拿到菜单；现改为①iframe正文优先②正文容器(TRS_Editor/#zoom/.content等)③全文兜底，上限20000字符，重庆16县正文从6000→7630~9635字符②批量DNS/路径诊断(58县)：DNS失败9(subagent给错域名)、WAF 412/403共14、路径200可抓11，诊断分类避免盲目重试③注册表82→148县(四川12/陕西9/山西8/吉林5/湖南14/河南10)④新增儋州259.45亿、资兴75.0亿等，32县已入库(重庆12/浙江7/海南5/河北2/黑龙江2/河南1/湖南1/陕西1/山东1)，原字段1365/1365完好。v41 突破WAF+PDF/OCR双通道：**Playwright浏览器渲染**（ignoreHTTPSErrors+去webdriver指纹+goto重试）攻下此前 curl 全败的 WAF 站点，47县目标**成功24个**；**PDF/docx双通道**（PyMuPDF探文本层→无则渲染150dpi→RapidOCR）拿下潼南26页纯图像PDF。合计 **29个县**写入 county_stat（重庆12/浙江7/海南4/河北2/黑龙江2/山东1/陕西1），含农林牧渔业总产值+粮食产量+GDP，并加合理性区间校验(总产值0.5~2000亿、粮食0.3~400万吨)自动拦截单位错（荣昌293537万吨→29.35万吨）。v40 县级统计批量落地：4路subagent并行定位92县政府官网(82县进 county_sites.json 注册表)，抓取+OCR+WebFetch实测确认，**18个县已写入 county_stat**（万宁208.02亿/萧山94.61亿/云阳132.73亿/兰陵155.12亿/綦江118.47亿/行唐89.5亿/龙江119.9亿等，含粮食产量与GDP）。★重要修正：subagent给的预期值多处与官网原文不符（万宁114.33→实为208.02），一律以实际打开的原文为准。★识别并清理33条伪县级记录（开发区/乡镇误录，如「武穴石佛寺县」「瓶窑镇」「天府新区」）。v39 县级官方统计公报接入：按用户指点改用「翻官网」路线而非死磕API——定位并验证10个县政府官网的统计数据栏目(WebSearch定位+归属校验防同名县错配)，打通「官网→统计栏目→公报→图片→OCR→结构化指标」全链路(RapidOCR已验证精准)，首批4县写入 county_stat：五常(农林牧渔业总产值20.2亿)、龙江(119.9亿)、行唐(89.5亿/粮食36.5万吨/农民收入15988元)、洛川。前端新增📊官方统计卡(绿色系)。v38 省级龙头直灌+巨潮上市公司源：①解析河北(964家/13市节)与河南(1067家/17市节)省级名单，以「企业名内县级地名+开头优先」双路落县（0错配），直接回填152县/1070家省级龙头至新字段 provincial_leaders（与 national_leaders 分列，不覆盖任何原字段）；②打通巨潮资讯网上市公司源，实测可取注册地址精确到县（牧原→内乡县、隆平高科→芙蓉区）+证监会行业分类+主营业务，为后续批量补客户建立可续跑管线。v37 省级含县名单锚定：解析四川省第十二批(1041家)与湖南省(1192家)省级重点龙头名单，两省名单均自带「市州+县」官方字段（远强于名称推断），按企业名与国家2250家名单匹配，消化原NONE档173家→118个法定县（已剔除经开区/高新区/天府新区等非法定建制13条），累计national_leaders达182县/310家。v36 国家级龙头企业批量回填：从农业农村部《农业产业化国家重点龙头企业名单》(2025-05-27第十一次监测合格，全国2250家)解析2264家，经「省份约束+地市约束+县名唯一+开头地名优先+跨省名冲突排除」五重校验消除17%跨省错配(57→0)后，HIGH档250家落地140个资质县，写入 national_leaders 字段(不覆盖任何原字段)；县区面板新增「🏛国家级龙头企业」卡片+拜访包/展业摘要同步输出。AMBIG(同名县)与NONE(无县名)一律不写，宁可留待核也不写错配。v35 全面更新：①国家政策底座升级——1365县/100%前置财金〔2026〕88号《关于加快农业保险高质量发展的实施方案》(2026-09-08 经国务院同意)，含2030年五项KPI(保险深度1.9%/密度1200元/人/科技投入强度1%/主粮覆盖率90%/综合费用率≤20%)、三大主粮+大豆完全成本与收入保险、产粮大县县级承担比例下调、省级对省级结算、大灾风险基金；保费池基准换为2026年中央财政补贴预算530亿(+5.9%)；原省级文号100%保留未删。②信息获取方式升级为「农险信息雷达」自动采集管线：sources.json源清单(15源含实测可达性) + fetch_sources.py批量抓取(已实测9/9可达) + diff_report.py三段式差异报告(建议更新/已过期/待人工) + apply_policy_update.py人工确认后写回 + freshness.json新鲜度台账 + raw/原始快照留痕。③一村一品冻结标注(第十二批2023-03后全国停止认定)。v34/v33/v32 均保留。
 //__NX_EMBED_HOOK__
 const CACHE_DB = 'nxmap-cache-v1';
 const CACHE_STORE = 'json';
@@ -1691,6 +1755,7 @@ const SRC_STATE_TIP = {
   '省级口径·县级待核':'省级公开画像或区域常识，县级精确值待补',
   '估算/推算':'按公式推算的参考值，非公开统计数据'
 };
+function escHtml(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function escAttr(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function sourceInfoCard(c){
   const si=c&&c.data_source_info;
@@ -2104,6 +2169,40 @@ function fallbackCopy(md){ const ta=document.createElement('textarea'); ta.value
 // 组装：县情速览 + 三类业务机会(含话术) + 重点客户清单 + 风险要点 + 展业前准备
 // 零新数据依赖，全部复用各县区已接入的 pitch / enterprises_cleaned / opp / risk_analysis
 let VP_MD='';
+// ★话术展示块：摘要常显（默认只 2 句）+ 点开看全文 + 按【】分段渲染
+function pitchBlock(title, text, dk, cname){
+  const raw = String(text||'');
+  if(!raw) return '';
+  // ① 摘要：取前 2 句（以。！？分句）
+  const parts = raw.split(/(?<=[。！？])/).filter(x=>x.trim());
+  let brief = parts.slice(0,2).join('');
+  if(parts.length>2) brief += '…';
+  // ② 全文按【xxx】分段
+  const segs = [];
+  let tail = raw;
+  const tagged = [...raw.matchAll(/【([^】]{2,12})】/g)];
+  if(tagged.length){
+    for(let i=0;i<tagged.length;i++){
+      const start = tagged[i].index + tagged[i][0].length;
+      const end = (i+1<tagged.length) ? tagged[i+1].index : raw.length;
+      const body = raw.slice(start, end).trim();
+      if(body) segs.push({k: tagged[i][1], v: body});
+    }
+    const head = raw.slice(0, tagged[0].index).trim();
+    if(head) segs.unshift({k:'开场', v:head});
+  }else{
+    segs.push({k:'要点', v:raw});
+  }
+  const id = 'pb_'+dk+'_'+cname+'_'+(title.indexOf('商业')>=0?'com':'pol');
+  return `<div class="pb">
+    <div class="pb-hd" onclick="this.parentNode.classList.toggle('open')"><span class="pb-ti">${escHtml(title)}</span>
+      <span class="pb-br">${escHtml(brief.slice(0,58))}…</span>
+      <span class="pb-more">展开全文 ▾</span></div>
+    <div class="pb-body">${segs.map(g=>
+      `<div class="pb-seg"><span class="pb-sk">${escHtml(g.k)}</span><span class="pb-sv">${escHtml(g.v)}</span></div>`
+    ).join('')}</div>
+  </div>`;
+}
 function openVisitPack(name){
   const c=getCounty(name); if(!c) return;
   const e=effOpp(c); const tier=e?e.tier:'—'; const score=e?e.score:'—';
@@ -2135,8 +2234,9 @@ function openVisitPack(name){
     h+=fld('重点客户/主体', cust);
     h+=fld('预期规模', d.expected_scale||'—');
     const p=(c.pitch&&c.pitch[dk])||{};
-    if(p.policy) h+=fld('展业话术·政策性', p.policy);
-    if(p.commercial) h+=fld('展业话术·商业性', p.commercial);
+    // ★话术改为「摘要常显 + 分段折叠」：默认只显示前 2 句摘要，点开看全文并按【时机】【主体】【落地动作】分段
+    if(p.policy) h+=pitchBlock('展业话术 · 政策性', p.policy, dk, c.name);
+    if(p.commercial) h+=pitchBlock('展业话术 · 商业性', p.commercial, dk, c.name);
     h+=`</div>`;
     md+=`### ${lbl}（${d.lvl}）\n- 市场规模：${d.market_size||'—'}\n- 机会点：${d.opportunity||'—'}\n- 重点客户/主体：${cust}\n- 预期规模：${d.expected_scale||'—'}\n`;
     if(p.policy) md+=`- 话术·政策性：${p.policy}\n`;
@@ -2173,7 +2273,68 @@ function openVisitPack(name){
   let risk='';
   ['weather','aqua','credit'].forEach(dk=>{ const d=c.directions[dk]; if(!d||!d.risk_analysis)return; risk+=`- ${DIR_LABEL[dk]}：${d.risk_analysis}\n`; });
   if(risk){ h+=`<div class="vp-sec"><div class="vp-t">四、风险要点</div><div class="vp-cli">${risk.replace(/\n/g,'<br>')}</div></div>`; md+=`## 四、风险要点\n${risk}\n`; }
-  // 五、展业前准备
+  // ★★ 五、全年拜访节奏 + 当季农事历
+  const vp=c.visit_plan||{};
+  const MO=new Date().getMonth()+1;
+  if(vp.year_rounds){
+    h+=`<div class="vp-sec"><div class="vp-t">五、全年拜访节奏（当前 ${MO} 月）</div>`;
+    h+=`<div class="vp-cal">`;
+    vp.year_rounds.forEach((r,i)=>{
+      const cur=(i===Math.floor((MO-1)/3));
+      h+=`<div class="vp-round${cur?' cur':''}"><div class="vp-rh">${cur?'▶ ':''}${escHtml(r.name)}</div>
+        <div class="vp-rg">${escHtml(r.goal)}</div>
+        <ul>${r.actions.map(a=>`<li>${escHtml(a)}</li>`).join('')}</ul></div>`;
+    });
+    h+=`</div><div class="vp-now">`;
+    const dkn={weather:'种植',aqua:'水产',credit:'养殖/信贷'};
+    Object.keys(dkn).forEach(dk=>{
+      const cd=vp[dk]&&vp[dk].calendar; if(!cd) return;
+      const row=cd.find(x=>x.current); if(!row) return;
+      h+=`<div class="vp-nr"><b>${dkn[dk]}</b>：${escHtml(row.stage)} — ${escHtml(row.action)}<br>
+        <span class="vp-nrisk">本月风险：${escHtml(row.risk)}</span></div>`;
+    });
+    h+=`</div></div>`;
+    md+=`## 五、全年拜访节奏（当前 ${MO} 月）\n\n`;
+    vp.year_rounds.forEach(r=>{ md+=`### ${r.name}\n**目标**：${r.goal}\n`+r.actions.map(a=>`- ${a}`).join('\n')+'\n\n'; });
+    md+=`\n### 本月（${MO}月）农事要点\n`;
+    Object.keys(dkn).forEach(dk=>{
+      const cd=vp[dk]&&vp[dk].calendar; if(!cd) return;
+      const row=cd.find(x=>x.current); if(!row) return;
+      md+=`- **${dkn[dk]}**：${row.stage} — ${row.action}（风险：${row.risk}）\n`;
+    });
+    md+=`\n`;
+  }
+  // ★ 六、异议应对
+  if(vp.objections&&vp.objections.length){
+    h+=`<div class="vp-sec"><div class="vp-t">六、客户异议应对（8 类高频，点开看应答）</div><div class="vp-obj">`;
+    vp.objections.forEach((o,i)=>{
+      h+=`<div class="vp-oi" onclick="this.classList.toggle('open')">
+        <div class="vp-oq"><span class="vp-oi-no">${i+1}</span>${escHtml(o.q)}<span class="vp-oar">▾</span></div>
+        <div class="vp-oa">${escHtml(o.a)}</div></div>`;
+    });
+    h+=`</div></div>`;
+    md+=`## 六、客户异议应对\n\n`;
+    vp.objections.forEach((o,i)=>{ md+=`**Q${i+1}. ${o.q}**\n${o.a}\n\n`; });
+  }
+  // ★ 七、首次拜访 30 分钟流程
+  if(vp.opening&&vp.opening.length){
+    h+=`<div class="vp-sec"><div class="vp-t">七、首次拜访 30 分钟流程</div><div class="vp-flow">`;
+    h+=`<div class="vp-fg"><div class="vp-ft">开场破冰（5 分钟）</div><ul>${vp.opening.map(x=>`<li>${escHtml(x)}</li>`).join('')}</ul></div>`;
+    h+=`<div class="vp-fg"><div class="vp-ft">深入切入（15 分钟）</div><ul>${(vp.deepdive||[]).map(x=>`<li>${escHtml(x)}</li>`).join('')}</ul></div>`;
+    h+=`<div class="vp-fg"><div class="vp-ft">收尾推进（10 分钟）</div><ul>${(vp.close||[]).map(x=>`<li>${escHtml(x)}</li>`).join('')}</ul></div>`;
+    h+=`</div></div>`;
+    md+=`## 七、首次拜访 30 分钟流程\n\n**开场破冰（5 分钟）**\n`+vp.opening.map(x=>`- ${x}`).join('\n')+'\n\n';
+    md+=`**深入切入（15 分钟）**\n`+(vp.deepdive||[]).map(x=>`- ${x}`).join('\n')+'\n\n';
+    md+=`**收尾推进（10 分钟）**\n`+(vp.close||[]).map(x=>`- ${x}`).join('\n')+'\n\n';
+  }
+  // ★ 八、数据可信度提示
+  if(vp.trust){
+    h+=`<div class="vp-sec"><div class="vp-t">八、数据可信度提示（拜访前必读）</div>
+      <div class="vp-trust">⚠ ${escHtml(vp.trust)}<br>
+      <span style="opacity:.82">凡标「待核」「省级口径」「估算」的数据，<b>不可直接对客户引用</b>，须以内部台账与县级官方原文为准。</span></div></div>`;
+    md+=`## 八、数据可信度提示\n\n⚠ ${vp.trust}\n\n> 凡标「待核」「省级口径」「估算」的数据，不可直接对客户引用。\n\n`;
+  }
+  // 九、展业前准备
   const auth=d0.authority||'农业农村局 / 财政';
   const checks=[
     '确认该县政策性资格状态（已入围 / 仅商业性 / 待争取）',
@@ -2182,9 +2343,9 @@ function openVisitPack(name){
     '准备 1–2 个同省同类标杆案例与话术',
     '梳理该县真实客户名单（清「待核」项）'
   ];
-  h+=`<div class="vp-sec"><div class="vp-t">五、展业前准备（自查）</div><div class="vp-check">`+
+  h+=`<div class="vp-sec"><div class="vp-t">九、展业前准备（自查）</div><div class="vp-check">`+
      checks.map(t=>`<label>☐ ${t}</label>`).join('')+`</div></div>`;
-  md+=`## 五、展业前准备（自查）\n- [ ] 确认政策性资格状态\n- [ ] 预约主管部门与龙头对接人\n- [ ] 带齐产品条款/费率表/再保说明\n- [ ] 准备同省标杆案例\n- [ ] 梳理真实客户名单（清待核项）\n`;
+  md+=`## 九、展业前准备（自查）\n- [ ] 确认政策性资格状态\n- [ ] 预约主管部门与龙头对接人\n- [ ] 带齐产品条款/费率表/再保说明\n- [ ] 准备同省标杆案例\n- [ ] 梳理真实客户名单（清待核项）\n`;
   md+=`---\n> 本拜访包由阳光农险业务机会地图自动生成，数据取自各县区已接入业务机会详析；客户名单「待核」项须以内部台账复核后方可对外使用。\n`;
   document.getElementById('vpName').textContent=c.name+'（'+c.province+'）';
   document.getElementById('vpSub').textContent='生成于 '+new Date().toLocaleString('zh-CN');
