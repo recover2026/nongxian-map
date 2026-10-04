@@ -345,6 +345,86 @@
     "source_url": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm",
     "fetched_at": "2026-10-03 09:20:20",
     "note": "按企业名县级地名+省份/地市约束匹配；AMBIG/NONE 档未回填"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、津财农〔2022〕29号、转发财政部财金〔2021〕130号、其他特色险按津农委计财〔2020〕113号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（1 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "src: 2025年宁河区统计公报 https://www.tjnh.gov.cn/zwgk/zfxxgkqjjg2/tjj26/fdzdgknr25/tjxx25/202606/t20260630_7326454.html ；新华网《天津宁河:打造现代都市型农业新样板》http://tj.news.cn/20260911/8b19a24bd4ab4c768debbde06f54ff63/c.html ；中国网《走进宁河看现代农业》http://tianjin.china.com.cn/2026-09/09/content_43488987.htm ；宁河区政府《十大特色农产品》https://www.tjnh.gov.cn/zmhd/xwfbh/202308/t20230816_6379173.html ；新浪/中新网《天津首单蟹苗保险落地》https://news.sina.cn/20…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "src: 2025年宁河区统计公报 https://www.tjnh.gov.cn/zwgk/zfxxgkqjjg2/tjj26/fdzdgknr25/tjxx25/202606/t20260630_7326454.html ；新华网《天津宁河:打造现代都市型农业新样板》http://tj.news.cn/20260911/8b19a24bd4ab4c768debbde06f54ff63/c.html ；中国网《走进宁河看现代农业》http://tianjin.china.com.cn/2026-09/09/content_43488987.htm ；宁河区政府《十大特色农产品》https://www.tjnh.gov.cn/zmhd/xwfbh/202308/t20230816_6379173.html ；新浪/中新网《天津首单蟹苗保险落地》https://news.sina.cn/20…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "src: 2025年宁河区统计公报 https://www.tjnh.gov.cn/zwgk/zfxxgkqjjg2/tjj26/fdzdgknr25/tjxx25/202606/t20260630_7326454.html ；新华网《天津宁河:打造现代都市型农业新样板》http://tj.news.cn/20260911/8b19a24bd4ab4c768debbde06f54ff63/c.html ；中国网《走进宁河看现代农业》http://tianjin.china.com.cn/2026-09/09/content_43488987.htm ；宁河区政府《十大特色农产品》https://www.tjnh.gov.cn/zmhd/xwfbh/202308/t20230816_6379173.html ；新浪/中新网《天津首单蟹苗保险落地》https://news.sina.cn/20…",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：2023（最新公开年）。县级农业保险保费、第一产业增加值、就业人数政府网站一般不公开到县；本表为基于省级公开数据按本县主导产业规模分摊的推算值，仅供展业参考，不作精确统计依据。待接入各县统计公报/公司分县保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）。灾害与价格波动为基于省级/区域公开资料的典型性描述（中国气象局、农业农村部历年灾情公报）。具体到本县的受灾频次、损失规模以县气象·农业农村部门灾情记录为准；标「区域典型」项待接入本县灾情台账后细化。保险作用评价基于政策性农险责任范围（含暴雨、洪水、干旱、台风、冰雹、冻害、病虫害等），价格类风险需'保险+期货'/价格保险（地方特色或商业）补充。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 5,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -734,7 +814,82 @@
     "鲫鱼",
     "泥鳅",
     "稻渔综合种养"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、津财农〔2022〕29号、转发财政部财金〔2021〕130号、其他特色险按津农委计财〔2020〕113号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "src: 宝坻区政府《大力发展农业产业》https://www.tjbd.gov.cn/sy/bcxw/bmdt/202307/t20230720_6357552.html ；宝坻区政府《打造现代都市型农业》https://www.tjbd.gov.cn/sy/bcxw/bmdt/202508/t20250814_7112248.html ；宝坻区政府《土特产文章》https://www.tjbd.gov.cn/sy/bcxw/bmdt/202504/t20250407_6901434.html ；人民网《宝坻六瓣红大蒜》https://tj.people.com.cn/n2/2026/0624/c375366-41619485.html ；经济日报《土特产撑起大产业》http://paper.ce.cn/pc/content/202312/20/content_286423.html ；…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "src: 宝坻区政府《大力发展农业产业》https://www.tjbd.gov.cn/sy/bcxw/bmdt/202307/t20230720_6357552.html ；宝坻区政府《打造现代都市型农业》https://www.tjbd.gov.cn/sy/bcxw/bmdt/202508/t20250814_7112248.html ；宝坻区政府《土特产文章》https://www.tjbd.gov.cn/sy/bcxw/bmdt/202504/t20250407_6901434.html ；人民网《宝坻六瓣红大蒜》https://tj.people.com.cn/n2/2026/0624/c375366-41619485.html ；经济日报《土特产撑起大产业》http://paper.ce.cn/pc/content/202312/20/content_286423.html ；…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "src: 宝坻区政府《大力发展农业产业》https://www.tjbd.gov.cn/sy/bcxw/bmdt/202307/t20230720_6357552.html ；宝坻区政府《打造现代都市型农业》https://www.tjbd.gov.cn/sy/bcxw/bmdt/202508/t20250814_7112248.html ；宝坻区政府《土特产文章》https://www.tjbd.gov.cn/sy/bcxw/bmdt/202504/t20250407_6901434.html ；人民网《宝坻六瓣红大蒜》https://tj.people.com.cn/n2/2026/0624/c375366-41619485.html ；经济日报《土特产撑起大产业》http://paper.ce.cn/pc/content/202312/20/content_286423.html ；…",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "天津市",
@@ -1133,7 +1288,82 @@
     "西瓜",
     "核桃",
     "板栗"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、津财农〔2022〕29号、转发财政部财金〔2021〕130号、其他特色险按津农委计财〔2020〕113号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "src: 蓟州区产业融合方案 https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/fzggw1/fdzdgknr4/fzggwwj4/202306/t20230628_6335079.html ；新浪财经《蓟州农业总产值破百亿》https://finance.sina.cn/2025-04-10/detail-inesspws5776587.d.html ；蓟州区政府《蓝莓产业》https://www.tjjz.gov.cn/xwzx/spzx/202404/t20240408_6592869.html ；蓟州区政府《蓟州农品品牌》https://www.tjjz.gov.cn/xwzx/spzx/202509/t20250928_7143674.html ；天津食安网《蓟州农家院/绿色食品》https://spaq.scjg.tj.gov.cn/news_13…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "src: 蓟州区产业融合方案 https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/fzggw1/fdzdgknr4/fzggwwj4/202306/t20230628_6335079.html ；新浪财经《蓟州农业总产值破百亿》https://finance.sina.cn/2025-04-10/detail-inesspws5776587.d.html ；蓟州区政府《蓝莓产业》https://www.tjjz.gov.cn/xwzx/spzx/202404/t20240408_6592869.html ；蓟州区政府《蓟州农品品牌》https://www.tjjz.gov.cn/xwzx/spzx/202509/t20250928_7143674.html ；天津食安网《蓟州农家院/绿色食品》https://spaq.scjg.tj.gov.cn/news_13…",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "src: 蓟州区产业融合方案 https://www.tjjz.gov.cn/zwgk/zfxxgkqjjg/fzggw1/fdzdgknr4/fzggwwj4/202306/t20230628_6335079.html ；新浪财经《蓟州农业总产值破百亿》https://finance.sina.cn/2025-04-10/detail-inesspws5776587.d.html ；蓟州区政府《蓝莓产业》https://www.tjjz.gov.cn/xwzx/spzx/202404/t20240408_6592869.html ；蓟州区政府《蓟州农品品牌》https://www.tjjz.gov.cn/xwzx/spzx/202509/t20250928_7143674.html ；天津食安网《蓟州农家院/绿色食品》https://spaq.scjg.tj.gov.cn/news_13…",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "天津市",
@@ -1515,7 +1745,82 @@
     "小麦",
     "玉米",
     "枣"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、津财农〔2022〕29号、转发财政部财金〔2021〕130号、其他特色险按津农委计财〔2020〕113号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "src: 百度百科《大港冬枣》https://baike.baidu.com/item/%E5%A4%A7%E6%B8%AF%E5%86%AC%E6%9E%A3/23436802 ；滨海发布《滨城2件特色农产品获国家地理标志》https://news.qq.com/rain/a/20251018A02RL100 ；中国农业农村信息网《冬枣田间课堂》https://www.agri.cn/zx/xxlb/tj/202508/t20250825_8760426.htm ；天津市农业农村委提案答复 https://nync.tj.gov.cn/ZWGK0/JYTABL152022/202508/t20250807_7107661.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "src: 百度百科《大港冬枣》https://baike.baidu.com/item/%E5%A4%A7%E6%B8%AF%E5%86%AC%E6%9E%A3/23436802 ；滨海发布《滨城2件特色农产品获国家地理标志》https://news.qq.com/rain/a/20251018A02RL100 ；中国农业农村信息网《冬枣田间课堂》https://www.agri.cn/zx/xxlb/tj/202508/t20250825_8760426.htm ；天津市农业农村委提案答复 https://nync.tj.gov.cn/ZWGK0/JYTABL152022/202508/t20250807_7107661.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "src: 百度百科《大港冬枣》https://baike.baidu.com/item/%E5%A4%A7%E6%B8%AF%E5%86%AC%E6%9E%A3/23436802 ；滨海发布《滨城2件特色农产品获国家地理标志》https://news.qq.com/rain/a/20251018A02RL100 ；中国农业农村信息网《冬枣田间课堂》https://www.agri.cn/zx/xxlb/tj/202508/t20250825_8760426.htm ；天津市农业农村委提案答复 https://nync.tj.gov.cn/ZWGK0/JYTABL152022/202508/t20250807_7107661.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "天津市",
@@ -1909,7 +2214,82 @@
     "草莓",
     "枣",
     "对虾"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、津财农〔2022〕29号、转发财政部财金〔2021〕130号、其他特色险按津农委计财〔2020〕113号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "src: 中国日报《茶淀玫瑰香葡萄产业升级》https://cn.chinadaily.com.cn/a/202510/15/WS68ef627fa310c4deea5ec78e.html ；滨海新区政府《茶淀葡萄入选优秀案例》https://www.tjbh.gov.cn/contents/12168/544657.html ；中宏网《杨家泊镇三水之乡》https://www.zhonghongwang.com/show-257-290343-1.html ；滨海新区政府《杨家泊品牌体系》https://www.tjbh.gov.cn/contents/12168/550312.html ；杨家泊镇蝶变 https://bhapp.jbh.tjbh.com/pages/2022/07/14/6f5a00ebe7694618b11f5db80136f6ee.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "src: 中国日报《茶淀玫瑰香葡萄产业升级》https://cn.chinadaily.com.cn/a/202510/15/WS68ef627fa310c4deea5ec78e.html ；滨海新区政府《茶淀葡萄入选优秀案例》https://www.tjbh.gov.cn/contents/12168/544657.html ；中宏网《杨家泊镇三水之乡》https://www.zhonghongwang.com/show-257-290343-1.html ；滨海新区政府《杨家泊品牌体系》https://www.tjbh.gov.cn/contents/12168/550312.html ；杨家泊镇蝶变 https://bhapp.jbh.tjbh.com/pages/2022/07/14/6f5a00ebe7694618b11f5db80136f6ee.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "src: 中国日报《茶淀玫瑰香葡萄产业升级》https://cn.chinadaily.com.cn/a/202510/15/WS68ef627fa310c4deea5ec78e.html ；滨海新区政府《茶淀葡萄入选优秀案例》https://www.tjbh.gov.cn/contents/12168/544657.html ；中宏网《杨家泊镇三水之乡》https://www.zhonghongwang.com/show-257-290343-1.html ；滨海新区政府《杨家泊品牌体系》https://www.tjbh.gov.cn/contents/12168/550312.html ；杨家泊镇蝶变 https://bhapp.jbh.tjbh.com/pages/2022/07/14/6f5a00ebe7694618b11f5db80136f6ee.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "天津市",
@@ -2289,7 +2669,82 @@
    },
    "varieties": [
     "设施农业"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、津财农〔2022〕29号、转发财政部财金〔2021〕130号、其他特色险按津农委计财〔2020〕113号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "src: 河东区政府《农发科创温室示范大棚》http://hedong.gov.cn/info/9615/151749.htm ；天津市2025年统计公报 https://www.tj.gov.cn/sq/tjgb/202603/t20260327_7271193.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "src: 河东区政府《农发科创温室示范大棚》http://hedong.gov.cn/info/9615/151749.htm ；天津市2025年统计公报 https://www.tj.gov.cn/sq/tjgb/202603/t20260327_7271193.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "src: 河东区政府《农发科创温室示范大棚》http://hedong.gov.cn/info/9615/151749.htm ；天津市2025年统计公报 https://www.tj.gov.cn/sq/tjgb/202603/t20260327_7271193.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "天津市",
@@ -2662,7 +3117,82 @@
     },
     "note": "规模30·补贴52·风险100·资质100·保费池测算缺（代理）"
    },
-   "varieties": []
+   "varieties": [],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、津财农〔2022〕29号、转发财政部财金〔2021〕130号、其他特色险按津农委计财〔2020〕113号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "src: 天津市2025年统计公报 https://www.tj.gov.cn/sq/tjgb/202603/t20260327_7271193.html ；天津市农业概况 https://www.tj.gov.cn/sq/tjgk/jjjs/nygk ；南开区百度百科（无第一产业）https://baike.baidu.com/item/%E5%8D%97%E9%96%8B%E5%8D%80/171532 ；河西区百度百科（无第一产业）https://baike.baidu.com/item/%E5%A4%A9%E6%B4%A5%E5%B8%82%E6%B2%B3%E8%A5%BF%E5%8C%BA/8403048",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "src: 天津市2025年统计公报 https://www.tj.gov.cn/sq/tjgb/202603/t20260327_7271193.html ；天津市农业概况 https://www.tj.gov.cn/sq/tjgk/jjjs/nygk ；南开区百度百科（无第一产业）https://baike.baidu.com/item/%E5%8D%97%E9%96%8B%E5%8D%80/171532 ；河西区百度百科（无第一产业）https://baike.baidu.com/item/%E5%A4%A9%E6%B4%A5%E5%B8%82%E6%B2%B3%E8%A5%BF%E5%8C%BA/8403048",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "src: 天津市2025年统计公报 https://www.tj.gov.cn/sq/tjgb/202603/t20260327_7271193.html ；天津市农业概况 https://www.tj.gov.cn/sq/tjgk/jjjs/nygk ；南开区百度百科（无第一产业）https://baike.baidu.com/item/%E5%8D%97%E9%96%8B%E5%8D%80/171532 ；河西区百度百科（无第一产业）https://baike.baidu.com/item/%E5%A4%A9%E6%B4%A5%E5%B8%82%E6%B2%B3%E8%A5%BF%E5%8C%BA/8403048",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "天津市",
@@ -3035,7 +3565,82 @@
     },
     "note": "规模30·补贴52·风险100·资质100·保费池测算缺（代理）"
    },
-   "varieties": []
+   "varieties": [],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、津财农〔2022〕29号、转发财政部财金〔2021〕130号、其他特色险按津农委计财〔2020〕113号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "src: 天津市2025年统计公报 https://www.tj.gov.cn/sq/tjgb/202603/t20260327_7271193.html ；天津市农业概况 https://www.tj.gov.cn/sq/tjgk/jjjs/nygk ；南开区百度百科（无第一产业）https://baike.baidu.com/item/%E5%8D%97%E9%96%8B%E5%8D%80/171532 ；河西区百度百科（无第一产业）https://baike.baidu.com/item/%E5%A4%A9%E6%B4%A5%E5%B8%82%E6%B2%B3%E8%A5%BF%E5%8C%BA/8403048",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "src: 天津市2025年统计公报 https://www.tj.gov.cn/sq/tjgb/202603/t20260327_7271193.html ；天津市农业概况 https://www.tj.gov.cn/sq/tjgk/jjjs/nygk ；南开区百度百科（无第一产业）https://baike.baidu.com/item/%E5%8D%97%E9%96%8B%E5%8D%80/171532 ；河西区百度百科（无第一产业）https://baike.baidu.com/item/%E5%A4%A9%E6%B4%A5%E5%B8%82%E6%B2%B3%E8%A5%BF%E5%8C%BA/8403048",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "src: 天津市2025年统计公报 https://www.tj.gov.cn/sq/tjgb/202603/t20260327_7271193.html ；天津市农业概况 https://www.tj.gov.cn/sq/tjgk/jjjs/nygk ；南开区百度百科（无第一产业）https://baike.baidu.com/item/%E5%8D%97%E9%96%8B%E5%8D%80/171532 ；河西区百度百科（无第一产业）https://baike.baidu.com/item/%E5%A4%A9%E6%B4%A5%E5%B8%82%E6%B2%B3%E8%A5%BF%E5%8C%BA/8403048",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "天津市",
@@ -3422,7 +4027,82 @@
     "奶牛",
     "对虾",
     "南美白对虾"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、津财农〔2022〕29号、转发财政部财金〔2021〕130号、其他特色险按津农委计财〔2020〕113号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "src: 武清区2022统计公报 https://www.tjwq.gov.cn/zwgk/zfxxgk/wbj2/qtjj1/fdzdgknr27/tjxx27/202307/t20230721_6358445.html ；武清区粮食安全 https://www.tjwq.gov.cn/ztzl/ztzl1/jwjdygk/202212/t20221223_6060323.html ；北方网《武清现代都市型农业》http://news.enorth.com.cn/system/2020/09/24/050507907.shtml",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "src: 武清区2022统计公报 https://www.tjwq.gov.cn/zwgk/zfxxgk/wbj2/qtjj1/fdzdgknr27/tjxx27/202307/t20230721_6358445.html ；武清区粮食安全 https://www.tjwq.gov.cn/ztzl/ztzl1/jwjdygk/202212/t20221223_6060323.html ；北方网《武清现代都市型农业》http://news.enorth.com.cn/system/2020/09/24/050507907.shtml",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "src: 武清区2022统计公报 https://www.tjwq.gov.cn/zwgk/zfxxgk/wbj2/qtjj1/fdzdgknr27/tjxx27/202307/t20230721_6358445.html ；武清区粮食安全 https://www.tjwq.gov.cn/ztzl/ztzl1/jwjdygk/202212/t20221223_6060323.html ；北方网《武清现代都市型农业》http://news.enorth.com.cn/system/2020/09/24/050507907.shtml",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "天津市",
@@ -3812,7 +4492,82 @@
     "西瓜",
     "对虾",
     "南美白对虾"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 4 份政策文件：财金〔2026〕88号、津财农〔2022〕29号、转发财政部财金〔2021〕130号、其他特色险按津农委计财〔2020〕113号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "src: 静海区农业农村现代化十四五规划解读 http://www.tjjh.gov.cn/jhqzf/zwgk_28985/nzcjd/wzjd/202112/t20211215_5750470.html ；经济日报《静海台头西瓜》https://www.ce.cn/xwzx/gnsz/gdxw/202607/t20260710_3078508.shtml ；天津市农业农村委《台头西瓜产业》https://nync.tj.gov.cn/SY0/XWDT152013/XYDT152014/202306/t20230608_6271008.html ；北方网《台头镇水果小镇》http://news.big5.enorth.com.cn/system/2026/06/17/059493951.shtml",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "src: 静海区农业农村现代化十四五规划解读 http://www.tjjh.gov.cn/jhqzf/zwgk_28985/nzcjd/wzjd/202112/t20211215_5750470.html ；经济日报《静海台头西瓜》https://www.ce.cn/xwzx/gnsz/gdxw/202607/t20260710_3078508.shtml ；天津市农业农村委《台头西瓜产业》https://nync.tj.gov.cn/SY0/XWDT152013/XYDT152014/202306/t20230608_6271008.html ；北方网《台头镇水果小镇》http://news.big5.enorth.com.cn/system/2026/06/17/059493951.shtml",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "src: 静海区农业农村现代化十四五规划解读 http://www.tjjh.gov.cn/jhqzf/zwgk_28985/nzcjd/wzjd/202112/t20211215_5750470.html ；经济日报《静海台头西瓜》https://www.ce.cn/xwzx/gnsz/gdxw/202607/t20260710_3078508.shtml ；天津市农业农村委《台头西瓜产业》https://nync.tj.gov.cn/SY0/XWDT152013/XYDT152014/202306/t20230608_6271008.html ；北方网《台头镇水果小镇》http://news.big5.enorth.com.cn/system/2026/06/17/059493951.shtml",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   }
  ]
 }
