@@ -17341,6 +17341,30 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:02",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "county_stat": {
+    "province": "湖南省",
+    "county": "资兴市",
+    "text": "【县级统计数据·湖南省|资兴市】农林牧渔业总产值 75.0亿元；粮食产量 14.34万吨；地区生产总值 441.61亿元。来源：资兴市2025年国民经济和社会发展统计公报（https://www.zixing.gov.cn/zwgk/tjxx/tjgb/content_3999301.html）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "75.0",
+      "unit": "亿元"
+     },
+     "粮食产量": {
+      "raw": "14.34",
+      "unit": "万吨"
+     },
+     "地区生产总值": {
+      "raw": "441.61",
+      "unit": "亿元"
+     }
+    },
+    "bulletin_title": "资兴市2025年国民经济和社会发展统计公报",
+    "bulletin_url": "https://www.zixing.gov.cn/zwgk/tjxx/tjgb/content_3999301.html",
+    "site": "www.zixing.gov.cn",
+    "fetched_at": "2026-10-04 09:36:13",
+    "note": "Playwright浏览器渲染实抓正文"
    }
   },
   {
