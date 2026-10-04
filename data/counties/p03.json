@@ -436,6 +436,93 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（3 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（18 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://www.pidu.gov.cn/ ; https://finance.sina.com.cn/jjxw/2026-06-10/doc-iniawiec4661172.shtml ; http://pdrmtzx.com//2025/0321/143446.html ; https://www.toutiao.com/article/7593278605774357011/",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://www.pidu.gov.cn/ ; https://finance.sina.com.cn/jjxw/2026-06-10/doc-iniawiec4661172.shtml",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://finance.sina.com.cn/jjxw/2026-06-10/doc-iniawiec4661172.shtml ; http://pdrmtzx.com//2025/0321/143446.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 6,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -906,6 +993,106 @@
     "fetched_at": "2026-10-04 11:34:42",
     "verified": false,
     "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "第三方转载·待核对",
+      "detail": "含 农林牧渔业总产值、粮食产量；数据年份 2021、2023；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "鸥维数据县级指标（2021年及更早）",
+        "u": "https://www.oweidata.com/county/510114"
+       }
+      ],
+      "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（1 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（14 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://www.thecover.cn/news/nC2ayJngxH6H90qSdq8Jkw== ; https://cbgc.scol.com.cn/news/7448828 ; https://www.chinawestagr.com/zwgk/showcontent.asp?id=60211 ; https://www.toutiao.com/article/7430759311594373642",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://www.thecover.cn/news/nC2ayJngxH6H90qSdq8Jkw== ; https://cbgc.scol.com.cn/news/7448828",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://www.thecover.cn/news/nC2ayJngxH6H90qSdq8Jkw== ; https://www.chinawestagr.com/zwgk/showcontent.asp?id=60211",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 10,
+     "verified": 6,
+     "aggregated": 1,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -1308,6 +1495,93 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（1 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（1 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://jinniu.gov.cn/gkml/cdsjnqnyhswj/xczx/1213064838578700288.shtml ; https://wiki5.baike.com/wikiid/7265262889744269353",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://jinniu.gov.cn/gkml/cdsjnqnyhswj/xczx/1213064838578700288.shtml",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://jinniu.gov.cn/gkml/cdsjnqnyhswj/xczx/1213064838578700288.shtml ; https://wiki5.baike.com/wikiid/7265262889744269353",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 6,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -1683,7 +1957,82 @@
     },
     "note": "规模30·补贴52·风险100·资质100·保费池测算缺（代理）"
    },
-   "varieties": []
+   "varieties": [],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://www.chenghua.gov.cn/chqrmzf/c169545/2026-05/14/content_216707f584954c059e6e2caeee8ae561.shtml ; https://wiki5.baike.com/wikiid/7284076695408902184",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://www.chenghua.gov.cn/chqrmzf/c169545/2026-05/14/content_216707f584954c059e6e2caeee8ae561.shtml",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://www.chenghua.gov.cn/chqrmzf/c169545/2026-05/14/content_216707f584954c059e6e2caeee8ae561.shtml",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "成都市",
@@ -2134,6 +2483,94 @@
     "fetched_at": "2026-10-04 11:34:44",
     "verified": false,
     "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "第三方转载·待核对",
+      "detail": "含 农林牧渔业总产值、粮食产量；数据年份 2021、2023；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "鸥维数据县级指标（2021年及更早）",
+        "u": "https://www.oweidata.com/county/510184"
+       }
+      ],
+      "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（7 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://www.chongzhou.gov.cn/gkml/czstjj/gmjjhshfztjxx/1632624112998375426.shtml ; https://sc.news.cn/20240925/eabbb08a00234a40b185e2526f96f088/c.html ; https://www.chongzhou.gov.cn/gkml/gmjjhshfzgh/1475808803311058944.shtml",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://www.chongzhou.gov.cn/gkml/czstjj/gmjjhshfztjxx/1632624112998375426.shtml ; https://sc.news.cn/20240925/eabbb08a00234a40b185e2526f96f088/c.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://sc.news.cn/20240925/eabbb08a00234a40b185e2526f96f088/c.html ; https://www.chongzhou.gov.cn/gkml/gmjjhshfzgh/1475808803311058944.shtml",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 5,
+     "aggregated": 1,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -2562,6 +2999,93 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（4 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（9 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://news.qq.com/rain/a/20260715A03RAG00 ; https://www.baike.com/wikiid/4645310116343236683 ; http://m2.people.cn/news/default.html?s=Ml8yXzQxNTI4NDI4XzM0NTE2N18xNzczOTEzNzcz",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "http://www.cfgw.net.cn/2020-04/03/content_24917984.htm ; https://www.toutiao.com/article/6839933450003153415/",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://news.qq.com/rain/a/20260715A03RAG00 ; http://m2.people.cn/news/default.html?s=Ml8yXzQxNTI4NDI4XzM0NTE2N18xNzczOTEzNzcz",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 6,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -3015,6 +3539,94 @@
     "site": "www.day.gov.cn",
     "fetched_at": "2026-10-04 09:51:08",
     "note": "⚠该县官网全站412（WAF应用层拦截，curl/浏览器/明文/换Referer均失败），数据取自WebSearch返回的官网正文引文；官网未公布农林牧渔业总产值，只有一产增加值口径——不虚填总产值"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "官网已核实",
+      "detail": "含 粮食产量、第一产业增加值；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "大邑县农业概况（2025年数据）",
+        "u": "https://www.day.gov.cn/day/c138572/zjdy_det.shtml"
+       }
+      ],
+      "note": ""
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（7 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://www.day.gov.cn/day/c138572/zjdy_det.shtml ; https://www.baike.com/wikiid/4407732593001772222 ; http://www.scsqw.org.cn/scdqs/sxdq/cds/dyx/content_17563",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://www.day.gov.cn/day/c138572/zjdy_det.shtml",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://www.day.gov.cn/day/c138572/zjdy_det.shtml ; https://www.baike.com/wikiid/4407732593001772222",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 6,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -3450,6 +4062,94 @@
     "fetched_at": "2026-10-04 11:34:47",
     "verified": false,
     "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "第三方转载·待核对",
+      "detail": "含 农林牧渔业总产值、粮食产量；数据年份 2021、2023；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "鸥维数据县级指标（2021年及更早）",
+        "u": "https://www.oweidata.com/county/510113"
+       }
+      ],
+      "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（5 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://baike.com/wikiid/7281508385702215691 ; http://www.cdqbjdfz.com/newsshow.aspx?ccid=60&id=3148&mid=146 ; https://cbgc.scol.com.cn/news/2519537",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://baike.com/wikiid/7281508385702215691 ; https://www.qbj.gov.cn/qbjq/c129985/2020-03/25/2b0abd52bed04fc89816dc61820b0dd0/files/809f06a7262a4e76a475294e5b0699b6.docx",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://baike.com/wikiid/7281508385702215691 ; http://www.cdqbjdfz.com/newsshow.aspx?ccid=60&id=3148&mid=146",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 5,
+     "aggregated": 1,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -3879,6 +4579,93 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（3 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（10 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://sc.people.com.cn/n2/2021/0112/c379469-34524200.html ; https://m.thecover.cn/news_details.html?eid=3Nc39EJWUUCH90qSdq8Jkw== ; https://wap.xinmin.cn/content/28175598.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://sc.people.com.cn/n2/2021/0112/c379469-34524200.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://sc.people.com.cn/n2/2021/0112/c379469-34524200.html ; https://wap.xinmin.cn/content/28175598.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 6,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -4355,6 +5142,106 @@
     "fetched_at": "2026-10-04 11:34:48",
     "verified": false,
     "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "第三方转载·待核对",
+      "detail": "含 农林牧渔业总产值、粮食产量；数据年份 2021、2023；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "鸥维数据县级指标（2021年及更早）",
+        "u": "https://www.oweidata.com/county/510182"
+       }
+      ],
+      "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（2 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（13 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "http://journal.crnews.net/ncpsczk/2026n/d13q/nyppjppygs/978774_20260708101842.html ; https://www.pengzhou.gov.cn/pzs/c111401/2025-05/27/content_fad4356ab9584c5488d10cfdce54bd74.shtml ; https://m.toutiao.com/article/7521985853657235983",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://m.toutiao.com/article/7521985853657235983 ; http://journal.crnews.net/ncpsczk/2026n/d13q/nyppjppygs/978774_20260708101842.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "http://journal.crnews.net/ncpsczk/2026n/d13q/nyppjppygs/978774_20260708101842.html ; https://m.toutiao.com/article/7521985853657235983",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 10,
+     "verified": 6,
+     "aggregated": 1,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -4807,6 +5694,94 @@
     "site": "www.scjy.gov.cn",
     "fetched_at": "2026-10-04 09:43:48",
     "note": "PDF文本层抽取（14页7367字符）；★该站点首页/栏目页412（WAF应用层拦截，浏览器也过不去），改用WebSearch定位PDF直链后curl下载成功——412硬骨头已破解"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "官网已核实",
+      "detail": "含 农林牧渔业总产值、粮食产量、园林水果产量、肉类产量、地区生产总值；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "2025年简阳市国民经济和社会发展统计公报",
+        "u": "https://www.scjy.gov.cn/gkml/jystjj/gmjjhshfztjxx/1516012144389259264.shtml"
+       }
+      ],
+      "note": ""
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（6 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://sc.people.com.cn/BIG5/n2/2026/0116/c345167-41474214.html ; https://www.baike.com/wikiid/7222855910564757507 ; https://www.sc.chinanews.com.cn/bwbd/2021-09-17/155478.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://sc.people.com.cn/BIG5/n2/2026/0116/c345167-41474214.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://sc.people.com.cn/BIG5/n2/2026/0116/c345167-41474214.html ; https://www.sc.chinanews.com.cn/bwbd/2021-09-17/155478.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 6,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -5296,6 +6271,106 @@
     "fetched_at": "2026-10-04 11:34:49",
     "verified": false,
     "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "第三方转载·待核对",
+      "detail": "含 农林牧渔业总产值、粮食产量；数据年份 2021、2023；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "鸥维数据县级指标（2021年及更早）",
+        "u": "https://www.oweidata.com/county/510183"
+       }
+      ],
+      "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（3 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（19 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://www.qionglai.gov.cn/qlsgzxxw/c150986/2026-07/13/content_64706e4745654c7db77202ac2b54c6f6.shtml ; https://www.baike.com/wikiid/2198525101902966160 ; https://chuan.zhongguolaoqu.com/index.php?a=show&catid=17&id=63331",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://www.qionglai.gov.cn/qlsgzxxw/c150986/2026-07/13/content_64706e4745654c7db77202ac2b54c6f6.shtml",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://www.qionglai.gov.cn/qlsgzxxw/c150986/2026-07/13/content_64706e4745654c7db77202ac2b54c6f6.shtml ; https://chuan.zhongguolaoqu.com/index.php?a=show&catid=17&id=63331",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 10,
+     "verified": 6,
+     "aggregated": 1,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -5748,6 +6823,106 @@
     "fetched_at": "2026-10-04 11:34:50",
     "verified": false,
     "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "第三方转载·待核对",
+      "detail": "含 农林牧渔业总产值、粮食产量；数据年份 2021、2023；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "鸥维数据县级指标（2021年及更早）",
+        "u": "https://www.oweidata.com/county/510112"
+       }
+      ],
+      "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（3 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（8 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://finance.sina.cn/2026-06-09/detail-iniattrh3555375.d.html ; https://sc.people.com.cn/BIG5/n2/2026/0731/c345167-41655649.html ; https://www.newslqy.com/news/313610",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://sc.people.com.cn/BIG5/n2/2026/0731/c345167-41655649.html",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://finance.sina.cn/2026-06-09/detail-iniattrh3555375.d.html ; https://sc.people.com.cn/BIG5/n2/2026/0731/c345167-41655649.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 10,
+     "verified": 6,
+     "aggregated": 1,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -6211,6 +7386,94 @@
     "fetched_at": "2026-10-04 11:34:51",
     "verified": false,
     "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "第三方转载·待核对",
+      "detail": "含 农林牧渔业总产值、粮食产量；数据年份 2021、2023；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "鸥维数据县级指标（2021年及更早）",
+        "u": "https://www.oweidata.com/county/510181"
+       }
+      ],
+      "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（13 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://www.toutiao.com/article/6683940854886826508/ ; https://sc.people.com.cn/BIG5/n2/2022/1227/c345509-40244816.html ; https://www.scnqi.cn/news/4816.html ; https://country.scol.com.cn/shtml/scncrb/20251112/108257.shtml",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://country.scol.com.cn/shtml/scncrb/20251112/108257.shtml",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://www.toutiao.com/article/6683940854886826508/ ; https://www.scnqi.cn/news/4816.html",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 5,
+     "aggregated": 1,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -6599,7 +7862,82 @@
    "varieties": [
     "枇杷",
     "稻渔综合种养"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "https://www.ddxyjjzz.com/article/5074 ; https://thepaper.cn/newsDetail_forward_12598831 ; https://news.qq.com/rain/a/20260502A03WNJ00",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "https://news.qq.com/rain/a/20260502A03WNJ00",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "https://www.ddxyjjzz.com/article/5074 ; https://thepaper.cn/newsDetail_forward_12598831",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "绵阳市",
@@ -7078,6 +8416,106 @@
     "fetched_at": "2026-10-04 11:34:52",
     "verified": false,
     "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "第三方转载·待核对",
+      "detail": "含 农林牧渔业总产值、粮食产量；数据年份 2021、2023；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "鸥维数据县级指标（2021年及更早）",
+        "u": "https://www.oweidata.com/county/510722"
+       }
+      ],
+      "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（3 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（9 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "三台县人民政府门户网站；三台县2024年国民经济和社会发展统计公报；绵阳市农业农村局公开报道；农业农村部第八批农业产业化国家重点龙头企业名单(2024)",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "三台县人民政府门户网站；三台县农业农村局（水产站）公开数据；绵阳市农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "三台县人民政府门户网站；省农担公开信息；三台县农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 10,
+     "verified": 6,
+     "aggregated": 1,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -7535,6 +8973,94 @@
     "fetched_at": "2026-10-04 11:34:53",
     "verified": false,
     "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "第三方转载·待核对",
+      "detail": "含 农林牧渔业总产值、粮食产量；数据年份 2021、2023；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "鸥维数据县级指标（2021年及更早）",
+        "u": "https://www.oweidata.com/county/510781"
+       }
+      ],
+      "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（8 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "江油市人民政府门户网站；江油市农业农村局公开报道；四川省农业农村厅地理标志产品名录",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "江油市人民政府门户网站；江油市农业农村局（水产站）公开数据",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "江油市人民政府门户网站；省农担公开信息；江油市农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 5,
+     "aggregated": 1,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -8006,6 +9532,106 @@
     "fetched_at": "2026-10-04 11:34:53",
     "verified": false,
     "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "第三方转载·待核对",
+      "detail": "含 农林牧渔业总产值、粮食产量；数据年份 2022、2023；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "鸥维数据县级指标（2022年及更早）",
+        "u": "https://www.oweidata.com/county/511123"
+       }
+      ],
+      "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（1 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（4 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "犍为县人民政府门户网站；犍为县农业农村局公开报道；四川省农业农村厅地理标志产品名录",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "犍为县人民政府门户网站；犍为县农业农村局（水产站）公开数据",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "犍为县人民政府门户网站；省农担公开信息；犍为县农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 10,
+     "verified": 6,
+     "aggregated": 1,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -8475,6 +10101,106 @@
     "fetched_at": "2026-10-04 11:34:54",
     "verified": false,
     "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "第三方转载·待核对",
+      "detail": "含 农林牧渔业总产值、粮食产量；数据年份 2021、2023；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "鸥维数据县级指标（2021年及更早）",
+        "u": "https://www.oweidata.com/county/511126"
+       }
+      ],
+      "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（2 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（8 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "夹江县人民政府门户网站；夹江县农业农村局公开报道；四川省农业农村厅公开报道",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "夹江县人民政府门户网站；夹江县农业农村局（水产站）公开数据",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "夹江县人民政府门户网站；省农担公开信息；夹江县农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 10,
+     "verified": 6,
+     "aggregated": 1,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -8921,6 +10647,94 @@
     "fetched_at": "2026-10-04 11:34:55",
     "verified": false,
     "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "第三方转载·待核对",
+      "detail": "含 农林牧渔业总产值、粮食产量；数据年份 2021、2023；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "鸥维数据县级指标（2021年及更早）",
+        "u": "https://www.oweidata.com/county/511181"
+       }
+      ],
+      "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（8 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "峨眉山市人民政府门户网站（2025年计划执行情况报告）；乐山日报；中国农业农村信息网",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "峨眉山市人民政府门户网站；峨眉山市农业农村局（水产站）公开数据",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "峨眉山市人民政府门户网站；省农担公开信息；峨眉山市农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 5,
+     "aggregated": 1,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -9352,6 +11166,93 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（1 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（4 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "眉山市彭山区人民政府门户网站（2025年计划执行情况报告）；人民网四川频道；央广网",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "眉山市彭山区人民政府门户网站；彭山区农业农村局（水产站）公开数据",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "眉山市彭山区人民政府门户网站；省农担公开信息；彭山区农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 6,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -9797,6 +11698,94 @@
     "site": "www.schy.gov.cn",
     "fetched_at": "2026-10-04 09:43:18",
     "note": "PDF文本层抽取（11页）；★归一化PDF换行拆词；⚠该县未公布农林牧渔业总产值，不虚填"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "官网已核实",
+      "detail": "含 粮食产量、地区生产总值、第一产业增加值；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "2025年洪雅县国民经济和社会发展统计公报",
+        "u": "https://www.schy.gov.cn/info/1022/111466.htm"
+       }
+      ],
+      "note": ""
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（6 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "洪雅县人民政府门户网站（山水洪雅）；四川省农业农村厅公开报道；百度百科（洪雅县2025年数据）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "洪雅县人民政府门户网站；洪雅县农业农村局（水产站）公开数据",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "洪雅县人民政府门户网站；省农担公开信息；洪雅县农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 6,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -10253,6 +12242,94 @@
     "fetched_at": "2026-10-04 11:34:57",
     "verified": false,
     "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "第三方转载·待核对",
+      "detail": "含 农林牧渔业总产值、粮食产量；数据年份 2021、2023；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "鸥维数据县级指标（2021年及更早）",
+        "u": "https://www.oweidata.com/county/511421"
+       }
+      ],
+      "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（6 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "仁寿县人民政府门户网站；仁寿县公开报道；百度百科（仁寿县2024年数据）；中国新闻网四川频道",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "仁寿县人民政府门户网站；仁寿县农业农村局（水产站）公开数据；百度百科（仁寿县2023年水产数据）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "仁寿县人民政府门户网站；省农担公开信息；仁寿县农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 5,
+     "aggregated": 1,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -10716,6 +12793,106 @@
     "fetched_at": "2026-10-04 11:34:58",
     "verified": false,
     "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "第三方转载·待核对",
+      "detail": "含 农林牧渔业总产值、粮食产量；数据年份 2021、2023；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "鸥维数据县级指标（2021年及更早）",
+        "u": "https://www.oweidata.com/county/512021"
+       }
+      ],
+      "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（1 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（11 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "安岳县人民政府门户网站（安岳概况/2025年柠檬产业培育项目方案）；人民网四川频道；新华网四川频道",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "安岳县人民政府门户网站；安岳县农业农村局（水产站）公开数据",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "安岳县人民政府门户网站；省农担公开信息；安岳县农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 10,
+     "verified": 6,
+     "aggregated": 1,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -11175,6 +13352,94 @@
     "fetched_at": "2026-10-04 11:34:59",
     "verified": false,
     "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "第三方转载·待核对",
+      "detail": "含 农林牧渔业总产值、粮食产量；数据年份 2021、2023；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "鸥维数据县级指标（2021年及更早）",
+        "u": "https://www.oweidata.com/county/510421"
+       }
+      ],
+      "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（7 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "米易县人民政府门户网站；川观新闻（阳光米易）；米易县2024年统计数据；百度百科（米易县）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "米易县人民政府门户网站；米易县农业农村局（水产站）公开数据；米易县2024年统计数据",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "米易县人民政府门户网站；省农担公开信息；米易县农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 5,
+     "aggregated": 1,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -11635,6 +13900,94 @@
     "fetched_at": "2026-10-04 11:35:00",
     "verified": false,
     "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "第三方转载·待核对",
+      "detail": "含 农林牧渔业总产值、粮食产量；数据年份 2021、2023；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "鸥维数据县级指标（2021年及更早）",
+        "u": "https://www.oweidata.com/county/510522"
+       }
+      ],
+      "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（6 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "合江县人民政府门户网站（政府工作报告2026/千年荔城报道）；川观新闻；四川日报",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "合江县人民政府门户网站；合江县农业农村局（水产站）公开数据；白米稻渔现代农业园公开报道",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "合江县人民政府门户网站；省农担公开信息；合江县农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 5,
+     "aggregated": 1,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -12087,6 +14440,94 @@
     "fetched_at": "2026-10-04 11:35:01",
     "verified": false,
     "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "第三方转载·待核对",
+      "detail": "含 农林牧渔业总产值、粮食产量；数据年份 2021、2023；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "鸥维数据县级指标（2021年及更早）",
+        "u": "https://www.oweidata.com/county/510524"
+       }
+      ],
+      "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（10 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "叙永县人民政府门户网站（2025年统计公报/人大提案答复）；人民网四川频道；百度百科（叙永县）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "叙永县人民政府门户网站；叙永县农业农村局（水产站）公开数据",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "叙永县人民政府门户网站；省农担公开信息；叙永县农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 5,
+     "aggregated": 1,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -12536,6 +14977,94 @@
     "fetched_at": "2026-10-04 11:35:02",
     "verified": false,
     "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "第三方转载·待核对",
+      "detail": "含 农林牧渔业总产值、粮食产量；数据年份 2021、2023；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "鸥维数据县级指标（2021年及更早）",
+        "u": "https://www.oweidata.com/county/510521"
+       }
+      ],
+      "note": "oweidata.com 商业数据聚合站；★URL 可用行政区划码直接构造（6位码），本次 1202/1365 县成功匹配码、约 90% 抓取成功；付费墙遮挡最近 2 年，免费可取 2023 及更早；入库时未覆盖任何已有官网数据的县"
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（5 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "泸县人民政府门户网站（2024年农业农村局决算/统计公报）；人民网四川频道；四川农网（泸县2025年报道）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "泸县人民政府门户网站；泸县农业农村局（水产站）公开数据；四川农网（泸县2025年报道）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "泸县人民政府门户网站；省农担公开信息；泸县农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 5,
+     "aggregated": 1,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -12942,6 +15471,81 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（7 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "宜宾市南溪区人民政府门户网站（政务参考2026/巩固农业产业发展）；快懂百科（南溪区）；中国茶叶流通协会",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "宜宾市南溪区人民政府门户网站；南溪区农业农村局（水产站）公开数据",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "宜宾市南溪区人民政府门户网站；省农担公开信息；南溪区农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 5,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -13349,6 +15953,81 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（5 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "长宁县人民政府门户网站（2025年计划执行情况报告）；宜宾市人民政府网站（副县长访谈）；快懂百科（长宁县）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "长宁县人民政府门户网站；长宁县农业农村局（水产站）公开数据；宜宾市人民政府网站",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "长宁县人民政府门户网站；省农担公开信息；长宁县农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 5,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -13765,6 +16444,81 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（9 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "资中县人民政府门户网站（2026/2025年政府工作报告）；四川日报（资中县'三变'报道）；中国农业信息网",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "资中县人民政府门户网站；资中县农业农村局（水产站）公开数据；资中县2023年农业农村局决算",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "资中县人民政府门户网站；省农担公开信息；资中县农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 5,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -14192,6 +16946,93 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（2 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（12 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "威远县人民政府门户网站（茶叶产业调研报告）；内江日报（特色产业报道）；四川省农业农村厅；快懂百科（威远县）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "威远县人民政府门户网站；威远县农业农村局（水产站）公开数据；四川省农业农村厅",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "威远县人民政府门户网站；省农担公开信息；威远县农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 6,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -14607,6 +17448,81 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（5 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "隆昌市人民政府门户网站（政府工作报告2026/产业隆昌发布会/农业农村局半年报）；百度百科（隆昌市）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "隆昌市人民政府门户网站；隆昌市农业农村局（水产站）公开数据；百度百科（隆昌市）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "隆昌市人民政府门户网站；省农担公开信息；隆昌市农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 5,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -15027,6 +17943,81 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（12 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "阆中市人民政府门户网站（2025政府工作报告/经济发展情况）；南充市人民政府（阆中市产业报道）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "阆中市人民政府门户网站；阆中市农业农村局（水产站）公开数据；南充市人民政府",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "阆中市人民政府门户网站；省农担公开信息；阆中市农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 5,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -15438,6 +18429,81 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（4 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "南部县人民政府门户网站（三大模式报道）；全国乡村振兴宣传教育中心；南充市人民政府（南部县特色做法）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "南部县人民政府门户网站；南部县农业农村局（水产站）公开数据；全国乡村振兴宣传教育中心",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "南部县人民政府门户网站；省农担公开信息；南部县农业农村局公开报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 5,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -15857,6 +18923,81 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（5 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "仪陇县2025年统计公报(yilong.gov.cn); 新华社/仪陇论坛2025乡村振兴报道; 仪陇新闻网蚕桑产业报道(yilongnews.com); 仪陇县农业保险工作小组通知(2021)",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "仪陇县2025年统计公报; 仪陇县'3+3'农业产业体系报道(2025)",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "仪陇县农业保险工作小组通知(2021); 仪陇新闻网蚕桑产业报道; 仪陇县2025统计公报",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 5,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -16325,6 +19466,94 @@
     "site": "www.mz.gov.cn",
     "fetched_at": "2026-10-04 09:37:52",
     "note": "curl直取官网正文（已打开原文核对）"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "官方统计",
+      "name": "县政府统计公报",
+      "state": "官网已核实",
+      "detail": "含 农林牧渔业总产值、粮食产量、地区生产总值；采集于 2026-10-04",
+      "links": [
+       {
+        "t": "2025年统计公报或经济运行公报",
+        "u": "https://www.mz.gov.cn/gk/zfxxgk/fdzdnr/tjxx/tjgb/1648814.htm"
+       }
+      ],
+      "note": ""
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（8 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "绵竹市2025年统计公报(tjgb.hongheiku.com); 绵竹市优势特色农产品保险实施细则(mz.gov.cn,2025.1.16); 德阳市政府/省农业农村厅绵竹报道(2025-2026)",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "德阳市政府绵竹市多元驱动报道(2025); 香港商报绵竹设施渔业报道(2026.8); 绵竹市2025统计公报",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "绵竹市优势特色农产品保险实施细则(2025.1.16); 德阳市政府绵竹报道(2025-2026); 绵竹市2025统计公报",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 6,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -16770,6 +19999,93 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（1 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（9 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "中江县2024统计公报(tjgb.hongheiku.com); 德阳市政府中江报道(2025-2026); 中江县农产品加工业规划; 省农业农村厅中江粮油报道",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "德阳市政府中江报道(2025); 中江县2024统计公报（渔业产值3.0亿）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "中江县2024统计公报; 德阳市政府中江报道(2025-2026); 中江县农产品加工业规划",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 6,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -17194,6 +20510,81 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（11 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "广汉市2025计划执行报告(guanghan.gov.cn); 广汉国家现代农业产业园百科; 央视/省农业农村厅广汉报道(2025); 广汉缠丝兔/松林桃地标公告",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "省农业农村厅广汉报道(2025.11); 广汉市2025计划执行报告",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "广汉国家现代农业产业园百科; 省农业农村厅广汉报道(2025.11); 广汉市2025计划执行报告",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 5,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -17640,6 +21031,93 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（2 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（10 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "大竹县农业概况(dazhu.gov.cn); 大竹县2025计划执行报告; 中国农村网大竹多元化食物供给(2025); 达州市农业农村局稻渔九条措施",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "中国农村网大竹多元化食物供给(2025.8); 达州市农业农村局稻渔九条措施; 影响四川稻虾产业报道(2025.2)",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "大竹县农业概况; 达州市农业农村局稻渔九条措施; 中国农村网大竹报道(2025)",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 6,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -18041,7 +21519,82 @@
     "石榴",
     "核桃",
     "油橄榄"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "会理市政府2025概况(huili.gov.cn); 会理石榴入选天府粮仓(2025.6); 会理农业强市答卷(2026.1); 会理县农业农村局部门决算(2019农险); 石榴保险报道(锦泰/中华)",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "会理市政府2025概况（农林资源节未单列渔业）; 会理农业强市答卷(2026.1)",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "会理市政府2025概况; 会理石榴入选天府粮仓(2025.6); 石榴保险报道(锦泰/中华)",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "凉山自治州",
@@ -18441,7 +21994,82 @@
     "核桃",
     "中药材",
     "蚕桑"
-   ]
+   ],
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "龙头企业名单",
+      "state": "省级口径·县级待核",
+      "detail": "该县未从国家级/省级龙头名单中匹配到企业（名称型名单无县字段，不做推测归属）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "甘洛县2024统计公报(ganluo.gov.cn); 甘洛县2026政策性农险通知(lsz.gov.cn); 甘洛县2022特色农险通知; 百度百科甘洛县",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "甘洛县2024统计公报; 百度百科甘洛县（水系节）",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "甘洛县2026政策性农险通知; 甘洛县2024统计公报; 甘洛财政局农险宣传(2025.5)",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 4,
+     "aggregated": 0,
+     "province_level": 3,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
+   }
   },
   {
    "region": "凉山自治州",
@@ -18854,6 +22482,81 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（2 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "凉山州商务局会东特色农业(2026.5); 封面新闻会东农业强县(2025); 会东县政府2020政策性农险方案; 会东2026烟叶收购报道",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "腾讯搜一搜会东沃野兴业报道; 封面新闻会东农业强县(2025)",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "凉山州商务局会东特色农业(2026.5); 封面新闻会东农业强县(2025); 会东县政府2020政策性农险方案",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 5,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -19315,6 +23018,93 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（1 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（8 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "射洪市2026年政府工作报告; 射洪市大榆镇2024农险通知(射财发〔2024〕27号); 沱牌镇2022农险通知; 四川观察射洪鲈鱼报道(2026.5)",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "遂宁观察射洪渔业绿色循环发展报道; 中国农业农村信息网射洪鲈鱼(2026.7); 四川观察射洪鲈鱼(2026.5); 射洪市农业农村局",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "射洪市2026政府工作报告; 射洪市大榆镇2024农险通知; 中国农业农村信息网射洪鲈鱼(2026.7)",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 6,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -19741,6 +23531,93 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（1 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（4 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "汉源县政府打造花椒金融示范区(汉府办发〔2021〕30号); 汉源县政府多方赋能报道; 汉源2026高质量发展答卷; 太平财险汉源花椒价格保险(2017)",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "汉源县政府富乡乡农旅融合报道; 汉源山区农业强县报道(2025); 汉源县政府",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "汉源县政府打造花椒金融示范区; 汉源县政府多方赋能; 太平财险汉源花椒价格保险(2017)",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 6,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -20124,6 +24001,81 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（6 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "利州区财政局汇聚金融活水(2026.4); 利州区农业农村局产业体系(2023); 全省首单油茶保险(2024.9); 利州都市农业报道(广元日报2023)",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "利州区农业农村局产业体系(2023); 四川省农业农村厅利州三产融合(2023.2); 利州都市农业报道(广元日报2023)",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "利州区财政局汇聚金融活水(2026.4); 省财政厅利州金融报道(2026.4); 全省首单油茶保险(2024.9)",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：2023（最新公开年）。县级农业保险保费、第一产业增加值、就业人数政府网站一般不公开到县；本表为基于省级公开数据按本县主导产业规模分摊的推算值，仅供展业参考，不作精确统计依据。待接入各县统计公报/公司分县保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）。灾害与价格波动为基于省级/区域公开资料的典型性描述（中国气象局、农业农村部历年灾情公报）。具体到本县的受灾频次、损失规模以县气象·农业农村部门灾情记录为准；标「区域典型」项待接入本县灾情台账后细化。保险作用评价基于政策性农险责任范围（含暴雨、洪水、干旱、台风、冰雹、冻害、病虫害等），价格类风险需'保险+期货'/价格保险（地方特色或商业）补充。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 8,
+     "verified": 5,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": false,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -20579,6 +24531,93 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（1 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（10 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "苍溪县政府农险品种问答(cncx.gov.cn); 人保财险苍溪猕猴桃雪梨报道(2025.4); 苍溪红心猕猴桃金融报道; 苍溪'十四五'规划",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "苍溪县'十四五'农业农村现代化规划; 广元市生态环境局苍溪渔业报道(2022.7); 苍溪白鹭湖园区报道; 苍溪农险问答",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "苍溪县政府农险品种问答; 人保财险苍溪猕猴桃雪梨报道(2025.4); 苍溪猕猴桃金融报道(搜狐); 苍溪'十四五'规划",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 6,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -21009,6 +25048,93 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（1 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（7 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "四川新闻网旺苍山地特色(2026.7); 广元日报旺苍绿色产业(2024.9); 四川日报旺苍茶叶天气指数保险; 中新网旺苍百亿茶产业链; 旺苍县保护米仓山茶意见",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "广元日报旺苍绿色产业(2024.9); 旺苍县农业农村局",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "四川经济日报旺苍政企银茶产业(2026.6); 四川新闻网旺苍山地特色(2026.7); 四川日报茶叶天气指数保险; 中新网旺苍百亿茶产业链",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 6,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   },
   {
@@ -21403,6 +25529,93 @@
     "confidence": "HIGH-官方县列",
     "fetched_at": "2026-10-03 14:24:01",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "data_source_info": {
+    "items": [
+     {
+      "cat": "政策依据",
+      "name": "国家与省级农险政策",
+      "state": "官网已核实",
+      "detail": "依据 3 份政策文件：财金〔2026〕88号、川财规〔2022〕12号、财金〔2021〕130号",
+      "links": [
+       {
+        "t": "财金〔2026〕88号 全文（gov.cn）",
+        "u": "https://www.gov.cn/zhengce/zhengceku/202609/content_7042312.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "国家级农业产业化重点龙头企业（1 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：农业农村部第十一次监测合格农业产业化国家重点龙头企业名单(2025-05-27)（2025-05-27）",
+      "links": [
+       {
+        "t": "农业农村部龙头名单",
+        "u": "https://www.xccys.moa.gov.cn/nycyh/202305/t20230518_6427885.htm"
+       }
+      ]
+     },
+     {
+      "cat": "客户名单",
+      "name": "省级农业产业化重点龙头企业（3 家）",
+      "state": "官网已核实",
+      "detail": "名单来源：四川省农业产业化省级重点龙头企业名单；置信度 HIGH-官方县列",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "天气指数（种植/养殖气象灾害）",
+      "state": "官网已核实",
+      "detail": "快懂百科武侯区（第一产业/农林牧渔业数据）; 成都市'五化五型'都市农业报道",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "水产养殖",
+      "state": "官网已核实",
+      "detail": "快懂百科武侯区; 成都市'五化五型'都市农业报道",
+      "links": []
+     },
+     {
+      "cat": "业务方向",
+      "name": "信贷/融资",
+      "state": "官网已核实",
+      "detail": "省农担官网/国家农担联盟服务网络; 省农担2026年度工作会; 四川省第一批政府性融资担保机构名单; 武侯区委社工部商协会助乡村振兴报道",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "五年农业画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据年份：公开省级画像（县级待核）。本县为省级公开农业产业画像（非县级逐品种精确统计）。精准种植面积/产量/保费待接入各县统计公报与阳光产险分县农险保费台账后替换为权威值。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "近十年灾害画像",
+      "state": "省级口径·县级待核",
+      "detail": "数据区间：近十年（2016-2025，含典型历史大灾）· 省级风险画像。灾害类型为省级气象风险常识（区域典型），县级历史灾损频率与典型损失待接入县气象局/应急管理局台账核实。",
+      "links": []
+     },
+     {
+      "cat": "口径说明",
+      "name": "农险保费与深度（估算）",
+      "state": "估算/推算",
+      "detail": "以下指标为推算值、非县级公开数据：ag_ins_premium、primary_ind_added_value、ag_ins_depth、primary_ind_employment、ag_ins_density；计算口径 保费/一产增加值、外推依据见各字段 basis。",
+      "links": []
+     }
+    ],
+    "stats": {
+     "total": 9,
+     "verified": 6,
+     "aggregated": 0,
+     "province_level": 2,
+     "estimated": 1
+    },
+    "has_real_official": true,
+    "built_at": "2026-10-04",
+    "note": "本说明逐条标注数据出处与口径；标「省级口径」「估算」「待核对」的条目不可直接作为展业结论，须以县级官方原文为准。"
    }
   }
  ]
