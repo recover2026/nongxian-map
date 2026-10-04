@@ -927,7 +927,23 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-10-04-v50';   // v50 **拜访包与话术全年化升级**（用户需求：把问题逐一优化+全年提升拜访话术）：
+const CACHE_VERSION = '2026-10-04-v51';   // v51 **性能优化：分片瘦身 + 详情懒加载**（实测基线 4G/4Mbps：点省 7.4s 为瓶颈）：
+// ①★先测再优化——发现 GitHub Pages **已自动 gzip**（3.36MB→700KB 省 79%），
+//    所以瓶颈不在传输而在"传输量绝对值 + JSON.parse 主线程阻塞"，不做无用的预生成 .gz。
+// ②★分片瘦身三招（76.2MB → 主分片 22.2MB，**省 71%**）：
+//    a. **公共前缀提取**：`directions.{dk}.support` 在**省内所有县完全相同**
+//       （山东 138 县去重 1/138 ——「国家政策底座+省级政策」是全省共用文本），
+//       抽到分片级 shared.{dk}.support_prefix，加载后前端拼回（实测 support 822 字符含 88号 ✅）。
+//    b. **低频字段下沉**：pitch/agri_profile_5y/disaster_10y/data_source_info/opp
+//       面板首屏不渲染 → 移到 pNN_full.json，点县或开拜访包时才懒加载。
+//    c. **去 indent**（省 22% 体积）。
+//    最大主分片 7.55MB → 1.94MB（山东）、4.90→1.91MB（河北）。
+// ③详情加载不阻塞面板：主分片就绪即渲染，`requestIdleCallback` 静默预载详情，
+//    `mergeCountyFull()` 补全后自动重渲染（visit_plan 用完整版覆盖精简版）。
+// ④部署白名单正则加 `(_full)?`（原 `^p\d{2}\.json$` 会漏掉详情分片）。
+// ★实测：点省→县面板 **7418ms → 2785ms（2.66倍）**，传输量 5.54→3.26MB，
+//   离线单文件 98→51MB，Playwright 10/10 PASS（功能零损）。
+// v50 **拜访包与话术全年化升级**（用户需求：把问题逐一优化+全年提升拜访话术）：
 // ①★诊断出原拜访包 5 大缺失（实测 1365县×4095套话术）：季节要素覆盖仅 **2%**、风险 43%、
 // 客户名单 42%、规模数字 35%，且只有"政策性/商业性"两态没有全年节奏感。
 // ②新增 **visit_plan**（全 1365 县）：三方向 12 个月**农事历**（种植/养殖/水产各自的关键节点+
