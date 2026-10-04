@@ -30331,7 +30331,35 @@
    "varieties": [
     "杏",
     "板栗"
-   ]
+   ],
+   "county_stat": {
+    "province": "山东省",
+    "county": "郯城县",
+    "text": "【县级统计数据·山东省|郯城县】农林牧渔业总产值 84.11亿元；粮食产量 73.67万吨；地区生产总值 426.1亿元。来源：2024/2025年统计公报（http://www.tancheng.gov.cn/info/4208/279395.htm）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "84.11",
+      "unit": "亿元",
+      "note": ""
+     },
+     "粮食产量": {
+      "raw": "73.67",
+      "unit": "万吨",
+      "note": ""
+     },
+     "地区生产总值": {
+      "raw": "426.1",
+      "unit": "亿元",
+      "note": ""
+     }
+    },
+    "bulletin_title": "国民经济和社会发展统计公报",
+    "bulletin_url": "http://www.tancheng.gov.cn/info/4208/279395.htm",
+    "site": "www.tancheng.gov.cn",
+    "fetched_at": "2026-10-04 14:44:55",
+    "verified": true,
+    "note": "★官网直链抓取（已打开原文核对数值与单位）"
+   }
   },
   {
    "region": "临沂市",
@@ -32085,7 +32113,30 @@
    "varieties": [
     "桃",
     "苗木"
-   ]
+   ],
+   "county_stat": {
+    "province": "山东省",
+    "county": "蒙阴县",
+    "text": "【县级统计数据·山东省|蒙阴县】农林牧渔业总产值 87.5亿元；粮食产量 13.3万吨。来源：2024/2025年统计公报（http://www.mengyin.gov.cn/info/4486/190013.htm）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "87.5",
+      "unit": "亿元",
+      "note": ""
+     },
+     "粮食产量": {
+      "raw": "13.3",
+      "unit": "万吨",
+      "note": ""
+     }
+    },
+    "bulletin_title": "国民经济和社会发展统计公报",
+    "bulletin_url": "http://www.mengyin.gov.cn/info/4486/190013.htm",
+    "site": "www.mengyin.gov.cn",
+    "fetched_at": "2026-10-04 14:44:55",
+    "verified": true,
+    "note": "★官网直链抓取（已打开原文核对数值与单位）"
+   }
   },
   {
    "region": "临沂市",
@@ -32514,7 +32565,30 @@
     "桃",
     "中药材",
     "金银花"
-   ]
+   ],
+   "county_stat": {
+    "province": "山东省",
+    "county": "平邑县",
+    "text": "【县级统计数据·山东省|平邑县】农林牧渔业总产值 106.8亿元；粮食产量 30.47万吨。来源：2024/2025年统计公报（http://pingyi.gov.cn/info/5046/169492.htm）。",
+    "metrics": {
+     "农林牧渔业总产值": {
+      "raw": "106.8",
+      "unit": "亿元",
+      "note": ""
+     },
+     "粮食产量": {
+      "raw": "30.47",
+      "unit": "万吨",
+      "note": ""
+     }
+    },
+    "bulletin_title": "国民经济和社会发展统计公报",
+    "bulletin_url": "http://pingyi.gov.cn/info/5046/169492.htm",
+    "site": "pingyi.gov.cn",
+    "fetched_at": "2026-10-04 14:44:55",
+    "verified": true,
+    "note": "★官网直链抓取（已打开原文核对数值与单位）"
+   }
   },
   {
    "region": "临沂市",
