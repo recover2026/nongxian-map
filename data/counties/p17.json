@@ -431,6 +431,27 @@
     "confidence": "MEDIUM-企业名内县名",
     "fetched_at": "2026-10-03 14:24:02",
     "note": "省级农业产业化重点龙头企业；非国家级名单，故与 national_leaders 分列"
+   },
+   "county_stat": {
+    "province": "河南省",
+    "county": "邓州市",
+    "text": "【县级统计数据·河南省|邓州市】粮食产量 122.1万吨；地区生产总值 558.83亿元。来源：2025年邓州市国民经济和社会发展统计公报（https://www.dengzhou.gov.cn/2026/06-09/1410852.html）。",
+    "metrics": {
+     "农林牧渔业总产值": {},
+     "粮食产量": {
+      "raw": "122.1",
+      "unit": "万吨"
+     },
+     "地区生产总值": {
+      "raw": "558.83",
+      "unit": "亿元"
+     }
+    },
+    "bulletin_title": "2025年邓州市国民经济和社会发展统计公报",
+    "bulletin_url": "https://www.dengzhou.gov.cn/2026/06-09/1410852.html",
+    "site": "www.dengzhou.gov.cn",
+    "fetched_at": "2026-10-04 09:36:13",
+    "note": "Playwright浏览器渲染实抓正文"
    }
   },
   {
