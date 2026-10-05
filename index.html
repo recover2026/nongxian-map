@@ -73,7 +73,7 @@
   .tab{padding:6px 15px;border:1px solid var(--border);border-radius:18px;cursor:pointer;font-size:12.5px;
     color:var(--txt2);background:#fdf4e3;transition:.15s;white-space:nowrap;line-height:1.45;}
   .tab:hover{color:var(--txt);border-color:var(--accent);}
-  .tab.active{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 2px 10px rgba(46,127,255,.35);}
+  .tab.active{background:#c2410c;color:#fff;border-color:transparent;box-shadow:0 2px 8px rgba(194,65,12,.28);}
   .spacer{flex:1;min-width:8px;}
   .meta{font-size:12px;color:var(--txt2);white-space:nowrap;background:rgba(255, 251, 244, 0.7);
     border:1px solid var(--border);border-radius:8px;padding:5px 11px;}
@@ -164,7 +164,7 @@
   .pitch-card .pc-t{font-size:13.5px;font-weight:bold;color:var(--gold);}
   .pitch-card .pc-toggle{display:inline-flex;border:1px solid var(--border);border-radius:18px;overflow:hidden;}
   .pitch-card .pc-tab{font-size:12px;padding:4px 14px;background:transparent;color:var(--txt2);border:none;cursor:pointer;transition:.15s;line-height:1.4;}
-  .pitch-card .pc-tab.active{background:var(--accent);color:#fff;font-weight:bold;}
+  .pitch-card .pc-tab.active{background:#c2410c;color:#fff;font-weight:bold;}
   .pitch-card .pc-body{font-size:13px;line-height:1.85;color:var(--txt);background:#fdf4e3;border:1px solid var(--border);border-radius:8px;padding:11px 13px;white-space:normal;word-break:break-word;}
   .pitch-card .pc-body .ph-tag{display:inline-block;font-size:11px;font-weight:bold;padding:1px 8px;border-radius:9px;margin-right:6px;vertical-align:middle;}
   .pitch-card .pc-body .ph-tag.pol{background:#8e5e2b;color:#fff;}
@@ -670,11 +670,14 @@
   .od-box{margin-top:9px;border:1px solid var(--border);border-radius:9px;background:#fffdf7;overflow:hidden;}
   .od-box-h{display:flex;align-items:center;justify-content:space-between;padding:7px 11px;
     font-size:11.5px;font-weight:bold;color:var(--warm);background:#fbe8cd;cursor:pointer;user-select:none;}
+  .od-box-h .od-arw{transition:transform .2s;}
+  .od-box.collapsed .od-arw{transform:rotate(-90deg);}
   .od-box-h:hover{background:#f8dcbb;}
   .od-arw{font-size:10px;transition:transform .2s;}
   .od-box.open .od-arw{transform:rotate(180deg);}
-  .od-box-b{max-height:0;overflow:hidden;transition:max-height .28s ease;}
-  .od-box.open .od-box-b{max-height:1400px;overflow-y:auto;}
+  /* ★v63 默认展开——理由折叠等于没说 */
+  .od-box-b{max-height:2600px;overflow-y:auto;}
+  .od-box.collapsed .od-box-b{max-height:0;overflow:hidden;}
   .od-row{padding:8px 11px;border-bottom:1px dashed rgba(200,170,130,.4);}
   .od-row:last-child{border-bottom:none;}
   .od-hd{display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
@@ -683,6 +686,15 @@
   .od-w{font-size:10.5px;color:#8a6a4a;}
   .od-c{font-size:10.5px;color:#7a6a58;flex:1;min-width:150px;}
   .od-b{margin-top:4px;}
+
+  .os-sum{font-size:11.5px;line-height:1.85;color:#5a4632;padding:9px 11px;margin:0;
+    border-bottom:1px solid var(--border);background:#fdf4e3;}
+  .os-sum b{color:#8a5a10;}
+  .od-row2{margin-top:5px;padding:6px 9px;border-radius:7px;background:#fdf4e3;
+    font-size:11px;line-height:1.75;color:#5a4632;}
+  .od-row2 b{color:#8a5a10;}
+  .ocf-warn{display:inline-block;margin-top:4px;padding:4px 8px;border-radius:6px;
+    background:#FFF3CD;border-left:3px solid #d08a1c;color:#7a4a10;font-size:10.5px;line-height:1.6;}
   .od-row1{font-size:11px;line-height:1.7;color:#5a4632;}
   .od-row1 b{color:#8a5a10;}
   /* 分档口径弹窗 */
@@ -775,9 +787,13 @@
   #login button:hover{filter:brightness(1.08);}
   #login h1{background:linear-gradient(135deg,#ffd968,#f0a81e 50%,#e0481f);
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  /* ★v63 选中态：深橙红实底 + 白字（实测白字对比 5.18，达 WCAG AA）。
+     旧方案是 亮黄→橙红 渐变 + 深棕字，两端对比 9.27 / 3.28 落差过大、色泽发闷；
+     白字配亮黄更是只有 1.45（几乎不可见）。 */
   .tab.active,.fchip.on,.seg .seg-btn.on{
-    background:linear-gradient(135deg,var(--grad-y2),var(--grad-y1) 50%,var(--grad-r1));
-    color:#4a2506;border-color:transparent;font-weight:bold;text-shadow:0 1px 0 rgba(255,255,255,.28);}
+    background:#c2410c;color:#fff;border-color:transparent;font-weight:bold;
+    box-shadow:0 2px 8px rgba(194,65,12,.28);}
+  .tab.active:hover,.fchip.on:hover,.seg .seg-btn.on:hover{background:#a83a09;color:#fff;}
   .btn-tool.gold{background:linear-gradient(135deg,#e8a33c,#d97b16);color:#fff;
     border-color:rgba(246,210,60,.55);color:#ffd968;}
   .btn-tool.gold:hover{background:linear-gradient(135deg,#d97b16,#c96a12);color:#fff;}
@@ -864,7 +880,7 @@
   .tab{padding:6px 15px;border:1px solid var(--border);border-radius:18px;cursor:pointer;font-size:12.5px;
     color:var(--txt2);background:#fdf4e3;transition:.15s;white-space:nowrap;line-height:1.45;}
   .tab:hover{color:var(--txt);border-color:var(--accent);}
-  .tab.active{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 2px 10px rgba(46,127,255,.35);}
+  .tab.active{background:#c2410c;color:#fff;border-color:transparent;box-shadow:0 2px 8px rgba(194,65,12,.28);}
   .spacer{flex:1;min-width:8px;}
   .meta{font-size:12px;color:var(--txt2);white-space:nowrap;background:rgba(255, 251, 244, 0.7);
     border:1px solid var(--border);border-radius:8px;padding:5px 11px;}
@@ -1506,11 +1522,11 @@
   #login button:hover{filter:brightness(1.08);}
   #login h1{background:linear-gradient(135deg,#ffd968,#f0a81e 50%,#e0481f);
     -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
-  .tab.active,.fchip.on,.seg .seg-btn.on{
-    background:linear-gradient(135deg,var(--grad-y2),var(--grad-y1) 50%,var(--grad-r1));
-    color:#4a2506;border-color:transparent;font-weight:bold;text-shadow:0 1px 0 rgba(255,255,255,.28);}
+  /* ★v63 旧的「亮黄→橙红渐变 + 深棕字」选中态已删除（v59 遗留）：
+     两端对比 9.27 / 3.28 落差过大、色泽发闷；白字配亮黄仅 1.45 几乎不可见。
+     现统一用上方 L791 的「深橙红 #c2410c 实底 + 白字」，实测对比 5.18 达 WCAG AA。 */
   .btn-tool.gold{background:linear-gradient(135deg,#e8a33c,#d97b16);color:#fff;
-    border-color:rgba(246,210,60,.55);color:#ffd968;}
+    border-color:rgba(224,150,60,.55);}
   .btn-tool.gold:hover{background:linear-gradient(135deg,#d97b16,#c96a12);color:#fff;}
   .nl-badge{background:linear-gradient(135deg,rgba(246,210,60,.26),rgba(224, 72, 31, 0.26));color:#ffd968;}
   .cs-badge{background:linear-gradient(135deg,rgba(246,210,60,.22),rgba(224, 72, 31, 0.20));color:#ffe08a;}
@@ -1972,7 +1988,7 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-10-05-v62b';   // v57 **对标阳光财险官网配色（用户：地图颜色没变过来、中低不要蓝、背景渐变太深）**：
+const CACHE_VERSION = '2026-10-05-v63c';   // v57 **对标阳光财险官网配色（用户：地图颜色没变过来、中低不要蓝、背景渐变太深）**：
 // ①★Playwright 渲染 www.sinosig.com 实测取色（curl 拿不到，SPA）：主橙 rgb(252,106,18)=#fc6a12、
 //    亮橙红 rgb(255,102,53)=#ff6635、深橙 #ff903a、浅灰底 #f7f8fa、白卡 #fff、
 //    文字深蓝灰 rgb(44,62,80)=#2c3e50 → **官网是「白底 + 亮橙红」，本版据此把底色从深棕黑大幅提亮为暖白**。
@@ -3239,7 +3255,7 @@ function pickSubjectNames(c, limit){
     const raw=d.enterprises_cleaned||d.enterprises||'';
     String(raw).split(/[;；]/).forEach(piece=>{
       let x=piece.trim();
-      x=x.replace(/[（(][^）)]{4,}[）)]/g,'').trim();   // 去掉括注
+      x=x.replace(/[（(][^)。，]{4,}[）)]/g,'').trim();   // 去掉括注
       if(!x || seen.has(x)) return;
       if(/^(待核|待结合|待接入|当地|本地)/.test(x)) return;
       if(/(有限公司|股份有限公司|集团|合作社|家庭农场|农垦|牧场)$/.test(x)){ seen.add(x); out.push(x); }
@@ -3400,7 +3416,7 @@ function extractMetricsFromBlob(c){
     blob += ' '+(d.market_size||'')+' '+(d.industry||'')+' '+(d.customers||'')+' '+(d.customers_cleaned||''); });
   // 提取来源（原文里通常带「（来源：沾益区统计公报）」）
   let srcTitle='该县公开统计口径（数值已内嵌于业务机会数据）', srcDate='';
-  const sm = blob.match(/来源[：:]\s*([^）)，,。;；]{2,40})/);
+  const sm = blob.match(/来源[：:]\s*([^)\s]{1,40})/);
   if(sm) srcTitle = sm[1].trim();
   const ym = blob.match(/(20\d{2})\s*年/);
   if(ym) srcDate = ym[1]+'年';
@@ -3607,7 +3623,7 @@ function openVarietyModal(v){
 // 无品种级条目的品种（如桃/梨/枣）回退县级口径，并在卡面显式标注「县级口径」。
 const RISK_VOCAB = ['花期冻害','低温冷害','高温热害','海水倒灌','连阴雨','沙尘暴','干热风','倒春寒','寒露风','晚疫病','病虫害','泛塘','渍涝','内涝','干旱','旱灾','缺水','洪涝','涝渍','暴雨','寡照','冰雹','雹灾','霜冻','冻害','低温','高温','热害','寒潮','台风','风灾','大风','雪灾','暴雪','疫病','病害','赤潮','溶氧'].sort((a,b)=>b.length-a.length);
 function baseVarName(n){ return String(n||'').split(/[（(]/)[0].trim(); }
-function parenOf(n){ const m=String(n||'').match(/[（(]([^）)]*)[）)]/); return m?m[1]:''; }
+function parenOf(n){ const m=String(n||'').match(/[（(]([^)。，]*)[）)]/); return m?m[1]:''; }
 // 从条目括号文本中按灾害词表提取（最长优先，命中即占位，避免"低温冷害"被"低温"重复计）
 function extractRisks(txt){
   let t=String(txt||'');
@@ -4354,10 +4370,75 @@ function oppDimEvidence(c, dim){
     return '灾害类型以省级风险画像为主，县级触发频次待核';
   }
   if(dim==='qualify'){
-    return `农险经营资质 √；政策性农险经营资格 ${c.policyType? '√（'+c.policyType+'）' : '未取得'}`;
+    const polTxt = c.policyType? '√（'+c.policyType+'）' : '未取得';
+    return `按权威表《农险经营资质与政策性业务资格统计表》核定：农险经营资质 √；政策性农险经营资格 ${polTxt}`;
   }
   return '该维度全表统一 50 分，对总分不产生区分度';
 }
+
+// ★v63 该维度的「得分怎么来的」：给出算式与省内位次，让分数可验证
+function oppDimCalc(c, dim, v){
+  const d=(c.directions||{}); const nm=c.name||'';
+  if(dim==='scale'){
+    let tot=null, src='';
+    for(const dk of ['weather','aqua','credit']){
+      const t=(d[dk]||{}).market_size||'';
+      const m=t.match(/(?:农林牧渔(?:业)?总产值|农业总产值|第一产业生产总值|地区生产总值)[^。；;]{0,20}?([\d.]+)\s*亿元/);
+      if(m){ tot=parseFloat(m[1]); src=(t.match(/来源[：:]\s*([^)\s]{1,40})/)||[])[1]||''; break; }
+    }
+    const nv=['weather','aqua','credit'].reduce((a,dk)=>a+(((d[dk]||{}).varieties)||[]).length,0);
+    if(tot==null) return `本项 <b>${v}</b> 分：未抽到该县公开总产值，按"非农主城区/体量偏小"取 ${v} 分，需补统计公报后重算`;
+    let band = tot>=200?'200 亿元以上': tot>=100?'100~200 亿元': tot>=30?'30~100 亿元':'30 亿元以下';
+    return `本项 <b>${v}</b> 分：总产值 <b>${tot} 亿元</b>（${band}${src?'，'+src:''}）`
+         + ` → 省内分位归一得 ${v} 分${nv?`；另有 ${nv} 个品种级明细`:''}`;
+  }
+  if(dim==='subsidy'){
+    let ev='';
+    for(const dk of ['weather','aqua','credit']){
+      const t=(d[dk]||{}).market_size||'';
+      const m=t.match(/(?:保费补贴|财政补贴|补贴)[^。；;]{0,32}/);
+      if(m){ ev=m[0]; break; }
+    }
+    const pol = c.policyType? '已入围（'+c.policyType+'）':'未取得';
+    return `本项 <b>${v}</b> 分：按省/市/县财政配套分级取值${ev?`；实证「${ev}」`:'；县级财政预算未公开，按省级分档取默认值'}`
+         + `；政策性经营资格<b>${pol}</b>`;
+  }
+  if(dim==='risk'){
+    const dis=(c.disaster_10y||{}).common_disasters;
+    const n=Array.isArray(dis)?dis.length:0;
+    return `本项 <b>${v}</b> 分：在册灾害 <b>${n}</b> 类`
+         + (n? `（${dis.slice(0,4).map(x=>`${(x&&x.type)||'—'}`).join('、')}${n>4?'…':''}）`:'（暂取省级画像默认值）')
+         + ` → 按类型数×频次×典型损失加权得 ${v} 分`;
+  }
+  if(dim==='qualify'){
+    const pol = c.policyType;
+    if(v>=99 && !pol){
+      // ★口径冲突：dims 记 100（旧口径=仅有农险经营资质），但权威表显示未入围政策性
+      return `本项 <b>${v}</b> 分：<b>旧口径</b>——仅凭"具备农险经营资质"即记 100 分。
+              <span class="ocf-warn">⚠ 该县实际<b>未入围</b>政策性农险遴选，权威表 I 列为空白；
+              加权计算仍沿用原 100 分，属历史口径，建议按新口径重算</span>`;
+    }
+    if(v>=99) return `本项 <b>${v}</b> 分：农险经营资质 √ + <b>已入围政策性遴选（含后备）</b> = 100 分（与权威表一致）`;
+    if(pol)       return `本项 <b>${v}</b> 分：已入围（${pol}），但该分值为早期口径，建议按新表复核`;
+    return `本项 <b>${v}</b> 分：农险经营资质 √ 但<b>未入围</b>政策性遴选 = 55 分（与权威表一致）`;
+  }
+  return `本项 <b>${v}</b> 分：全表统一值，无区分度（Phase 2 补各县承保份额后重算）`;
+}
+function oppScoreSummary(e, c){
+  if(!e) return '';
+  const pairs=WEIGHT_ORDER.map(k=>({k, m:OPP_DIM_META[k], v:e.dims[k]||0, w:(USER_W[k]||0)}));
+  const contrib=pairs.map(p=>({...p, c:p.v*p.w})).sort((a,b)=>b.c-a.c);
+  const top=contrib[0], bottom=contrib[contrib.length-1];
+  const weak=pairs.filter(p=>p.v<60).map(p=>p.m.name);
+  return `<div class="os-sum">
+    <b>这个分怎么来的</b>：
+    贡献最大的是 <b style="color:var(--gold-ink)">${top.m.name}</b>（${top.v}×${Math.round(top.w*100)}% ≈ <b>${top.c.toFixed(1)}</b> 分）
+    ${bottom.c<top.c? `，拖后腿的是 <b>${bottom.m.name}</b>（${bottom.v}×${Math.round(bottom.w*100)}% ≈ ${bottom.c.toFixed(1)} 分）`:''}。
+    ${weak.length? `短板在 <b>${weak.join('、')}</b>，${weak.length>1?'是拉低总分的关键':'单项偏低'}。`
+                 : '五个维度均无明显短板，属均衡型。'}
+  </div>`;
+}
+
 function oppTierExplain(e){
   if(!e) return '';
   const rule=OPP_TIER_RULE.find(r=>r.t===e.tier);
@@ -4392,14 +4473,15 @@ function oppDimReasonList(e, c){
       <div class="od-b">
         <div class="od-row1"><b>得分含义</b>：${lvTxt}</div>
         <div class="od-row1"><b>本县实证</b>：${oppDimEvidence(c, k)}</div>
+        <div class="od-row2">${oppDimCalc(c, k, v)}</div>
       </div>
     </div>`;
   }).join('');
   return `<div class="od-box">
-    <div class="od-box-h" onclick="this.parentNode.classList.toggle('open')">
-      <span>🔍 各维度得分理由（点击展开）</span><span class="od-arw">▾</span>
+    <div class="od-box-h" onclick="this.parentNode.classList.toggle('collapsed')">
+      <span>🔍 各维度得分理由</span><span class="od-arw">▾</span>
     </div>
-    <div class="od-box-b">${rows}</div>
+    <div class="od-box-b">${oppScoreSummary(e, c)}${rows}</div>
   </div>`;
 }
 function oppColorFor(v){ return v>=88?'#1a4fd6' : v>=65?'#5aa2f8' : v>=45?'#f0a850' : v>=30?'#b88a5e' : '#8a7f76'; }
