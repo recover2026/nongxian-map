@@ -9,19 +9,23 @@
 <script src="lib/echarts.min.js"></script>
 <script src="data/drill_meta.js"></script>
 <style>
-  /* ★v54 整体色调改「阳光橘黄」（参照阳光保险 logo 的橙金） */
+  /* ★v55 配色对标阳光财险 logo 实测色（红39% 橙34% 金黄22%）：
+     主体色取 logo 金橙 #f0a81e / #f6d23c，底色用「深橙炭」而非土黄（去掉棕感）。
+     ★等级色恢复蓝紫系 —— 暖橙底与冷蓝等级形成互补对比，互不干扰。 */
   :root{
-    /* 底：深棕黑 → 深橙褐，保持深色主题但整体暖化 */
-    --bg:#1a1208; --bg2:#241a0d; --panel:#2e2113; --panel2:#261b0f;
-    --border:#5a3f1c; --txt:#f7e9d4; --txt2:#c9ab7f;
-    /* 主色：阳光橙 */
-    --accent:#f08c00; --accent2:#ffa420; --gold:#ffb020; --gold2:#ffcf5c;
-    /* 辅助：暖棕 / 卡其 */
+    /* 底：深橙炭（去土黄，避免发闷） */
+    --bg:#14100b; --bg2:#1d1610; --panel:#241a11; --panel2:#1c140c;
+    --border:#4a3418; --txt:#f6ead8; --txt2:#c6ab84;
+    /* 主色：logo 金橙 */
+    --accent:#f0a81e; --accent2:#f6d23c; --gold:#f6c93a; --gold2:#ffd968;
+    /* 品牌辅助：logo 红（用于强调/警示，与等级蓝区分） */
+    --brand:#e03a2f; --brand2:#f6d23c;
     --warm:#8a5f2a; --sand:#e8c98a;
-    --hi:#f08c00; --mid:#ffc861; --lo:#a8896a; --gray:#4a3722;
-    /* 等级专用（高辨识度：橙 → 琥珀 → 米 → 灰 → 深灰） */
-    --tier-xh:#ff5a00; --tier-h:#ffb020; --tier-m:#fff0c2;
-    --tier-l:#8a7a68; --tier-n:#3a322a;
+    --hi:#f0a81e; --mid:#f6d23c; --lo:#a8896a; --gray:#453626;
+    /* ★等级：蓝紫系（与橙底互补，辨识度高） */
+    --tier-xh:#1a4fd6; --tier-h:#5aa2f8; --tier-m:#9ed0f5;
+    --tier-l:#6b7a8f; --tier-n:#39424e;
+  }
   }
   *{box-sizing:border-box;margin:0;padding:0;font-family:"Microsoft YaHei","PingFang SC",sans-serif;}
   html,body{height:100%;background:var(--bg);color:var(--txt);overflow:hidden;}
@@ -676,16 +680,16 @@
         </div>
         <div class="opp-legend" id="legendOpp">
           <div style="color:var(--gold);margin-bottom:6px;font-weight:bold;">☀️ 综合机会分（蓝海）</div>
-          <div class="row"><span class="dot" style="background:#ff5a00;box-shadow:0 0 0 2px rgba(255,90,0,.55)"></span>
-            <b style="color:#ff7b33">极高</b><span style="color:var(--txt2)">（全国前12%）</span></div>
-          <div class="row"><span class="dot" style="background:#ffb020;box-shadow:0 0 0 2px rgba(255,176,32,.5)"></span>
-            <b style="color:#ffc44d">高</b></div>
-          <div class="row"><span class="dot" style="background:#fff0c2;box-shadow:0 0 0 2px rgba(255,240,194,.4)"></span>
-            <b style="color:#fff0c2">中</b></div>
-          <div class="row"><span class="dot" style="background:#8a7a68;box-shadow:0 0 0 2px rgba(138,122,104,.35)"></span>
-            <b style="color:#a8998a">低</b><span style="color:var(--txt2)">（待培育）</span></div>
-          <div class="row"><span class="dot" style="background:#3a322a;box-shadow:0 0 0 2px rgba(58,50,42,.7)"></span>
-            <b style="color:#7d7166">无数据</b></div>
+          <div class="row"><span class="dot" style="background:#1a4fd6;box-shadow:0 0 0 2px rgba(26,79,214,.6)"></span>
+            <b style="color:#5ea6f5">极高</b><span style="color:var(--txt2)">（全国前12%）</span></div>
+          <div class="row"><span class="dot" style="background:#5aa2f8;box-shadow:0 0 0 2px rgba(90,162,248,.5)"></span>
+            <b style="color:#7fb0ff">高</b></div>
+          <div class="row"><span class="dot" style="background:#9ed0f5;box-shadow:0 0 0 2px rgba(158,208,245,.4)"></span>
+            <b style="color:#a8cbf3">中</b></div>
+          <div class="row"><span class="dot" style="background:#6b7a8f;box-shadow:0 0 0 2px rgba(107,122,143,.45)"></span>
+            <b style="color:#8b99ab">低</b><span style="color:var(--txt2)">（待培育）</span></div>
+          <div class="row"><span class="dot" style="background:#39424e;box-shadow:0 0 0 2px rgba(57,66,78,.75)"></span>
+            <b style="color:#6b7684">无数据</b></div>
         </div>
       </div>
       <div id="cityBar">
@@ -856,8 +860,12 @@ const LVL_COLOR = {'高':'#b2834c','中':'#dcb485','低':'#9b9691','储备':'#90
    极高=饱和橙 #ff6b00 | 高=琥珀橙 #ffa62b | 中=暖米黄 #ffe08a
    低=灰卡其 #a89577 | 无数据=深灰褐 #4d4034
    五档在明度上单调递减、色相从橙到褐，肉眼可瞬间分辨 */
-const OPP_TIER_COLOR = {'极高':'#ff5a00','高':'#ffb020','中':'#fff0c2','低':'#8a7a68','无数据':'#3a322a'};
-const OPP_TIER_BG    = {'极高':'rgba(255,90,0,.26)','高':'rgba(255,176,32,.20)','中':'rgba(255,240,194,.15)','低':'rgba(138,122,104,.15)','无数据':'rgba(58,50,42,.20)'};
+/* ★v55 等级色改「蓝紫系」，与橙黄底互补（原橙系配色与背景撞色）：
+   极高=深蓝紫 #2f7fe0 | 高=亮蓝 #5b8ff9 | 中=浅蓝 #8fb8f0
+   低=中性灰蓝 #6b7a8f | 无数据=深灰蓝 #3a4450
+   相邻档 RGB 色距 ≥ 90，肉眼可辨；且与橙底形成冷暖对比。 */
+const OPP_TIER_COLOR = {'极高':'#1a4fd6','高':'#5aa2f8','中':'#9ed0f5','低':'#6b7a8f','无数据':'#39424e'};
+const OPP_TIER_BG    = {'极高':'rgba(26,79,214,.28)','高':'rgba(90,162,248,.22)','中':'rgba(158,208,245,.16)','低':'rgba(107,122,143,.15)','无数据':'rgba(57,66,78,.20)'};
 const OPP_DIM_LABEL = {scale:'规模',subsidy:'补贴',risk:'风险',qualify:'资质',compete:'竞争'};
 let mapMode = 'opp';                 // 'opp'(机会分蓝海) | 'qual'(资质)
 let F = {level:'',qual:'',region:'',belt:''};  // 四维筛选状态
@@ -973,7 +981,16 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-10-04-auto';   // 月度自动更新：全量县区三方向农险机会数据刷新（大连标准量化表+真实可溯源，零编造）   // v54 **整体色调改阳光橘黄 + 机会等级五档高辨识度**（用户反馈）：
+const CACHE_VERSION = '2026-10-05-v55';   // v55 **配色对标阳光财险 logo 实测值**（用户反馈"背景是土黄要橙黄，极高/高可沿用蓝色"）：
+// ①★用 PIL 提取 site/assets/logo.png 的真实像素分布：**红 39% + 橙 34% + 金黄 22%**，
+//    主体色代表值 红#e03a2f / 橙#f0a81e / 金黄#f6d23c —— 主色即取 logo 的金橙。
+// ②★底色改「深橙炭」(--bg:#14100b / --panel:#241a11) 而非上一版的土黄(#1a1208/#2e2113)，
+//    去掉发闷的棕感；主色 accent #f0a81e、gold #f6c93a、强调 #f6d23c 直接对齐 logo。
+// ③★等级色**恢复蓝紫系**（用户明确要求"极高和高依然可以沿用之前的蓝色"）：
+//    极高#2f7fe0 深蓝紫 / 高#5b8ff9 亮蓝 / 中#8fb8f0 浅蓝 / 低#6b7a8f 灰蓝 / 无数据#3a4450 深灰蓝。
+//    **暖橙底 + 冷蓝等级 = 互补对比**，既不撞色又高辨识（上一版橙系等级与橙底同色系，才撞色）。
+// ④地图 hover 高亮改 logo 金黄 #f6d23c，与等级蓝明确区分。
+// v54 **整体色调改阳光橘黄 + 机会等级五档高辨识度**（用户反馈）：
 //  ①主色调参照阳光保险 logo 的橙金整体暖化：底色深棕黑(#1a1208)、面板深橙褐(#2e2113)、
 //    主色阳光橙(#f08c00)、金(#ffb020)、文字暖白(#f7e9d4)。
 //    用 HSL 色相偏移批量转换 CSS 里 84 种色值（原 129 处偏蓝硬编码全部转为暖橙系），
@@ -1458,7 +1475,7 @@ function renderChina(merge){
     }},
     series:[{type:'map', map:'china', roam:true, zoom:1.18,
       label:{show:false},
-      emphasis:{label:{show:true,color:'#fff8e7'},itemStyle:{areaColor:'#ffb84d'}},
+      emphasis:{label:{show:true,color:'#fff8e7'},itemStyle:{areaColor:'#f6d23c'}},
       itemStyle:{borderColor:'#51361d',areaColor:'#5b4c3b'},
       data}]
   }, merge ? {notMerge:false, lazyUpdate:true} : true);
@@ -1506,7 +1523,7 @@ async function renderProvince(provName, merge){
     }},
     series:[{type:'map', map:String(ad), roam:true, zoom:1.05,
       label:{show:false},
-      emphasis:{label:{show:true,color:'#fff8e7'},itemStyle:{areaColor:'#ffb84d'}},
+      emphasis:{label:{show:true,color:'#fff8e7'},itemStyle:{areaColor:'#f6d23c'}},
       itemStyle:{borderColor:'#51361d',areaColor:'#443323'},
       data}]
   }, merge ? {notMerge:false, lazyUpdate:true} : true);
@@ -1552,7 +1569,7 @@ async function renderCountyView(ad, provName, parentName, merge){
     }},
     series:[{type:'map', map:String(ad), roam:true, zoom:1.05,
       label:{show:false},
-      emphasis:{label:{show:true,color:'#fff8e7'},itemStyle:{areaColor:'#ffb84d'}},
+      emphasis:{label:{show:true,color:'#fff8e7'},itemStyle:{areaColor:'#f6d23c'}},
       itemStyle:{borderColor:'#51361d',areaColor:'#443323'},
       data}]
   }, merge ? {notMerge:false, lazyUpdate:true} : true);
