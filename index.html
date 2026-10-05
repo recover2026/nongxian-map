@@ -20,12 +20,19 @@
     --accent:#f0a81e; --accent2:#f6d23c; --gold:#f6c93a; --gold2:#ffd968;
     /* 品牌辅助：logo 红（用于强调/警示，与等级蓝区分） */
     --brand:#e03a2f; --brand2:#f6d23c;
+    /* ★v56 logo 渐变端点（实测色相 30°→0°：左上金黄 → 右下橙红） */
+    --grad-y1:#f0a81e;  /* logo 金橙 */
+    --grad-y2:#f6d23c;  /* logo 亮金黄 */
+    --grad-o1:#e07b18;  /* 中段橙 */
+    --grad-r1:#e0481f;  /* logo 橙红 */
+    --grad-deep:#8f2d0f; /* 深橙红（渐变收尾） */
     --warm:#8a5f2a; --sand:#e8c98a;
     --hi:#f0a81e; --mid:#f6d23c; --lo:#a8896a; --gray:#453626;
     /* ★等级：蓝紫系（与橙底互补，辨识度高） */
     --tier-xh:#1a4fd6; --tier-h:#5aa2f8; --tier-m:#9ed0f5;
     --tier-l:#6b7a8f; --tier-n:#39424e;
   }
+
   }
   *{box-sizing:border-box;margin:0;padding:0;font-family:"Microsoft YaHei","PingFang SC",sans-serif;}
   html,body{height:100%;background:var(--bg);color:var(--txt);overflow:hidden;}
@@ -44,7 +51,7 @@
   #login .err{color:var(--lo);font-size:12px;height:16px;margin-bottom:8px;}
   /* 布局 */
   #app{display:none;flex-direction:column;height:100%;}
-  header{display:flex;flex-direction:column;background:linear-gradient(95deg,#2e1c0c,#22150a);
+  header{display:flex;flex-direction:column;background:linear-gradient(95deg,#3a1f06,#22150a 60%,#1c1208);
     border-bottom:1px solid var(--border);flex-shrink:0;}
   /* 顶行：品牌 + 方向导航 + 搜索 + 数据基准 + 工具组 */
   .hdr-top{display:flex;align-items:center;gap:12px;padding:10px 18px;flex-wrap:wrap;row-gap:9px;}
@@ -142,7 +149,7 @@
   .dir-card{background:#2f1e0e;border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:13px;}
   .dir-card .dh{display:flex;align-items:center;gap:9px;margin-bottom:11px;}
   /* 展业话术卡 */
-  .pitch-card{background:linear-gradient(135deg,#352210,#2b1a0c);border:1px solid #5e472f;border-radius:10px;padding:13px 15px;margin-bottom:13px;box-shadow:0 2px 10px rgba(0,0,0,.25);}
+  .pitch-card{background:linear-gradient(140deg,#3d2208,#2b1a0c);border:1px solid #7a5526;border-radius:10px;padding:13px 15px;margin-bottom:13px;box-shadow:0 2px 10px rgba(0,0,0,.25);}
   .pitch-card .pc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:9px;flex-wrap:wrap;}
   .pitch-card .pc-t{font-size:13.5px;font-weight:bold;color:var(--gold);}
   .pitch-card .pc-toggle{display:inline-flex;border:1px solid var(--border);border-radius:18px;overflow:hidden;}
@@ -171,7 +178,7 @@
   .advFilter .af-lbl{font-size:12px;color:var(--txt2);white-space:nowrap;}
   .advFilter .af-clear{font-size:12px;color:var(--accent);cursor:pointer;padding:6px 11px;border:1px solid var(--border);border-radius:7px;white-space:nowrap;transition:.15s;display:inline-flex;align-items:center;min-height:32px;box-sizing:border-box;}
   .advFilter .af-clear:hover{border-color:var(--accent);background:rgba(46,127,255,.12);}
-  .opp-card{background:linear-gradient(135deg,#38210d,#2b190a);border:1px solid #5e472f;border-radius:10px;padding:13px 15px;margin-bottom:13px;box-shadow:0 2px 10px rgba(0,0,0,.22);}
+  .opp-card{background:linear-gradient(140deg,#43250a,#2b190a);border:1px solid #7a5526;border-radius:10px;padding:13px 15px;margin-bottom:13px;box-shadow:0 2px 10px rgba(0,0,0,.22);}
   .opp-card .oh{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
   .opp-card .ot{font-size:13.5px;font-weight:bold;color:#fff;}
   .opp-card .osc{font-size:30px;font-weight:900;line-height:1;color:var(--gold);}
@@ -179,7 +186,7 @@
   .opp-card .obars{display:grid;grid-template-columns:auto 1fr;gap:6px 10px;align-items:center;font-size:12px;}
   .opp-card .obars .ob-k{color:var(--txt2);white-space:nowrap;}
   .opp-card .obars .ob-track{height:8px;background:#29180a;border-radius:5px;overflow:hidden;}
-  .opp-card .obars .ob-fill{height:100%;border-radius:5px;background:linear-gradient(90deg,#8e5e2b,#cd9451);}
+  .opp-card .obars .ob-fill{height:100%;border-radius:5px;background:linear-gradient(90deg,var(--grad-r1),var(--grad-y1));}
   .opp-card .onote{font-size:11px;color:var(--txt2);margin-top:9px;line-height:1.6;}
   .opp-card .owarn{font-size:11px;color:#e0a23a;margin-top:4px;}
   .vchip-row{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 2px;}
@@ -192,7 +199,7 @@
   /* 权重配置面板 */
   .btn-w{background:#2b1a0c;color:var(--txt);border:1px solid var(--border);border-radius:8px;padding:6px 12px;font-size:12.5px;cursor:pointer;white-space:nowrap;}
   .btn-w:hover{border-color:var(--accent);color:#fff;}
-  #weightModal .wpanel{background:linear-gradient(135deg,#38210d,#2b190a);border:1px solid #5e472f;border-radius:14px;padding:22px 24px;max-width:460px;width:92%;box-shadow:0 10px 40px rgba(0,0,0,.5);}
+  #weightModal .wpanel{background:linear-gradient(140deg,#43250a,#2b190a);border:1px solid #7a5526;border-radius:14px;padding:22px 24px;max-width:460px;width:92%;box-shadow:0 10px 40px rgba(0,0,0,.5);}
   #weightModal .wp-h{font-size:16px;font-weight:bold;color:#fff;margin-bottom:4px;}
   #weightModal .wp-sub{font-size:12px;color:var(--txt2);margin-bottom:14px;line-height:1.6;}
   #weightRows .wrow{display:flex;align-items:center;gap:12px;margin:11px 0;}
@@ -602,6 +609,27 @@
   .fb-issue{background:var(--gold);color:#1c1108;} .fb-issue:hover{opacity:.85;}
   .fb-export{background:#2b1a0c;color:var(--txt2);border:1px solid var(--border)!important;} .fb-export:hover{color:#fff;}
   .tip{font-size:11px;color:var(--txt2);line-height:1.6;margin-top:8px;}
+
+  /* ★v56 logo 渐变（实测 金黄 #f6d23c → 橙 #e07b18 → 橙红 #e0481f）应用在显眼元素 */
+  .grad-brand{background:linear-gradient(135deg,var(--grad-y2) 0%,var(--grad-y1) 42%,var(--grad-r1) 100%);}
+  #login button{background:linear-gradient(135deg,#f6d23c,#f0a81e 45%,#e0481f);color:#2a1405;
+    font-weight:bold;box-shadow:0 4px 16px rgba(224,72,31,.30);}
+  #login button:hover{filter:brightness(1.08);}
+  #login h1{background:linear-gradient(135deg,#ffd968,#f0a81e 50%,#e0481f);
+    -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+  .tab.active,.fchip.on,.seg .seg-btn.on{
+    background:linear-gradient(135deg,var(--grad-y2),var(--grad-y1) 50%,var(--grad-r1));
+    color:#2a1405;border-color:transparent;font-weight:bold;}
+  .btn-tool.gold{background:linear-gradient(135deg,rgba(246,210,60,.22),rgba(224,72,31,.22));
+    border-color:rgba(246,210,60,.55);color:#ffd968;}
+  .btn-tool.gold:hover{background:linear-gradient(135deg,var(--grad-y2),var(--grad-r1));color:#2a1405;}
+  .nl-badge{background:linear-gradient(135deg,rgba(246,210,60,.26),rgba(224,72,31,.26));color:#ffd968;}
+  .cs-badge{background:linear-gradient(135deg,rgba(246,210,60,.22),rgba(224,72,31,.20));color:#ffe08a;}
+  .sel-head{border-bottom:linear-gradient(90deg,var(--grad-y1),var(--grad-r1)) 1px;}
+  .opp-card .obars .ob-fill{background:linear-gradient(90deg,var(--grad-r1),var(--grad-y2));}
+  .push-bar,.si-card{border-color:#6b4a22;}
+  .opp-legend .dot{border:1px solid rgba(255,255,255,.18);}
+
 </style>
 </head>
 <body>
@@ -981,7 +1009,15 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-10-05-v55';   // v55 **配色对标阳光财险 logo 实测值**（用户反馈"背景是土黄要橙黄，极高/高可沿用蓝色"）：
+const CACHE_VERSION = '2026-10-05-v56';   // v56 **logo 渐变应用**（用户给了 logo 图，要求"这种渐变的色调"）：
+//  ★用 PIL 逐行/逐列采样 logo.png 提取渐变方向：垂直方向色相 **30°(金黄) → 20°(橙) → 0°(橙红)**，
+//    水平方向同样 左金黄→右橙红 → 确定渐变轴为「左上金黄 → 右下橙红」。
+//  渐变端点（实测）：金黄 #f6d23c → 金橙 #f0a81e → 橙红 #e0481f，收尾深橙红 #8f2d0f。
+//  应用位置（放在 </style> 前确保覆盖原规则）：登录按钮、登录标题（文字渐变）、
+//  顶部方向 tab 选中态、筛选 chip 选中态、金色工具按钮、龙头/统计徽章、面板标题下边框、机会条填充。
+//  ★同时修掉一个坑：渐变块最初插在 :root 之后（CSS 靠前），被后面的原 `#login button` 覆盖 →
+//    **覆盖样式必须放在 </style> 前**，否则同优先级下后写的胜出。
+// v55 **配色对标阳光财险 logo 实测值**（用户反馈"背景是土黄要橙黄，极高/高可沿用蓝色"）：
 // ①★用 PIL 提取 site/assets/logo.png 的真实像素分布：**红 39% + 橙 34% + 金黄 22%**，
 //    主体色代表值 红#e03a2f / 橙#f0a81e / 金黄#f6d23c —— 主色即取 logo 的金橙。
 // ②★底色改「深橙炭」(--bg:#14100b / --panel:#241a11) 而非上一版的土黄(#1a1208/#2e2113)，
@@ -2628,7 +2664,8 @@ function printVisitPack(){
     'h3{font-size:14px;margin:12px 0 4px;color:#895826}'+
     'blockquote{border-left:3px solid #7a4a18;margin:8px 0;padding:4px 12px;color:#555;background:#f7f9fc}'+
     'hr{border:none;border-top:1px solid #ddd;margin:20px 0}';
-  const html=`<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>农险拜访包 · ${document.getElementById('vpName').textContent}</title><style>${style}</style></head><body>${mdToHtml(VP_MD)}</body></html>`;
+  const html=`<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><title>农险拜访包 · ${document.getElementById('vpName').textContent}</title><style>${style}
+</style></head><body>${mdToHtml(VP_MD)}</body></html>`;
   const w=window.open('','_blank'); if(!w){ toast('弹窗被拦截，请允许后重试'); return; }
   w.document.open(); w.document.write(html); w.document.close();
   setTimeout(()=>{ try{ w.focus(); w.print(); }catch(e){} }, 400);
