@@ -659,6 +659,52 @@
 
 
 
+
+  /* ★v62 综合机会分：分级依据 + 维度理由 */
+  .otx{margin-top:9px;border:1px solid var(--border);border-radius:9px;background:#fffdf7;overflow:hidden;}
+  .otx-h{font-size:11.5px;font-weight:bold;color:var(--warm);padding:6px 11px;
+    background:#fbe8cd;border-bottom:1px solid var(--border);}
+  .otx-b{padding:8px 11px;font-size:11.5px;line-height:1.8;color:#5a4632;}
+  .otx-line{margin-top:3px;color:#7a6a58;font-size:11px;}
+  .otx-line b{color:#8a5a10;}
+  .od-box{margin-top:9px;border:1px solid var(--border);border-radius:9px;background:#fffdf7;overflow:hidden;}
+  .od-box-h{display:flex;align-items:center;justify-content:space-between;padding:7px 11px;
+    font-size:11.5px;font-weight:bold;color:var(--warm);background:#fbe8cd;cursor:pointer;user-select:none;}
+  .od-box-h:hover{background:#f8dcbb;}
+  .od-arw{font-size:10px;transition:transform .2s;}
+  .od-box.open .od-arw{transform:rotate(180deg);}
+  .od-box-b{max-height:0;overflow:hidden;transition:max-height .28s ease;}
+  .od-box.open .od-box-b{max-height:1400px;overflow-y:auto;}
+  .od-row{padding:8px 11px;border-bottom:1px dashed rgba(200,170,130,.4);}
+  .od-row:last-child{border-bottom:none;}
+  .od-hd{display:flex;align-items:center;gap:7px;flex-wrap:wrap;}
+  .od-nm{font-size:12px;font-weight:bold;color:#2c3e50;min-width:56px;}
+  .od-v{font-size:10.5px;font-weight:bold;color:#fff;padding:1px 7px;border-radius:8px;}
+  .od-w{font-size:10.5px;color:#8a6a4a;}
+  .od-c{font-size:10.5px;color:#7a6a58;flex:1;min-width:150px;}
+  .od-b{margin-top:4px;}
+  .od-row1{font-size:11px;line-height:1.7;color:#5a4632;}
+  .od-row1 b{color:#8a5a10;}
+  /* 分档口径弹窗 */
+  #oppRuleModal{position:fixed;inset:0;background:rgba(74,52,20,.42);backdrop-filter:blur(2px);
+    display:none;align-items:center;justify-content:center;z-index:12000;padding:24px;}
+  .orm-box{background:var(--panel);border:1px solid var(--border);border-radius:14px;
+    width:min(760px,95vw);max-height:86vh;overflow-y:auto;padding:20px 24px;}
+  .orm-h{font-size:16px;font-weight:bold;color:var(--warm);padding-bottom:10px;
+    border-bottom:1px solid var(--border);margin-bottom:14px;display:flex;align-items:center;}
+  .orm-x{margin-left:auto;cursor:pointer;font-size:18px;color:var(--txt2);}
+  .orm-x:hover{color:#c0392b;}
+  .orm-sec{margin-bottom:16px;}
+  .orm-t{font-size:13px;font-weight:bold;color:var(--warm);margin-bottom:7px;
+    padding-left:8px;border-left:3px solid var(--gold);}
+  .orm-tbl{width:100%;border-collapse:collapse;font-size:11.5px;table-layout:fixed;}
+  .orm-tbl th{background:#fbe8cd;color:#7a4a10;font-weight:bold;padding:6px 8px;text-align:left;
+    border:1px solid var(--border);}
+  .orm-tbl td{padding:6px 8px;border:1px solid var(--border);line-height:1.65;color:#5a4632;
+    word-break:break-word;}
+  .orm-note{font-size:11px;color:#7a6a58;line-height:1.75;margin-top:10px;padding:9px 11px;
+    background:#fdf0d8;border-left:3px solid var(--gold);border-radius:0 7px 7px 0;}
+
   /* ★v61 三大方向对照（HTML 版，字号不随 SVG 缩放） */
   .td-list{display:flex;flex-direction:column;gap:7px;margin-top:2px;}
   .td-row{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;
@@ -1926,7 +1972,7 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-10-05-v61c';   // v57 **对标阳光财险官网配色（用户：地图颜色没变过来、中低不要蓝、背景渐变太深）**：
+const CACHE_VERSION = '2026-10-05-v62b';   // v57 **对标阳光财险官网配色（用户：地图颜色没变过来、中低不要蓝、背景渐变太深）**：
 // ①★Playwright 渲染 www.sinosig.com 实测取色（curl 拿不到，SPA）：主橙 rgb(252,106,18)=#fc6a12、
 //    亮橙红 rgb(255,102,53)=#ff6635、深橙 #ff903a、浅灰底 #f7f8fa、白卡 #fff、
 //    文字深蓝灰 rgb(44,62,80)=#2c3e50 → **官网是「白底 + 亮橙红」，本版据此把底色从深棕黑大幅提亮为暖白**。
@@ -4238,6 +4284,126 @@ function setCountyView(on){
     if(el && window.echarts){ const inst=echarts.getInstanceByDom(el); if(inst&&inst.resize) inst.resize(); } }catch(e){} };
   setTimeout(fit,60); setTimeout(fit,340);
 }
+
+// ===== ★v62 综合机会分：分级标准 + 维度得分理由（可解释性） =====
+// 分级标准（全国统一口径，改权重会实时重算分档）
+const OPP_TIER_RULE = [
+  {t:'极高', pct:'全国前 12%', c:'#1a4fd6', d:'产业规模与风险双高、且具备政策性资格，可直接作为重点推进县'},
+  {t:'高',   pct:'12%~40%',   c:'#5aa2f8', d:'单项突出或组合均衡，建议列入上半年展业清单'},
+  {t:'中',   pct:'40%~75%',   c:'#f0a850', d:'体量中等，需结合单品产业做垂直突破'},
+  {t:'低',   pct:'后 25%',    c:'#b88a5e', d:'暂作储备观察，具备条件再启动'},
+];
+const OPP_DIM_META = {
+  scale:   {name:'产业规模', wkey:'scale',   calc:'县域农林牧渔业总产值 ÷ 省内分位 → 归一到 0~100；并叠加主导产业保额体量',
+            bands:[[85,'极高：总产值 200 亿元以上，或有全国级单品产业带（保费池 7 亿元+）'],
+                   [65,'高：总产值 100~200 亿元，省级重点产业县'],
+                   [40,'中：总产值 30~100 亿元，县级特色产业为主'],
+                   [0, '偏低：总产值 30 亿元以下，或以非农主城区为主']]},
+  subsidy: {name:'财政补贴', wkey:'subsidy', calc:'地方财政配套能力 + 已中标政策性项目的补贴规模，按省/市/县分级归一',
+            bands:[[85,'强：地方财政宽裕、补贴标准高，或已中标中央财政直拨资金'],
+                   [55,'中：省/市级标准配套，县级按比例分担'],
+                   [45,'偏弱：以地方自筹为主，县级财政压力较大'],
+                   [0, '弱：补贴主要依赖上级转移支付，县级配套能力有限']]},
+  risk:    {name:'风险强度', wkey:'risk',    calc:'近十年该县在册灾害类型数、频次、典型损失幅度加权（由灾害与价格近十年档案汇总）',
+            bands:[[95,'高：气象灾害高发区（干旱/涝/低温/台风频发），历史赔付触发密集，指数保险有真实触发基础'],
+                   [85,'较高：灾害类型较多，触发条件较敏感'],
+                   [60,'中：灾害风险中等，指数触发条件温和'],
+                   [0, '低：灾害风险温和，赔付触发概率低']]},
+  qualify: {name:'资质基础', wkey:'qualify', calc:'按《农险经营资质与政策性业务资格统计表》逐县核定：有农险经营资质=55，已入围政策性遴选（含后备）=100',
+            bands:[[99,'强：已入围省级/市级政策性农险遴选（含后备资格），可承接政策性业务'],
+                   [0, '弱：仅具备农险经营资质，尚未取得政策性资格（需以商业险/共保切入）']]},
+  compete: {name:'竞争空间', wkey:'compete', calc:'同区域承保密度与份额占用（Phase 2 补录；当前全表统一 50 分）',
+            bands:[[51,'待补录：区域承保主体少、份额空间大'],
+                   [0, '待补录：主体密集、份额已占满（当前无数据，暂统一记 50 分）']]},
+};
+function oppDimBand(dim, v){
+  const m=OPP_DIM_META[dim]; if(!m||!m.bands) return '';
+  for(const [th,txt] of m.bands){ if(v>=th) return txt; }
+  return m.bands[m.bands.length-1][1];
+}
+// 从该县真实字段里抽「实证」，不编造
+function oppDimEvidence(c, dim){
+  const d=(c.directions||{}); const nm=c.name||'';
+  const first=(...ds)=>{ for(const dk of ds){ const t=(d[dk]||{}).market_size; if(t) return {dk, t:String(t)}; } return null; };
+  if(dim==='scale'){
+    let tot=null;
+    for(const dk of ['weather','aqua','credit']){
+      const t=(d[dk]||{}).market_size||'';
+      const m=t.match(/(?:农林牧渔(?:业)?总产值|农业总产值|第一产业生产总值|地区生产总值)[^。；;]{0,20}?([\d.]+)\s*亿元/);
+      if(m){ tot=m[1]; break; }
+    }
+    const nv=['weather','aqua','credit'].reduce((s2,dk)=>s2+(((d[dk]||{}).varieties)||[]).length,0);
+    return (tot? `县域农林牧渔业总产值约 ${tot} 亿元` : '县域农业总产值体量偏小或以非农主城区为主')
+         + (nv? `；三方向共 ${nv} 个品种级明细` : '；品种级明细待补');
+  }
+  if(dim==='subsidy'){
+    let s2='';
+    for(const dk of ['weather','aqua','credit']){
+      const t=(d[dk]||{}).market_size||'';
+      const m=t.match(/(?:保费补贴|财政补贴|补贴)[^。；;]{0,30}/);
+      if(m){ s2=m[0]; break; }
+    }
+    return (s2? s2 : '县级财政配套能力需结合年度预算核实')
+         + `；政策性经营资格：${c.policyType? ('已入围（'+c.policyType+'）') : '未取得'}`;
+  }
+  if(dim==='risk'){
+    const dis=(c.disaster_10y||{}).common_disasters;
+    if(Array.isArray(dis)&&dis.length){
+      return '在册灾害：'+dis.slice(0,4).map(x=>`${(x&&x.type)||'—'}（${(x&&x.freq)||'频次待核'}）`).join('、');
+    }
+    return '灾害类型以省级风险画像为主，县级触发频次待核';
+  }
+  if(dim==='qualify'){
+    return `农险经营资质 √；政策性农险经营资格 ${c.policyType? '√（'+c.policyType+'）' : '未取得'}`;
+  }
+  return '该维度全表统一 50 分，对总分不产生区分度';
+}
+function oppTierExplain(e){
+  if(!e) return '';
+  const rule=OPP_TIER_RULE.find(r=>r.t===e.tier);
+  const tot=OPP_TIER_RULE.reduce((a,r)=>a+0,0);
+  const wTxt=WEIGHT_ORDER.map(k=>`${OPP_DIM_LABEL[k]}${Math.round((USER_W[k]||0)*100)}%`).join(' · ');
+  const custom = weightsEqualDefault()? '' : '（当前为**自定义权重**分档）';
+  return `<div class="otx">
+    <div class="otx-h">分档依据</div>
+    <div class="otx-b">
+      <b style="color:${rule?rule.c:'inherit'}">${e.tier}</b>　综合得分 <b>${e.score}</b>
+      　${rule? `｜位于全国 ${rule.pct}` : ''}${custom}
+      <div class="otx-line">计算式：规模×${Math.round((USER_W.scale||0)*100)}% + 补贴×${Math.round((USER_W.subsidy||0)*100)}% + 风险×${Math.round((USER_W.risk||0)*100)}% + 资质×${Math.round((USER_W.qualify||0)*100)}% + 竞争×${Math.round((USER_W.compete||0)*100)}%</div>
+      <div class="otx-line">权重：${wTxt}　｜　分档按<b>全国全部县区</b>得分排序取 12% / 40% / 75% 分位</div>
+      ${rule? `<div class="otx-line">该档含义：${rule.d}</div>`:''}
+    </div>
+  </div>`;
+}
+function oppDimReasonList(e, c){
+  if(!e) return '';
+  const rows=WEIGHT_ORDER.map(k=>{
+    const m=OPP_DIM_META[k]; const v=e.dims[k];
+    if(v==null) return '';
+    const w=Math.round((USER_W[k]||0)*100);
+    const lvTxt = oppDimBand(k, v);
+    return `<div class="od-row">
+      <div class="od-hd">
+        <span class="od-nm">${m.name}</span>
+        <span class="od-v" style="background:${oppColorFor(v)}">${v}</span>
+        <span class="od-w">权重 ${w}%</span>
+        <span class="od-c">${m.calc}</span>
+      </div>
+      <div class="od-b">
+        <div class="od-row1"><b>得分含义</b>：${lvTxt}</div>
+        <div class="od-row1"><b>本县实证</b>：${oppDimEvidence(c, k)}</div>
+      </div>
+    </div>`;
+  }).join('');
+  return `<div class="od-box">
+    <div class="od-box-h" onclick="this.parentNode.classList.toggle('open')">
+      <span>🔍 各维度得分理由（点击展开）</span><span class="od-arw">▾</span>
+    </div>
+    <div class="od-box-b">${rows}</div>
+  </div>`;
+}
+function oppColorFor(v){ return v>=88?'#1a4fd6' : v>=65?'#5aa2f8' : v>=45?'#f0a850' : v>=30?'#b88a5e' : '#8a7f76'; }
+
 function oppCard(c){
   if(!c.opp) return '';
   const o=effOpp(c); const tc=OPP_TIER_COLOR[o.tier];
@@ -4246,8 +4412,9 @@ function oppCard(c){
     return `<div class="ob-k">${OPP_DIM_LABEL[k]||k}</div><div class="ob-track"><div class="ob-fill" style="width:${pct}%"></div></div>`;
   }).join('');
   const warn = o.dims.compete===50 ? '<div class="owarn">⚠ 竞争维度暂无按县份额数据，Phase 2 补录后参与排序</div>' : '';
+  const explain = oppTierExplain(o) + oppDimReasonList(o, c);
   return `<div class="opp-card"><div class="oh"><span class="ot">🌊 综合机会分</span><span><span class="osc">${o.score}</span> <span class="otier" style="background:${tc}">${o.tier}</span></span></div>`+
-    `<div class="obars">${bars}</div><div class="onote">${o.note}</div>${warn}</div>`;
+    `<div class="obars">${bars}</div><div class="onote">${o.note}</div>${warn}${explain}</div>`;
 }
 function varietyChips(c){
   if(!c.varieties||!c.varieties.length) return '';
@@ -4339,6 +4506,49 @@ function selectCounty(name){
 }
 </script>
 <!-- ★v58 对应拜访话术弹窗：紧邻「一键拜访包」的独立入口 -->
+
+<!-- ★v62 综合机会分 · 分档口径与维度说明 -->
+<div id="oppRuleModal" style="display:none" onclick="if(event.target===this)document.getElementById('oppRuleModal').style.display='none'">
+  <div class="orm-box">
+    <div class="orm-h">📐 综合机会分级口径 · 五维说明
+      <span class="orm-x" onclick="document.getElementById('oppRuleModal').style.display='none'">✕</span></div>
+
+    <div class="orm-sec">
+      <div class="orm-t">一、综合得分怎么算</div>
+      <table class="orm-tbl">
+        <tr><th style="width:70px">维度</th><th style="width:44px">权重</th><th>数据来源与算法</th></tr>
+        <tr><td>产业规模</td><td>35%</td><td>县域农林牧渔业总产值按省内分位归一到 0~100，并叠加主导产业保额体量（可保保费池测算）</td></tr>
+        <tr><td>财政补贴</td><td>20%</td><td>地方财政对政策性农险的配套能力 + 已中标项目的补贴规模，按省/市/县分级归一</td></tr>
+        <tr><td>风险强度</td><td>20%</td><td>近十年在册灾害的类型数、频次、典型损失幅度加权汇总（来自灾害与价格近十年档案）</td></tr>
+        <tr><td>资质基础</td><td>15%</td><td>按《农险经营资质与政策性业务资格统计表》逐县核定：具备农险经营资质记 55 分，已入围政策性遴选（含后备）记 100 分</td></tr>
+        <tr><td>竞争空间</td><td>10%</td><td>同区域承保密度与份额占用情况。<b>当前全表统一 50 分，对总分不产生区分度</b>，Phase 2 补录后可拉开差距</td></tr>
+      </table>
+      <div class="orm-note">
+        综合得分 = 规模×35% + 补贴×20% + 风险×20% + 资质×15% + 竞争×10%（满分 100）。<br>
+        权重可在顶栏 <b>⚙ 权重</b> 中调整，调整后<b>所有县的分档会实时重算</b>。
+      </div>
+    </div>
+
+    <div class="orm-sec">
+      <div class="orm-t">二、分档标准（按全国得分排序取分位）</div>
+      <table class="orm-tbl">
+        <tr><th style="width:62px">档位</th><th style="width:86px">全国位次</th><th>含义与建议动作</th></tr>
+        <tr><td><span class="cf-v" style="background:#1a4fd6;color:#fff">极高</span></td><td>前 12%</td>
+            <td>产业规模与风险双高、且已具备政策性经营资格，可直接列为<b>重点推进县</b>，配置人力与产品资源</td></tr>
+        <tr><td><span class="cf-v" style="background:#5aa2f8">高</span></td><td>12% ~ 40%</td>
+            <td>单项突出或组合均衡，建议列入<b>上半年展业清单</b>，主打 1~2 个优势品种</td></tr>
+        <tr><td><span class="cf-v" style="background:#f0a850;color:#4a2a08">中</span></td><td>40% ~ 75%</td>
+            <td>体量中等，需结合<b>单品产业做垂直突破</b>，或以商业险/共保方式试水</td></tr>
+        <tr><td><span class="cf-v" style="background:#b88a5e">低</span></td><td>后 25%</td>
+            <td>暂作<b>储备观察</b>，待补贴落地或产业形成规模后再启动</td></tr>
+      </table>
+      <div class="orm-note">
+        分位阈值随权重变化实时重算；每县的<b>具体得分理由</b>见县详情页「综合机会分」卡内「各维度得分理由」。<br>
+        省级档位由所辖区县机会分聚合（规模取 TOP3 县均值，其余维取中位数）；地市/县为核实后的实际等级。
+      </div>
+    </div>
+  </div>
+</div>
 <div id="pitchModal" class="modal" style="display:none" onclick="if(event.target===this)closePitchModal()">
   <div class="pm-panel">
     <div class="pm-hd">
