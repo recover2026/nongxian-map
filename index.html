@@ -658,6 +658,19 @@
   .pm-btn{border-color:var(--gold);}
 
 
+
+  /* ★v61 三大方向对照（HTML 版，字号不随 SVG 缩放） */
+  .td-list{display:flex;flex-direction:column;gap:7px;margin-top:2px;}
+  .td-row{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;
+    background:#fffdf7;border:1px solid #f0e2c9;}
+  .td-row:hover{background:#fdf0d8;border-color:#e6cf9e;}
+  .td-bar{width:4px;height:30px;border-radius:2px;flex:0 0 auto;}
+  .td-txt{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;}
+  .td-name{font-size:12.5px;line-height:1.25;font-weight:600;color:#2c3e50;}
+  .td-sub{font-size:11px;line-height:1.25;font-style:normal;color:#7a6a58;}
+  .td-lvl{flex:0 0 auto;min-width:44px;text-align:center;padding:3px 9px;border-radius:9px;
+    font-size:11.5px;font-weight:700;line-height:1.3;letter-spacing:.5px;}
+
   /* ★v58 图表容器（纯内联 SVG，无 echarts 实例，开销≈0） */
   .chart-box{border:1px solid var(--border);border-radius:10px;padding:10px 12px 8px;margin:0 0 12px;
     background:linear-gradient(140deg,#fffaf0,#fdf4e3);overflow:hidden;position:relative;}
@@ -1902,12 +1915,18 @@ function applyWeights(){
 
 const MUNI = {'北京市':'110000','天津市':'120000','上海市':'310000','重庆市':'500000'};
 let PROV = null, COUNTY = null, QUAL = {qualified:{},policy:{}}, curDir = 'weather', curUnit = null, curCounty = null, chart = null, filterMode = 'all';
+// ★v61 显式挂到 window：qualLookup 用 window.QUAL 判断，原先只在模块级 let → 永远 undefined
+window.QUAL = {qualified:{},policy:{}};
+window.QUAL_READY = false;
+Object.defineProperty(window, 'QUAL', {
+  get(){ return QUAL; }, set(v){ QUAL = v; }, configurable:true
+});
 // 县名 → 县对象 索引（O(1) 查找，避免县视图渲染时 COUNTY.counties.find 的 O(n²)）
 let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-10-05-v59i';   // v57 **对标阳光财险官网配色（用户：地图颜色没变过来、中低不要蓝、背景渐变太深）**：
+const CACHE_VERSION = '2026-10-05-v61c';   // v57 **对标阳光财险官网配色（用户：地图颜色没变过来、中低不要蓝、背景渐变太深）**：
 // ①★Playwright 渲染 www.sinosig.com 实测取色（curl 拿不到，SPA）：主橙 rgb(252,106,18)=#fc6a12、
 //    亮橙红 rgb(255,102,53)=#ff6635、深橙 #ff903a、浅灰底 #f7f8fa、白卡 #fff、
 //    文字深蓝灰 rgb(44,62,80)=#2c3e50 → **官网是「白底 + 亮橙红」，本版据此把底色从深棕黑大幅提亮为暖白**。
@@ -2325,8 +2344,15 @@ async function init(){
     else { showMapError(); }
   }catch(e){ console.error('地图初始化失败:',e); showMapError(); }
   // 地图就绪后，异步补加载资质清单（不阻塞首屏）；再空闲时静默预载县区数据
-  cachedFetch('data/qualification.json', 'qualification').then(q=>{ QUAL = q || {qualified:{},policy:{}}; if(chart) renderCurrent(true); })
-    .catch(()=>{ QUAL = {qualified:{},policy:{}}; });
+  cachedFetch('data/qualification.json', 'qualification').then(q=>{
+    QUAL = q || {qualified:{},policy:{}};
+    window.QUAL_READY = true;
+    if(chart) renderCurrent(true);                 // ★v61 资质到货后重绘，县级色块随之更新
+    if(curCounty) selectCounty(curCounty.name);
+    if(curUnit) renderUnit(curUnit);
+  }).catch(err=>{
+    console.warn('[资质] qualification.json 加载失败，县级资质色块将退化为县对象自带字段', err);
+  });
   buildVarietyIndex();
   setMapMode('opp');   // 默认蓝海视图 + 图例切换
   // 若本地存了自定义权重，全量数据到达后按新权重重算档位（默认权重无需重算，沿用服务端档位）
@@ -2708,6 +2734,13 @@ function qualCoreVariants(name){
   const z=(b.endsWith('自治') && b.length>2) ? b.slice(0,-2) : b; add(z);
   qualEthnicChain(z).forEach(add);
   QUAL_VIRTUAL_TAIL.forEach(t=>{ if(b.endsWith(t) && b.length>t.length) add(b.slice(0,b.length-t.length)); });
+  // ★v61 前 2 字兜底：权威表把「元江哈尼族彝族傣族自治县」写成「元江市」，
+  //   民族自治字样被整段删除，能还原出的只有「元江」这两字 → 必须补该候选。
+  //   约束：名称 ≥3 字才取前 2 字，且这 2 字不能是常见行政区字（避免误配）。
+  if(name.length>=3){
+    const p2 = name.slice(0,2);
+    if(!/^(市|区|县|省|旗|盟)$/.test(p2)) add(p2);
+  }
   return out;
 }
 function qualCityVariants(name){
@@ -3041,19 +3074,22 @@ function chartThreeDirs(c){
   const DIRS=['weather','aqua','credit'];
   const rows = DIRS.map(k=>({k, d:(c.directions||{})[k]})).filter(x=>x.d);
   if(rows.length<2) return '';
-  const W=340, rowH=30, H=rows.length*rowH+6;
-  const body = rows.map((x,i)=>{
-    const y=i*rowH+4, lvl=x.d.lvl||'无数据', col=LVL_COLOR[lvl]||MAP_NODATA;
-    const cust=(x.d.customers_cleaned||x.d.customers||'');
+  // ★v61 改用 HTML+CSS：字号固定 px，不再随 SVG viewBox 等比放大
+  const body = rows.map(x=>{
+    const lvl=x.d.lvl||'无数据', col=LVL_COLOR[lvl]||MAP_NODATA;
     const nv=(x.d.varieties||[]).length;
-    return `<rect x="0" y="${y}" width="4" height="20" rx="2" fill="${col}"/>
-      <text x="10" y="${y+10}" font-size="11.5" fill="#2c3e50" font-weight="bold">${DIR_LABEL[x.k]}</text>
-      <text x="10" y="${y+22}" font-size="10" fill="#7b7269">${nv?nv+' 个品种级明细':'县级口径'}</text>
-      <rect x="256" y="${y+3}" width="52" height="17" rx="8" fill="${col}"/>
-      <text x="263" y="${y+16}" font-size="11" fill="#fff" font-weight="bold">${lvl}</text>`;
+    const dark=['中','低','无数据','储备'].includes(lvl);
+    return `<div class="td-row">
+      <span class="td-bar" style="background:${col}"></span>
+      <span class="td-txt">
+        <b class="td-name">${DIR_LABEL[x.k]}</b>
+        <i class="td-sub">${nv?('品种级明细 '+nv+' 项'):'县级口径'}</i>
+      </span>
+      <span class="td-lvl" style="background:${col};color:${dark?'#4a2a08':'#fff'}">${lvl}</span>
+    </div>`;
   }).join('');
   return `<div class="chart-box"><div class="chart-ti">三大方向机会等级对照</div>
-    <svg viewBox="0 0 ${W} ${H}" width="100%" role="img" style="width:100%;max-width:520px;height:auto">${body}</svg>
+    <div class="td-list">${body}</div>
     <div class="chart-ft">切顶栏「天气指数 / 水产养殖 / 信贷增信」可切换主视角</div></div>`;
 }
 // 5) 图表：品种机会等级分布（堆叠条）
