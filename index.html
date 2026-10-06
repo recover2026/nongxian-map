@@ -717,6 +717,36 @@
   .orm-note{font-size:11px;color:#7a6a58;line-height:1.75;margin-top:10px;padding:9px 11px;
     background:#fdf0d8;border-left:3px solid var(--gold);border-radius:0 7px 7px 0;}
 
+
+
+  /* ★v64 折叠标题栏内的显性按钮 */
+  .si-head .tg-btn,.cf-head .tg-btn,.od-box-h .tg-btn{margin-left:auto;flex:0 0 auto;}
+  .si-head,.cf-head,.od-box-h{display:flex;align-items:center;gap:8px;}
+  .od-box-h .tg-btn{background:transparent;border-color:#d9b47a;color:#8a4a06;}
+  .od-box-h .tg-btn:hover{background:#fbe8cd;}
+  .si-arw,.cf-arw,.od-arw{display:none;}
+
+  /* ★v64 品种等级分布（圆点矩阵 + 分档胶囊，字号统一不用 SVG） */
+  .vr-box{background:linear-gradient(140deg,#fffdf7,#fdf4e3);}
+  .vr-body{padding:2px 0 1px;}
+  .vr-head{display:flex;align-items:baseline;gap:7px;margin-bottom:9px;}
+  .vr-total{font-size:22px;font-weight:700;color:#c2410c;line-height:1;
+    font-family:"DIN Alternate","Arial Narrow",-apple-system,sans-serif;}
+  .vr-txt{font-size:12.5px;font-weight:600;color:#5a4632;line-height:1.3;}
+  .vr-sub{font-size:11px;font-weight:400;color:#a08e78;margin-left:7px;}
+  .vr-dots{display:flex;flex-wrap:wrap;gap:6px;padding:9px 0 10px;
+    border-top:1px dashed rgba(200,170,130,.45);}
+  .vr-dot{width:13px;height:13px;border-radius:50%;display:inline-block;flex:0 0 auto;
+    box-shadow:0 1px 2px rgba(150,110,50,.22), inset 0 -1px 1px rgba(255,255,255,.35);box-sizing:border-box;}
+  .vr-note{font-size:10.5px;color:#9a8a76;line-height:1.6;margin-top:8px;padding-top:7px;
+    border-top:1px dashed rgba(200,170,130,.4);}
+  .vr-chips{display:flex;flex-wrap:wrap;gap:6px;padding-top:9px;
+    border-top:1px dashed rgba(200,170,130,.45);}
+  .vr-chip{display:inline-flex;align-items:center;gap:5px;padding:3px 9px 3px 7px;
+    border-radius:11px;font-size:11.5px;font-weight:500;line-height:1.4;}
+  .vr-chip i{width:8px;height:8px;border-radius:50%;display:inline-block;flex:0 0 auto;}
+  .vr-chip b{font-size:12.5px;font-weight:700;color:#3f3428;}
+
   /* ★v61 三大方向对照（HTML 版，字号不随 SVG 缩放） */
   .td-list{display:flex;flex-direction:column;gap:7px;margin-top:2px;}
   .td-row{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;
@@ -751,9 +781,19 @@
     font-size:12.5px;line-height:1.85;color:var(--txt2);}
   .fld-long.open .v-full{display:block;}
   .fld-long.open .v-sum{display:none;}
-  .fld-more{float:right;font-weight:normal;}
-  .fld-more a{cursor:pointer;color:var(--accent);font-size:11px;text-decoration:none;}
-  .fld-more a:hover{text-decoration:underline;}
+  /* ★v64 显性展开按钮（原 .fld-more 纯文字链接太不明显） */
+  .tg-btn{display:inline-flex;align-items:center;gap:3px;height:22px;padding:0 10px;margin-left:8px;
+    border:1px solid #e0a860;border-radius:11px;background:#fdf0d8;color:#8a4a06;
+    font-size:11.5px;font-weight:600;line-height:1;cursor:pointer;white-space:nowrap;
+    vertical-align:middle;transition:background .15s,border-color .15s,color .15s;}
+  .tg-btn:hover{background:#f8dcbb;border-color:#c9761c;color:#6b3a04;}
+  .tg-btn:focus-visible{outline:2px solid var(--accent);outline-offset:1px;}
+  .tg-btn.is-open{background:#c2410c;border-color:#c2410c;color:#fff;}
+  .tg-btn.is-open:hover{background:#a83a09;border-color:#a83a09;color:#fff;}
+  .fld-long .k{display:flex;align-items:center;flex-wrap:wrap;gap:2px;}
+  .fld-long .k .tg-btn{margin-left:auto;}
+  /* 展开后按钮吸顶，长文本滚动时仍可见可点 */
+  .fld-long.open .k .tg-btn{position:sticky;top:0;z-index:2;box-shadow:0 1px 3px rgba(180,130,60,.2);}
 
   /* ★v58 数据完备度卡（让"哪些县缺什么"可见可解释） */
   .cf-card{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:12px;
@@ -1988,7 +2028,7 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-10-05-v63c';   // v57 **对标阳光财险官网配色（用户：地图颜色没变过来、中低不要蓝、背景渐变太深）**：
+const CACHE_VERSION = '2026-10-06-v64b';   // v57 **对标阳光财险官网配色（用户：地图颜色没变过来、中低不要蓝、背景渐变太深）**：
 // ①★Playwright 渲染 www.sinosig.com 实测取色（curl 拿不到，SPA）：主橙 rgb(252,106,18)=#fc6a12、
 //    亮橙红 rgb(255,102,53)=#ff6635、深橙 #ff903a、浅灰底 #f7f8fa、白卡 #fff、
 //    文字深蓝灰 rgb(44,62,80)=#2c3e50 → **官网是「白底 + 亮橙红」，本版据此把底色从深棕黑大幅提亮为暖白**。
@@ -3091,6 +3131,33 @@ function splitPoints(txt, maxItems){
   const uniq=out.filter(x=>{ const k=x.slice(0,24); if(seen.has(k))return false; seen.add(k); return true; });
   return uniq.slice(0, maxItems||5);
 }
+
+// ★v64 统一展开/收起交互（显性按钮）
+const TG_LABEL = {'展开全文 ▾':'收起 ▴', '展开明细 ▾':'收起 ▴', '各维度得分理由':'收起理由 ▴'};
+function tgFlip(btn, boxSel){
+  const box = btn.closest(boxSel);
+  if(!box) return;
+  // .si-body 用 max-height 动画；.od-box / .fld-long 用 class
+  const isSi = box.classList.contains('si-card');
+  const isOd = box.classList.contains('od-box');
+  let open;
+  if(isSi){
+    const body = box.querySelector('.si-body');
+    open = body && body.style.maxHeight !== '0px' && body.style.maxHeight !== '';
+    if(body) body.style.maxHeight = open ? '0px' : (body.scrollHeight+24)+'px';
+  } else if(isOd){
+    open = !box.classList.contains('collapsed');
+    box.classList.toggle('collapsed', !open);
+  } else {
+    open = !box.classList.contains('open');
+    box.classList.toggle('open', open);
+  }
+  const cur = btn.innerHTML.trim();
+  const back = Object.keys(TG_LABEL).find(k=>cur.startsWith(k.replace(' ▾','').replace(' ▴','').slice(0,2)));
+  btn.innerHTML = open ? '收起 ▴' : (back || '展开全文 ▾');
+  btn.classList.toggle('is-open', open);
+}
+
 // 2) fldSmart：长字段自动折叠（摘要 + 展开全文）
 function fldSmart(label, val, opt){
   const o = opt||{};
@@ -3101,8 +3168,10 @@ function fldSmart(label, val, opt){
   const pts = splitPoints(t, o.max||4);
   const head = pts.length? pts[0] : t.slice(0,lim);
   const id = 'ld_'+label.replace(/[^\w一-龥]/g,'')+'_'+(o.uid||Math.random().toString(36).slice(2,7));
+  const more = t.length - pts.join('').length;
   return `<div class="fld fld-long">
-    <div class="k">${label}<span class="fld-more"><a onclick="this.closest('.fld-long').classList.toggle('open');this.textContent=this.closest('.fld-long').classList.contains('open')?'收起 ▴':'展开全文 ▾'">展开全文 ▾</a></span></div>
+    <div class="k">${label}<button type="button" class="tg-btn" data-tg
+        onclick="tgFlip(this,'.fld-long')">展开全文 ▾</button></div>
     <div class="v"><div class="v-sum">${head}</div>
       <ul class="v-points">${pts.map(p=>`<li>${p}</li>`).join('')}</ul>
       <div class="v-full">${t}</div></div></div>`;
@@ -3155,30 +3224,60 @@ function chartThreeDirs(c){
     <div class="chart-ft">切顶栏「天气指数 / 水产养殖 / 信贷增信」可切换主视角</div></div>`;
 }
 // 5) 图表：品种机会等级分布（堆叠条）
+
+// ★v64 品种数据归一：兼容 数组 / 顿号字符串 / 空 三种形态
+// 返回 [{name, lvl, pending}]，pending=true 表示等级是按"未分级"推定，需在界面标注
+function varietyList(c, dk){
+  const raw = (((c||{}).directions||{})[dk]||{}).varieties;
+  if(!raw) return [];
+  if(Array.isArray(raw)){
+    return raw.map(v=>{
+      if(typeof v==='string') return {name:v, lvl:'中', pending:true};
+      return {name:(v&&v.name)||'', lvl:(v&&v.lvl)||'中', customers:(v&&v.customers)||'', pending:false};
+    }).filter(x=>x.name);
+  }
+  if(typeof raw==='string'){
+    return raw.split(/[、,，;；\/]/).map(x=>x.trim()).filter(Boolean)
+            .map(name=>({name, lvl:'中', pending:true}));
+  }
+  if(typeof raw==='object'){
+    return Object.keys(raw).map(name=>({name, lvl:raw[name]||'中', pending:true}));
+  }
+  return [];
+}
+
 function chartVarietyLvl(c, dk){
-  const vs = ((c.directions||{})[dk]||{}).varieties||[];
+  const vs = varietyList(c, dk);
   if(!vs.length) return '';
+  const COL={'高':'#5aa2f8','中':'#f0a850','低':'#b88a5e'};
+  const LBG={'高':'#e8f1fd','中':'#fdefd9','低':'#f4e8dc'};
   const cnt={}; vs.forEach(v=>{ const L=v.lvl||'中'; cnt[L]=(cnt[L]||0)+1; });
   const order=['高','中','低'].filter(k=>cnt[k]);
-  const COL={'高':'#5aa2f8','中':'#f0a850','低':'#b88a5e'};
-  const total=vs.length, BAR_W=282, BAR_X=58, H=52;
-  // 堆叠条
-  let x=BAR_X; const segs=order.map(k=>{
-    const w=Math.max(2,Math.round(cnt[k]/total*BAR_W));
-    const seg=`<rect x="${x}" y="6" width="${w}" height="14" fill="${COL[k]}"/>`;
-    x+=w; return seg;
+  const hasPending = vs.some(v=>v.pending);
+  // 每个品种一个圆点，hover 出名字
+  const dots = vs.map(v=>{
+    const L=v.lvl||'中';
+    const st = v.pending
+      ? `background:#fff;border:2px solid ${COL[L]||COL['中']}`
+      : `background:${COL[L]||COL['中']}`;
+    return `<span class="vr-dot" style="${st}" title="${escAttr(v.name||'')}　${L}${v.pending?'（等级待核）':''}"></span>`;
   }).join('');
-  // 图例行：等距分布，避免文字叠压
-  const LEG_Y=38, n=order.length, colW=Math.floor(BAR_W/n);
-  const legend=order.map((k,i)=>{
-    const lx=BAR_X+i*colW;
-    return `<rect x="${lx}" y="${LEG_Y-7}" width="9" height="9" rx="2" fill="${COL[k]}"/>
-      <text x="${lx+13}" y="${LEG_Y+1}" font-size="10.5" fill="#5a4a34">${k} ${cnt[k]} 项</text>`;
-  }).join('');
-  return `<div class="chart-box"><div class="chart-ti">${DIR_LABEL[dk]} · 品种机会等级分布</div>
-    <svg viewBox="0 0 340 ${H}" width="100%" style="width:100%;max-width:520px;height:auto" role="img">
-      <text x="0" y="17" font-size="11" fill="#7b7269">${total} 个品种</text>
-      ${segs}${legend}</svg></div>`;
+  // 分档汇总胶囊
+  const chips = order.map(k=>
+    `<span class="vr-chip" style="background:${LBG[k]};color:#6b5233">
+       <i style="background:${COL[k]}"></i>${k}<b>${cnt[k]}</b></span>`).join('');
+  return `<div class="chart-box vr-box">
+    <div class="chart-ti">${DIR_LABEL[dk]} · 品种机会等级分布</div>
+    <div class="vr-body">
+      <div class="vr-head">
+        <span class="vr-total">${vs.length}</span>
+        <span class="vr-txt">个高机会品种<span class="vr-sub">按机会等级着色</span></span>
+      </div>
+      <div class="vr-dots">${dots}</div>
+      <div class="vr-chips">${chips}</div>
+      ${hasPending? '<div class="vr-note">※ 灰点品种原文为顿号串、等级未逐项核实，此处按「中」暂列，待县局确认</div>':''}
+    </div>
+  </div>`;
 }
 // 6) 完备度环形进度
 function chartCompleteness(r){
@@ -3319,13 +3418,14 @@ function completenessCard(c){
       <span class="cf-dot"></span><span class="cf-k">${i.k}</span>
       <span class="cf-v">${i.v}</span></div>`).join('');
   return `<div class="cf-card">
-    <div class="cf-head" onclick="this.parentNode.classList.toggle('open')">
+    <div class="cf-head">
       <span class="cf-ti">📋 本县数据完备度</span>
       <span class="cf-ring">${chartCompleteness(r)}</span>
       <span class="cf-bar">${r.items.map((it,i)=>
         `<i style="flex:1;background:${it.ok?color:'#e6d6ba'}"></i>`).join('')}</span>
       <span class="cf-pct" style="color:${color}">${r.okN}/${r.total}</span>
-      <span class="cf-arw">▾</span>
+      <button type="button" class="tg-btn" data-tg
+        onclick="tgFlip(this,'.cf-card')">查看明细 ▾</button>
     </div>
     <div class="cf-body">
       <div class="cf-tip">「待补」项为公开数据尚未覆盖（多为非农主城区/经开区），并非数据错误；
@@ -3374,11 +3474,12 @@ function sourceInfoCard(c){
     return `<div class="si-grp"><div class="si-gt">${g.c}</div>${rows}</div>`;
   }).join('');
   return `<div class="si-card" id="siCard_${c.province}_${c.name}">
-    <div class="si-head" onclick="toggleSourceInfo('${c.province.replace(/'/g,"\\'")}','${c.name.replace(/'/g,"\\'")}')">
+    <div class="si-head">
       <span class="si-ti">🔎 信息来源说明</span>
       <span class="si-chips">${chip('si-verified','官网已核实',st.verified)}${chip('si-agg','第三方转载',st.aggregated)}${chip('si-prov','省级口径',st.province_level)}${chip('si-est','估算',st.estimated)}</span>
       <span class="si-cnt">${st.total||si.items.length} 条</span>
-      <span class="si-arw">▾</span>
+      <button type="button" class="tg-btn" data-tg
+        onclick="tgFlip(this,'.si-card')">展开明细 ▾</button>
     </div>
     <div class="si-body" id="siBody_${c.province}_${c.name}">
       ${body}
@@ -4478,8 +4579,10 @@ function oppDimReasonList(e, c){
     </div>`;
   }).join('');
   return `<div class="od-box">
-    <div class="od-box-h" onclick="this.parentNode.classList.toggle('collapsed')">
-      <span>🔍 各维度得分理由</span><span class="od-arw">▾</span>
+    <div class="od-box-h">
+      <span>🔍 各维度得分理由</span>
+      <button type="button" class="tg-btn" data-tg
+        onclick="tgFlip(this,'.od-box')">收起 ▴</button>
     </div>
     <div class="od-box-b">${oppScoreSummary(e, c)}${rows}</div>
   </div>`;
