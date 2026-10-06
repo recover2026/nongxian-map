@@ -727,17 +727,47 @@
   .si-arw,.cf-arw,.od-arw{display:none;}
 
   /* ★v64 品种等级分布（圆点矩阵 + 分档胶囊，字号统一不用 SVG） */
+
+  /* ★v65 三大方向可点定位 */
+  .td-row{cursor:pointer;transition:background .15s,box-shadow .15s;position:relative;}
+  .td-row:hover{background:#fdf0d8;border-color:#e6cf9e;box-shadow:0 1px 4px rgba(190,140,60,.16);}
+  .td-row:hover .td-go{color:#c2410c;}
+  .td-row.cur{background:#fdf0d8;border-color:#e0a860;box-shadow:inset 3px 0 0 #c2410c;}
+  .td-go{flex:0 0 auto;font-size:10.5px;color:#b9a68d;padding-left:2px;transition:color .15s;white-space:nowrap;}
+  .td-cur{display:inline-block;margin-left:6px;font-size:10px;font-style:normal;font-weight:400;
+    color:#fff;background:#c2410c;border-radius:7px;padding:0 6px;line-height:1.6;vertical-align:1px;}
+  .dir-card{scroll-margin-top:8px;}
+  .dir-card.flash{animation:dirFlash 1.4s ease-out;}
+  @keyframes dirFlash{
+    0%{box-shadow:0 0 0 0 rgba(240,135,31,.55);background:#fff8ec;}
+    25%{box-shadow:0 0 0 7px rgba(240,135,31,0);}
+    60%{background:#fff8ec;}
+    100%{box-shadow:0 0 0 0 rgba(240,135,31,0);background:transparent;}
+  }
+
+  /* ★v65 品种图精简版：头部一行 + 险种清单 + 分档胶囊 */
   .vr-box{background:linear-gradient(140deg,#fffdf7,#fdf4e3);}
-  .vr-body{padding:2px 0 1px;}
-  .vr-head{display:flex;align-items:baseline;gap:7px;margin-bottom:9px;}
-  .vr-total{font-size:22px;font-weight:700;color:#c2410c;line-height:1;
-    font-family:"DIN Alternate","Arial Narrow",-apple-system,sans-serif;}
-  .vr-txt{font-size:12.5px;font-weight:600;color:#5a4632;line-height:1.3;}
-  .vr-sub{font-size:11px;font-weight:400;color:#a08e78;margin-left:7px;}
-  .vr-dots{display:flex;flex-wrap:wrap;gap:6px;padding:9px 0 10px;
+  .vr-head{display:flex;align-items:center;gap:8px;margin-bottom:8px;
+    padding-bottom:7px;border-bottom:1px solid rgba(220,190,150,.5);}
+  .vr-head .chart-ti{border-bottom:none;padding-bottom:0;margin-bottom:0;flex:1;}
+  .vr-count{font-size:11px;color:#8a7a68;background:#fbe8cd;padding:1px 8px;border-radius:9px;
+    font-weight:600;white-space:nowrap;}
+  .vr-list{display:flex;flex-direction:column;gap:0;max-height:none;}
+  .vr-list.scroll{max-height:190px;overflow-y:auto;}
+  .vr-item{display:flex;align-items:center;gap:7px;padding:5px 2px;font-size:12px;line-height:1.5;
+    border-bottom:1px dashed rgba(200,170,130,.32);}
+  .vr-item:last-child{border-bottom:none;}
+  .vr-item:hover{background:#fdf4e3;}
+  .vr-badge{flex:0 0 auto;min-width:26px;text-align:center;padding:1px 6px;border-radius:8px;
+    font-size:10.5px;font-weight:700;color:#fff;line-height:1.5;}
+  .vr-name{flex:1;min-width:0;color:#4a3f33;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .vr-cust{flex:0 0 auto;font-size:10.5px;color:#9a8a76;}
+  .vr-pend{flex:0 0 auto;font-size:10px;color:#8a5a10;background:#FFF3CD;
+    border:1px solid #e0c088;border-radius:7px;padding:0 5px;line-height:1.5;}
+  .vr-dots{display:flex;flex-wrap:wrap;gap:5px;padding:8px 0 2px;
     border-top:1px dashed rgba(200,170,130,.45);}
-  .vr-dot{width:13px;height:13px;border-radius:50%;display:inline-block;flex:0 0 auto;
-    box-shadow:0 1px 2px rgba(150,110,50,.22), inset 0 -1px 1px rgba(255,255,255,.35);box-sizing:border-box;}
+  .vr-dot{width:10px;height:10px;border-radius:50%;display:inline-block;flex:0 0 auto;
+    box-shadow:0 1px 1px rgba(150,110,50,.2);box-sizing:border-box;}
   .vr-note{font-size:10.5px;color:#9a8a76;line-height:1.6;margin-top:8px;padding-top:7px;
     border-top:1px dashed rgba(200,170,130,.4);}
   .vr-chips{display:flex;flex-wrap:wrap;gap:6px;padding-top:9px;
@@ -2028,7 +2058,7 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-10-06-v64b';   // v57 **对标阳光财险官网配色（用户：地图颜色没变过来、中低不要蓝、背景渐变太深）**：
+const CACHE_VERSION = '2026-10-06-v65';   // v57 **对标阳光财险官网配色（用户：地图颜色没变过来、中低不要蓝、背景渐变太深）**：
 // ①★Playwright 渲染 www.sinosig.com 实测取色（curl 拿不到，SPA）：主橙 rgb(252,106,18)=#fc6a12、
 //    亮橙红 rgb(255,102,53)=#ff6635、深橙 #ff903a、浅灰底 #f7f8fa、白卡 #fff、
 //    文字深蓝灰 rgb(44,62,80)=#2c3e50 → **官网是「白底 + 亮橙红」，本版据此把底色从深棕黑大幅提亮为暖白**。
@@ -3205,23 +3235,57 @@ function chartThreeDirs(c){
   const DIRS=['weather','aqua','credit'];
   const rows = DIRS.map(k=>({k, d:(c.directions||{})[k]})).filter(x=>x.d);
   if(rows.length<2) return '';
-  // ★v61 改用 HTML+CSS：字号固定 px，不再随 SVG viewBox 等比放大
+  const nm=(c.name||'').replace(/'/g,"");
+  // ★v65 改为可点：点击切换主视角 + 平滑滚动到该方向详情
   const body = rows.map(x=>{
     const lvl=x.d.lvl||'无数据', col=LVL_COLOR[lvl]||MAP_NODATA;
-    const nv=(x.d.varieties||[]).length;
+    const nv=varietyList(c, x.k).length;
     const dark=['中','低','无数据','储备'].includes(lvl);
-    return `<div class="td-row">
+    const on = (curDir===x.k) ? ' cur' : '';
+    return `<div class="td-row${on}" data-dk="${x.k}" data-county="${nm}"
+        onclick="gotoDir('${nm}','${x.k}')" title="点击查看「${DIR_LABEL[x.k]}」详细分析">
       <span class="td-bar" style="background:${col}"></span>
       <span class="td-txt">
-        <b class="td-name">${DIR_LABEL[x.k]}</b>
-        <i class="td-sub">${nv?('品种级明细 '+nv+' 项'):'县级口径'}</i>
+        <b class="td-name">${DIR_LABEL[x.k]}${curDir===x.k?'<i class="td-cur">当前</i>':''}</b>
+        <i class="td-sub">${nv?(nv+' 个险种明细'):'县级口径'}</i>
       </span>
       <span class="td-lvl" style="background:${col};color:${dark?'#4a2a08':'#fff'}">${lvl}</span>
+      <span class="td-go">详情 ▸</span>
     </div>`;
   }).join('');
-  return `<div class="chart-box"><div class="chart-ti">三大方向机会等级对照</div>
+  return `<div class="chart-box td-box"><div class="chart-ti">三大方向机会等级对照</div>
     <div class="td-list">${body}</div>
-    <div class="chart-ft">切顶栏「天气指数 / 水产养殖 / 信贷增信」可切换主视角</div></div>`;
+    <div class="chart-ft">👆 点击任一方向，页面自动定位到该方向的详细分析</div></div>`;
+}
+// ★v65 点击三大方向 → 切主视角 + 重渲染面板 + 滚动定位 + 高亮闪烁
+// 注意：县详情页**只渲染当前 curDir 一个 dir-card**，所以切方向后必须 selectCounty 重渲染，
+// 否则目标锚点不存在（实测踩过：dir-{县}-aqua 找不到）。
+let _gotoPending = null;
+function gotoDir(countyName, dk){
+  const jump = ()=>{
+    const card = document.getElementById('dir-'+countyName+'-'+dk);
+    if(!card) return;
+    card.scrollIntoView({behavior:'smooth', block:'start'});
+    card.classList.add('flash');
+    setTimeout(()=>card.classList.remove('flash'), 1400);
+    // 三方向行的"当前"标记
+    document.querySelectorAll('.td-row').forEach(r=>{
+      const on = r.dataset.dk===dk;
+      r.classList.toggle('cur', on);
+      const nmEl=r.querySelector('.td-name');
+      const mark=nmEl&&nmEl.querySelector('.td-cur');
+      if(on && nmEl && !mark) nmEl.insertAdjacentHTML('beforeend','<i class="td-cur">当前</i>');
+      if(!on && mark) mark.remove();
+    });
+  };
+  if(curDir===dk){ jump(); return; }
+  _gotoPending = jump;
+  curDir = dk;
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active', x.dataset.dir===dk));
+  // 重渲染当前县面板（保证目标方向的 dir-card 存在），渲染完再定位
+  if(curCounty && curCounty.name===countyName) selectCounty(countyName);
+  else renderCurrent(true);
+  setTimeout(jump, 260);
 }
 // 5) 图表：品种机会等级分布（堆叠条）
 
@@ -3254,29 +3318,36 @@ function chartVarietyLvl(c, dk){
   const cnt={}; vs.forEach(v=>{ const L=v.lvl||'中'; cnt[L]=(cnt[L]||0)+1; });
   const order=['高','中','低'].filter(k=>cnt[k]);
   const hasPending = vs.some(v=>v.pending);
-  // 每个品种一个圆点，hover 出名字
-  const dots = vs.map(v=>{
+  // 险种清单（列出具体险种名称）
+  const rows = vs.map(v=>{
     const L=v.lvl||'中';
-    const st = v.pending
-      ? `background:#fff;border:2px solid ${COL[L]||COL['中']}`
-      : `background:${COL[L]||COL['中']}`;
-    return `<span class="vr-dot" style="${st}" title="${escAttr(v.name||'')}　${L}${v.pending?'（等级待核）':''}"></span>`;
+    const nCust = v.customers ? (String(v.customers).split(/[;；|]/).filter(Boolean).length) : 0;
+    return `<div class="vr-item">
+      <span class="vr-badge" style="background:${COL[L]||COL['中']}">${L}</span>
+      <span class="vr-name" title="${escAttr(v.name||'')}">${v.name||'—'}</span>
+      ${nCust?`<span class="vr-cust">${nCust} 客户</span>`:''}
+      ${v.pending?'<span class="vr-pend" title="原文为顿号串、等级未逐项核实">待核</span>':''}
+    </div>`;
   }).join('');
-  // 分档汇总胶囊
+  // 多品种时的圆点概览
+  const dots = vs.length>6 ? `<div class="vr-dots">${vs.map(v=>{
+      const L=v.lvl||'中';
+      const st = v.pending ? `background:#fff;border:2px solid ${COL[L]||COL['中']}`
+                           : `background:${COL[L]||COL['中']}`;
+      return `<span class="vr-dot" style="${st}" title="${escAttr(v.name||'')}　${L}"></span>`;
+    }).join('')}</div>` : '';
   const chips = order.map(k=>
     `<span class="vr-chip" style="background:${LBG[k]};color:#6b5233">
        <i style="background:${COL[k]}"></i>${k}<b>${cnt[k]}</b></span>`).join('');
   return `<div class="chart-box vr-box">
-    <div class="chart-ti">${DIR_LABEL[dk]} · 品种机会等级分布</div>
-    <div class="vr-body">
-      <div class="vr-head">
-        <span class="vr-total">${vs.length}</span>
-        <span class="vr-txt">个高机会品种<span class="vr-sub">按机会等级着色</span></span>
-      </div>
-      <div class="vr-dots">${dots}</div>
-      <div class="vr-chips">${chips}</div>
-      ${hasPending? '<div class="vr-note">※ 灰点品种原文为顿号串、等级未逐项核实，此处按「中」暂列，待县局确认</div>':''}
+    <div class="vr-head">
+      <span class="chart-ti">${DIR_LABEL[dk]} · 险种与机会等级</span>
+      <span class="vr-count">共 ${vs.length} 个</span>
     </div>
+    <div class="vr-list${vs.length>6?' scroll':''}">${rows}</div>
+    ${dots}
+    <div class="vr-chips">${chips}</div>
+    ${hasPending? '<div class="vr-note">※ 标「待核」的险种原文为顿号串、等级未逐项核实，此处按「中」暂列，待县局确认</div>':''}
   </div>`;
 }
 // 6) 完备度环形进度
@@ -3333,7 +3404,8 @@ function dirCard(dk,d,c1){
     (d.policy_no?fld('政策文号', d.policy_no):'')+
     fldSmart('产业现状', d.industry || '—', {uid:c1.name+dk+'i'})+
     `<div class="src">来源：${d.src||'—'}${d.extra_src?('；'+d.extra_src):''}</div>`;
-  return `<div class="dir-card"><div class="dh"><span class="nm">${DIR_LABEL[dk]}</span>`+
+  const anchorId = 'dir-'+(c1.name||'x')+'-'+dk;
+  return `<div class="dir-card" id="${anchorId}"><div class="dh"><span class="nm">${DIR_LABEL[dk]}</span>`+
     `<span class="lvl ${lvl}">${lvl}</span></div>`+
     `<div class="chart-row">${chartVarietyLvl(c1,dk)}${chartThreeDirs(c1)}</div>`+
     `<div class="sec">${biz}</div>`+
