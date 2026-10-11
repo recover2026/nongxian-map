@@ -1649,6 +1649,114 @@
   .badge{ background:#c96a12 !important; color:#fff !important; }
   .cf-ti, .chart-ti, .nl-src, .src, .cs-text, .pp-t, .vp-t, .cf-tip{ color:#6f6353 !important; }
   .sec-title{ color:#7a4a10 !important; }
+
+  /* ===== ★v66 作战清单 / 农时指引 ===== */
+  #opsModal .box.wide{ width:min(1180px,96vw); max-width:1180px; }
+  #opsModal .body{ max-height:74vh; overflow:auto; }
+  .ops-bar{ display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    padding:0 0 10px; border-bottom:1px solid #ecdcc0; margin-bottom:10px; }
+  .ops-tabs{ display:flex; gap:6px; flex:1; flex-wrap:wrap; }
+  .ops-tb{ border:1px solid #e0cba4; background:#fdf4e3; color:#5f5346;
+    padding:6px 12px; border-radius:8px; font-size:12.5px; cursor:pointer; font-weight:600; }
+  .ops-tb b{ color:#a8620c; margin-left:3px; }
+  .ops-tb:hover{ background:#fbe8cd; }
+  .ops-tb.on{ background:#c2410c; color:#fff; border-color:#c2410c; }
+  .ops-tb.on b{ color:#ffd968; }
+  .ops-acts{ display:flex; gap:6px; flex-wrap:wrap; }
+  .ops-btn{ border:1px solid #d9b877; background:#fffaf0; color:#8a5a10;
+    padding:5px 10px; border-radius:7px; font-size:11.5px; cursor:pointer; }
+  .ops-btn:hover{ background:#fbe8cd; }
+  .ops-btn.warn{ color:#a03a3a; border-color:#dda0a0; }
+  .ops-tip{ font-size:11.5px; color:#6f6353; line-height:1.7; margin-bottom:8px;
+    background:#fdf4e3; border-left:3px solid #c2410c; padding:6px 10px; border-radius:0 6px 6px 0; }
+  .ops-empty{ padding:26px 16px; text-align:center; color:#7a6a58; font-size:12.5px; line-height:1.9;
+    background:#fdf4e3; border-radius:8px; }
+  .ops-list{ display:flex; flex-direction:column; gap:5px; }
+  .ops-list.mini .ops-row{ padding:5px 8px; }
+  .ops-row{ display:flex; align-items:center; gap:9px; padding:7px 10px;
+    background:#fffaf0; border:1px solid #f0e0c2; border-radius:8px; font-size:12.5px; }
+  .ops-row:hover{ background:#fdf0d8; border-color:#e8c98e; }
+  .ops-row.done{ opacity:.55; }
+  .ops-row.done .op-nm b{ text-decoration:line-through; }
+  .op-idx{ flex:0 0 auto; width:22px; text-align:center; color:#a8620c;
+    font-weight:700; font-size:12px; background:#fbe8cd; border-radius:5px; padding:1px 0; }
+  .op-cmp{ flex:0 0 auto; cursor:pointer; }
+  .op-cmp input{ width:14px; height:14px; accent-color:#c2410c; cursor:pointer; }
+  .op-nm{ flex:1 1 auto; min-width:0; cursor:pointer; display:flex; align-items:baseline; gap:6px; }
+  .op-nm b{ color:#2c3e50; font-weight:700; }
+  .op-nm:hover b{ color:#c2410c; text-decoration:underline; }
+  .op-nm i{ font-style:normal; font-size:11px; color:#8a7f76; }
+  .op-sc{ flex:0 0 auto; width:78px; text-align:right; font-weight:700; color:#7a4a10; font-size:13px;
+    display:flex; align-items:center; justify-content:flex-end; gap:5px; }
+  .op-tier{ font-style:normal; font-size:10px; color:#fff; padding:1px 5px; border-radius:6px; font-weight:600; }
+  .op-tags{ flex:0 0 auto; display:flex; gap:4px; }
+  .tg{ font-style:normal; font-size:10.5px; padding:1px 6px; border-radius:6px;
+    border:1px solid #d9c9a8; color:#6f6353; background:#fdf4e3; white-space:nowrap; }
+  .tg.pol{ border-color:#c2410c; color:#a83c0a; background:#fdeedd; }
+  .tg.nop{ border-color:#b8a488; color:#7a6a58; background:#f4ece0; }
+  .op-st{ flex:0 0 auto; font-size:11.5px; padding:3px 6px; border-radius:6px;
+    border:1px solid #d9b877; background:#fffaf0; cursor:pointer; }
+  .op-x{ flex:0 0 auto; border:0; background:transparent; color:#b8a488;
+    cursor:pointer; font-size:13px; padding:0 3px; }
+  .op-x:hover{ color:#a03a3a; }
+  .op-add{ flex:0 0 auto; border:1px solid #c2410c; background:#fffaf0; color:#a83c0a;
+    padding:3px 10px; border-radius:7px; font-size:11.5px; cursor:pointer; font-weight:600; }
+  .op-add:hover{ background:#fdeedd; }
+  .op-add:disabled{ opacity:.6; cursor:default; }
+  .ops-addbar{ margin:6px 0 8px; }
+
+  /* 并排对比表 */
+  .cmp-wrap{ overflow-x:auto; }
+  .cmp-tb{ width:100%; border-collapse:collapse; font-size:11.5px; table-layout:fixed; }
+  .cmp-tb th,.cmp-tb td{ border:1px solid #ecdcc0; padding:7px 8px; text-align:left;
+    vertical-align:top; word-break:break-word; }
+  .cmp-tb thead th{ background:#fbe8cd; color:#5f5346; font-weight:700; text-align:center; }
+  .cmp-tb td.k{ width:112px; background:#fdf4e3; color:#5f5346; font-weight:700; }
+  .cmp-tb td.c{ text-align:center; }
+  .cmp-tb td.c.sm{ text-align:left; font-size:11px; color:#6f6353; line-height:1.65; }
+  .cmp-tb td.c .sub{ font-size:10.5px; color:#8a7f76; font-weight:400; margin-top:2px; }
+  .cmp-tb td.c.best{ background:#fdeedd; }
+  .cmp-tb td.c.best b{ color:#c2410c; font-size:15px; }
+  .cmp-tb tr.hi td{ background:#fffaf0; }
+  .cmp-city{ font-size:10.5px; color:#8a7f76; font-weight:400; margin-top:1px; }
+  .mini-bar{ display:inline-block; width:52px; height:5px; background:#ecdcc0;
+    border-radius:3px; overflow:hidden; vertical-align:middle; margin-left:4px; }
+  .mini-bar i{ display:block; height:100%; border-radius:3px; }
+
+  /* 农时指引 */
+  .seas-now{ background:#fdf4e3; border:1px solid #e8c98e; border-radius:10px; padding:12px 14px; }
+  .sn-h{ display:flex; align-items:center; gap:10px; margin-bottom:8px; }
+  .sn-ic{ font-size:24px; line-height:1; }
+  .sn-h b{ display:block; font-size:14px; color:#2c3e50; }
+  .sn-h i{ font-style:normal; font-size:11.5px; color:#7a6a58; }
+  .sn-tip{ font-size:11.5px; color:#6f6353; line-height:1.7; margin-bottom:8px; }
+  .sn-list{ margin:0; padding-left:20px; }
+  .sn-list li{ font-size:12.5px; color:#3d4a55; line-height:1.85; margin-bottom:2px; }
+  .seas-sec{ margin:14px 0 7px; font-size:12.5px; font-weight:700; color:#7a4a10; }
+  .seas-empty{ margin-top:10px; padding:14px; text-align:center; font-size:12px;
+    color:#7a6a58; background:#fdf4e3; border-radius:8px; line-height:1.8; }
+
+  /* 县页工具条里的"加入清单" */
+  .op-join{ border:1px solid #c2410c; background:#fffaf0; color:#a83c0a;
+    padding:3px 9px; border-radius:7px; font-size:11px; cursor:pointer; font-weight:600; }
+  .op-join:hover{ background:#fdeedd; }
+  .op-join.on{ background:#c2410c; color:#fff; }
+
+  /* ★v66 政策与数据依据区块 */
+  .opp-policy{ margin:14px 0 4px; padding:11px 13px; background:#fdf4e3;
+    border:1px solid #e8c98e; border-radius:10px; }
+  .op-pol-ti{ font-size:12.5px; font-weight:700; color:#7a4a10; margin-bottom:8px;
+    padding-bottom:6px; border-bottom:1px dashed #e0cba4; }
+  .op-pol-row{ font-size:11.5px; line-height:1.85; color:#4a5a66; margin-bottom:9px; }
+  .op-pol-row:last-child{ margin-bottom:0; }
+  .op-pol-row b{ color:#7a4a10; }
+  .op-pol-row em{ font-style:normal; color:#c2410c; font-weight:700;
+    border-bottom:1.5px solid #e8a33c; }
+  .pol-原文{ color:#5f5346; }
+  .pol-解读{ display:block; color:#4a5a66; margin-top:3px;
+    background:#fffaf0; border-left:3px solid #e8a33c; padding:5px 9px; border-radius:0 6px 6px 0; }
+  .pol-解读 b{ color:#c2410c; }
+  .pol-解读.warn{ border-left-color:#c2410c; background:#fdeedd; }
 </style>
 </head>
 <body>
@@ -1683,7 +1791,7 @@
         <input id="searchInput" type="text" placeholder="🔍 搜县/省/品种/龙头" oninput="onSearchInput(this.value)" />
         <div id="searchResults"></div>
       </div>
-      <div class="meta" id="dataBaseline" style="cursor:pointer" onclick="document.getElementById('srcModal').style.display='flex'" title="点击查看数据来源与更新机制">数据基准：<b id="dataDate">2026-10-02</b> · 覆盖 <b id="covN">33</b> 业务单元 · <b>v35</b> 政策底座已升财金〔2026〕88号</div>
+      <div class="meta" id="dataBaseline" style="cursor:pointer" onclick="document.getElementById('srcModal').style.display='flex'" title="点击查看数据来源与更新机制">数据基准：<b id="dataDate">2026-10-11</b> · 覆盖 <b id="covN">33</b> 业务单元 · <b>v35</b> 政策底座已升财金〔2026〕88号</div>
     </div>
     <div class="hdr-bar">
       <div class="seg" id="mapModeSeg" title="切换地图着色口径">
@@ -1706,7 +1814,8 @@
         <span class="af-clear" onclick="resetAdvFilter()">清空</span>
       </div>
       <div class="hdr-tools">
-        <button class="btn-tool gold" onclick="openFav()">⭐ 我的关注<span id="favCount"></span></button>
+        <button class="btn-tool gold" id="seasonBadge" onclick="openSeason()" title="当前农时阶段">🌾 备耕承保期</button>
+        <button class="btn-tool gold" onclick="openOps()">📋 作战清单<span id="favCount"></span></button>
         <button class="btn-tool" onclick="openEnc()">📚 农险百科</button>
         <button class="btn-tool" onclick="openGlobalFeedback()">💬 反馈</button>
         <button class="btn-rank" id="rankBtn">🏆 机会排行榜</button>
@@ -2030,6 +2139,398 @@ function updateWeightSum(){
   const sum=WEIGHT_ORDER.reduce((a,k)=>a+(USER_W[k]||0),0);
   el.textContent='当前权重合计：'+ (Math.round(sum*100)) + '%' + (weightsEqualDefault()?'（默认）':'（将归一化后应用）');
 }
+
+/* ================================================================
+   ★v66 作战清单（Territory Management 落地）
+   借鉴「区域销售作战地图」成熟做法：zone × sector 聚焦 → 目标县排序 →
+   状态跟踪 → 打印走访顺序。已有收藏/笔记是"单点标记"，本模块补上
+   "这个月打哪几个县、打到哪一步了"的闭环。
+   ================================================================ */
+const OPS_STORE='nongxian_ops_v1';
+const OPS_STAGES=[
+  {k:'plan',    t:'待启动', c:'#8a7f76'},
+  {k:'contact', t:'已联系', c:'#5aa2f8'},
+  {k:'visit',   t:'已拜访', c:'#c2410c'},
+  {k:'bid',     t:'已报价/遴选', c:'#2f8f5e'},
+  {k:'policy',  t:'已出单', c:'#1a4fd6'},
+  {k:'hold',    t:'暂缓', c:'#b88a5e'}
+];
+function opsLoad(){
+  try{ const raw=localStorage.getItem(OPS_STORE); return raw?JSON.parse(raw):{}; }
+  catch(e){ return {}; }
+}
+function opsSave(o){ try{ localStorage.setItem(OPS_STORE, JSON.stringify(o)); }catch(e){} }
+function opsStageOf(n){ const o=opsLoad(); return (o[n]&&o[n].s)||'plan'; }
+function opsSetStage(n, st, plan){
+  const o=opsLoad();
+  o[n] = Object.assign({}, o[n], {s:st, t:Date.now()});
+  if(plan) o[n].plan=plan;
+  if(st==='hold' || st==='policy') o[n].done=true; else o[n].done=false;
+  opsSave(o);
+  // 状态变更只影响本行样式与计数，避免整页重绘打断连续操作
+  const el=document.getElementById('opsCnt');
+  if(el) el.textContent=opsList().filter(x=>!x.done).length;
+  renderFavCount();
+  const row=document.querySelector('.ops-row[data-ops="'+n+'"]');
+  if(row && (st==='hold'||st==='policy')) row.classList.add('done');
+  else if(row) row.classList.remove('done');
+  if(document.getElementById('seasonModal').style.display==='flex') openSeason();
+}
+function opsList(){
+  const o=opsLoad();
+  return Object.keys(o).map(n=>{
+    const c = getCounty(n);
+    const e = c ? effOpp(c) : null;
+    return {name:n, st:(o[n].s||'plan'), plan:o[n].plan||'', ts:o[n].t||0,
+            done:!!o[n].done, cmp:!!o[n].cmp,
+            prov:c?c.province:'', city:c?c.region:'',
+            score:e?e.score:null, tier:e?e.tier:'', qual:c?!!c.qualified:false,
+            pol:c?c.policyType||'':'', nmv:c?varietyCount(c):0,
+            cityTxt: cityLabel(c)};
+  });
+}
+// ★v66d 直辖市（京津沪渝）辖区无下级地市，region 存的是市名本身；
+//   列表里显示成"洪湖市 / 湖北省"会误导，改为标注"直辖市辖区"。
+const MUNI_PROV={北京市:1,上海市:1,天津市:1,重庆市:1};
+function cityLabel(c){
+  if(!c) return '';
+  const r=c.region, p=c.province;
+  if(MUNI_PROV[p] && r===p) return '直辖市辖区';
+  return r||'';
+}
+
+function varietyCount(c){
+  if(!c) return 0;
+  let n=0;
+  ['weather','aqua','credit'].forEach(dk=>{
+    const vs=((c.directions||{})[dk]||{}).varieties;
+    if(Array.isArray(vs)) n+=vs.length;
+    else if(typeof vs==='string') n+=vs.split(/[、,，]/).filter(x=>x.trim()).length;
+  });
+  return n;
+}
+// 生成候选目标县：机会分降序 + 未加过清单的优先
+function opsSuggest(n){
+  n = n||20;
+  const have=opsLoad();
+  // ★排除 33 个伪单位（开发区/新区/园区 27 个 + 镇/乡级 6 个）：
+  //   它们不是法定县级行政区，拿到资质表里也查不到，推进清单只会浪费拜访名额。
+  const pool=(COUNTY.counties||[]).filter(c=> c.opp && !c.is_pseudo_unit && !have[c.name] && countyMatchFilter(c));
+  // ★推荐位去同地市扎堆：同一地市最多 2 个（否则"洪湖市/洪湖新沟/滨湖/洪湖口/洪湖园区"
+  //   这类近义地名会刷满前 20 名，等于只推荐了一个县）。
+  //   先按机会分降序，再按「同地市已取数」做轮转填充。
+  pool.sort((a,b)=> effOpp(b).score - effOpp(a).score);
+  const perCity={}, out=[];
+  const rest=[];
+  for(const c of pool){
+    const city=c.region||c.province||'';
+    if((perCity[city]||0) < 2){ perCity[city]=(perCity[city]||0)+1; out.push(c); }
+    else rest.push(c);
+  }
+  return out.concat(rest).slice(0,n);
+}
+let __opsLoading=false;
+async function openOps(){
+  document.getElementById('opsModal').style.display='flex';
+  window.__opsTab='list';
+  renderOpsPanel();
+  // 目标县推荐依赖县级 opp —— opp 已回写进主分片，但主分片本身是按省懒加载的，
+  // 所以首次打开需先预载省份（复用榜单同一套逻辑，加载完自动刷新面板）。
+  if(!__opsLoading && !allPreloaded && COUNTY && COUNTY.provinceFiles
+     && Object.keys(COUNTY.provinceFiles).length){
+    __opsLoading=true;
+    renderOpsPanel();
+    try{ await preloadAllProvinces(2); }
+    catch(e){ console.warn('[作战清单] 省份数据加载失败', e); }
+    __opsLoading=false;
+    if(document.getElementById('opsModal').style.display==='flex') renderOpsPanel();
+  }
+}
+function closeOps(){ document.getElementById('opsModal').style.display='none'; }
+function renderOpsPanel(){
+  const box=document.getElementById('opsBody'); if(!box) return;
+  const tab=window.__opsTab||'list';
+  let h='';
+  // ── 顶部工具条
+  h+=`<div class="ops-bar">
+    <div class="ops-tabs">
+      <button class="ops-tb ${tab==='list'?'on':''}" onclick="__opsTab='list';renderOpsPanel()">📋 我的清单 <b id="opsCnt">${opsList().filter(x=>!x.done).length}</b></button>
+      <button class="ops-tb ${tab==='cmp'?'on':''}" onclick="__opsTab='cmp';renderOpsPanel()">🔍 并排对比 <b id="opsCmpN">${opsList().filter(x=>x.cmp).length}</b></button>
+      <button class="ops-tb ${tab==='add'?'on':''}" onclick="__opsTab='add';renderOpsPanel()">➕ 推荐目标县</button>
+    </div>
+    <div class="ops-acts">
+      <button class="ops-btn" onclick="exportOps()">⬇ 导出 Excel</button>
+      <button class="ops-btn" onclick="printOps()">🖨 打印走访顺序</button>
+      <button class="ops-btn warn" onclick="clearOpsDone()">🧹 清理已完成</button>
+    </div>
+  </div>`;
+  if(tab==='list') h+=opsRenderList();
+  else if(tab==='cmp') h+=opsRenderCmp();
+  else h+=opsRenderAdd();
+  box.innerHTML=h;
+  const c=document.getElementById('opsCnt'); if(c) c.textContent=opsList().filter(x=>!x.done).length;
+}
+function opsRenderList(){
+  let rows=opsList();
+  if(!rows.length){
+    const loaded=(COUNTY.counties||[]).length;
+    return `<div class="ops-empty">${loaded?'':'正在加载各省县区数据…<br>'}
+      清单还是空的 —— 点「➕ 推荐目标县」按机会分自动挑一批，或在任意县点「📋 加入作战清单」。</div>`;
+  }
+  rows.sort((a,b)=>{
+    if(a.done!==b.done) return a.done?1:-1;
+    return (b.score||0)-(a.score||0);
+  });
+  let h=`<div class="ops-tip">按当前筛选与机会分排序。状态可直接点选，「打印走访顺序」按行序生成可直接带出门的单子。</div><div class="ops-list">`;
+  rows.forEach((r,i)=>{
+    const st=OPS_STAGES.find(x=>x.k===r.st)||OPS_STAGES[0];
+    h+=`<div class="ops-row ${r.done?'done':''}" data-ops="${r.name}">
+      <span class="op-idx">${i+1}</span>
+      <label class="op-cmp" title="加入并排对比"><input type="checkbox" ${r.cmp?'checked':''} onchange="opsToggleCmp('${r.name}',this.checked)"></label>
+      <span class="op-nm" onclick="closeOps();selectUnit('${(r.prov||'').replace(/'/g,"\\'")}');setTimeout(()=>selectCounty('${r.name.replace(/'/g,"\\'")}'),400)">
+        <b>${r.name}</b><i>${r.cityTxt||''}</i>
+      </span>
+      <span class="op-sc" title="综合机会分">${r.score==null?'—':Math.round(r.score)}
+        <i class="op-tier" style="background:${OPP_TIER_COLOR[r.tier]||'#ccc'}">${r.tier||'—'}</i></span>
+      <span class="op-tags">
+        ${r.pol?'<em class="tg pol">政策性'+r.pol+'</em>':'<em class="tg nop">商业性切入</em>'}
+        <em class="tg">${r.nmv} 品种</em>
+      </span>
+      <select class="op-st" style="border-color:${st.c};color:${st.c}" onchange="opsSetStage('${r.name}',this.value)">
+        ${OPS_STAGES.map(x=>`<option value="${x.k}" ${x.k===r.st?'selected':''}>${x.t}</option>`).join('')}
+      </select>
+      <button class="op-x" title="移出清单" onclick="opsRemove('${r.name}')">✕</button>
+    </div>`;
+  });
+  h+='</div>';
+  return h;
+}
+/* ★v66 县页「加入作战清单」按钮 */
+function opsToggleCurrent(){
+  const c=curCounty; if(!c) return toast('请先选择县区');
+  const o=opsLoad();
+  if(o[c.name]){ delete o[c.name]; opsSave(o); toast('已移出作战清单：'+c.name); }
+  else { o[c.name]={s:'plan',t:Date.now()}; opsSave(o); toast('已加入作战清单：'+c.name+'（可到「作战清单」排序跟踪）'); }
+  syncOpJoinBtn();
+}
+function syncOpJoinBtn(){
+  const el=document.getElementById('opJoinBtn'); if(!el || !curCounty) return;
+  const on=!!opsLoad()[curCounty.name];
+  el.textContent = on ? '✓ 已在作战清单' : '📋 加入作战清单';
+  el.classList.toggle('op-join', on);
+  if(on){ el.style.background='#c2410c'; el.style.color='#fff'; el.style.borderColor='#c2410c'; }
+  else { el.style.background='#fffaf0'; el.style.color='#a83c0a'; el.style.borderColor='#c2410c'; }
+}
+
+function opsToggleCmp(n,on){
+  // ★勾选后**不重渲染整个面板**——那会让用户正要点的下一个复选框从 DOM 里消失
+  //   （Playwright 实测报 "Element is not attached to the DOM"）。
+  //   只更新"并排对比"计数徽标，切到对比页时才重绘。
+  const o=opsLoad(); o[n]=Object.assign({},o[n]); o[n].cmp=on; opsSave(o);
+  const el=document.getElementById('opsCmpN');
+  if(el) el.textContent=opsList().filter(x=>x.cmp).length;
+}
+function opsRemove(n){
+  if(!confirm('把「'+n+'」移出作战清单？（收藏与笔记不受影响）')) return;
+  const o=opsLoad(); delete o[n]; opsSave(o); renderOpsPanel(); renderFavCount();
+}
+function opsAdd(n){
+  const o=opsLoad();
+  if(!o[n]) o[n]={s:'plan',t:Date.now()};
+  opsSave(o); renderFavCount();
+}
+function clearOpsDone(){
+  const o=opsLoad(); let n=0;
+  Object.keys(o).forEach(k=>{ if(o[k].done){ delete o[k]; n++; } });
+  if(!n) return toast('清单里没有已完成项');
+  opsSave(o); renderOpsPanel(); renderFavCount();
+  toast('已清理 '+n+' 个已完成县');
+}
+function opsRenderAdd(){
+  const loaded=(COUNTY.counties||[]).length;
+  if(!loaded) return `<div class="ops-empty">正在加载各省县区数据（约 25MB，已在后台分批下载）…<br>加载完成后本页会自动刷新出推荐目标县。</div>`;
+  const cand=opsSuggest(30);
+  if(!cand.length){
+    const have=Object.keys(opsLoad()).length;
+    return `<div class="ops-empty">当前筛选下已无未入清单的县（已收录 ${have} 个）。<br>
+      可在顶部「高级筛选」放宽机会等级/资质/区域条件，或直接搜索县名后点「＋加入」。</div>`;
+  }
+  let h=`<div class="ops-tip">按当前筛选（机会等级/资质/区域）与综合机会分降序推荐；同一地市最多 2 个，避免近义地名刷屏。分档口径见顶部「分档口径与维度说明」。<br>
+  已自动排除 33 个非法定县级行政区（开发区/新区/园区/镇乡级）。点<b>「全选加入」</b>可一键批量加入。</div>
+  <div class="ops-addbar"><button class="ops-btn" onclick="opsAddAll()">全选加入清单（${cand.length}）</button></div><div class="ops-list">`;
+  cand.forEach((c,i)=>{
+    const e=effOpp(c), t=e.tier;
+    h+=`<div class="ops-row add">
+      <span class="op-idx">${i+1}</span>
+      <span class="op-nm" onclick="closeOps();selectUnit('${c.province.replace(/'/g,"\\'")}');setTimeout(()=>selectCounty('${c.name.replace(/'/g,"\\'")}'),400)">
+        <b>${c.name}</b><i>${cityLabel(c)}</i></span>
+      <span class="op-sc">${Math.round(e.score)}<i class="op-tier" style="background:${OPP_TIER_COLOR[t]||'#ccc'}">${t}</i></span>
+      <span class="op-tags">${c.policyType?'<em class="tg pol">政策性'+c.policyType+'</em>':'<em class="tg nop">商业性切入</em>'}
+        <em class="tg">${varietyCount(c)} 品种</em></span>
+      <button class="op-add" onclick="opsAdd('${c.name.replace(/'/g,"\\'")}');this.textContent='✓ 已加入';this.disabled=true;renderFavCount()">＋ 加入</button>
+    </div>`;
+  });
+  return h+'</div>';
+}
+function opsAddAll(){
+  const o=opsLoad(); let n=0;
+  opsSuggest(30).forEach(c=>{ if(!o[c.name]){ o[c.name]={s:'plan',t:Date.now()}; n++; } });
+  opsSave(o); renderFavCount(); renderOpsPanel(); toast('已加入 '+n+' 个县');
+}
+function opsRenderCmp(){
+  const rows=opsList().filter(x=>x.cmp);
+  if(rows.length<2) return `<div class="ops-empty">勾选清单里<b>至少 2 个</b>县（左侧复选框）即可并排对比关键字段。<br>
+  建议对比维度：机会分 / 政策性资格 / 品种数 / 险种结构 —— 用来决定"这个月先跑哪几个"。</div>`;
+  const K=['score','tier','pol','nmv'];
+  let h=`<div class="ops-tip">并排对比 ${rows.length} 个县。${rows.length>6?'列宽已压缩，建议控制在 2–6 个':'可横向滚动'}。</div>
+  <div class="cmp-wrap"><table class="cmp-tb"><thead><tr><th class="k">对比项</th>
+    ${rows.map(r=>`<th class="c">${r.name}<div class="cmp-city">${r.cityTxt||''}</div></th>`).join('')}</tr></thead><tbody>`;
+  // ① 机会分
+  h+=`<tr class="hi"><td class="k">综合机会分</td>${rows.map(r=>{
+      const best=Math.max(...rows.map(x=>x.score||0));
+      const isB=(r.score||0)===best;
+      return `<td class="c ${isB?'best':''}"><b>${r.score==null?'—':Math.round(r.score)}</b><div class="sub">${r.tier||'—'}</div></td>`;}).join('')}</tr>`;
+  // ② 政策性资格
+  h+=`<tr><td class="k">政策性农险资格</td>${rows.map(r=>`<td class="c">${r.pol?'<em class="tg pol">'+r.pol+'</em>':'<em class="tg nop">未取得</em>'}</td>`).join('')}</tr>`;
+  // ③ 品种数
+  const mx=Math.max(...rows.map(x=>x.nmv||0));
+  h+=`<tr><td class="k">品种明细数</td>${rows.map(r=>`<td class="c">${r.nmv} <span class="mini-bar"><i style="width:${mx?r.nmv/mx*100:0}%;background:${OPP_TIER_COLOR[r.tier]||'#c2410c'}"></i></span></td>`).join('')}</tr>`;
+  // ④ 状态
+  h+=`<tr><td class="k">当前状态</td>${rows.map(r=>{ const st=OPS_STAGES.find(x=>x.k===r.st)||OPS_STAGES[0];
+      return `<td class="c"><em class="tg" style="color:${st.c};border-color:${st.c}">${st.t}</em></td>`;}).join('')}</tr>`;
+  // ⑤ 建议动作（依据真实字段，不编造）
+  h+=`<tr><td class="k">建议动作</td>${rows.map(r=>{
+      const act = r.pol ? '按政策性口径准备遴选材料，核对本县险种清单与保障水平'
+             : (r.nmv>=8 ? '品种多但未入围 → 商业性/共保切入，主推其中的特色险'
+                         : (r.nmv>0 ? '品种少且未入围 → 先摸清主导产业与现有承保方，再定切入口'
+                                    : '品种数据缺失 → 列为待补录，优先补产业与客户信息'));
+      return `<td class="c sm">${act}</td>`;}).join('')}</tr>`;
+  h+='</tbody></table></div>';
+  return h;
+}
+function exportOps(){
+  const rows=opsList().sort((a,b)=>{
+    if(a.done!==b.done) return a.done?1:-1;
+    return (b.score||0)-(a.score||0);
+  });
+  if(!rows.length) return toast('清单为空，无可导出内容');
+  const head=['序号','县区','地市','省份','综合机会分','分档','政策性资格','品种明细数','状态','导出时间'];
+  const now=new Date().toLocaleString('zh-CN');
+  const lines=[head.join('\t')].concat(rows.map((r,i)=>[
+    i+1,r.name,r.city,r.prov,r.score==null?'—':Math.round(r.score),r.tier||'—',
+    r.pol?('政策性'+r.pol):'未取得（商业性切入）',r.nmv,
+    (OPS_STAGES.find(x=>x.k===r.st)||OPS_STAGES[0]).t, now
+  ].join('\t')));
+  downloadFile('农险作战清单_'+now.replace(/[\/: ]/g,'')+'.tsv', '\ufeff'+lines.join('\n'), 'text/plain');
+  toast('已导出 '+rows.length+' 个县（Excel 可直接打开）');
+}
+function printOps(){
+  const rows=opsList().sort((a,b)=>{
+    if(a.done!==b.done) return a.done?1:-1;
+    return (b.score||0)-(a.score||0);
+  });
+  if(!rows.length) return toast('清单为空');
+  const d=new Date();
+  const h=[`<div class="prt-h">农险业务作战清单（走访顺序）</div>`,
+    `<div class="prt-sub">导出时间：${d.toLocaleString('zh-CN')} · 共 ${rows.filter(r=>!r.done).length} 个待启动县 · 排序：按综合机会分降序</div>`,
+    `<table class="prt-tb"><thead><tr>
+      <th style="width:34px">序</th><th style="width:96px">县区</th><th style="width:70px">地市</th>
+      <th style="width:46px">分档</th><th style="width:52px">机会分</th><th style="width:60px">政策性</th>
+      <th style="width:44px">品种</th><th style="width:66px">状态</th><th>本县要点 / 约定动作</th></tr></thead><tbody>`];
+  rows.forEach((r,i)=>{
+    const st=(OPS_STAGES.find(x=>x.k===r.st)||OPS_STAGES[0]).t;
+    h.push(`<tr><td>${i+1}</td><td>${r.name}</td><td>${r.cityTxt||''}</td><td>${r.tier||''}</td>
+      <td>${r.score==null?'—':Math.round(r.score)}</td><td>${r.pol||'—'}</td><td>${r.nmv}</td><td>${st}</td><td></td></tr>`);
+  });
+  h.push('</tbody></table>',
+    `<div class="prt-ft">说明：机会分与分档为综合五维加权结果（产业规模35%·财政补贴20%·风险强度20%·资质基础15%·竞争空间10%）；`
+    +`「政策性」列为权威表核定结果（I=政策性农险经营资格 / J=地方特色非遴选或森林险资格）。`
+    +`竞争空间维度全表统一 50 分，不产生区分度。</div>`);
+  openPrintWin('农险作战清单', h.join(''));
+}
+function openPrintWin(title, inner){
+  const w=window.open('', '_blank', 'width=980,height=760');
+  if(!w) return toast('浏览器拦截了打印窗口，请允许弹出窗口');
+  w.document.write(`<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><title>${title}</title>
+  <style>
+    body{font-family:"PingFang SC","Microsoft YaHei",sans-serif;color:#1a1a1a;padding:26px;}
+    .prt-h{font-size:19px;font-weight:700;margin-bottom:6px;}
+    .prt-sub{font-size:12px;color:#555;margin-bottom:14px;}
+    table{width:100%;border-collapse:collapse;font-size:11.5px;}
+    th,td{border:1px solid #999;padding:5px 6px;text-align:left;}
+    th{background:#f2f2f2;font-weight:700;}
+    td:nth-child(9){min-width:180px;}
+    .prt-ft{margin-top:14px;font-size:11px;color:#666;line-height:1.7;}
+    @media print{ .noprint{display:none} body{padding:0} }
+  </style></head><body>${inner}</body></html>`);
+  w.document.close();
+  setTimeout(()=>{ try{ w.focus(); w.print(); }catch(e){} }, 350);
+}
+/* ===== v66 农时阶段提示（借鉴农时驱动的服务节奏：备耕/夏防/秋收理赔） ===== */
+const OPS_SEASONS=[
+  {m:[1,2,3,4],  k:'spring', n:'备耕承保期', d:'1–4月 · 落实承保计划、锁定主体名单', ic:'🌱',
+   todo:['陪主管部门做春季种植/养殖计划摸排，拿到本县险种清单与保障水平口径',
+          '锁定种粮大户、家庭农场、合作社名单（重点：有财政补贴的经营主体）',
+          '对比测算政策性 vs 商业性两种保费方案，出具一页纸测算表',
+          '用上年真实理赔案例做信任开场（建议带赔付凭证，不带宣传册）']},
+  {m:[5,6,7,8],  k:'summer',  n:'夏防关键期', d:'5–8月 · 主汛期灾害验证与续保摸排', ic:'⛈',
+   todo:['主汛期前做一次灾害防范宣导（暴雨/低温/高温/大风），留存签到与影像',
+          '气象指数触发规则培训 —— 目标是让客户看懂"出险了能赔多少"',
+          '出险快速响应承诺演练：报案到查勘的时限承诺要能兑现',
+          '夏收后算清一季成本账，锁定续保意向（赶在秋收前谈）']},
+  {m:[9,10,11], k:'autumn', n:'秋收理赔期', d:'9–11月 · 理赔兑现与真实案例复盘', ic:'🌾',
+   todo:['秋收后主动查勘、第一时间定损赔付（本阶段最能建立信任）',
+          '理赔案例复盘会：把今年赔了多少、赔得快不快做成可讲的材料',
+          '对上一年承保主体做续保意向摸排，锁定明年意向客户名单',
+          '为本县下一年度承保计划申报准备佐证材料']},
+  {m:[12],       k:'winter',  n:'年度总结期', d:'12月 · 绩效总结与次年布局', ic:'📊',
+   todo:['复盘本县全年保费/赔付/COR，找出真正的短板维度',
+          '更新本县经营主体台账（进/退/新签），形成次年名单',
+          '次年农险政策与补贴方向研判，形成本县展业计划初稿']}
+];
+function curSeason(){
+  const m=new Date().getMonth()+1;
+  return OPS_SEASONS.find(s=>s.m.includes(m))||OPS_SEASONS[0];
+}
+function openSeason(){
+  const s=curSeason();
+  if(!allPreloaded && COUNTY && COUNTY.provinceFiles && Object.keys(COUNTY.provinceFiles).length){
+    preloadAllProvinces(2).then(()=>{ if(document.getElementById('seasonModal').style.display==='flex') openSeason(); });
+  }
+  const list=opsList().filter(x=>!x.done).slice(0,8);
+  let h=`<div class="seas-now">
+      <div class="sn-h"><span class="sn-ic">${s.ic}</span>
+        <div><b>当前农时阶段：${s.n}</b><i>${s.d}</i></div></div>
+      <div class="sn-tip">阶段按自然月自动切换。以下动作取自各县「全年拜访计划」中对应时段的共性要求，可直接照做。</div>
+      <ul class="sn-list">${s.todo.map(t=>`<li>${t}</li>`).join('')}</ul>
+    </div>`;
+  if(list.length){
+    h+=`<div class="seas-sec">本阶段待启动目标县（按机会分，共 ${list.length} 个）</div><div class="ops-list mini">`;
+    list.forEach((r,i)=>{
+      const st=OPS_STAGES.find(x=>x.k===r.st)||OPS_STAGES[0];
+      h+=`<div class="ops-row" data-ops="${r.name}">
+        <span class="op-idx">${i+1}</span>
+        <span class="op-nm" onclick="closeSeason();selectUnit('${(r.prov||'').replace(/'/g,"\\'")}');setTimeout(()=>selectCounty('${r.name.replace(/'/g,"\\'")}'),400)"><b>${r.name}</b><i>${r.cityTxt||''}</i></span>
+        <span class="op-sc">${r.score==null?'—':Math.round(r.score)}<i class="op-tier" style="background:${OPP_TIER_COLOR[r.tier]||'#ccc'}">${r.tier||'—'}</i></span>
+        <select class="op-st" style="border-color:${st.c};color:${st.c}" onchange="opsSetStage('${r.name}',this.value)">
+          ${OPS_STAGES.map(x=>`<option value="${x.k}" ${x.k===r.st?'selected':''}>${x.t}</option>`).join('')}</select>
+      </div>`;
+    });
+    h+='</div>';
+  } else {
+    h+=`<div class="seas-empty">作战清单里还没有待启动县 —— 先到「我的作战清单 → 推荐目标县」挑一批，本区会按农时给出行动序列。</div>`;
+  }
+  const el=document.getElementById('seasonBody'); if(el) el.innerHTML=h;
+  document.getElementById('seasonModal').style.display='flex';
+}
+function closeSeason(){ document.getElementById('seasonModal').style.display='none'; }
+function renderSeasonBadge(){
+  const el=document.getElementById('seasonBadge'); if(!el) return;
+  const s=curSeason();
+  el.innerHTML=`${s.ic} ${s.n}`;
+  el.title=`${s.d}｜点击查看本阶段该做什么（共 ${s.todo.length} 条动作）`;
+}
+
 function refreshOppViews(){
   // 拖动滑块时即时刷新当前视图的着色 / 榜单 / 县面板
   renderCurrent(true);
@@ -2058,7 +2559,7 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-10-06-v65';   // v57 **对标阳光财险官网配色（用户：地图颜色没变过来、中低不要蓝、背景渐变太深）**：
+const CACHE_VERSION = '2026-10-11-v66i';   // v57 **对标阳光财险官网配色（用户：地图颜色没变过来、中低不要蓝、背景渐变太深）**：
 // ①★Playwright 渲染 www.sinosig.com 实测取色（curl 拿不到，SPA）：主橙 rgb(252,106,18)=#fc6a12、
 //    亮橙红 rgb(255,102,53)=#ff6635、深橙 #ff903a、浅灰底 #f7f8fa、白卡 #fff、
 //    文字深蓝灰 rgb(44,62,80)=#2c3e50 → **官网是「白底 + 亮橙红」，本版据此把底色从深棕黑大幅提亮为暖白**。
@@ -3939,7 +4440,13 @@ function favKey(){ return 'nx_fav_v1'; }
 function getFavs(){ try{ return JSON.parse(localStorage.getItem(favKey())||'[]'); }catch(e){ return []; } }
 function isFav(name){ return getFavs().indexOf(name)>=0; }
 function toggleFav(name){ const f=getFavs(); const i=f.indexOf(name); if(i>=0) f.splice(i,1); else f.push(name); localStorage.setItem(favKey(),JSON.stringify(f)); const b=$('favBtn'); if(b){ const on=isFav(name); b.className=on?'on':''; b.textContent=on?'★ 已关注':'☆ 关注'; } renderFavCount(); }
-function renderFavCount(){ const n=getFavs().length; const el=$('favCount'); if(el) el.textContent=n?('('+n+')'):''; }
+function renderFavCount(){
+  const el=document.getElementById('favCount'); if(!el) return;
+  const nFav=getFavs().length, nOps=opsList().length;
+  el.textContent = (nFav?(' '+nFav):'') + (nOps?(' · 清单'+nOps):'') || '';
+  el.title = '我的关注 '+nFav+' 个 · 作战清单 '+nOps+' 个';
+  renderSeasonBadge();
+}
 function openFav(){ const box=$('favModal'); const body=$('favBody'); const favs=getFavs();
   const psColor={'未接触':'#b9a892','已拜访':'#e08b1e','谈判中':'#f0a41e','已入围':'#c9762a','已出单':'#a85a12'};
   if(!favs.length){ body.innerHTML='<div class="fav-empty">还没有关注任何县区。<br/>在县区详情页点击「☆ 关注」即可加入清单，用于展业跟踪与批量导出 CSV / JSON。</div>'; }
@@ -4746,7 +5253,8 @@ function selectCounty(name){
   h+=`<div class="co-toolbar">
     <button class="gold" onclick="openVisitPack('${c.name.replace(/'/g,"\\'")}')">📦 一键拜访包</button>
     <button class="gold pm-btn" onclick="openPitchModal('${c.name.replace(/'/g,"\\'")}')" title="按业务方向查看政策性 / 商业性两套可照读话术，含开场、深挖、异议应对、收尾与全年农时节奏">🎤 对应拜访话术</button>
-    <button id="favBtn" class="${favOn}" onclick="toggleFav('${c.name.replace(/'/g,"\\'")}')">${favOn?'★ 已关注':'☆ 关注'}</button>
+    <button id="opJoinBtn" onclick="opsToggleCurrent()" title="加入/移出我的作战清单">📋 加入作战清单</button>
+      <button id="favBtn" class="${favOn}" onclick="toggleFav('${c.name.replace(/'/g,"\\'")}')">${favOn?'★ 已关注':'☆ 关注'}</button>
     <button onclick="copySummary('${c.name.replace(/'/g,"\\'")}')">📋 复制展业摘要</button>
     <button class="gold" onclick="openAgri('${c.name.replace(/'/g,"\\'")}')">📊 农业概况·近5年</button>
     <button class="gold" onclick="openDis('${c.name.replace(/'/g,"\\'")}')">🌪 灾害与价格·近10年</button>
@@ -4760,7 +5268,8 @@ function selectCounty(name){
   if(psSel){ psSel.onchange=()=>{ const v=psSel.value; try{localStorage.setItem(psKey,v);}catch(e){} psSel.className='push-sel ps-'+v; }; }
   panel.querySelectorAll('[data-od]').forEach(r=>{r.onclick=()=>{curDir=r.dataset.od; document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.dir===curDir)); renderCurrent(true); selectCounty(c.name);};});
   renderNoteArea(c.name);
-}
+
+  setTimeout(syncOpJoinBtn,60);}
 </script>
 <!-- ★v58 对应拜访话术弹窗：紧邻「一键拜访包」的独立入口 -->
 
@@ -4769,6 +5278,27 @@ function selectCounty(name){
   <div class="orm-box">
     <div class="orm-h">📐 综合机会分级口径 · 五维说明
       <span class="orm-x" onclick="document.getElementById('oppRuleModal').style.display='none'">✕</span></div>
+<div class="opp-policy">
+  <div class="op-pol-ti">📌 政策与数据依据（2026-10-11 核对）</div>
+  <div class="op-pol-row"><b>2026 年中央一号文件</b>（2026-02-03 发布，"十五五"时期首个一号文件）
+    <span class="pol-原文">"强化价格、补贴、保险等政策支持和协同，健全种粮农民收益保障机制"；
+    "强化稻谷、小麦、玉米、大豆保险保障，支持发展地方特色农产品保险，<em>提高保险理赔效率</em>"。</span><br>
+    <span class="pol-解读">→ 对我司三处直接影响：
+      <b>①</b> 主粮从"扩大投保面积"转为"<b>提高保障水平与服务延伸</b>"，同质化价格战意义下降；
+      <b>②</b> 地方特色农产品保险是政策明文支持方向 → <b>未入围政策性的县应主攻商业性/共保特色险</b>（本清单"建议动作"即按此口径）；
+      <b>③</b> "提高保险理赔效率"首次写入一号文件 → <b>理赔时效与数字化（双精准）是遴选评分与续保谈判的硬筹码</b>，
+      建议在各县方案中明确写入"报案到定损 X 日、赔付到账 Y 日"的量化承诺。</span></div>
+  <div class="op-pol-row"><b>农险经营资质与政策性资格</b>：以《农险经营资质与政策性业务资格统计表》（2026-10-05，1642 行）为唯一核定源，
+    农险经营资质 1422 县、政策性农险经营资格 241 县（I 列）、地方特色非遴选/森林险 55 县（J 列）。
+    <span class="pol-解读">→ 本站"政策性"标签口径 = I/J 列核定结果，非人工判断；未取得的一律标注"商业性切入"。</span></div>
+  <div class="op-pol-row"><b>综合机会分</b>：产业规模 35%·财政补贴 20%·风险强度 20%·资质基础 15%·竞争空间 10%，
+    分位阈值按省际 12%/40%/75% 划五档。
+    <span class="pol-解读 warn">⚠ 已知口径局限（诚实披露）：<b>竞争空间维度全表统一 50 分、风险强度 78% 的县同为 100 分</b>，
+    这两维对总分几乎不产生区分度，实际拉开差距的主要是产业规模与财政补贴。
+    权重可在顶栏「⚙ 权重」自定义，改动后全站分档实时重算。</span></div>
+  <div class="op-pol-row"><b>数据更新机制</b>：农险资质按季度核验；产业/灾害/客户数据按年度更新；
+    政策口径随中央一号文件与省级方案发布同步。点击顶栏「数据基准」可查看逐项来源。</div>
+</div>
 
     <div class="orm-sec">
       <div class="orm-t">一、综合得分怎么算</div>
@@ -4815,6 +5345,30 @@ function selectCounty(name){
     </div>
     <div class="pm-dirs" id="pmDirs"></div>
     <div class="pm-list" id="pmList"></div>
+  </div>
+</div>
+
+
+<!-- ★v66 我的作战清单 -->
+<div id="opsModal" class="modal">
+  <div class="box wide">
+    <div class="hd">
+      <h3>📋 我的作战清单</h3>
+      <span class="sub">目标县排序 → 状态跟踪 → 导出走访单（借鉴区域销售作战地图打法：聚焦一个区域×一个品类，锁定目标清单，逐个推进）</span>
+      <span class="x" onclick="closeOps()">✕</span>
+    </div>
+    <div class="body" id="opsBody"></div>
+  </div>
+</div>
+
+<!-- ★v66 农时阶段 -->
+<div id="seasonModal" class="modal">
+  <div class="box">
+    <div class="hd">
+      <h3 id="seasonTitle">农时行动指引</h3>
+      <span class="x" onclick="closeSeason()">✕</span>
+    </div>
+    <div class="body" id="seasonBody"></div>
   </div>
 </div>
 </body>
