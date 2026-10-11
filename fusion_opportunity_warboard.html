@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>机会地图作战清单 · AI融合模块</title>
+<style>
+  :root{
+    --bg:#fdf1de; --panel:#fffaf0; --panel2:#fdf4e3; --border:#eeddc0;
+    --txt:#2c3e50; --txt2:#7b7269; --accent:#c2410c; --accent2:#9c5c0a;
+    --s:#1f7a3d; --a:#2e8b57; --b:#b9821f; --c:#8a8a8a;
+    --red:#c0392b; --shadow:0 2px 10px rgba(180,120,50,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:"Microsoft YaHei","PingFang SC",sans-serif;}
+  html,body{background:var(--bg);color:var(--txt);font-size:13.5px;line-height:1.6;}
+  .top{background:linear-gradient(95deg,#fdf0d8,#fbe7c8);border-bottom:1px solid var(--border);padding:12px 18px;position:sticky;top:0;z-index:20;}
+  .top h1{font-size:16px;color:var(--accent2);letter-spacing:.5px;}
+  .top p{font-size:11.5px;color:var(--txt2);margin-top:2px;}
+  .wrap{max-width:1180px;margin:0 auto;padding:16px 18px 60px;}
+  .bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px;}
+  .btn{border:1px solid var(--border);background:var(--panel);color:var(--txt);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:12.5px;transition:.15s;}
+  .btn:hover{border-color:var(--accent);color:var(--accent2);}
+  .btn.pri{background:var(--accent);color:#fff;border-color:transparent;}
+  input,select,textarea{border:1px solid var(--border);border-radius:8px;padding:7px 10px;font-size:12.5px;background:#fff;color:var(--txt);font-family:inherit;}
+  textarea{width:100%;min-height:80px;resize:vertical;line-height:1.5;}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);margin-bottom:14px;}
+  .card h2{font-size:13.5px;color:var(--accent2);margin-bottom:10px;border-left:3px solid var(--accent);padding-left:8px;}
+  .muted{color:var(--txt2);font-size:11.5px;}
+  table{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px;}
+  th,td{border:1px solid var(--border);padding:6px 8px;text-align:left;vertical-align:top;}
+  th{background:var(--panel2);font-weight:600;}
+  .tag{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:600;color:#fff;}
+  .t-s{background:var(--s);} .t-a{background:var(--a);} .t-b{background:var(--b);} .t-c{background:var(--c);}
+  .alert{border-radius:10px;padding:9px 12px;margin:6px 0;font-size:12px;border:1px solid;}
+  .a-red{background:#fbeae8;border-color:#e7b3ad;color:#9b2c20;}
+  .a-amber{background:#fdf4e6;border-color:#ecd9a8;color:#8a6512;}
+  .a-info{background:#eef4f8;border-color:#cddde8;color:#2d557a;}
+  .pill{font-size:11px;background:var(--panel2);border:1px solid var(--border);border-radius:20px;padding:2px 9px;color:var(--txt2);}
+  .scroll{max-height:480px;overflow:auto;}
+  .note{font-size:11px;color:var(--txt2);background:var(--panel2);border:1px dashed var(--border);border-radius:8px;padding:8px 10px;margin-top:8px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:880px){.grid2{grid-template-columns:1fr;}}
+  .kv{font-size:12px;} .kv b{color:var(--accent2);}
+  .row{display:flex;justify-content:space-between;gap:10px;padding:4px 0;border-bottom:1px dashed var(--border);}
+  .kpi{display:flex;gap:14px;flex-wrap:wrap;margin:6px 0;}
+  .kpi .b{background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:8px 14px;}
+  .kpi .b b{display:block;font-size:18px;color:var(--accent2);} .kpi .b span{font-size:11px;color:var(--txt2);}
+</style>
+</head>
+<body>
+<div class="top">
+  <h1>机会地图作战清单 · AI融合模块</h1>
+  <p>载入县域机会分 → 异常报警 + 作战清单（责任机构/时限/动作）+ 蓝海差距分析 ｜ 规则引擎秒级，不依赖网络</p>
+</div>
+
+<div class="wrap">
+  <div class="bar">
+    <button class="btn pri" onclick="loadDemo()">载入样本县区（多档位·含结构异常）</button>
+    <span class="pill">从平台 counties 选省</span>
+    <select id="selProv"><option value="">— 选择 —</option></select>
+    <button class="btn" onclick="loadFromCounties()">载入并计算机会分</button>
+    <span id="srcInfo" class="muted"></span>
+  </div>
+  <div class="card" style="margin-bottom:14px;">
+    <h2>经营异常录入（可选·接真实保费/COR后跑异常报警）</h2>
+    <p class="muted">每行：县名,实际COR(%),行业基准COR(%) ｜ 例：清徐县,68,55 。留空则仅做结构异常研判。</p>
+    <textarea id="bizData" placeholder="清徐县,68,55&#10;介休市,72,60&#10;某县,49,62"></textarea>
+    <div class="bar" style="margin-top:8px;"><button class="btn" onclick="recompute()">重算异常</button></div>
+  </div>
+
+  <div id="dashboard" class="hide">
+    <div class="card">
+      <h2>① 作战概览</h2>
+      <div class="kpi" id="kpi"></div>
+    </div>
+    <div class="grid2">
+      <div class="card">
+        <h2>② 作战清单 · 高机会分县域（按档排期）</h2>
+        <div class="scroll" id="warList"></div>
+      </div>
+      <div class="card">
+        <h2>③ 异常报警 · 结构异常 + 经营异常</h2>
+        <div id="alertList"></div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>④ 蓝海差距分析 · 资格 × 机会分</h2>
+      <div id="blueOcean"></div>
+      <div class="note" id="boNote"></div>
+    </div>
+  </div>
+  <div id="placeholder" class="card"><p class="muted">尚未载入。点击「载入样本县区」开始，或从平台 counties 选省后「载入并计算机会分」。</p></div>
+</div>
+
+<script>
+/* 机会分引擎权重（来源 site/data/compute_score.py）：规模.35 补贴.20 风险.20 资质.15 竞争.10 */
+const W={scale:0.35,subsidy:0.20,risk:0.20,qualify:0.15,compete:0.10};
+const LVL={高:45,中:30,低:15};
+/* 阳光政策性资格县（来源 11台账，脱敏；此处列各省政策性资格县数用于蓝海判定） */
+const POLICY={ "山东省":19,"河北省":1,"云南省":7,"浙江省":2,"广东省":3,"湖北省":59,"江苏省":2,
+  "内蒙古自治区":15,"山西省":19,"黑龙江省":16,"湖南省":14,"辽宁省":12,"四川省":1,
+  "广西壮族自治区":0,"吉林省":16,"江西省":8,"新疆维吾尔自治区":1,"贵州省":5,"陕西省":11,
+  "甘肃省":3,"重庆市":11,"安徽省":17,"海南省":8,"青海省":2,"宁夏回族自治区":1,"天津市":1,
+  "青岛市":0,"福建省":0,"大连市":3,"河南省":7,"宁波市":7,"深圳市":0 };
+
+/* 样本县区（结构同 site/data/counties，含 opp 分档；演示含结构异常） */
+const SAMPLE=[
+ {name:"清徐县",prov:"山西省",qualified:true,policyType:"J",lvl:"中",opp:78,tier:"S",note:"玉米/蔬菜/葡萄，天气指数承保条件好"},
+ {name:"介休市",prov:"山西省",qualified:true,policyType:"J",lvl:"中",opp:71,tier:"A",note:"谷子/玉米/小麦，秋收连阴雨风险"},
+ {name:"某高机县",prov:"山西省",qualified:false,policyType:"",lvl:"低",opp:82,tier:"S",note:"机会分高但无政策性资格→资格缺口"},
+ {name:"某资格县",prov:"湖北省",qualified:true,policyType:"I",lvl:"中",opp:34,tier:"C",note:"政策性资格59县但机会分偏低→潜力未释放"},
+ {name:"某弱县",prov:"河北省",qualified:true,policyType:"",lvl:"低",opp:22,tier:"C",note:"仅农险资质无政策性，机会分低"},
+ {name:"寿阳县",prov:"山西省",qualified:true,policyType:"J",lvl:"中",opp:64,tier:"A",note:"杂粮/玉米，灾害中等"},
+ {name:"榆次区",prov:"山西省",qualified:true,policyType:"J",lvl:"中",opp:69,tier:"A",note:"城郊农业，设施蔬菜"},
+ {name:"某蓝海县",prov:"安徽省",qualified:true,policyType:"I",lvl:"高",opp:58,tier:"B",note:"政策性资格17县，机会分中等→可提档"}
+];
+
+let CUR=[];
+let META=null;
+async function initProv(){
+  try{
+    const r=await fetch('data/counties.json'); if(!r.ok) return;
+    const j=await r.json(); META=j; const sel=document.getElementById('selProv');
+    Object.keys(j.provinceFiles).forEach(p=>{ const o=document.createElement('option'); o.value=p; o.textContent=p; sel.appendChild(o); });
+    document.getElementById('srcInfo').textContent='已接入分省数据';
+  }catch(e){ document.getElementById('srcInfo').textContent='（独立打开，未接入 counties，可用样本）'; }
+}
+function loadDemo(){ CUR=SAMPLE.map(x=>({...x})); render(); }
+
+/* 载入真实分省数据并计算机会分（用 weather.lvl + qualified 做代理，规模/补贴缺则中性） */
+async function loadFromCounties(){
+  const prov=document.getElementById('selProv').value; if(!prov) return;
+  const pf = META && META.provinceFiles ? META.provinceFiles[prov] : null;
+  const files = Array.isArray(pf)?pf:(pf?[pf]:null);
+  if(!files){ alert('该省暂未接入县级数据'); return; }
+  let arr=[];
+  for(const f of files){
+    try{
+      const r=await fetch('data/counties/'+f+'.json'); if(!r.ok) continue;
+      const j=await r.json(); (j.counties||[]).forEach(c=> arr.push(c));
+    }catch(e){}
+  }
+  if(!arr.length){ alert('该省数据载入失败'); return; }
+  CUR=arr.map(c=>{ const sc=estOpp(c); return {...c, opp:sc.opp, tier:sc.tier}; });
+  render();
+}
+/* 省→分片文件映射直接读平台 counties.json（支持字符串/数组），覆盖全部已接入省份 */
+function estOpp(c){
+  const risk=LVL[c.directions&&c.directions.weather?c.directions.weather.lvl:"中"]||30;
+  const qual=c.qualified? (c.policyType?100:70):20;
+  const scale=50, subsidy=50, compete=50; // 缺数据中性
+  const opp=Math.round(scale*W.scale+subsidy*W.subsidy+risk*W.risk+qual*W.qualify+compete*W.compete);
+  const tier=opp>=70?"S":opp>=55?"A":opp>=40?"B":"C";
+  return {opp,tier};
+}
+
+function render(){
+  document.getElementById('placeholder').classList.add('hide');
+  document.getElementById('dashboard').classList.remove('hide');
+  const ranked=CUR.slice().sort((a,b)=>b.opp-a.opp);
+  const cnt=t=>ranked.filter(x=>x.tier===t).length;
+  document.getElementById('kpi').innerHTML=
+    `<div class="b"><b>${ranked.length}</b><span>县区数</span></div>
+     <div class="b"><b style="color:var(--s)">${cnt('S')}</b><span>S档（重点抢）</span></div>
+     <div class="b"><b style="color:var(--a)">${cnt('A')}</b><span>A档（优先）</span></div>
+     <div class="b"><b style="color:var(--b)">${cnt('B')}</b><span>B档（培育）</span></div>
+     <div class="b"><b style="color:var(--c)">${cnt('C')}</b><span>C档（观察）</span></div>`;
+
+  // ② 作战清单
+  let wl='';
+  ranked.filter(x=>x.tier==='S'||x.tier==='A').forEach(x=>{
+    const plan=warPlan(x);
+    wl+=`<div style="border:1px solid var(--border);border-radius:10px;padding:9px 11px;margin:7px 0;">
+      <div class="row"><b>${x.name}（${x.prov}）</b><span class="tag t-${x.tier}">${x.tier}·${x.opp}分</span></div>
+      <div class="kv">${x.note||''}</div>
+      <div class="kv" style="margin-top:4px;color:var(--accent2)">牵头：<b>${plan.org}</b> ｜ 时限：<b>${plan.due}</b></div>
+      <div class="kv" style="margin-top:2px;">动作：${plan.act}</div>
+    </div>`;
+  });
+  document.getElementById('warList').innerHTML=wl||'<p class="muted">无 S/A 档县域。</p>';
+
+  // ③ 异常报警
+  let al='';
+  // 结构异常
+  ranked.forEach(x=>{
+    if(x.opp>=70 && !x.qualified){ al+=`<div class="alert a-red">⚠ <b>${x.name}</b> 资格缺口：机会分 ${x.opp}（S档）但<b>无农险资质</b>，不得展业，须先确认资质或商业险切入。</div>`; }
+    if(x.qualified && (x.policyType==='I'||x.policyType==='J') && x.opp<40){ al+=`<div class="alert a-amber">◐ <b>${x.name}</b> 潜力未释放：具备政策性资格但机会分仅 ${x.opp}（C档），资源未转化为业务。</div>`; }
+    if(x.qualified && !x.policyType && x.opp>=55){ al+=`<div class="alert a-amber">◐ <b>${x.name}</b> 资格错配：仅农险资质、机会分 ${x.opp}，可争取政策性资格扩容。</div>`; }
+  });
+  // 经营异常（用户录入）
+  const bd=document.getElementById('bizData').value.trim();
+  if(bd){
+    bd.split(/\n+/).forEach(ln=>{
+      const m=ln.match(/^(.+?)[,\s]+(\d+\.?\d*)[,\s]+(\d+\.?\d*)/);
+      if(m){ const cor=+m[2], base=+m[3], gap=cor-base;
+        if(gap>=5) al+=`<div class="alert a-red">⚠ <b>${m[1]}</b> COR异常：实际 ${cor}% 高于基准 ${base}%（+${gap}pt），赔付承压，建议控赔/调结构。</div>`;
+        else if(gap<=-5) al+=`<div class="alert a-info">✓ <b>${m[1]}</b> COR ${cor}% 优于基准 ${base}%（${gap}pt），效益向好。</div>`;
+      }
+    });
+  }
+  if(!al) al='<div class="alert a-info">✓ 当前无结构/经营异常；S/A 档按作战清单推进即可。</div>';
+  document.getElementById('alertList').innerHTML=al;
+
+  // ④ 蓝海差距
+  const provs=[...new Set(CUR.map(x=>x.prov))];
+  let bo='';
+  provs.forEach(p=>{
+    const policyN=POLICY[p]??0;
+    const cntQual=CUR.filter(x=>x.prov===p && (x.policyType==='I'||x.policyType==='J')).length;
+    const blue=CUR.filter(x=>x.prov===p && (x.policyType==='I'||x.policyType==='J') && x.opp>=55).length;
+    bo+=`<div class="row"><span>${p}</span><span>政策性资格县 ${cntQual}（省台账 ${policyN}）｜ 可提档蓝海 ${blue}</span></div>`;
+  });
+  document.getElementById('blueOcean').innerHTML=bo||'<p class="muted">无数据</p>';
+  document.getElementById('boNote').innerHTML='蓝海定义：具备政策性资格（I/J）且机会分≥55 的县，是可优先提档、把资格转化为业务的增量空间；机会分高但无资质属资格缺口（见异常报警）。全国口径：阳光政策性资格 271 县、农险资质 1422 县。';
+}
+
+function warPlan(x){
+  if(x.tier==='S') return {org:"省分公司牵头·中支落地",due:"30日内出展业方案",act:"集中资源抢位，对接政府/龙头，锁定政策性+特色险双入口"};
+  if(x.tier==='A') return {org:"中支公司牵头",due:"45日内出展业方案",act:"补齐服务网络与人员，按机会分维度补强短板（规模/补贴/风险）"};
+  if(x.tier==='B') return {org:"中支/支公司",due:"60日内培育",act:"先做商业险与天气指数切入，积累数据后争政策性资格"};
+  return {org:"支公司观察",due:"季度复盘",act:"维持存量，监测资质与机会分变化"};
+}
+function recompute(){ if(CUR.length) render(); }
+
+initProv();
+</script>
+</body>
+</html>
