@@ -1757,6 +1757,27 @@
     background:#fffaf0; border-left:3px solid #e8a33c; padding:5px 9px; border-radius:0 6px 6px 0; }
   .pol-解读 b{ color:#c2410c; }
   .pol-解读.warn{ border-left-color:#c2410c; background:#fdeedd; }
+
+  /* ★v67 作战清单「怎么用」说明块 */
+  .ops-howto{ background:#fdf4e3; border:1px solid #e8c98e; border-radius:10px;
+    padding:12px 15px; margin-bottom:11px; }
+  .oh-ti{ font-size:13px; font-weight:700; color:#c2410c; margin-bottom:8px; }
+  .oh-when{ font-size:11.5px; line-height:1.75; color:#5f5346; background:#fffaf0;
+    border-left:3px solid #e8a33c; padding:6px 10px; border-radius:0 6px 6px 0; margin-bottom:8px; }
+  .oh-when b{ color:#7a4a10; }
+  .oh-list{ margin:0; padding-left:20px; }
+  .oh-list li{ font-size:11.5px; line-height:1.85; color:#4a5a66; margin-bottom:4px; }
+  .oh-list li b{ color:#7a4a10; }
+  .oh-warn{ color:#c2410c; font-weight:600; }
+  .oh-ft{ margin-top:8px; padding-top:7px; border-top:1px dashed #e0cba4;
+    font-size:11px; color:#7a6a58; line-height:1.7; }
+  .tg.warn{ border-color:#c2410c; color:#c2410c; background:#fdeedd; font-weight:600; }
+
+  .oh-3steps{ display:flex; gap:9px; margin-bottom:2px; }
+  .oh-step{ flex:1 1 0; min-width:0; background:#fffaf0; border:1px solid #ecdcc0;
+    border-radius:8px; padding:8px 10px; }
+  .oh-step b{ display:block; font-size:11.5px; color:#c2410c; margin-bottom:3px; }
+  .oh-step span{ font-size:11px; line-height:1.7; color:#5f5346; }
 </style>
 </head>
 <body>
@@ -2186,7 +2207,8 @@ function opsList(){
             prov:c?c.province:'', city:c?c.region:'',
             score:e?e.score:null, tier:e?e.tier:'', qual:c?!!c.qualified:false,
             pol:c?c.policyType||'':'', nmv:c?varietyCount(c):0,
-            cityTxt: cityLabel(c)};
+            cityTxt: cityLabel(c),
+            conf: c?dataConfidence(c).lvl:'ok', confTxt: c?dataConfidence(c).txt:''};
   });
 }
 // ★v66d 直辖市（京津沪渝）辖区无下级地市，region 存的是市名本身；
@@ -2199,6 +2221,24 @@ function cityLabel(c){
   return r||'';
 }
 
+// ★v67 同地市判定必须归一：数据里同时存在「荆州」与「荆州市」两种写法（洪湖系列），
+//   不归一会被当成两个城市 → 同地市限流失效、推荐位被同一地的县刷屏。
+function cityKey(c){
+  if(!c) return '';
+  return (c.region||c.province||'').replace(/市$/,'');
+}
+// ★v67 数据可信度：品种明细为 0、或机会分 note 写着「保费池测算缺」，说明该县缺产业实测数据。
+//   分数仍能算出来，但不能当作推荐首选 —— 不隐藏（用户要求"多给但要准"），而是打 ⚠ 标并排在后面。
+function dataConfidence(c){
+  if(!c) return {lvl:'ok', txt:''};
+  const nv=varietyCount(c);
+  const note=(c.opp&&c.opp.note)||'';
+  const noPool=/测算缺/.test(note);
+  if(nv===0 && noPool) return {lvl:'weak', txt:'缺产业与客户数据'};
+  if(nv===0)           return {lvl:'weak', txt:'品种明细缺失'};
+  if(noPool)           return {lvl:'mid',  txt:'保费池为估算'};
+  return {lvl:'ok', txt:''};
+}
 function varietyCount(c){
   if(!c) return 0;
   let n=0;
@@ -2213,17 +2253,23 @@ function varietyCount(c){
 function opsSuggest(n){
   n = n||20;
   const have=opsLoad();
+  const RANK={ok:0, mid:1, weak:2};
   // ★排除 33 个伪单位（开发区/新区/园区 27 个 + 镇/乡级 6 个）：
   //   它们不是法定县级行政区，拿到资质表里也查不到，推进清单只会浪费拜访名额。
   const pool=(COUNTY.counties||[]).filter(c=> c.opp && !c.is_pseudo_unit && !have[c.name] && countyMatchFilter(c));
   // ★推荐位去同地市扎堆：同一地市最多 2 个（否则"洪湖市/洪湖新沟/滨湖/洪湖口/洪湖园区"
   //   这类近义地名会刷满前 20 名，等于只推荐了一个县）。
   //   先按机会分降序，再按「同地市已取数」做轮转填充。
-  pool.sort((a,b)=> effOpp(b).score - effOpp(a).score);
+  pool.sort((a,b)=>{
+    // ★v67 同等条件下「有实测数据」的优先（数据齐的县才值得跑），再按机会分降序
+    const ca=dataConfidence(a), cb=dataConfidence(b);
+    if(RANK[ca.lvl]!==RANK[cb.lvl]) return RANK[ca.lvl]-RANK[cb.lvl];
+    return effOpp(b).score - effOpp(a).score;
+  });
   const perCity={}, out=[];
   const rest=[];
   for(const c of pool){
-    const city=c.region||c.province||'';
+    const city=cityKey(c);
     if((perCity[city]||0) < 2){ perCity[city]=(perCity[city]||0)+1; out.push(c); }
     else rest.push(c);
   }
@@ -2251,6 +2297,18 @@ function renderOpsPanel(){
   const box=document.getElementById('opsBody'); if(!box) return;
   const tab=window.__opsTab||'list';
   let h='';
+  // ★v67 「这个页干什么用」——三步说明直接印在弹窗顶部，任何页签都能看到。
+  //   之前只有一句"按机会分排序"，用户完全不知道该拿它干什么，属于没交代。
+  h+=`<div class="ops-howto">
+    <div class="oh-ti">📌 这个清单干什么用 · 一句话：把「看得见的县」变成「这个季度要跑的县」</div>
+    <div class="oh-when"><b>什么时候打开它</b>：① 定季度目标（挑这季度跑哪 20–30 个县）② 出门前定顺序（打印带出门）③ 每周复盘（看哪些还没动）。</div>
+    <div class="oh-3steps">
+      <div class="oh-step"><b>① 攒目标</b><span>点「➕ 推荐目标县」，系统按你顶栏设的机会等级/资质/区域筛选，从全国 1356 个县挑 30 个候选；同一地市最多 2 个。点「全选加入清单」一次搞定。</span></div>
+      <div class="oh-step"><b>② 比一比</b><span>在「📋 我的清单」勾选左侧复选框（2–6 个），切到「🔍 并排对比」，一张表看完机会分、政策性资格、品种数、建议动作 → 决定先跑哪几个。</span></div>
+      <div class="oh-step"><b>③ 带出门</b><span>每行右侧下拉标进度（待启动→已联系→已拜访→已报价→已出单/暂缓）；「🖨 打印走访顺序」出 A4 表，最后一列空白供路上手写。</span></div>
+    </div>
+    <div class="oh-ft">数据存在浏览器本地（localStorage），换电脑不跟随；已自动排除非法定县级行政区（开发区/园区/镇乡级）与拼接生成的假实体。</div>
+  </div>`;
   // ── 顶部工具条
   h+=`<div class="ops-bar">
     <div class="ops-tabs">
@@ -2295,6 +2353,7 @@ function opsRenderList(){
       <span class="op-tags">
         ${r.pol?'<em class="tg pol">政策性'+r.pol+'</em>':'<em class="tg nop">商业性切入</em>'}
         <em class="tg">${r.nmv} 品种</em>
+        ${r.conf&&r.conf!=='ok'?`<em class="tg warn" title="${r.confTxt||''}">⚠ ${r.confTxt||'数据待补'}</em>`:''}
       </span>
       <select class="op-st" style="border-color:${st.c};color:${st.c}" onchange="opsSetStage('${r.name}',this.value)">
         ${OPS_STAGES.map(x=>`<option value="${x.k}" ${x.k===r.st?'selected':''}>${x.t}</option>`).join('')}
@@ -2366,7 +2425,8 @@ function opsRenderAdd(){
         <b>${c.name}</b><i>${cityLabel(c)}</i></span>
       <span class="op-sc">${Math.round(e.score)}<i class="op-tier" style="background:${OPP_TIER_COLOR[t]||'#ccc'}">${t}</i></span>
       <span class="op-tags">${c.policyType?'<em class="tg pol">政策性'+c.policyType+'</em>':'<em class="tg nop">商业性切入</em>'}
-        <em class="tg">${varietyCount(c)} 品种</em></span>
+        <em class="tg">${varietyCount(c)} 品种</em>
+        ${(()=>{const dc=dataConfidence(c); return dc.lvl!=='ok'?`<em class="tg warn" title="${dc.txt}">⚠ ${dc.txt}</em>`:'';})()}</span>
       <button class="op-add" onclick="opsAdd('${c.name.replace(/'/g,"\\'")}');this.textContent='✓ 已加入';this.disabled=true;renderFavCount()">＋ 加入</button>
     </div>`;
   });
@@ -2559,7 +2619,7 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-10-11-v66i';   // v57 **对标阳光财险官网配色（用户：地图颜色没变过来、中低不要蓝、背景渐变太深）**：
+const CACHE_VERSION = '2026-10-13-v67';   // v57 **对标阳光财险官网配色（用户：地图颜色没变过来、中低不要蓝、背景渐变太深）**：
 // ①★Playwright 渲染 www.sinosig.com 实测取色（curl 拿不到，SPA）：主橙 rgb(252,106,18)=#fc6a12、
 //    亮橙红 rgb(255,102,53)=#ff6635、深橙 #ff903a、浅灰底 #f7f8fa、白卡 #fff、
 //    文字深蓝灰 rgb(44,62,80)=#2c3e50 → **官网是「白底 + 亮橙红」，本版据此把底色从深棕黑大幅提亮为暖白**。
@@ -5371,25 +5431,5 @@ function selectCounty(name){
     <div class="body" id="seasonBody"></div>
   </div>
 </div>
-
 </body>
 </html>
-<!-- ===== AI融合作战台覆盖层（自动注入·追加式·不改既有结构） ===== -->
-<button id="aiFusionBtn" style="position:fixed;right:18px;bottom:18px;z-index:9998;background:#c2410c;color:#fff;border:none;border-radius:24px;padding:11px 18px;font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.22);font-family:inherit;">AI作战清单</button>
-<div id="aiFusionPanel" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(20,20,20,.5);">
-  <div style="position:absolute;right:0;top:0;bottom:0;width:min(1000px,94vw);background:#fff;box-shadow:-6px 0 30px rgba(0,0,0,.25);display:flex;flex-direction:column;">
-    <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid #e3ded3;background:#faf8f4;">
-      <b style="font-size:14px;color:#c2410c;">农险机会地图 · AI作战清单</b>
-      <button onclick="document.getElementById('aiFusionPanel').style.display='none'" style="border:none;background:#eee;color:#444;border-radius:8px;width:30px;height:30px;font-size:16px;cursor:pointer;">×</button>
-    </div>
-    <iframe id="aiFusionFrame" name="aiFusionFrame" src="fusion_opportunity_warboard.html" style="width:100%;flex:1;border:0;"></iframe>
-  </div>
-</div>
-<script>
-  (function(){
-    var b=document.getElementById('aiFusionBtn');
-    if(b) b.onclick=function(){document.getElementById('aiFusionPanel').style.display='block';};
-    document.getElementById('aiFusionPanel').addEventListener('click',function(e){if(e.target===this)this.style.display='none';});
-  })();
-</script>
-<!-- ===== /AI融合作战台覆盖层 ===== -->
