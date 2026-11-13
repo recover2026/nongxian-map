@@ -5431,5 +5431,554 @@ function selectCounty(name){
     <div class="body" id="seasonBody"></div>
   </div>
 </div>
+<!-- ===== AI融合作战台覆盖层（自动注入·追加式·不改既有结构） ===== -->
+<button id="aiFusionBtn" style="position:fixed;right:18px;bottom:18px;z-index:9998;background:#c2410c;color:#fff;border:none;border-radius:24px;padding:11px 18px;font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.22);font-family:inherit;">AI作战清单</button>
+<div id="aiFusionPanel" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(20,20,20,.5);">
+  <div style="position:absolute;right:0;top:0;bottom:0;width:min(1000px,94vw);background:#fff;box-shadow:-6px 0 30px rgba(0,0,0,.25);display:flex;flex-direction:column;">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 16px;border-bottom:1px solid #e3ded3;background:#faf8f4;">
+      <b style="font-size:14px;color:#c2410c;">农险机会地图 · AI作战清单</b>
+      <button onclick="document.getElementById('aiFusionPanel').style.display='none'" style="border:none;background:#eee;color:#444;border-radius:8px;width:30px;height:30px;font-size:16px;cursor:pointer;">×</button>
+    </div>
+    <iframe id="aiFusionFrame" name="aiFusionFrame" srcdoc="<!DOCTYPE html>
+<html lang=&quot;zh-CN&quot;>
+<head>
+<meta charset=&quot;UTF-8&quot; />
+<meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; />
+<title>机会地图作战清单 · AI融合模块</title>
+<style>
+  :root{
+    --bg:#fdf1de; --panel:#fffaf0; --panel2:#fdf4e3; --border:#eeddc0;
+    --txt:#2c3e50; --txt2:#7b7269; --accent:#c2410c; --accent2:#9c5c0a;
+    --s:#1f7a3d; --a:#2e8b57; --b:#b9821f; --c:#8a8a8a;
+    --red:#c0392b; --shadow:0 2px 10px rgba(180,120,50,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;font-family:&quot;Microsoft YaHei&quot;,&quot;PingFang SC&quot;,sans-serif;}
+  html,body{background:var(--bg);color:var(--txt);font-size:13.5px;line-height:1.6;}
+  .top{background:linear-gradient(95deg,#fdf0d8,#fbe7c8);border-bottom:1px solid var(--border);padding:12px 18px;position:sticky;top:0;z-index:20;}
+  .top h1{font-size:16px;color:var(--accent2);letter-spacing:.5px;}
+  .top p{font-size:11.5px;color:var(--txt2);margin-top:2px;}
+  .wrap{max-width:1180px;margin:0 auto;padding:16px 18px 60px;}
+  .bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px;}
+  .btn{border:1px solid var(--border);background:var(--panel);color:var(--txt);padding:7px 14px;border-radius:8px;cursor:pointer;font-size:12.5px;transition:.15s;}
+  .btn:hover{border-color:var(--accent);color:var(--accent2);}
+  .btn.pri{background:var(--accent);color:#fff;border-color:transparent;}
+  input,select,textarea{border:1px solid var(--border);border-radius:8px;padding:7px 10px;font-size:12.5px;background:#fff;color:var(--txt);font-family:inherit;}
+  textarea{width:100%;min-height:80px;resize:vertical;line-height:1.5;}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);margin-bottom:14px;}
+  .card h2{font-size:13.5px;color:var(--accent2);margin-bottom:10px;border-left:3px solid var(--accent);padding-left:8px;}
+  .muted{color:var(--txt2);font-size:11.5px;}
+  table{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px;}
+  th,td{border:1px solid var(--border);padding:6px 8px;text-align:left;vertical-align:top;}
+  th{background:var(--panel2);font-weight:600;}
+  .tag{display:inline-block;padding:1px 8px;border-radius:20px;font-size:11px;font-weight:600;color:#fff;}
+  .t-s{background:var(--s);} .t-a{background:var(--a);} .t-b{background:var(--b);} .t-c{background:var(--c);}
+  .alert{border-radius:10px;padding:9px 12px;margin:6px 0;font-size:12px;border:1px solid;}
+  .a-red{background:#fbeae8;border-color:#e7b3ad;color:#9b2c20;}
+  .a-amber{background:#fdf4e6;border-color:#ecd9a8;color:#8a6512;}
+  .a-info{background:#eef4f8;border-color:#cddde8;color:#2d557a;}
+  .pill{font-size:11px;background:var(--panel2);border:1px solid var(--border);border-radius:20px;padding:2px 9px;color:var(--txt2);}
+  .scroll{max-height:480px;overflow:auto;}
+  .note{font-size:11px;color:var(--txt2);background:var(--panel2);border:1px dashed var(--border);border-radius:8px;padding:8px 10px;margin-top:8px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media(max-width:880px){.grid2{grid-template-columns:1fr;}}
+  .kv{font-size:12px;} .kv b{color:var(--accent2);}
+  .row{display:flex;justify-content:space-between;gap:10px;padding:4px 0;border-bottom:1px dashed var(--border);}
+  .kpi{display:flex;gap:14px;flex-wrap:wrap;margin:6px 0;}
+  .kpi .b{background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:8px 14px;}
+  .kpi .b b{display:block;font-size:18px;color:var(--accent2);} .kpi .b span{font-size:11px;color:var(--txt2);}
+</style>
+</head>
+<body>
+<div class=&quot;top&quot;>
+  <h1>机会地图作战清单 · AI融合模块</h1>
+  <p>载入县域机会分 → 异常报警 + 作战清单（责任机构/时限/动作）+ 蓝海差距分析 ｜ 规则引擎秒级，不依赖网络</p>
+</div>
+
+<div class=&quot;wrap&quot;>
+  <div class=&quot;bar&quot;>
+    <button class=&quot;btn pri&quot; onclick=&quot;loadDemo()&quot;>载入样本县区（多档位·含结构异常）</button>
+    <span class=&quot;pill&quot;>从平台 counties 选省</span>
+    <select id=&quot;selProv&quot;><option value=&quot;&quot;>— 选择 —</option></select>
+    <button class=&quot;btn&quot; onclick=&quot;loadFromCounties()&quot;>载入并计算机会分</button>
+    <span id=&quot;srcInfo&quot; class=&quot;muted&quot;></span>
+  </div>
+  <div class=&quot;card&quot; style=&quot;margin-bottom:14px;&quot;>
+    <h2>经营异常录入（可选·接真实保费/COR后跑异常报警）</h2>
+    <p class=&quot;muted&quot;>每行：县名,实际COR(%),行业基准COR(%) ｜ 例：清徐县,68,55 。留空则仅做结构异常研判。</p>
+    <textarea id=&quot;bizData&quot; placeholder=&quot;清徐县,68,55&amp;#10;介休市,72,60&amp;#10;某县,49,62&quot;></textarea>
+    <div class=&quot;bar&quot; style=&quot;margin-top:8px;&quot;><button class=&quot;btn&quot; onclick=&quot;recompute()&quot;>重算异常</button></div>
+  </div>
+
+  <div id=&quot;dashboard&quot; class=&quot;hide&quot;>
+    <div class=&quot;card&quot;>
+      <h2>① 作战概览</h2>
+      <div class=&quot;kpi&quot; id=&quot;kpi&quot;></div>
+    </div>
+    <div class=&quot;grid2&quot;>
+      <div class=&quot;card&quot;>
+        <h2>② 作战清单 · 高机会分县域（按档排期）</h2>
+        <div class=&quot;scroll&quot; id=&quot;warList&quot;></div>
+      </div>
+      <div class=&quot;card&quot;>
+        <h2>③ 异常报警 · 结构异常 + 经营异常</h2>
+        <div id=&quot;alertList&quot;></div>
+      </div>
+    </div>
+    <div class=&quot;card&quot;>
+      <h2>④ 蓝海差距分析 · 资格 × 机会分</h2>
+      <div id=&quot;blueOcean&quot;></div>
+      <div class=&quot;note&quot; id=&quot;boNote&quot;></div>
+    </div>
+  </div>
+  <div id=&quot;placeholder&quot; class=&quot;card&quot;><p class=&quot;muted&quot;>尚未载入。点击「载入样本县区」开始，或从平台 counties 选省后「载入并计算机会分」。</p></div>
+</div>
+
+<script>
+/* 机会分引擎权重（来源 site/data/compute_score.py）：规模.35 补贴.20 风险.20 资质.15 竞争.10 */
+const W={scale:0.35,subsidy:0.20,risk:0.20,qualify:0.15,compete:0.10};
+const LVL={高:45,中:30,低:15};
+/* 阳光政策性资格县（来源 11台账，脱敏；此处列各省政策性资格县数用于蓝海判定） */
+const POLICY={ &quot;山东省&quot;:19,&quot;河北省&quot;:1,&quot;云南省&quot;:7,&quot;浙江省&quot;:2,&quot;广东省&quot;:3,&quot;湖北省&quot;:59,&quot;江苏省&quot;:2,
+  &quot;内蒙古自治区&quot;:15,&quot;山西省&quot;:19,&quot;黑龙江省&quot;:16,&quot;湖南省&quot;:14,&quot;辽宁省&quot;:12,&quot;四川省&quot;:1,
+  &quot;广西壮族自治区&quot;:0,&quot;吉林省&quot;:16,&quot;江西省&quot;:8,&quot;新疆维吾尔自治区&quot;:1,&quot;贵州省&quot;:5,&quot;陕西省&quot;:11,
+  &quot;甘肃省&quot;:3,&quot;重庆市&quot;:11,&quot;安徽省&quot;:17,&quot;海南省&quot;:8,&quot;青海省&quot;:2,&quot;宁夏回族自治区&quot;:1,&quot;天津市&quot;:1,
+  &quot;青岛市&quot;:0,&quot;福建省&quot;:0,&quot;大连市&quot;:3,&quot;河南省&quot;:7,&quot;宁波市&quot;:7,&quot;深圳市&quot;:0 };
+
+/* 样本县区（结构同 site/data/counties，含 opp 分档；演示含结构异常） */
+const SAMPLE=[
+ {name:&quot;清徐县&quot;,prov:&quot;山西省&quot;,qualified:true,policyType:&quot;J&quot;,lvl:&quot;中&quot;,opp:78,tier:&quot;S&quot;,note:&quot;玉米/蔬菜/葡萄，天气指数承保条件好&quot;},
+ {name:&quot;介休市&quot;,prov:&quot;山西省&quot;,qualified:true,policyType:&quot;J&quot;,lvl:&quot;中&quot;,opp:71,tier:&quot;A&quot;,note:&quot;谷子/玉米/小麦，秋收连阴雨风险&quot;},
+ {name:&quot;某高机县&quot;,prov:&quot;山西省&quot;,qualified:false,policyType:&quot;&quot;,lvl:&quot;低&quot;,opp:82,tier:&quot;S&quot;,note:&quot;机会分高但无政策性资格→资格缺口&quot;},
+ {name:&quot;某资格县&quot;,prov:&quot;湖北省&quot;,qualified:true,policyType:&quot;I&quot;,lvl:&quot;中&quot;,opp:34,tier:&quot;C&quot;,note:&quot;政策性资格59县但机会分偏低→潜力未释放&quot;},
+ {name:&quot;某弱县&quot;,prov:&quot;河北省&quot;,qualified:true,policyType:&quot;&quot;,lvl:&quot;低&quot;,opp:22,tier:&quot;C&quot;,note:&quot;仅农险资质无政策性，机会分低&quot;},
+ {name:&quot;寿阳县&quot;,prov:&quot;山西省&quot;,qualified:true,policyType:&quot;J&quot;,lvl:&quot;中&quot;,opp:64,tier:&quot;A&quot;,note:&quot;杂粮/玉米，灾害中等&quot;},
+ {name:&quot;榆次区&quot;,prov:&quot;山西省&quot;,qualified:true,policyType:&quot;J&quot;,lvl:&quot;中&quot;,opp:69,tier:&quot;A&quot;,note:&quot;城郊农业，设施蔬菜&quot;},
+ {name:&quot;某蓝海县&quot;,prov:&quot;安徽省&quot;,qualified:true,policyType:&quot;I&quot;,lvl:&quot;高&quot;,opp:58,tier:&quot;B&quot;,note:&quot;政策性资格17县，机会分中等→可提档&quot;}
+];
+
+let CUR=[];
+let META=null;
+async function initProv(){
+  try{
+    const r=await fetch('data/counties.json'); if(!r.ok) return;
+    const j=await r.json(); META=j; const sel=document.getElementById('selProv');
+    Object.keys(j.provinceFiles).forEach(p=>{ const o=document.createElement('option'); o.value=p; o.textContent=p; sel.appendChild(o); });
+    document.getElementById('srcInfo').textContent='已接入分省数据';
+  }catch(e){ document.getElementById('srcInfo').textContent='（独立打开，未接入 counties，可用样本）'; }
+}
+function loadDemo(){ CUR=SAMPLE.map(x=>({...x})); render(); }
+
+/* 载入真实分省数据并计算机会分（用 weather.lvl + qualified 做代理，规模/补贴缺则中性） */
+async function loadFromCounties(){
+  const prov=document.getElementById('selProv').value; if(!prov) return;
+  const pf = META &amp;&amp; META.provinceFiles ? META.provinceFiles[prov] : null;
+  const files = Array.isArray(pf)?pf:(pf?[pf]:null);
+  if(!files){ alert('该省暂未接入县级数据'); return; }
+  let arr=[];
+  for(const f of files){
+    try{
+      const r=await fetch('data/counties/'+f+'.json'); if(!r.ok) continue;
+      const j=await r.json(); (j.counties||[]).forEach(c=> arr.push(c));
+    }catch(e){}
+  }
+  if(!arr.length){ alert('该省数据载入失败'); return; }
+  CUR=arr.map(c=>{ const sc=estOpp(c); return {...c, opp:sc.opp, tier:sc.tier}; });
+  render();
+}
+/* 省→分片文件映射直接读平台 counties.json（支持字符串/数组），覆盖全部已接入省份 */
+function estOpp(c){
+  const risk=LVL[c.directions&amp;&amp;c.directions.weather?c.directions.weather.lvl:&quot;中&quot;]||30;
+  const qual=c.qualified? (c.policyType?100:70):20;
+  const scale=50, subsidy=50, compete=50; // 缺数据中性
+  const opp=Math.round(scale*W.scale+subsidy*W.subsidy+risk*W.risk+qual*W.qualify+compete*W.compete);
+  const tier=opp>=70?&quot;S&quot;:opp>=55?&quot;A&quot;:opp>=40?&quot;B&quot;:&quot;C&quot;;
+  return {opp,tier};
+}
+
+function render(){
+  document.getElementById('placeholder').classList.add('hide');
+  document.getElementById('dashboard').classList.remove('hide');
+  const ranked=CUR.slice().sort((a,b)=>b.opp-a.opp);
+  const cnt=t=>ranked.filter(x=>x.tier===t).length;
+  document.getElementById('kpi').innerHTML=
+    `<div class=&quot;b&quot;><b>${ranked.length}</b><span>县区数</span></div>
+     <div class=&quot;b&quot;><b style=&quot;color:var(--s)&quot;>${cnt('S')}</b><span>S档（重点抢）</span></div>
+     <div class=&quot;b&quot;><b style=&quot;color:var(--a)&quot;>${cnt('A')}</b><span>A档（优先）</span></div>
+     <div class=&quot;b&quot;><b style=&quot;color:var(--b)&quot;>${cnt('B')}</b><span>B档（培育）</span></div>
+     <div class=&quot;b&quot;><b style=&quot;color:var(--c)&quot;>${cnt('C')}</b><span>C档（观察）</span></div>`;
+
+  // ② 作战清单
+  let wl='';
+  ranked.filter(x=>x.tier==='S'||x.tier==='A').forEach(x=>{
+    const plan=warPlan(x);
+    wl+=`<div style=&quot;border:1px solid var(--border);border-radius:10px;padding:9px 11px;margin:7px 0;&quot;>
+      <div class=&quot;row&quot;><b>${x.name}（${x.prov}）</b><span class=&quot;tag t-${x.tier}&quot;>${x.tier}·${x.opp}分</span></div>
+      <div class=&quot;kv&quot;>${x.note||''}</div>
+      <div class=&quot;kv&quot; style=&quot;margin-top:4px;color:var(--accent2)&quot;>牵头：<b>${plan.org}</b> ｜ 时限：<b>${plan.due}</b></div>
+      <div class=&quot;kv&quot; style=&quot;margin-top:2px;&quot;>动作：${plan.act}</div>
+    </div>`;
+  });
+  document.getElementById('warList').innerHTML=wl||'<p class=&quot;muted&quot;>无 S/A 档县域。</p>';
+
+  // ③ 异常报警
+  let al='';
+  // 结构异常
+  ranked.forEach(x=>{
+    if(x.opp>=70 &amp;&amp; !x.qualified){ al+=`<div class=&quot;alert a-red&quot;>⚠ <b>${x.name}</b> 资格缺口：机会分 ${x.opp}（S档）但<b>无农险资质</b>，不得展业，须先确认资质或商业险切入。</div>`; }
+    if(x.qualified &amp;&amp; (x.policyType==='I'||x.policyType==='J') &amp;&amp; x.opp<40){ al+=`<div class=&quot;alert a-amber&quot;>◐ <b>${x.name}</b> 潜力未释放：具备政策性资格但机会分仅 ${x.opp}（C档），资源未转化为业务。</div>`; }
+    if(x.qualified &amp;&amp; !x.policyType &amp;&amp; x.opp>=55){ al+=`<div class=&quot;alert a-amber&quot;>◐ <b>${x.name}</b> 资格错配：仅农险资质、机会分 ${x.opp}，可争取政策性资格扩容。</div>`; }
+  });
+  // 经营异常（用户录入）
+  const bd=document.getElementById('bizData').value.trim();
+  if(bd){
+    bd.split(/\n+/).forEach(ln=>{
+      const m=ln.match(/^(.+?)[,\s]+(\d+\.?\d*)[,\s]+(\d+\.?\d*)/);
+      if(m){ const cor=+m[2], base=+m[3], gap=cor-base;
+        if(gap>=5) al+=`<div class=&quot;alert a-red&quot;>⚠ <b>${m[1]}</b> COR异常：实际 ${cor}% 高于基准 ${base}%（+${gap}pt），赔付承压，建议控赔/调结构。</div>`;
+        else if(gap<=-5) al+=`<div class=&quot;alert a-info&quot;>✓ <b>${m[1]}</b> COR ${cor}% 优于基准 ${base}%（${gap}pt），效益向好。</div>`;
+      }
+    });
+  }
+  if(!al) al='<div class=&quot;alert a-info&quot;>✓ 当前无结构/经营异常；S/A 档按作战清单推进即可。</div>';
+  document.getElementById('alertList').innerHTML=al;
+
+  // ④ 蓝海差距
+  const provs=[...new Set(CUR.map(x=>x.prov))];
+  let bo='';
+  provs.forEach(p=>{
+    const policyN=POLICY[p]??0;
+    const cntQual=CUR.filter(x=>x.prov===p &amp;&amp; (x.policyType==='I'||x.policyType==='J')).length;
+    const blue=CUR.filter(x=>x.prov===p &amp;&amp; (x.policyType==='I'||x.policyType==='J') &amp;&amp; x.opp>=55).length;
+    bo+=`<div class=&quot;row&quot;><span>${p}</span><span>政策性资格县 ${cntQual}（省台账 ${policyN}）｜ 可提档蓝海 ${blue}</span></div>`;
+  });
+  document.getElementById('blueOcean').innerHTML=bo||'<p class=&quot;muted&quot;>无数据</p>';
+  document.getElementById('boNote').innerHTML='蓝海定义：具备政策性资格（I/J）且机会分≥55 的县，是可优先提档、把资格转化为业务的增量空间；机会分高但无资质属资格缺口（见异常报警）。全国口径：阳光政策性资格 271 县、农险资质 1422 县。';
+}
+
+function warPlan(x){
+  if(x.tier==='S') return {org:&quot;省分公司牵头·中支落地&quot;,due:&quot;30日内出展业方案&quot;,act:&quot;集中资源抢位，对接政府/龙头，锁定政策性+特色险双入口&quot;};
+  if(x.tier==='A') return {org:&quot;中支公司牵头&quot;,due:&quot;45日内出展业方案&quot;,act:&quot;补齐服务网络与人员，按机会分维度补强短板（规模/补贴/风险）&quot;};
+  if(x.tier==='B') return {org:&quot;中支/支公司&quot;,due:&quot;60日内培育&quot;,act:&quot;先做商业险与天气指数切入，积累数据后争政策性资格&quot;};
+  return {org:&quot;支公司观察&quot;,due:&quot;季度复盘&quot;,act:&quot;维持存量，监测资质与机会分变化&quot;};
+}
+function recompute(){ if(CUR.length) render(); }
+
+initProv();
+</script>
+</body>
+</html>
+" style="width:100%;flex:1;border:0;"></iframe>
+  </div>
+</div>
+<script>
+  (function(){
+    var b=document.getElementById('aiFusionBtn');
+    if(b) b.onclick=function(){document.getElementById('aiFusionPanel').style.display='block';};
+    document.getElementById('aiFusionPanel').addEventListener('click',function(e){if(e.target===this)this.style.display='none';});
+  })();
+</script>
+<!-- ===== /AI融合作战台覆盖层 ===== -->
+<!-- NX_QUARTER_OVERLAY -->
+<style id="nxq-style">
+/* ===== 季度险种机会（county card） ===== */
+.nxq-card{background:linear-gradient(180deg,#fffaf0,#fdf4e3);border:1px solid var(--border,#eeddc0);border-left:3px solid var(--accent,#fc6a12);border-radius:12px;padding:12px 14px;margin:12px 0;box-shadow:0 2px 10px rgba(224,72,31,.10)}
+.nxq-h{font-size:13.5px;color:var(--accent2,#b35a10);font-weight:700;display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin-bottom:9px}
+.nxq-sub{font-weight:400;font-size:10.5px;color:var(--txt2,#7b7269)}
+.nxq-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:8px}
+.nxq-q{background:#fff;border:1px solid var(--border,#eeddc0);border-radius:9px;padding:8px 9px}
+.nxq-q.now{background:#fff6e6;border-color:#f6c99a}
+.nxq-qt{font-size:11px;color:var(--accent2,#b35a10);font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:5px}
+.nxq-qt .th2{font-weight:400;color:var(--txt2,#7b7269);font-size:10px}
+.nxq-qt .now{font-size:9px;background:var(--accent,#fc6a12);color:#fff;border-radius:8px;padding:1px 5px;font-weight:400;margin-left:auto}
+.nxq-chips{display:flex;flex-wrap:wrap;gap:4px}
+.nxq-chip{font-size:10.5px;padding:2px 6px;border-radius:5px;background:#fffaf0;border:1px solid var(--border,#eeddc0);color:var(--txt,#2c3e50);white-space:nowrap;line-height:1.5}
+.nxq-chip.k{background:#fff2e0;border-color:#f2c89b;font-weight:600}
+.nxq-chip .st{color:var(--accent,#fc6a12);font-size:9px;margin-left:2px}
+.nxq-chip .tp{font-size:9px;color:#a8977f;margin-left:3px}
+.nxq-more{margin-top:9px;font-size:11.5px;color:var(--accent,#fc6a12);cursor:pointer;user-select:none;display:inline-block}
+.nxq-more:hover{text-decoration:underline}
+
+/* ===== 模态 ===== */
+.nxq-modal{position:fixed;inset:0;background:rgba(44,62,80,.45);display:none;z-index:9999;align-items:center;justify-content:center;padding:16px}
+.nxq-modal.on{display:flex}
+.nxq-box{background:var(--panel,#fffaf0);border:1px solid var(--border,#eeddc0);border-radius:14px;width:min(1060px,96vw);max-height:90vh;overflow:auto;box-shadow:0 10px 40px rgba(44,62,80,.25)}
+.nxq-mh{position:sticky;top:0;background:linear-gradient(180deg,#fff8ec,#fffaf0);border-bottom:1px solid var(--border,#eeddc0);padding:12px 16px;display:flex;align-items:baseline;gap:8px;z-index:2}
+.nxq-mh b{font-size:17px;color:var(--txt,#2c3e50)}
+.nxq-mh .s{font-size:11px;color:var(--txt2,#7b7269)}
+.nxq-mh .x{margin-left:auto;cursor:pointer;font-size:20px;color:var(--txt2,#7b7269);line-height:1;padding:0 4px}
+.nxq-body{padding:13px 16px 18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(232px,1fr));gap:10px}
+.nxq-qc{background:var(--panel2,#fdf4e3);border:1px solid var(--border,#eeddc0);border-radius:10px;padding:10px}
+.nxq-qc h4{margin:0 0 2px;font-size:12.5px;color:var(--accent2,#b35a10)}
+.nxq-qc .th{font-size:10px;color:var(--txt2,#7b7269);margin-bottom:7px}
+.nxq-qc .lb{font-size:10px;color:var(--txt2,#7b7269);margin:7px 0 4px;border-top:1px dashed var(--border,#eeddc0);padding-top:6px}
+
+/* ===== 省级季度总览 ===== */
+#nxqBtn{position:fixed;right:18px;bottom:66px;z-index:9998;background:#b35a10;color:#fff;border:none;border-radius:24px;padding:11px 18px;font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.22);font-family:inherit}
+#nxqBtn:hover{background:#96490b}
+.nxb-box{background:var(--panel,#fffaf0);border:1px solid var(--border,#eeddc0);border-radius:14px;width:min(1180px,97vw);max-height:92vh;display:flex;flex-direction:column;box-shadow:0 10px 40px rgba(44,62,80,.25)}
+.nxb-h{padding:12px 16px;border-bottom:1px solid var(--border,#eeddc0);display:flex;align-items:center;gap:9px;flex-wrap:wrap;background:linear-gradient(180deg,#fff8ec,#fffaf0);border-radius:14px 14px 0 0}
+.nxb-h b{font-size:16px;color:var(--txt,#2c3e50)}
+.nxb-h select{font-family:inherit;font-size:12px;padding:4px 7px;border:1px solid var(--border,#eeddc0);border-radius:7px;background:#fff;color:var(--txt,#2c3e50)}
+.nxb-h input{font-family:inherit;font-size:12px;padding:4px 8px;border:1px solid var(--border,#eeddc0);border-radius:7px;background:#fff;color:var(--txt,#2c3e50);width:130px}
+.nxb-tabs{display:flex;gap:5px;margin-left:4px}
+.nxb-tab{font-size:11.5px;padding:4px 10px;border-radius:15px;border:1px solid var(--border,#eeddc0);background:#fff;color:var(--txt2,#7b7269);cursor:pointer;white-space:nowrap}
+.nxb-tab.on{background:var(--accent,#fc6a12);border-color:var(--accent,#fc6a12);color:#fff;font-weight:600}
+.nxb-stat{font-size:11px;color:var(--txt2,#7b7269);padding:8px 16px 0}
+.nxb-stat b{color:var(--accent2,#b35a10)}
+.nxb-body{overflow:auto;padding:10px 16px 16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:9px;align-content:start}
+.nxb-c{background:#fff;border:1px solid var(--border,#eeddc0);border-radius:10px;padding:9px 10px}
+.nxb-c:hover{border-color:#f6c99a;box-shadow:0 2px 8px rgba(224,72,31,.10)}
+.nxb-ch{display:flex;align-items:baseline;gap:6px;margin-bottom:6px;flex-wrap:wrap}
+.nxb-ch b{font-size:13px;color:var(--txt,#2c3e50)}
+.nxb-t{font-size:9.5px;padding:1px 6px;border-radius:9px;background:var(--accent,#fc6a12);color:#fff}
+.nxb-t.t2{background:#e0803a}.nxb-t.t3{background:#c9a227}.nxb-t.t0{background:#b9aa96}
+.nxb-sc{font-size:10px;color:var(--txt2,#7b7269);margin-left:auto}
+.nxb-rest{margin-top:6px;font-size:10.5px;color:var(--accent,#fc6a12);cursor:pointer;user-select:none}
+.nxb-rest:hover{text-decoration:underline}
+.nxb-empty{grid-column:1/-1;text-align:center;color:var(--txt2,#7b7269);font-size:12.5px;padding:40px 0}
+.nxb-f{padding:8px 16px;border-top:1px solid var(--border,#eeddc0);font-size:10.5px;color:var(--txt2,#7b7269);background:#fffaf0;border-radius:0 0 14px 14px}
+</style>
+<script id="nxq-script">
+(function(){
+  if(window.__NXQ__) return; window.__NXQ__=true;
+  var QL={1:'Q1',2:'Q2',3:'Q3',4:'Q4'};
+  var THEMES={1:'春保备耕 · 补栏投苗',2:'承保高峰 · 汛期防灾',3:'高温台风 · 产量形成',4:'秋收理赔 · 续保储备'};
+  var IDX=null, CACHE={}, LAST={name:null,prov:null}, BQ=0, BKW='';
+
+  function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];});}
+  function curQ(){return Math.floor(new Date().getMonth()/3)+1;}
+  function loadScript(src){
+    return new Promise(function(res,rej){
+      var s=document.createElement('script'); s.src=src;
+      s.onload=function(){res();}; s.onerror=function(){rej(new Error('script fail'));};
+      var h=document.head||document.body||document.documentElement; if(!h) return rej(new Error('no head'));
+      h.appendChild(s);
+    });
+  }
+  /* 先 fetch；file:// 等场景 fetch 不可用时退回 .js 分片（JSONP 兜底） */
+  function jget(u){
+    return Promise.resolve().then(function(){
+      return fetch(u,{cache:'force-cache'}).then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); });
+    }).catch(function(){
+      var key=String(u).replace(/^.*\//,'').replace(/\.json$/,'');
+      return loadScript(String(u).replace(/\.json$/,'.js')).then(function(){
+        var sh=window.__NXQ_SHARD__||{}; if(!sh[key]) throw new Error('shard missing: '+key); return sh[key];
+      });
+    });
+  }
+  function loadIdx(){ if(IDX) return Promise.resolve(IDX);
+    return jget('data/quarter/index.json').then(function(j){IDX=j;return j;}); }
+  function loadProv(pv){ if(CACHE[pv]) return Promise.resolve(CACHE[pv]);
+    return loadIdx().then(function(ix){ var f=ix[pv]; if(!f) return {};
+      return jget('data/quarter/'+f).then(function(j){CACHE[pv]=j;return j;}); }); }
+
+  /* ---------- 当前上下文（curCounty 是 let，不挂 window，故走 getCounty / DOM） ---------- */
+  function ctx(){
+    var nm=LAST.name, pv=LAST.prov;
+    if(!nm || !pv){
+      if(window.getCounty && nm){ try{ var c=window.getCounty(nm); if(c){ pv=pv||c.province||c.__prov; } }catch(e){} }
+    }
+    if(!pv){ var g=document.querySelector('#panel .sel-head .grp'); if(g){ var t=(g.textContent||'').split('·')[0].trim(); if(t) pv=t; } }
+    if(!nm){ var h=document.querySelector('#panel .sel-head h2'); if(h){ nm=(h.textContent||'').replace('非法定建制','').trim(); } }
+    return {name:nm, prov:pv};
+  }
+  function provOf(name){
+    var c=LAST.name===name?LAST.prov:null;
+    if(c) return c;
+    if(window.getCounty && name){ try{ var o=window.getCounty(name); if(o && (o.province||o.__prov)) return o.province||o.__prov; }catch(e){} }
+    return ctx().prov;
+  }
+
+  function chip(it,withType){
+    var st=it[2]?'<span class="st">★</span>':'';
+    var tp=withType&&it[1]?'<span class="tp">'+esc(it[1])+'</span>':'';
+    return '<span class="nxq-chip'+(it[3]?' k':'')+'">'+esc(it[0])+tp+st+'</span>';
+  }
+
+  /* ---------- 县域卡片 ---------- */
+  function cardHTML(name, rec){
+    var n=0,q; for(q=1;q<=4;q++){ n+=(rec.q[q]||[]).length; }
+    var cq=curQ(), g='';
+    for(q=1;q<=4;q++){
+      var arr=rec.q[q]||[], key=arr.filter(function(x){return x[3];}), rest=arr.length-key.length;
+      g+='<div class="nxq-q'+(q===cq?' now':'')+'"><div class="nxq-qt">'+QL[q]+'<span class="th2">'+esc(THEMES[q])+' · 重点 '+key.length+' 项</span>'+(q===cq?'<span class="now">本季</span>':'')+'</div>'
+        +'<div class="nxq-chips">'+(key.map(function(x){return chip(x,false);}).join('')||'<span class="nxq-chip">—</span>')
+        +(rest>0?'<span class="nxq-chip" style="color:#7b7269">其他 '+rest+' 项</span>':'')+'</div></div>';
+    }
+    return '<div class="nxq-card" id="nxqCard"><div class="nxq-h">📅 季度险种机会 · Q1–Q4<span class="nxq-sub">共 '+n+' 项 · 深色为重点助推 · ★=命中本县近十年高发灾害</span></div>'
+      +'<div class="nxq-grid">'+g+'</div>'
+      +'<div class="nxq-more" id="nxqOpen">查看四季度全量明细 →</div></div>';
+  }
+
+  function inject(name){
+    var pv=provOf(name); if(!pv||!name) return;
+    loadProv(pv).then(function(map){
+      var rec=map[name]; if(!rec) return;
+      var panel=document.getElementById('panel'); if(!panel) return;
+      var old=document.getElementById('nxqCard'); if(old) old.remove();
+      var host=panel.querySelector('.opp-card');
+      if(host && host.parentNode) host.insertAdjacentHTML('afterend', cardHTML(name,rec));
+      else panel.insertAdjacentHTML('beforeend', cardHTML(name,rec));
+      var op=document.getElementById('nxqOpen');
+      if(op) op.onclick=function(){ openModal(name,rec); };
+    }).catch(function(){});
+  }
+
+  /* ---------- 单县四季度模态 ---------- */
+  function ensureModal(){
+    if(document.getElementById('nxqModal')) return;
+    var d=document.createElement('div'); d.id='nxqModal'; d.className='nxq-modal';
+    d.innerHTML='<div class="nxq-box"><div class="nxq-mh"><b id="nxqTitle"></b><span class="s" id="nxqSubT"></span><span class="x" id="nxqX">×</span></div><div class="nxq-body" id="nxqBody"></div></div>';
+    document.body.appendChild(d);
+    d.addEventListener('click',function(e){ if(e.target===d) d.classList.remove('on'); if(e.target && e.target.id==='nxqX') d.classList.remove('on'); });
+  }
+  function openModal(name, rec){
+    ensureModal();
+    document.getElementById('nxqTitle').textContent = name + ' · 四季度险种机会';
+    document.getElementById('nxqSubT').textContent = 'T档 '+(rec.t||'—')+' · 机会分 '+(rec.s==null?'—':Math.round(rec.s))+' · 品类 '+((rec.b||[]).join(' / ')||'—');
+    var h='',q;
+    for(q=1;q<=4;q++){
+      var arr=rec.q[q]||[], key=arr.filter(function(x){return x[3];}), rest=arr.filter(function(x){return !x[3];});
+      h+='<div class="nxq-qc"><h4>'+QL[q]+' · '+esc(THEMES[q])+'</h4><div class="th">本季 '+arr.length+' 项可推 · 重点 '+key.length+' 项</div>'
+        +'<div class="lb">重点助推</div><div class="nxq-chips">'+(key.map(function(x){return chip(x,true);}).join('')||'—')+'</div>';
+      if(rest.length) h+='<div class="lb">其他可推（'+rest.length+'）</div><div class="nxq-chips">'+rest.map(function(x){return chip(x,true);}).join('')+'</div>';
+      h+='</div>';
+    }
+    document.getElementById('nxqBody').innerHTML=h;
+    document.getElementById('nxqModal').classList.add('on');
+  }
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ var m=document.getElementById('nxqModal'); if(m) m.classList.remove('on'); var b=document.getElementById('nxqBoard'); if(b) b.classList.remove('on'); } });
+
+  /* ---------- 省级季度总览 ---------- */
+  function ensureBoard(){
+    if(document.getElementById('nxqBoard')) return;
+    var d=document.createElement('div'); d.id='nxqBoard'; d.className='nxq-modal';
+    d.innerHTML='<div class="nxb-box">'
+      +'<div class="nxb-h"><b>📅 季度险种机会总览</b>'
+      +'<select id="nxbProv"></select>'
+      +'<div class="nxb-tabs" id="nxbTabs"></div>'
+      +'<input id="nxbKw" placeholder="搜县名 / 险种" />'
+      +'<span class="x" id="nxbX" style="margin-left:auto;cursor:pointer;font-size:20px;color:#7b7269;line-height:1">×</span></div>'
+      +'<div class="nxb-stat" id="nxbStat"></div>'
+      +'<div class="nxb-body" id="nxbBody"></div>'
+      +'<div class="nxb-f">口径：按该县主栽作物/养殖品种的农时活跃期 × 近十年高发灾害挖掘；★ = 该季险种命中本县高发灾害，优先助推。数据与县详情面板同源。</div>'
+      +'</div>';
+    document.body.appendChild(d);
+    d.addEventListener('click',function(e){ if(e.target===d) d.classList.remove('on'); });
+    document.getElementById('nxbX').onclick=function(){ d.classList.remove('on'); };
+    document.getElementById('nxbProv').onchange=function(){ BKW=''; document.getElementById('nxbKw').value=''; renderBoard(); };
+    var kw=document.getElementById('nxbKw');
+    kw.oninput=function(){ BKW=kw.value.trim(); renderBoard(); };
+    var tabs=document.getElementById('nxbTabs');
+    for(var q=1;q<=4;q++){
+      (function(qq){
+        var b=document.createElement('div'); b.className='nxb-tab'; b.setAttribute('data-q',qq);
+        b.textContent=QL[qq]+(qq===curQ()?' 本季':'');
+        b.onclick=function(){ BQ=qq; renderBoard(); };
+        tabs.appendChild(b);
+      })(q);
+    }
+  }
+  function paintTabs(){
+    var ts=document.querySelectorAll('#nxbTabs .nxb-tab');
+    for(var i=0;i<ts.length;i++){ ts[i].className='nxb-tab'+(Number(ts[i].getAttribute('data-q'))===BQ?' on':''); }
+  }
+  function tierCls(t){ return t==='极高'?'':(t==='高'?' t2':(t==='中'?' t3':' t0')); }
+  function renderBoard(){
+    var sel=document.getElementById('nxbProv'); if(!sel) return;
+    var pv=sel.value; if(!pv) return;
+    paintTabs();
+    var body=document.getElementById('nxbBody'), stat=document.getElementById('nxbStat');
+    body.innerHTML='<div class="nxb-empty">加载中…</div>';
+    loadProv(pv).then(function(map){
+      var rows=[], kw=BKW.toLowerCase();
+      for(var nm in map){
+        var rec=map[nm]; if(!rec) continue;
+        var key=((rec.q[BQ]||[]).filter(function(x){return x[3];}));
+        var all=(rec.q[BQ]||[]);
+        if(kw){
+          var hit=nm.toLowerCase().indexOf(kw)>=0 || all.some(function(x){return String(x[0]).toLowerCase().indexOf(kw)>=0;});
+          if(!hit) continue;
+        }
+        rows.push({n:nm,r:rec,k:key,a:all});
+      }
+      rows.sort(function(x,y){ return (y.r.s||0)-(x.r.s||0) || y.k.length-x.k.length; });
+      var tk=0; rows.forEach(function(o){ tk+=o.k.length; });
+      stat.innerHTML='<b>'+pv+'</b> · '+QL[BQ]+' '+esc(THEMES[BQ])+' · <b>'+rows.length+'</b> 个县区 · 重点助推合计 <b>'+tk+'</b> 项'
+        + (kw?' · 关键词「'+esc(BKW)+'」':'') + ' · 按机会分排序';
+      if(!rows.length){ body.innerHTML='<div class="nxb-empty">没有匹配的县区。换个季度或关键词试试。</div>'; return; }
+      var h='';
+      rows.forEach(function(o,i){
+        var show=o.k.slice(0,5), rest=o.a.length-show.length;
+        h+='<div class="nxb-c" data-i="'+i+'"><div class="nxb-ch"><b>'+esc(o.n)+'</b>'
+          +'<span class="nxb-t'+tierCls(o.r.t)+'">'+esc(o.r.t||'—')+'</span>'
+          +'<span class="nxb-sc">机会分 '+Math.round(o.r.s||0)+'</span></div>'
+          +'<div class="nxq-chips">'+(show.map(function(x){return chip(x,false);}).join('')||'<span class="nxq-chip">本季无重点</span>')+'</div>'
+          +(rest>0?'<div class="nxb-rest" data-nm="'+esc(o.n)+'">展开其他 '+rest+' 项 ▾</div>':'')
+          +'</div>';
+      });
+      body.innerHTML=h;
+      body.onclick=function(e){
+        var t=e.target;
+        if(t && t.className && String(t.className).indexOf('nxb-rest')>=0){
+          var nm=t.getAttribute('data-nm'), rec=map[nm];
+          if(rec){
+            var all=(rec.q[BQ]||[]);
+            var card=t.parentNode;
+            card.querySelector('.nxq-chips').innerHTML=all.map(function(x){return chip(x,false);}).join('');
+            t.remove();
+          }
+          return;
+        }
+        var c=t; while(c && c!==body && !(c.className&&String(c.className).indexOf('nxb-c')>=0)) c=c.parentNode;
+        if(c && c!==body){
+          var i=Number(c.getAttribute('data-i')), o=rows[i];
+          if(o){ document.getElementById('nxqBoard').classList.remove('on'); openModal(o.n,o.r); }
+        }
+      };
+    }).catch(function(){ body.innerHTML='<div class="nxb-empty">该省季度数据加载失败（data/quarter/ 未就位）。</div>'; stat.textContent=''; });
+  }
+  function openBoard(){
+    ensureBoard();
+    var c=ctx(), sel=document.getElementById('nxbProv');
+    loadIdx().then(function(ix){
+      var ks=Object.keys(ix), h='', pick=null;
+      ks.forEach(function(k){ h+='<option value="'+esc(k)+'">'+esc(k)+'</option>'; if(k===c.prov) pick=k; });
+      sel.innerHTML=h;
+      if(pick) sel.value=pick;
+      if(!BQ) BQ=curQ();
+      BKW=''; document.getElementById('nxbKw').value='';
+      renderBoard();
+      document.getElementById('nxqBoard').classList.add('on');
+    }).catch(function(){ alert('季度数据未就位：请确认 site/data/quarter/index.json 存在。'); });
+  }
+
+  /* ---------- 挂载 ---------- */
+  function btn(){
+    if(document.getElementById('nxqBtn')) return;
+    var b=document.createElement('button'); b.id='nxqBtn'; b.type='button';
+    b.textContent='📅 季度机会'; b.title='按省查看各县 Q1–Q4 重点助推险种';
+    b.onclick=openBoard; document.body.appendChild(b);
+  }
+  function wrap(){
+    if(window.selectCounty && !window.__nxqWrapped){
+      var orig=window.selectCounty;
+      window.selectCounty=function(name){
+        LAST.name=name; LAST.prov=null;
+        var r=orig.apply(this,arguments);
+        setTimeout(function(){ inject(name); },0);
+        return r;
+      };
+      window.__nxqWrapped=true;
+    }
+    btn();
+  }
+  var tries=0, t=setInterval(function(){ tries++; wrap(); if((window.__nxqWrapped && document.getElementById('nxqBtn'))||tries>60) clearInterval(t); },200);
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',wrap); else wrap();
+  /* 首屏若已有选中县，补一次 */
+  setTimeout(function(){ var c=ctx(); if(c.name){ LAST.name=c.name; LAST.prov=c.prov; inject(c.name); } },1000);
+})();
+</script>
+<!-- /NX_QUARTER_OVERLAY -->
 </body>
 </html>
