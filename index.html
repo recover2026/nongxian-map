@@ -2619,7 +2619,7 @@ let COUNTY_MAP = new Map();
 function getCounty(name){ let c=COUNTY_MAP.get(name); if(!c && COUNTY && COUNTY.counties){ c=COUNTY.counties.find(x=>x.name===name); if(c) COUNTY_MAP.set(name,c); } return c; }
 
 // ===== 数据缓存（解决每次刷新都重新下载 12MB 县区数据的问题） =====
-const CACHE_VERSION = '2026-11-22-v68';   // v68 内容红线清理（非合规产品表述全清）；v57 **对标阳光财险官网配色（用户：地图颜色没变过来、中低不要蓝、背景渐变太深）**：
+const CACHE_VERSION = '2026-11-22-auto';   // 月度自动更新：全量县区三方向农险机会数据刷新（大连标准量化表+真实可溯源，零编造）   // v68 内容红线清理（非合规产品表述全清）；v57 **对标阳光财险官网配色（用户：地图颜色没变过来、中低不要蓝、背景渐变太深）**：
 // ①★Playwright 渲染 www.sinosig.com 实测取色（curl 拿不到，SPA）：主橙 rgb(252,106,18)=#fc6a12、
 //    亮橙红 rgb(255,102,53)=#ff6635、深橙 #ff903a、浅灰底 #f7f8fa、白卡 #fff、
 //    文字深蓝灰 rgb(44,62,80)=#2c3e50 → **官网是「白底 + 亮橙红」，本版据此把底色从深棕黑大幅提亮为暖白**。
